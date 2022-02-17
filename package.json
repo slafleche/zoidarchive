@@ -1,0 +1,13 @@
+{
+  "name": "zoidarchive",
+  "version": "1.0.0",
+  "description": "Resource for Zoid Void Community",
+  "main": "index.js",
+  "repository": "https://github.com/slafleche/zoidarchive.git",
+  "author": "slafleche",
+  "license": "MIT",
+  "dependencies": {
+    "lunr": "^2.3.9",
+    "normalize-css": "^2.3.1"
+  }
+}

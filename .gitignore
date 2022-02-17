@@ -1,0 +1,10 @@
+.DS_Store
+.sass-cache
+.idea
+.hugo_build.lock
+public/*
+node_modules/
+static/css/**
+static/js/**
+static/indexes/**
+static/vendors/**
