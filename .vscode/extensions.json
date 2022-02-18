@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "bungcip.better-toml",
+    "bodil.prettier-toml",
+    "esbenp.prettier-vscode",
+    "ziyasal.vscode-open-in-github",
+    "eamodio.gitlens"
+  ]
+}
