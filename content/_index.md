@@ -1,11 +1,5 @@
 ---
-title: "Zoid Void"
-LinkTitle:    "Home"
-title:        "Zoid Archive"
-description:  "Companion site for the Zoid Void Community"
-type:         "page"
-layout:       "home"
-pageclass:    "homePage"
+title: "The world’s fastest framework for building websites"
 ---
 
-Hello home
+From content \_index.md
