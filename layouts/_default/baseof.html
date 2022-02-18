@@ -17,6 +17,14 @@
     <!-- The part of the page that begins to differ between templates -->
     {{ end }}
     {{ partial "footer" }}
+
+
+
+    {{ if not hugo.IsProduction }}
+    <script>
+        console.log(`Hugo data: \n\n{{ replace (printf "%#v" .Site) ", " ",\n" }}`);
+    </script>
+    {{ end }}
 </body>
 
 </html>

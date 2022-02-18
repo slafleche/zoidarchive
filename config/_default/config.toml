@@ -1,9 +1,0 @@
-anchor = "smart"
-
-# [taxonomies]
-# category = "categories"
-[markup.goldmark.renderer]
-unsafe = true
-
-[markup.highlight]
-style = "tango"
