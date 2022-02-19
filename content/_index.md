@@ -1,5 +1,6 @@
 ---
-title: "The world’s fastest framework for building websites"
+title: "The Zoid Void Community Website"
+description: "Welcome to the companion website to the Zoid Void community."
 ---
 
-From content \_index.md
+Lorem Ipsum

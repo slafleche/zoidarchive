@@ -1,17 +1,13 @@
 {{ define "main" }}
-from main!
 
 
-
-<div>
-    Splash
+<div class="splash">
+    <h1 class="splash-title">
+        {{ .Site.Title }}
+    </h1>
+    <p class="splash-description">
+        {{ .Params.description }}
+    </p>
 </div>
-
 {{ .Content }}
-
-From layout
-
-
-
-
 {{ end }}
