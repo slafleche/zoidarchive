@@ -1,0 +1,15 @@
+.example {
+  position: sticky;
+}
+
+/* Compiler Test: */
+
+.example {
+  position: sticky;
+}
+
+/* should output: 
+.example {
+  position: -webkit-sticky;
+  position: sticky;
+} */

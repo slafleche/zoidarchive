@@ -7,6 +7,7 @@
     "ziyasal.vscode-open-in-github",
     "eamodio.gitlens",
     "ms-vscode.js-debug",
-    "jock.svg"
+    "jock.svg",
+    "mgmcdermott.vscode-language-babel"
   ]
 }
