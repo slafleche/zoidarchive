@@ -1,11 +1,12 @@
 {
   "recommendations": [
-    "EditorConfig.EditorConfig",
+    "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "bungcip.better-toml",
     "iceyer.toml-formatter",
-    "esbenp.prettier-vscode",
     "ziyasal.vscode-open-in-github",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "ms-vscode.js-debug",
+    "jock.svg"
   ]
 }

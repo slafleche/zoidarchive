@@ -18,3 +18,19 @@ Resources for the Zoid Void Community
 ## Run
 
 `open http://localhost:1313/ && hugo serve -D`
+
+## To do
+
+- Webpack
+- Vanilla Extract
+- lunr (https://lunrjs.com/guides/getting_started.html)
+- Deploy on GitHub (building new pages and JS)
+
+<!--
+*, ::after, ::before {
+    box-sizing: border-box;
+
+
+    - normalize
+    - no js
+} -->
