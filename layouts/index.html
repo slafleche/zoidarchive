@@ -8,6 +8,15 @@
     <p class="splash-description">
         {{ .Params.description }}
     </p>
+    <!-- Ranges through content/posts/*.md -->
+        <ul>
+
+            {{ range .Pages }}
+            <li>
+                <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+            </li>
+            {{ end }}
+        </ul>
 </div>
 {{ .Content }}
 {{ end }}
