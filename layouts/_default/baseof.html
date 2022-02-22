@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html class="no-js" lang="{{ .Site.LanguageCode }}">
 <head>
-    {{ partial "head" }}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Sue+Ellen+Francisco&display=swap"
+        rel="stylesheet" />
+    <script src="/assets/bundle.js"></script>
     <title>
         {{ block "title" . }}
             {{ .Site.Title }}
@@ -12,9 +20,7 @@
     <div class="bodyWrap">
         {{ partial "menu" }}
         <!-- Code that all your templates share, like a header -->
-        {{- block "main" . }}
-            <!-- The part of the page that begins to differ between templates -->
-        {{- end }}
+        {{- block "main" .}}{{- end}}
         {{ partial "footer" }}
     </div>
 </body>
