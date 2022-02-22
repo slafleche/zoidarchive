@@ -59,7 +59,9 @@ const exportsInit = () => {
               source: path.resolve('static', 'assets', '*.js'),
             },{
               source: path.resolve('static', 'assets', '*.css'),
-            }],
+              }, {
+                source: path.resolve('public', '*'),
+              }],
           },
         }
       }),
