@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 // return env specific values, defaults to 'production'
 const setEnvironmentVars = () => {
@@ -47,9 +48,22 @@ const exportsInit = () => {
         },
       ],
     },
-    plugins: [new MiniCssExtractPlugin({
-      filename: env.filename + '.css',
-    })],
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: env.filename + '.css',
+      }),
+      new FileManagerPlugin({
+        events: {
+          onStart: {
+            delete: [{
+              source: path.resolve('static', 'assets', '*.js'),
+            },{
+              source: path.resolve('static', 'assets', '*.css'),
+            }],
+          },
+        }
+      }),
+    ],
   };
 };
 
