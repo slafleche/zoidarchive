@@ -4,7 +4,7 @@
 .hugo_build.lock
 public/*
 node_modules/
-static/css/**
-static/js/**
+static/assets/**/*.css
+static/assets/**/*.js
 static/indexes/**
 static/vendors/**
