@@ -4,6 +4,12 @@
 
 /* Compiler Test: */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .example {
   position: sticky;
 }

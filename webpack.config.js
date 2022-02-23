@@ -1,9 +1,8 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FileManagerPlugin = require("filemanager-webpack-plugin");
-const PrettierPlugin = require("prettier-webpack-plugin");
 
-// return env specific values, defaults to 'production'
+// Dynamic value for dev and production environments
 const setEnvironmentVars = () => {
   switch (process.env.APP_ENV) {
     case "dev":
@@ -48,15 +47,13 @@ const exportsInit = () => {
       new MiniCssExtractPlugin({
         filename: env.filename + ".css",
       }),
+      // Delete old files (prod files are deleted with dev files to avoid confusion)
       new FileManagerPlugin({
         events: {
           onStart: {
             delete: [
               {
-                source: path.resolve("static", "assets", "*.js"),
-              },
-              {
-                source: path.resolve("static", "assets", "*.css"),
+                source: path.resolve("static", "assets", "*"),
               },
               {
                 source: path.resolve("public", "*"),
@@ -64,14 +61,6 @@ const exportsInit = () => {
             ],
           },
         },
-      }),
-      new PrettierPlugin({
-        printWidth: 120,
-        useTabs: false,
-        tabWidth: 4,
-        semi: true,
-        trailingComma: "all",
-        encoding: "utf-8",
       }),
     ],
   };

@@ -29,8 +29,10 @@ Resources for the Zoid Void Community
 <!--
 *, ::after, ::before {
     box-sizing: border-box;
+-----
 
-
-    - normalize
+    - Check Babel config
+    - Check typescript
+    - add Vanilla Extract
     - no js
 } -->
