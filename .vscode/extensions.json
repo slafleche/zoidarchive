@@ -8,6 +8,7 @@
     "eamodio.gitlens",
     "ms-vscode.js-debug",
     "jock.svg",
-    "mgmcdermott.vscode-language-babel"
+    "mgmcdermott.vscode-language-babel",
+    "redhat.vscode-yaml"
   ]
 }

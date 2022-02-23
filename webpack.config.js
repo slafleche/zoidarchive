@@ -50,16 +50,21 @@ const exportsInit = () => {
       // Delete old files (prod files are deleted with dev files to avoid confusion)
       new FileManagerPlugin({
         events: {
-          onStart: {
-            delete: [
-              {
-                source: path.resolve("static", "assets", "*"),
-              },
-              {
-                source: path.resolve("public", "*"),
-              },
-            ],
-          },
+          onStart: [
+            {
+              delete: [
+                {
+                  source: path.resolve("static", "assets", "*"), // Site code
+                },
+                {
+                  source: path.resolve("static", "libs", "*"), // Third party libraries
+                },
+                {
+                  source: path.resolve("public", "*"), // Generated Site
+                },
+              ],
+            },
+          ],
         },
       }),
     ],

@@ -1,3 +1,0 @@
-# Config for production
-[context.production.environment]
-    HUGO_ENV = "production"

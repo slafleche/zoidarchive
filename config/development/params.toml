@@ -1,3 +1,0 @@
-# Params for development (server mode)
-[context.production.environment]
-    HUGO_ENV = "development"

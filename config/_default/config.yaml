@@ -1,0 +1,5 @@
+languageCode: "en-ca"
+module:
+  mounts:
+    source: node_modules/normalize-css/normalize.css
+    target: assets/libs/normalize.css

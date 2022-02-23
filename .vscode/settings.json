@@ -4,9 +4,10 @@
   "files.insertFinalNewline": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }, 
+  },
   "files.autoSave": "afterDelay",
   "files.trimFinalNewlines": true,
   "css.lint.emptyRules": "ignore",
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }
