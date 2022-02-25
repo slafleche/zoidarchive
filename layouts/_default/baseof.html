@@ -11,16 +11,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/libs/normalize.css" />
-    {{ if not hugo.IsProduction }}
-    {{ .Scratch.Set "js" "/assets/main.js" }}
-    {{ else }}
-    {{ .Scratch.Set "js" (index .Site.Data.manifest "main.js") }}
-    {{ end }}
-    {{ $js := .Scratch.Get "js" }}
-    <script src="{{ $js }}"></script>
-    <!-- getting -->
-    {{ printf "%#v" hugo.Environment }}
-
     <title>{{ block "title" . }} {{ .Site.Title }} {{ end }}</title>
   </head>
   <body>
