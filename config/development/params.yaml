@@ -3,3 +3,8 @@ context:
   production:
     environment:
       HUGO_ENV: development
+
+module:
+  mounts:
+    - source: assets/main.js
+      target: static/assets/main.js

@@ -14,24 +14,29 @@
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
     "core-js": "^3.6.4",
-    "css-loader": "^3.4.2",
+    "css-loader": "^6.6.0",
     "filemanager-webpack-plugin": "^6.1.7",
-    "mini-css-extract-plugin": "^0.9.0",
-    "npm-run-all": "^4.1.5",
-    "postcss-loader": "^3.0.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "postcss-loader": "^6.2.1",
     "webpack": "^5.69.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^4.9.2",
+    "webpack-manifest-plugin": "^4.1.1"
   },
   "scripts": {
     "localhost": "open http://localhost:1313",
-    "start": "run-p start:*",
-    "start:hugo": "hugo server -D",
-    "start:webpack": "webpack --mode=development --watch",
-    "build": "run-s build:webpack build:hugo",
-    "build:hugo": "hugo",
-    "build:webpack": "webpack --mode=production"
+    "dev:hugo": "hugo --environment development server -D",
+    "dev:webpack": "webpack --mode=development --watch",
+    "dev": "run-p dev:*",
+
+    "build:hugo": "hugo --environment production",
+    "build:webpack": "webpack --mode=production",
+    "build": "webpack --mode=production && hugo --environment production serve",
+
+    "buildprod": "webpack --mode=production && hugo  --environment production",
+
+    "kill": "kill -9 $(lsof -ti:1313,5500)"
   }
 }
