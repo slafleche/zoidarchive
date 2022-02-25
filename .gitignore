@@ -12,3 +12,5 @@ static/assets
 static/vendors/**
 yarn-error.log
 data/manifest.json
+assets/**/*.js
+assets/**/*.map

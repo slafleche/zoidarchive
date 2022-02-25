@@ -1,9 +1,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FileManagerPlugin = require("filemanager-webpack-plugin");
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
-
-
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 
 const exportsInit = (conf) => {
   return {
@@ -14,7 +12,7 @@ const exportsInit = (conf) => {
       // path.resolve("src", "styles", "app.css"),
     ],
     output: {
-      path: path.resolve("static", "assets"),
+      path: path.resolve("assets"),
       filename: `${conf.filename}.js`,
     },
     module: {
@@ -31,12 +29,11 @@ const exportsInit = (conf) => {
         },
         {
           test: /\.(png|jpg|gif|svg)$/,
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            outputPath: 'assets/'
-            
-          }
-        }
+            outputPath: "assets/",
+          },
+        },
       ],
     },
     plugins: [
@@ -47,10 +44,16 @@ const exportsInit = (conf) => {
             {
               delete: [
                 {
+                  source: path.resolve("static", "assets", "*"), // Site code
+                },
+                {
                   source: path.resolve("assets", "*"), // Site code
                 },
                 {
                   source: path.resolve("public", "*"), // Generated Site
+                },
+                {
+                  source: path.resolve("data", "manifest.json"), // manifest
                 },
               ],
             },
@@ -59,9 +62,10 @@ const exportsInit = (conf) => {
       }),
       // Create manifest with hashed generated files
       new WebpackManifestPlugin({
-        fileName : "../../data/manifest.json",
-         writeToFileEmit: true,
-         basePath: 'static/',
+        fileName: "../data/manifest.json",
+        writeToFileEmit: true,
+        basePath: "",
+        publicPath: "assets/",
       }),
       new MiniCssExtractPlugin({
         filename: conf.filename,
@@ -69,7 +73,6 @@ const exportsInit = (conf) => {
     ],
   };
 };
-
 
 // Dynamic value for dev and production environments
 const setEnvConfig = (mode) => {
@@ -93,4 +96,4 @@ const setEnvConfig = (mode) => {
 
 module.exports = (env, argv) => {
   return exportsInit(setEnvConfig(argv.mode));
-}
+};

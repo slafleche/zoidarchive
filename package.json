@@ -4,6 +4,7 @@
   "description": "Resources for Zoid Void Community",
   "repository": "https://github.com/slafleche/zoidarchive.git",
   "author": "slafleche",
+  "private": true,
   "browserslist": "> 1%",
   "dependencies": {
     "lunr": "^2.3.9",
