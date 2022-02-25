@@ -1,7 +1,0 @@
-baseURL: "/"
-languageCode: "en-ca"
-
-module:
-  mounts:
-    - source: node_modules/normalize-css/normalize.css
-      target: static/assets/libs/normalize.css
