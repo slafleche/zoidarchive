@@ -17,7 +17,6 @@
     "webpack-cli": "^4.9.2"
   },
   "scripts": {
-    "localhost": "open http://localhost:8080",
     "build": "cuttlebelle",
     "watch": "cuttlebelle -w",
     "kill": "kill -9 $(lsof -ti:8080)"

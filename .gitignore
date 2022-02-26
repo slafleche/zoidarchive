@@ -1,14 +1,4 @@
 .DS_Store
-.sass-cache
-.idea
-.hugo_build.lock
-public/*
+site/*
 node_modules/
-static/assets/**/*.css
-static/assets/**/*.js
-static/assets/**/*.map
-static/indexes/**
-static/assets
-static/vendors/**
 yarn-error.log
-data/manifest.json
