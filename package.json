@@ -5,6 +5,7 @@
   "repository": "https://github.com/slafleche/zoidarchive.git",
   "author": "slafleche",
   "browserslist": "> 1%",
+  "license": "UNLICENSED",
   "dependencies": {
     "cuttlebelle": "^1.0.0-alpha.77",
     "yarn": "^1.22.17",
