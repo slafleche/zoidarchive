@@ -3,5 +3,5 @@ site/**/*
 node_modules/
 yarn-error.log
 _data/manifest.json
-assetts/js/**/*
+assets/js/**/*
 assets/css/**/*
