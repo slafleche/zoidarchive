@@ -25,7 +25,7 @@ Resources for the Zoid Void Community
 *, ::after, ::before {
     box-sizing: border-box;
 -----
-    - Check Babel config
+    
     - Check typescript
     - Vanilla Extract
     - Post CSS

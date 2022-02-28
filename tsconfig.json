@@ -11,7 +11,8 @@
     "sourceMap": true,
     "importHelpers": true,
     "types": ["node"],
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "moduleResolution": "node"
   },
   "rootDir": ["src/index.ts"],
   "exclude": ["node_modules"]

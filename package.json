@@ -8,19 +8,36 @@
   "license": "UNLICENSED",
   "dependencies": {
     "cuttlebelle": "^1.0.0-alpha.77",
-    "yarn": "^1.22.17",
-    "yarn-run-all": "^3.1.1"
+    "lunr": "^2.3.9",
+    "normalize-css": "^2.3.1",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@vanilla-extract/babel-plugin": "^1.1.4",
+    "@vanilla-extract/css": "^1.6.8",
+    "@vanilla-extract/webpack-plugin": "^2.1.5",
+    "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
+    "core-js": "^3.6.4",
+    "css-loader": "^6.6.0",
+    "css-minimizer-webpack-plugin": "^3.4.1",
     "filemanager-webpack-plugin": "^6.1.7",
+    "hook-shell-script-webpack-plugin": "^0.1.4",
+    "mini-css-extract-plugin": "^2.5.3",
     "normalize-css": "^2.3.1",
+    "postcss-loader": "^6.2.1",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
     "webpack-manifest-plugin": "^4.1.1"
   },
   "scripts": {
-    "build": "webpack --mode=production && cuttlebelle",
-    "watch": "webpack --mode=development --watch && cuttlebelle -w",
+    "webpack": "webpack --mode development",
+    "dev": "webpack --env hook=cuttlebelle --mode development",
+    "build": "webpack --mode production && cuttlebelle",
     "kill": "kill -9 $(lsof -ti:8080)"
   }
 }
