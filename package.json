@@ -15,11 +15,12 @@
     "filemanager-webpack-plugin": "^6.1.7",
     "normalize-css": "^2.3.1",
     "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-manifest-plugin": "^4.1.1"
   },
   "scripts": {
-    "build": "cuttlebelle",
-    "watch": "cuttlebelle -w",
+    "build": "webpack --mode=production && cuttlebelle",
+    "watch": "webpack --mode=development --watch && cuttlebelle -w",
     "kill": "kill -9 $(lsof -ti:8080)"
   }
 }

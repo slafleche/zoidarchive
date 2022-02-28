@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
-    "outDir": "./code/",
+    "strict": true,
     "noImplicitAny": true,
     "module": "es6",
     "target": "es5",
     "jsx": "react",
-    "allowJs": false,
-    "moduleResolution": "node"
-  }
+    "allowJs": true,
+    "baseUrl": "./",
+    "outDir": "assets/js",
+    "sourceMap": true,
+    "importHelpers": true,
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"]
+  },
+  "rootDir": ["src/index.ts"],
+  "exclude": ["node_modules"]
 }
