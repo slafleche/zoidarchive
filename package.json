@@ -1,0 +1,29 @@
+{
+  "name": "zoidarchive",
+  "version": "0.0.0",
+  "description": "Resources for Zoid Void Community",
+  "repository": "https://github.com/slafleche/zoidarchive.git",
+  "author": "slafleche",
+  "browserslist": "> 1%",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "next": "12.1.0",
+    "normalize-css": "^2.3.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.39",
+    "@vanilla-extract/babel-plugin": "^1.1.4",
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0",
+    "typescript": "^4.6.2"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+}
