@@ -1,7 +1,0 @@
-.DS_Store
-site/**/*
-node_modules/
-yarn-error.log
-_data/manifest.json
-assets/js/**/*
-assets/css/**/*
