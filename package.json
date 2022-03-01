@@ -30,6 +30,7 @@
     "mini-css-extract-plugin": "^2.5.3",
     "normalize-css": "^2.3.1",
     "postcss-loader": "^6.2.1",
+    "style-loader": "^3.3.1",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
     "webpack-manifest-plugin": "^4.1.1"
@@ -38,6 +39,6 @@
     "webpack": "webpack --mode development",
     "dev": "webpack --env hook=cuttlebelle --mode development",
     "build": "webpack --mode production && cuttlebelle",
-    "kill": "kill -9 $(lsof -ti:8080)"
+    "kill": "kill -9 $(lsof -ti:8080,5500)"
   }
 }

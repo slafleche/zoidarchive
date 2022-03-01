@@ -41,7 +41,6 @@ const Page = ({
 		<link rel="manifest" href="/manifest.webmanifest"></link>
 		*/}
 
-      <link rel="stylesheet" href={_relativeURL(`/assets/css/site.css`, _ID)} />
       {stylesheet != undefined ? (
         <link
           rel="stylesheet"
