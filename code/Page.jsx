@@ -32,7 +32,6 @@ const Page = ({
         href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Sue+Ellen+Francisco&display=swap"
         rel="stylesheet"
       />
-
       {/* 
 		# Favicon code
 		<link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,7 +39,10 @@ const Page = ({
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 		<link rel="manifest" href="/manifest.webmanifest"></link>
 		*/}
-
+      {/* <link
+        rel="stylesheet"
+        href={_relativeURL(`/assets/css/styles.css`, _ID)}
+      /> */}
       {stylesheet != undefined ? (
         <link
           rel="stylesheet"
@@ -58,10 +60,10 @@ const Page = ({
       <footer>{footer}</footer>
 
       <script
-        src={_relativeURL(
-          `/assets/js/${process.env.__mainJS__ || "main.js"}`,
-          _ID
-        )}
+        src={
+          (console.log("DEBUG: ", process.env.__mainJS__) || true) &&
+          _relativeURL(`/assets/js/${process.env.__mainJS__ || "main.js"}`, _ID)
+        }
       />
       {script != undefined ? (
         <script src={_relativeURL(`/assets/js/${script}.js`, _ID)} />

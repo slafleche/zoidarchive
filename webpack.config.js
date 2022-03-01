@@ -166,10 +166,7 @@ const setEnvConfig = (mode, hook) => {
         devtool: "source-map",
         runAfterFirstCompilation,
         minimize: true,
-        env: "development",
-        scripts: {
-          js: "main.js",
-        },
+  
       };
     default:
       console.log("\n=====> PROD CONFIG\n");
@@ -179,10 +176,7 @@ const setEnvConfig = (mode, hook) => {
         devtool: "inline-source-map",
         runAfterFirstCompilation,
         minimize: false,
-        env: "production",
-        scripts: {
-          js: getManifest(),
-        },
+        
       };
   }
 };

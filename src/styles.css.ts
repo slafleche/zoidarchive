@@ -1,4 +1,7 @@
-// import "~normalize-css/normalize.css";
+import "~normalize-css/normalize.css";
+
+
+
 // import "!style-loader!css-loader!normalize.css";
 
 // import { createTheme, style } from "@vanilla-extract/css";

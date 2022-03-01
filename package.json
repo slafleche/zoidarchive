@@ -40,5 +40,10 @@
     "dev": "webpack --env hook=cuttlebelle --mode development",
     "build": "webpack --mode production && cuttlebelle",
     "kill": "kill -9 $(lsof -ti:8080,5500)"
+  },
+  "cuttlebelle": {
+    "site": {
+      "globalProp": "dev"
+    }
   }
 }
