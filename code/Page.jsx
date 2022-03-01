@@ -57,6 +57,12 @@ const Page = ({
 
       <footer>{footer}</footer>
 
+      <script
+        src={_relativeURL(
+          `/assets/js/${process.env.__mainJS__ || "main.js"}`,
+          _ID
+        )}
+      />
       {script != undefined ? (
         <script src={_relativeURL(`/assets/js/${script}.js`, _ID)} />
       ) : null}

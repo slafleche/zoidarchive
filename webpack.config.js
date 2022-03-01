@@ -5,6 +5,8 @@ const { VanillaExtractPlugin } = require("@vanilla-extract/webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HookShellScriptPlugin = require("hook-shell-script-webpack-plugin");
+const { env } = require("process");
+const webpack = require("webpack");
 
 const exportsInit = (conf) => {
   return {
@@ -51,10 +53,16 @@ const exportsInit = (conf) => {
             },
           ],
         },
+
         {
-          test: /.vanilla?.css$/,
+          test: /.vanilla?.css.ts$/,
           exclude: /node_modules/,
           use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        },
+
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
         },
 
         // Creates `style` nodes from JS strings
@@ -99,11 +107,12 @@ const exportsInit = (conf) => {
       }),
       // // Create manifest with generated file names
       new WebpackManifestPlugin({
-        fileName: "../../_data/manifest.json",
+        fileName: "../_data/manifest.json",
         writeToFileEmit: true,
         basePath: "",
         map: (f) => {
-          f.path = f.path.replace(/^auto\//, "");
+          f.name = f.name.replace(/.js$/, "");
+          f.path = f.path.replace(/^auto\/js\//, "");
           return f;
         },
       }),
@@ -112,6 +121,12 @@ const exportsInit = (conf) => {
       }),
       new VanillaExtractPlugin({}),
       ...conf.runAfterFirstCompilation,
+      new HookShellScriptPlugin({
+            watchClose: ["webpack kill"],
+      }),
+      new webpack.DefinePlugin({
+        __mainJS__: JSON.stringify(conf.scripts.js),
+      }),
     ],
     optimization: {
       minimizer: [new CssMinimizerPlugin({})],
@@ -134,6 +149,11 @@ const setEnvConfig = (mode, hook) => {
         `\n=====> DEV CONFIG${hook ? ` with hook: "${hook}"` : ""}\n`
       );
       if (hook === "cuttlebelle") {
+        // Because we're watching for changes with webpack,
+        // it will hang on the webpack script and never get to the cuttlebelle script.
+        // Running both in parallel created some race conditions to succeed.
+        // Running the cuttlebelle script in parallel, but on a webpack hook was the best
+        // solution I could find.
         runAfterFirstCompilation = [
           new HookShellScriptPlugin({
             afterCompile: ["cuttlebelle -w"],
@@ -146,6 +166,10 @@ const setEnvConfig = (mode, hook) => {
         devtool: "source-map",
         runAfterFirstCompilation,
         minimize: true,
+        env: "development",
+        scripts: {
+          js: "main.js",
+        },
       };
     default:
       console.log("\n=====> PROD CONFIG\n");
@@ -155,10 +179,30 @@ const setEnvConfig = (mode, hook) => {
         devtool: "inline-source-map",
         runAfterFirstCompilation,
         minimize: false,
+        env: "production",
+        scripts: {
+          js: getManifest(),
+        },
       };
   }
 };
 
 module.exports = (env, args) => {
   return exportsInit(setEnvConfig(args.mode, env.hook || false));
+};
+
+const getManifest = () => {
+  var target = "main.js";
+  const manifestPath = path.resolve("_data", "manifest.json");
+
+  try {
+    const data = require(manifestPath);
+    if (data && data.main) {
+      target = data.main;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+
+  return target;
 };
