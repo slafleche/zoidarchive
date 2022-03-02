@@ -39,15 +39,11 @@ export const EMPTY_BACKGROUND: IBackground = {
   opacity: undefined,
 };
 
-export const getBackgroundImage = (image?: BackgroundImageProperty) => {
+export const getBackgroundImage = (image?: CSS.Property.BackgroundImage) => {
   if (!image) {
     return undefined;
   }
   image = image.toString();
-  if (image.charAt(0) === "~") {
-    // Relative path to theme folder
-    return themeAsset(image.substr(1, image.length - 1));
-  }
 
   if (image.startsWith("data:image/")) {
     return `url(${image})`;
@@ -58,13 +54,13 @@ export const getBackgroundImage = (image?: BackgroundImageProperty) => {
   }
 
   // Fallback to a general asset URL.
-  return `url(${assetUrl(image)})`;
+  return `url(${image})`;
 };
 
 export const backgroundHelper = (props: IBackground) => {
   const image = getBackgroundImage(props.image);
   return {
-    backgroundColor: props.color ? colorOut(props.color) : undefined,
+    backgroundColor: props.color ? props.color : undefined,
     backgroundAttachment: props.attachment || undefined,
     backgroundPosition: props.position || `50% 50%`,
     backgroundRepeat: props.repeat || "no-repeat",
@@ -76,33 +72,33 @@ export const backgroundHelper = (props: IBackground) => {
 
 export const objectFitWithFallback = () => {
   return {
-    position: "absolute" as PositionProperty,
+    position: "absolute" as CSS.Property.BackgroundPosition,
     top: 0,
     right: 0,
     bottom: 0,
     left: 0,
     margin: "auto",
     height: "auto",
-    width: percent(100),
+    width: "100%",
     $nest: {
       "@supports (object-fit: cover)": {
-        position: important("relative"),
-        objectFit: "cover" as ObjectFitProperty,
+        position: "relative !important",
+        objectFit: "cover" as CSS.Property.ObjectFit,
         objectPosition: "center",
-        height: important(percent(100).toString()),
+        height: "100% !important",
       },
     },
-  } as NestedCSSProperties;
+  };
 };
 export function fakeBackgroundFixed() {
   return {
-    content: quote(""),
+    content: "",
     display: "block",
     position: "fixed",
-    top: px(0),
-    left: px(0),
-    width: viewWidth(100),
-    height: viewHeight(100),
+    top: "0px",
+    left: "0px",
+    width: "100vw",
+    height: "100vh",
   };
 }
 
@@ -114,6 +110,7 @@ export function centeredBackgroundProps() {
 }
 
 export function centeredBackground() {
-  const style = styleFactory("centeredBackground");
-  return style(centeredBackgroundProps());
+  //   const style = styleFactory("centeredBackground");
+  //   return style(centeredBackgroundProps());
+  return {};
 }

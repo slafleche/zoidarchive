@@ -1,11 +1,11 @@
 import { style } from "@vanilla-extract/css";
 import { utilVars } from "../utils/styleUtils";
 
-export default {
+const genericStyles = {
   frame: style({
-    height: "100vh",
-      backgroundColor: utilVars.black,
-    backgroundImage: 
+    minHeight: "100vh",
   }),
   main: style({}),
 };
+
+export default genericStyles;
