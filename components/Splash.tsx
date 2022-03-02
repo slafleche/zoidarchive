@@ -11,10 +11,12 @@ export function Splash(props: IProps) {
     <>
       <div className={classes.root}>
         <div className={classes.overlay} />
+        <div className={classes.content}>
         <h1 className={classes.title}>{props.title}</h1>
         {props.description && (
           <p className={classes.description}>{props.description}</p>
-        )}
+          )}
+        </div>
       </div>
     </>
   );

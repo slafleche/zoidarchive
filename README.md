@@ -15,8 +15,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
   - minify html
   - load styles above fold
   - Optimize images
-- Elements
-  - favicons
+  - postCSS
 - Documentation
   - Feedback/content
   - Storybook?

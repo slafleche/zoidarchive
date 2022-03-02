@@ -1,22 +1,12 @@
-// import {
-//   important,
-//   percent,
-//   px,
-//   quote,
-//   url,
-//   viewHeight,
-//   viewWidth,
-//   ColorHelper,
-// } from "csx";
-
-// export type ColorValues = ColorHelper | undefined;
+import chroma from "chroma-js";
 
 export const utilVars = {
-  black: "#000",
-  white: "#FFF",
+  black: chroma("#000"),
+  white: chroma("#FFF"),
 };
 
 import * as CSS from "csstype";
+import { urlObjectKeys } from "next/dist/shared/lib/utils";
 
 export interface IBackground {
   color?: CSS.Property.BackgroundColor;
@@ -102,15 +92,21 @@ export function fakeBackgroundFixed() {
   };
 }
 
-export function centeredBackgroundProps() {
+export function centeredBackground(image: CSS.Property.BackgroundImage) {
   return {
+    backgroundSize: "cover",
     backgroundPosition: `50% 50%`,
     backgroundRepeat: "no-repeat",
+    backgroundImage: getBackgroundImage(image),
   };
 }
 
-export function centeredBackground() {
-  //   const style = styleFactory("centeredBackground");
-  //   return style(centeredBackgroundProps());
-  return {};
+export function flexMiddle() {
+  return {
+    display: "flex",
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  };
 }
