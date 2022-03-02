@@ -1,0 +1,9 @@
+<svg class="patternOverlay" opacity="0.5">
+    <defs>
+        <pattern id="svg-overlay" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <circle cx="5" cy="5" r="1" stroke="none" class="bg-main__circle"></circle>
+        </pattern>
+    </defs>
+    <rect transform="rotate(13)" width="100%" height="100%" x="0" y="0" fill="url(#svg-overlay)"
+        class="patternOverlay-dot"></rect>
+</svg>

@@ -17,7 +17,7 @@ const nextConfig = {
             fs.unlinkSync(destinationPathNormalize);
             //file removed
           } catch (err) {
-            console.error(err);
+            // console.error(err);
           }
           fs.copy(
             path.resolve("node_modules/normalize-css/normalize.css"),
