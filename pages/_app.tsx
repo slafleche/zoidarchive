@@ -1,5 +1,5 @@
-// import "static/css/normalize.css";
-import "../styles/globals.css";
+import "../styles/lib/normalize.css";
+import "../styles/globals.css.ts";
 import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {

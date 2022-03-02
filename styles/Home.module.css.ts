@@ -22,7 +22,10 @@ export default {
   title: style({}),
   description: style({}),
   grid: style({}),
-  card: style({}),
+  card: style({
+    border: "solid black 1px",
+    display: "block",
+  }),
   footer: style({}),
   logo: style({}),
   code: style({}),
