@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import classes from "../styles/components/splash.css";
+import classes from "../../styles/components/splash.css";
 
 interface IProps {
   title?: string;

@@ -5,18 +5,18 @@ export const utilVars = {
   white: chroma("#FFF"),
 };
 
-import * as CSS from "csstype";
-import { urlObjectKeys } from "next/dist/shared/lib/utils";
+import * as csstype from "csstype";
+import { isNumeric } from "../src/utils/utils";
 
 export interface IBackground {
-  color?: CSS.Property.BackgroundColor;
-  attachment?: CSS.Property.BackgroundAttachment;
-  position?: CSS.Property.Position;
-  repeat?: CSS.Property.BackgroundRepeat;
-  size?: CSS.Property.BackgroundSize;
-  image?: CSS.Property.BackgroundImage;
-  fallbackImage?: CSS.Property.BackgroundImage;
-  opacity?: CSS.Property.Opacity;
+  color?: csstype.Property.BackgroundColor;
+  attachment?: csstype.Property.BackgroundAttachment;
+  position?: csstype.Property.Position;
+  repeat?: csstype.Property.BackgroundRepeat;
+  size?: csstype.Property.BackgroundSize;
+  image?: csstype.Property.BackgroundImage;
+  fallbackImage?: csstype.Property.BackgroundImage;
+  opacity?: csstype.Property.Opacity;
 }
 
 export const EMPTY_BACKGROUND: IBackground = {
@@ -29,7 +29,9 @@ export const EMPTY_BACKGROUND: IBackground = {
   opacity: undefined,
 };
 
-export const getBackgroundImage = (image?: CSS.Property.BackgroundImage) => {
+export const getBackgroundImage = (
+  image?: csstype.Property.BackgroundImage
+) => {
   if (!image) {
     return undefined;
   }
@@ -62,7 +64,7 @@ export const backgroundHelper = (props: IBackground) => {
 
 export const objectFitWithFallback = () => {
   return {
-    position: "absolute" as CSS.Property.BackgroundPosition,
+    position: "absolute" as csstype.Property.BackgroundPosition,
     top: 0,
     right: 0,
     bottom: 0,
@@ -73,13 +75,14 @@ export const objectFitWithFallback = () => {
     $nest: {
       "@supports (object-fit: cover)": {
         position: "relative !important",
-        objectFit: "cover" as CSS.Property.ObjectFit,
+        objectFit: "cover" as csstype.Property.ObjectFit,
         objectPosition: "center",
         height: "100% !important",
       },
     },
   };
 };
+
 export function fakeBackgroundFixed() {
   return {
     content: "",
@@ -92,7 +95,7 @@ export function fakeBackgroundFixed() {
   };
 }
 
-export function centeredBackground(image: CSS.Property.BackgroundImage) {
+export function centeredBackground(image: csstype.Property.BackgroundImage) {
   return {
     backgroundSize: "cover",
     backgroundPosition: `50% 50%`,
@@ -101,12 +104,41 @@ export function centeredBackground(image: CSS.Property.BackgroundImage) {
   };
 }
 
-export function flexMiddle() {
-  return {
-    display: "flex",
-    width: "100%",
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-}
+export const unit = (
+  val: string | number | undefined
+  //   options?: {
+  //     isImportant?: boolean;
+  //   }
+) => {
+  //   const { isImportant = false } = options || {};
+
+  if (typeof val === "object") {
+    console.log(
+      `You cannot pass objects (${JSON.stringify(val)}) to the "unit" function`
+    );
+    return undefined;
+  }
+
+  if (val === undefined) {
+    return undefined;
+  }
+
+  const valIsNumeric = isNumeric(val.toString().trim());
+
+  let output;
+
+  if (typeof val === "string" && !valIsNumeric) {
+    output = val;
+  } else if (val !== undefined && val !== null && valIsNumeric) {
+    output = `${val} px`;
+  } else {
+    output = val;
+  }
+
+  //   if (isImportant) {
+  //     return important(output);
+  //   } else {
+  //     return output;
+  //   }
+  return output;
+};

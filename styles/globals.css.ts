@@ -1,5 +1,20 @@
 import { createGlobalTheme, globalStyle } from "@vanilla-extract/css";
 
+export const fontFallbacks = [
+  "-apple-system",
+  "BlinkMacSystemFont",
+  "HelveticaNeue-Light",
+  "Segoe UI",
+  "Helvetica Neue",
+  "Helvetica",
+  "Raleway",
+  "Arial",
+  "sans-serif",
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+].join(", ");
+
 const vars = createGlobalTheme(":root", {
   space: {
     // small: "4px",
@@ -8,12 +23,12 @@ const vars = createGlobalTheme(":root", {
   },
   fonts: {
     heading: {
-      family: "Loved by the King, Sue Ellen Francisco, serif",
+      family: "Loved by the King, Sue Ellen Francisco, " + fontFallbacks,
       size: "60px",
       weight: "400",
     },
     body: {
-      family: "Sue Ellen Francisco",
+      family: "Sue Ellen Francisco, " + fontFallbacks,
       size: "40px",
       weight: "400",
     },
@@ -41,3 +56,6 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
 });
 
 export default vars;
+function concat(fontFallbacks: string[], arg1: string, arg2: string): any {
+  throw new Error("Function not implemented.");
+}

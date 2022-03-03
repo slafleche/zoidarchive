@@ -2,8 +2,8 @@ import { createTheme, style } from "@vanilla-extract/css";
 import {
   utilVars,
   centeredBackground,
-  flexMiddle,
 } from "../../utils/styleUtils";
+import { absolutePosition, flexPosition } from "../helpers/helperPositioning";
 
 export const [themeClass, vars] = createTheme({
   color: {
@@ -19,7 +19,8 @@ export default {
     ...centeredBackground("/images/hero.jpg"),
     minHeight: "100vh",
     color: utilVars.white.hex(),
-    ...flexMiddle(),
+    ...flexPosition().middle(),
+  
   }),
   title: style({
     display: "block",
@@ -38,11 +39,12 @@ export default {
     textAlign: "center",
   }),
 
-  overlay: style({}),
+  overlay: style({
+    ...absolutePosition.fullSize(),
+  }),
   content: style({
-    // flexDirection: "column",
+    ...flexPosition().middleLeft(true),
     width: "100%",
-    ...flexMiddle(),
     flexDirection: "column",
   }),
 };
