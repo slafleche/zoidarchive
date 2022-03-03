@@ -1,6 +1,10 @@
 import { style } from "@vanilla-extract/css";
 import * as csstype from "csstype";
 
+// Utility classes
+// Note that in contrast to helper functions, they output a ready made class,
+// not properties of a class.
+
 export const utilityStyles = {
   isVisibilityHidden: style({
     visibility: "hidden !important" as csstype.Property.Visibility,

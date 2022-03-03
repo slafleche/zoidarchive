@@ -1,8 +1,6 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import {
-  utilVars,
-  centeredBackground,
-} from "../../utils/styleUtils";
+import { utilVars, centeredBackground } from "../../utils/styleUtils";
+import { spin } from "../globals.css";
 import { absolutePosition, flexPosition } from "../helpers/helperPositioning";
 
 export const [themeClass, vars] = createTheme({
@@ -20,7 +18,6 @@ export default {
     minHeight: "100vh",
     color: utilVars.white.hex(),
     ...flexPosition().middle(),
-  
   }),
   title: style({
     display: "block",
@@ -28,6 +25,9 @@ export default {
     margin: "0",
     fontSize: "300px",
     textShadow: "rgb(0 0 0 / 100%) 4px 7px 15px",
+  }),
+  titleWrap: style({
+    ...flexPosition().middle(),
   }),
   description: style({
     display: "block",
@@ -47,4 +47,10 @@ export default {
     width: "100%",
     flexDirection: "column",
   }),
+  logo: style({
+    width: "100px",
+    height: "auto",
+    animation: `4s infinite linear ${spin}`,
+  }),
+  titleWord: style({}),
 };

@@ -1,4 +1,8 @@
-import { createGlobalTheme, globalStyle } from "@vanilla-extract/css";
+import {
+  createGlobalTheme,
+  globalStyle,
+  keyframes,
+} from "@vanilla-extract/css";
 
 export const fontFallbacks = [
   "-apple-system",
@@ -59,3 +63,7 @@ export default vars;
 function concat(fontFallbacks: string[], arg1: string, arg2: string): any {
   throw new Error("Function not implemented.");
 }
+
+export const spin = keyframes({
+  "0%": { transform: "rotate(360deg)" },
+});
