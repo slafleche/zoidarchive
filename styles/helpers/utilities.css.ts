@@ -1,11 +1,12 @@
 import { style } from "@vanilla-extract/css";
 import * as csstype from "csstype";
+import { isNumeric } from "../../src/utils/utils";
 
 // Utility classes
 // Note that in contrast to helper functions, they output a ready made class,
 // not properties of a class.
 
-export const utilityStyles = {
+const utilityClasses = {
   isVisibilityHidden: style({
     visibility: "hidden !important" as csstype.Property.Visibility,
   }),
@@ -30,5 +31,3 @@ export const utilityStyles = {
     pointerEvents: "none",
   }),
 };
-
-export default utilityStyles;

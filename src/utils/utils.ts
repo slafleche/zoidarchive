@@ -1,3 +1,3 @@
-export const isNumeric = (obj) => {
-    return !isNaN(parseFloat(obj)) && isFinite(obj);
+export const isNumeric = (obj: any) => {
+  return !isNaN(parseFloat(obj)) && isFinite(obj);
 };

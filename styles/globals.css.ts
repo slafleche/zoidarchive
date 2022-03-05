@@ -4,6 +4,11 @@ import {
   keyframes,
 } from "@vanilla-extract/css";
 
+import * as csstype from "csstype";
+import { backgroundHelper, centeredBackground } from "./helpers/background";
+
+// import paperBg from "../public/images/paper.jpg";
+
 export const fontFallbacks = [
   "-apple-system",
   "BlinkMacSystemFont",
@@ -19,7 +24,7 @@ export const fontFallbacks = [
   "Segoe UI Symbol",
 ].join(", ");
 
-const vars = createGlobalTheme(":root", {
+const globalVars = createGlobalTheme(":root", {
   space: {
     // small: "4px",
     // medium: "8px",
@@ -27,43 +32,73 @@ const vars = createGlobalTheme(":root", {
   },
   fonts: {
     heading: {
-      family: "Loved by the King, Sue Ellen Francisco, " + fontFallbacks,
+      family: "Caveat, " + fontFallbacks,
       size: "60px",
       weight: "400",
+      letterSpacing: "0.5px",
     },
     body: {
-      family: "Sue Ellen Francisco, " + fontFallbacks,
-      size: "40px",
+      family: "Klee One, " + fontFallbacks,
+      size: "25px",
       weight: "400",
+      letterSpacing: "-0.8px",
     },
   },
-  colors: {
-    // primary: "#1E40AF",
-    // secondary: "#DB2777",
-    // text: {
-    //   normal: "#1F2937",
-    //   dimmed: "#6B7280",
-    // },
-  },
+});
+
+globalStyle("body", {
+  // ...backgroundHelper({
+  //   repeat: "repeat",
+  //   image: "/images/paper.jpg",
+  //   size: "50%",
+  // }),
+  ...backgroundHelper({
+    repeat: "repeat",
+    image: "/images/paper.jpg",
+    size: "50%",
+  }),
 });
 
 globalStyle("html, body", {
-  fontFamily: vars.fonts.body.family,
-  fontSize: vars.fonts.body.size,
-  fontWeight: vars.fonts.body.weight,
+  fontFamily: globalVars.fonts.body.family,
+  fontSize: globalVars.fonts.body.size,
+  fontWeight: globalVars.fonts.body.weight,
+  letterSpacing: globalVars.fonts.body.letterSpacing,
+  lineHeight: 1.5,
 });
 
 globalStyle("h1, h2, h3, h4, h5, h6", {
-  fontFamily: vars.fonts.heading.family,
-  fontSize: vars.fonts.heading.size,
-  fontWeight: vars.fonts.heading.weight,
+  fontFamily: globalVars.fonts.heading.family,
+  fontSize: globalVars.fonts.heading.size,
+  fontWeight: globalVars.fonts.heading.weight,
+  letterSpacing: globalVars.fonts.heading.letterSpacing,
 });
 
-export default vars;
+export default globalVars;
 function concat(fontFallbacks: string[], arg1: string, arg2: string): any {
   throw new Error("Function not implemented.");
 }
 
 export const spin = keyframes({
-  "0%": { transform: "rotate(360deg)" },
+  "0%": { transform: "rotate(-360deg)" },
 });
+
+// globalStyle(".Material Icons", {
+//     fontFamily: 'Material Icons',
+//   fontWeight: normal,
+//   fontStyle: normal,
+//   fontSize: 24px,
+//   display: inline-block,
+//   lineHeight: 1,
+//   textTransform: none,
+//   letterSpacing: normal,
+//   wordWrap: normal,
+//   whiteSpace: nowrap,
+//   direction: ltr,
+
+//   -webkit-font-smoothing: antialiased,
+
+//   text-rendering: optimizeLegibility,
+//   -moz-osx-font-smoothing: grayscale,
+//   fontFeature-settings: 'liga',
+// });

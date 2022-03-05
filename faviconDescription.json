@@ -1,0 +1,65 @@
+{
+  "masterPicture": "src/favicons/logoRound.svg",
+  "iconsPath": "/favicons",
+  "design": {
+    "ios": {
+      "pictureAspect": "noChange",
+      "assets": {
+        "ios6AndPriorIcons": false,
+        "ios7AndLaterIcons": false,
+        "precomposedIcons": false,
+        "declareOnlyDefaultIcon": true
+      }
+    },
+    "desktopBrowser": {
+      "design": "raw"
+    },
+    "windows": {
+      "masterPicture": {
+        "type": "inline",
+        "content": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c3R5bGU+CiAgICBAbWVkaWEgKHByZWZlcnMtY29sb3Itc2NoZW1lOiBkYXJrKSB7CiAgICAgIDpyb290IHsKICAgICAgICBmaWx0ZXI6IGludmVydCgxMDAlKTsKICAgICAgfQogICAgfQogIDwvc3R5bGU+CiAgPHBhdGggc3R5bGU9ImZpbGw6IHJnYigyNTUsIDI1NSwgMjU1KTsiIGQ9Ik0gMjc5LjQ3NSA0NzYuNjQ2IEMgMzE2Ljk2NCA0NzIuMTMxIDM3NS43ODMgNDQ2LjkwOSAzOTkuNzcxIDQzMy41NjUgQyA0MjMuNzU3IDQyMC4yMjIgNDUwLjMyNCAzODUuNjIgNDM4LjMwMyAzNzYuMjIgQyA0MjYuMjgyIDM2Ni44MTYgMzM2LjY2NiA0MjQuMDM3IDI2MS44MTIgNDA4LjU5NiBDIDE4Ni45NjMgMzkzLjE1NiAxNjIuMjggMzgzLjM3MyAxMzEuMzI5IDM1NS4xMTQgQyAxMDAuMzggMzI2Ljg1NCAxMTcuMjQ3IDI1MS4yNzQgMTI4LjY4NSAyMjkuMTg0IEMgMTQwLjEyNSAyMDcuMDk2IDE2Mi4xODkgMTkyLjUxOCAyMjQuMzE0IDE4My4yNDMgQyAyODYuNDM5IDE3My45NjggNDIyLjg4MiAyMTEuODMzIDQyNS42NTIgMjcxLjAwNCBDIDQyOC40MTkgMzMwLjE3NCAzMzkuMzQ0IDMzNy4xMjggMzA0LjYzMSAzMzAuODQ3IEMgMjY5LjkxMyAzMjQuNTY5IDM2MS44OSAzMTcuNzYyIDM4Mi4xMTUgMzA1LjMwOCBDIDM5Ny41NjEgMjk1Ljc5OCA0MDcuNTA5IDI3OC41MDkgMzkwLjg4OSAyNTIuNjM0IEMgMzgwLjk2IDIzNy4xNzggMzUxLjUwMSAyMjQuNjM0IDMzNS40NDIgMjE1Ljc5IEMgMzA3LjA3NSAyMDAuMTY4IDE5Mi40NzEgMjAyLjY5NiAxODMuOTM5IDIzNy44ODQgQyAxODAuMTc3IDI1My40IDE3Ni4wMzYgMjgxLjc0IDE3Ni44NjcgMjkzLjU3NiBDIDE3Ny45MTEgMzA4LjQ0OSAyMTcuMTUxIDMzNS45NzIgMjE3LjE1MSAzMzUuOTcyIEMgMjE3LjE1MSAzMzUuOTcyIDIzOC4wMDYgMzU0LjczOSAzMDcuNjQ0IDM3MC41MzUgQyAzNTcuOTc0IDM4MS45NDkgNDQyLjY1MSAzNTMuNjM3IDQ2My45NjcgMzI5Ljc3MiBDIDQ5MC43NDYgMjk5Ljc4OSA0OTUuODI0IDI4OC4zMjMgNTAwLjczNSAyNTcuNjUgQyA1MDYuNzU5IDIyMC4wMzIgNTAxLjQ2IDE2OS42MzUgNDc0Ljg2MyAxNDIuMzYgQyA0MDguNTIgNzQuMzMxIDI3Ny40NTUgMTQuMTkgMjI1Ljc0OSAyMC4yMDMgQyAxOTcuMTk2IDIzLjUyNyAxMjMgMzcuMTggNjYuNTI0IDg4LjE4NCBDIDIwLjcwNCAxMjkuNTcxIDEuNTgzIDE2My41MTMgMy4wNTYgMjAyLjY0NyBDIDYuNzIxIDMwMC4xODYgMjIuMTg5IDMyMi4zMjEgMjIuMTg5IDMyMi4zMjEgQyAyMi4xODkgMzIyLjMyMSA2Ni40NDcgNDA0LjI0IDk5LjYwNiA0MzUuODI2IEMgMTM1LjcyNyA0NzAuMjM0IDE4Mi4wMTMgNDg4LjM4IDI3OS40NzUgNDc2LjY0NiBaIiB0cmFuc2Zvcm09Im1hdHJpeCgwLCAxLCAtMSwgMCwgNTAyLjk3NzYwNCwgLTIuOTc3NDUxKSIvPgo8L3N2Zz4="
+      },
+      "pictureAspect": "noChange",
+      "backgroundColor": "#000000",
+      "onConflict": "override",
+      "assets": {
+        "windows80Ie10Tile": false,
+        "windows10Ie11EdgeTiles": {
+          "small": false,
+          "medium": true,
+          "big": false,
+          "rectangle": false
+        }
+      }
+    },
+    "androidChrome": {
+      "pictureAspect": "noChange",
+      "themeColor": "#ffffff",
+      "manifest": {
+        "display": "standalone",
+        "orientation": "notSet",
+        "onConflict": "override",
+        "declared": true
+      },
+      "assets": {
+        "legacyIcon": false,
+        "lowResolutionIcons": false
+      }
+    },
+    "safariPinnedTab": {
+      "masterPicture": {
+        "type": "inline",
+        "content": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c3R5bGU+CiAgICBAbWVkaWEgKHByZWZlcnMtY29sb3Itc2NoZW1lOiBkYXJrKSB7CiAgICAgIDpyb290IHsKICAgICAgICBmaWx0ZXI6IGludmVydCgxMDAlKTsKICAgICAgfQogICAgfQogIDwvc3R5bGU+CiAgPHBhdGggc3R5bGU9ImZpbGw6IHJnYigyNTUsIDI1NSwgMjU1KTsiIGQ9Ik0gMjc5LjQ3NSA0NzYuNjQ2IEMgMzE2Ljk2NCA0NzIuMTMxIDM3NS43ODMgNDQ2LjkwOSAzOTkuNzcxIDQzMy41NjUgQyA0MjMuNzU3IDQyMC4yMjIgNDUwLjMyNCAzODUuNjIgNDM4LjMwMyAzNzYuMjIgQyA0MjYuMjgyIDM2Ni44MTYgMzM2LjY2NiA0MjQuMDM3IDI2MS44MTIgNDA4LjU5NiBDIDE4Ni45NjMgMzkzLjE1NiAxNjIuMjggMzgzLjM3MyAxMzEuMzI5IDM1NS4xMTQgQyAxMDAuMzggMzI2Ljg1NCAxMTcuMjQ3IDI1MS4yNzQgMTI4LjY4NSAyMjkuMTg0IEMgMTQwLjEyNSAyMDcuMDk2IDE2Mi4xODkgMTkyLjUxOCAyMjQuMzE0IDE4My4yNDMgQyAyODYuNDM5IDE3My45NjggNDIyLjg4MiAyMTEuODMzIDQyNS42NTIgMjcxLjAwNCBDIDQyOC40MTkgMzMwLjE3NCAzMzkuMzQ0IDMzNy4xMjggMzA0LjYzMSAzMzAuODQ3IEMgMjY5LjkxMyAzMjQuNTY5IDM2MS44OSAzMTcuNzYyIDM4Mi4xMTUgMzA1LjMwOCBDIDM5Ny41NjEgMjk1Ljc5OCA0MDcuNTA5IDI3OC41MDkgMzkwLjg4OSAyNTIuNjM0IEMgMzgwLjk2IDIzNy4xNzggMzUxLjUwMSAyMjQuNjM0IDMzNS40NDIgMjE1Ljc5IEMgMzA3LjA3NSAyMDAuMTY4IDE5Mi40NzEgMjAyLjY5NiAxODMuOTM5IDIzNy44ODQgQyAxODAuMTc3IDI1My40IDE3Ni4wMzYgMjgxLjc0IDE3Ni44NjcgMjkzLjU3NiBDIDE3Ny45MTEgMzA4LjQ0OSAyMTcuMTUxIDMzNS45NzIgMjE3LjE1MSAzMzUuOTcyIEMgMjE3LjE1MSAzMzUuOTcyIDIzOC4wMDYgMzU0LjczOSAzMDcuNjQ0IDM3MC41MzUgQyAzNTcuOTc0IDM4MS45NDkgNDQyLjY1MSAzNTMuNjM3IDQ2My45NjcgMzI5Ljc3MiBDIDQ5MC43NDYgMjk5Ljc4OSA0OTUuODI0IDI4OC4zMjMgNTAwLjczNSAyNTcuNjUgQyA1MDYuNzU5IDIyMC4wMzIgNTAxLjQ2IDE2OS42MzUgNDc0Ljg2MyAxNDIuMzYgQyA0MDguNTIgNzQuMzMxIDI3Ny40NTUgMTQuMTkgMjI1Ljc0OSAyMC4yMDMgQyAxOTcuMTk2IDIzLjUyNyAxMjMgMzcuMTggNjYuNTI0IDg4LjE4NCBDIDIwLjcwNCAxMjkuNTcxIDEuNTgzIDE2My41MTMgMy4wNTYgMjAyLjY0NyBDIDYuNzIxIDMwMC4xODYgMjIuMTg5IDMyMi4zMjEgMjIuMTg5IDMyMi4zMjEgQyAyMi4xODkgMzIyLjMyMSA2Ni40NDcgNDA0LjI0IDk5LjYwNiA0MzUuODI2IEMgMTM1LjcyNyA0NzAuMjM0IDE4Mi4wMTMgNDg4LjM4IDI3OS40NzUgNDc2LjY0NiBaIiB0cmFuc2Zvcm09Im1hdHJpeCgwLCAxLCAtMSwgMCwgNTAyLjk3NzYwNCwgLTIuOTc3NDUxKSIvPgo8L3N2Zz4="
+      },
+      "pictureAspect": "silhouette",
+      "themeColor": "#6f7070"
+    }
+  },
+  "settings": {
+    "scalingAlgorithm": "Mitchell",
+    "errorOnImageTooSmall": false,
+    "readmeFile": false,
+    "htmlCodeFile": false,
+    "usePathAsIs": false
+  }
+}

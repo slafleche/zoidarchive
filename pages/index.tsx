@@ -5,7 +5,7 @@ import utilityStyles from "../styles/components/layout.css";
 
 const Home: NextPage = () => {
   return (
-    <div className={utilityStyles.frame}>
+    <>
       <Head>
         <title>Zoid Archive</title>
         <meta name="description" content="Resources for the Zoid Community" />
@@ -32,17 +32,13 @@ const Home: NextPage = () => {
         <link
           rel="mask-icon"
           href="/favicons/safari-pinned-tab.svg"
-          color="#4a4a4a"
+          color="#6f7070"
         />
         <link rel="shortcut icon" href="/favicons/favicon.ico" />
-        <meta name="msapplication-TileColor" content="#060606" />
-        <meta
-          name="msapplication-TileImage"
-          content="favicons/mstile-144x144.png"
-        />
+        <meta name="msapplication-TileColor" content="#000000" />
         <meta
           name="msapplication-config"
-          content="favicons/browserconfig.xml"
+          content="/favicons/browserconfig.xml"
         />
         <meta name="theme-color" content="#ffffff" />
 
@@ -54,85 +50,89 @@ const Home: NextPage = () => {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&family=Sue+Ellen+Francisco&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400&family=Caveat:wght@400&display=swap"
           rel="stylesheet"
         />
       </Head>
 
-      <main className={utilityStyles.main}>
-        <Splash title="Zoid Archive" description="Resources for Schizoids" />
+      <div className={utilityStyles.bodyWrap}>
+        <div className={utilityStyles.frame}>
+          <main className={utilityStyles.main}>
+            <Splash description="Resources for Schizoids" />
 
-        <div className="">
-          <h2>Testing Heading</h2>
+            <div className={utilityStyles.content}>
+              <h2>Testing Heading</h2>
 
-          <p>
-            Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
-            consequuntur ut totam accusantium ut deleniti iure. Et expedita
-            sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
-            voluptates quod non aliquam quidem. Qui omnis illum aut earum Quis
-            et eveniet commodi et vero quaerat est necessitatibus tenetur rem
-            maiores voluptas.
-          </p>
-          <p>
-            Eum explicabo perspiciatis ut error quibusdam est impedit Quis. Ad
-            galisum iure qui voluptas voluptatem ad quia reiciendis nam vero
-            rerum est recusandae voluptatum id quia accusantium non repellat
-            blanditiis. Cum autem recusandae et recusandae voluptas qui vitae
-            minus nam optio facere. A quis perspiciatis et quidem magnam est
-            iste assumenda est impedit nulla ex quia voluptatem in veritatis
-            ullam ab fuga voluptatum. Est obcaecati provident nihil nemo qui
-            enim illo et accusantium magnam in accusantium reiciendis in
-            corrupti esse sed ullam nisi. Qui earum dolorum non perferendis
-            incidunt ad similique quia ut sequi voluptatem 33 culpa ipsa. Id
-            quos cumque rem repellat veniam qui vitae voluptas est itaque quae
-            At quas expedita in voluptatem quia ut delectus consequuntur. Aut
-            iure nesciunt rem rerum similique sed quasi velit aut minus
-            voluptatum ab nulla quae.
-          </p>
-          <h2>Testing Heading</h2>
-          <p>
-            Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
-            consequuntur ut totam accusantium ut deleniti iure. Et expedita
-            sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
-            voluptates quod non aliquam quidem. Qui omnis illum aut earum Quis
-            et eveniet commodi et vero quaerat est necessitatibus tenetur rem
-            maiores voluptas.
-          </p>
-          <p>
-            Eum explicabo perspiciatis ut error quibusdam est impedit Quis. Ad
-            galisum iure qui voluptas voluptatem ad quia reiciendis nam vero
-            rerum est recusandae voluptatum id quia accusantium non repellat
-            blanditiis. Cum autem recusandae et recusandae voluptas qui vitae
-            minus nam optio facere. A quis perspiciatis et quidem magnam est
-            iste assumenda est impedit nulla ex quia voluptatem in veritatis
-            ullam ab fuga voluptatum. Est obcaecati provident nihil nemo qui
-            enim illo et accusantium magnam in accusantium reiciendis in
-            corrupti esse sed ullam nisi. Qui earum dolorum non perferendis
-            incidunt ad similique quia ut sequi voluptatem 33 culpa ipsa. Id
-            quos cumque rem repellat veniam qui vitae voluptas est itaque quae
-            At quas expedita in voluptatem quia ut delectus consequuntur. Aut
-            iure nesciunt rem rerum similique sed quasi velit aut minus
-            voluptatum ab nulla quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
-            consequuntur ut totam accusantium ut deleniti iure. Et expedita
-            sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
-            voluptates quod non aliquam quidem. Qui omnis illum aut earum Quis
-            et eveniet commodi et vero quaerat est necessitatibus tenetur rem
-            maiores voluptas.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
-            consequuntur ut totam accusantium ut deleniti iure. Et expedita
-            sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
-            voluptates quod non aliquam quidem. Qui omnis illum aut earum Quis
-            et eveniet commodi et vero quaerat est necessitatibus tenetur rem
-            maiores voluptas.
-          </p>
+              <p>
+                Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
+                consequuntur ut totam accusantium ut deleniti iure. Et expedita
+                sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
+                voluptates quod non aliquam quidem. Qui omnis illum aut earum
+                Quis et eveniet commodi et vero quaerat est necessitatibus
+                tenetur rem maiores voluptas.
+              </p>
+              <p>
+                Eum explicabo perspiciatis ut error quibusdam est impedit Quis.
+                Ad galisum iure qui voluptas voluptatem ad quia reiciendis nam
+                vero rerum est recusandae voluptatum id quia accusantium non
+                repellat blanditiis. Cum autem recusandae et recusandae voluptas
+                qui vitae minus nam optio facere. A quis perspiciatis et quidem
+                magnam est iste assumenda est impedit nulla ex quia voluptatem
+                in veritatis ullam ab fuga voluptatum. Est obcaecati provident
+                nihil nemo qui enim illo et accusantium magnam in accusantium
+                reiciendis in corrupti esse sed ullam nisi. Qui earum dolorum
+                non perferendis incidunt ad similique quia ut sequi voluptatem
+                33 culpa ipsa. Id quos cumque rem repellat veniam qui vitae
+                voluptas est itaque quae At quas expedita in voluptatem quia ut
+                delectus consequuntur. Aut iure nesciunt rem rerum similique sed
+                quasi velit aut minus voluptatum ab nulla quae.
+              </p>
+              <h2>Testing Heading</h2>
+              <p>
+                Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
+                consequuntur ut totam accusantium ut deleniti iure. Et expedita
+                sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
+                voluptates quod non aliquam quidem. Qui omnis illum aut earum
+                Quis et eveniet commodi et vero quaerat est necessitatibus
+                tenetur rem maiores voluptas.
+              </p>
+              <p>
+                Eum explicabo perspiciatis ut error quibusdam est impedit Quis.
+                Ad galisum iure qui voluptas voluptatem ad quia reiciendis nam
+                vero rerum est recusandae voluptatum id quia accusantium non
+                repellat blanditiis. Cum autem recusandae et recusandae voluptas
+                qui vitae minus nam optio facere. A quis perspiciatis et quidem
+                magnam est iste assumenda est impedit nulla ex quia voluptatem
+                in veritatis ullam ab fuga voluptatum. Est obcaecati provident
+                nihil nemo qui enim illo et accusantium magnam in accusantium
+                reiciendis in corrupti esse sed ullam nisi. Qui earum dolorum
+                non perferendis incidunt ad similique quia ut sequi voluptatem
+                33 culpa ipsa. Id quos cumque rem repellat veniam qui vitae
+                voluptas est itaque quae At quas expedita in voluptatem quia ut
+                delectus consequuntur. Aut iure nesciunt rem rerum similique sed
+                quasi velit aut minus voluptatum ab nulla quae.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
+                consequuntur ut totam accusantium ut deleniti iure. Et expedita
+                sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
+                voluptates quod non aliquam quidem. Qui omnis illum aut earum
+                Quis et eveniet commodi et vero quaerat est necessitatibus
+                tenetur rem maiores voluptas.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
+                consequuntur ut totam accusantium ut deleniti iure. Et expedita
+                sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
+                voluptates quod non aliquam quidem. Qui omnis illum aut earum
+                Quis et eveniet commodi et vero quaerat est necessitatibus
+                tenetur rem maiores voluptas.
+              </p>
+            </div>
+          </main>
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 };
 

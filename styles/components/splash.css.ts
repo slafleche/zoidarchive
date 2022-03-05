@@ -1,7 +1,8 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { utilVars, centeredBackground } from "../../utils/styleUtils";
+import * as styleUtils from "../../utils/styleUtils";
 import { spin } from "../globals.css";
-import { absolutePosition, flexPosition } from "../helpers/helperPositioning";
+import { centeredBackground } from "../helpers/background";
+import { absolutePosition, flexPosition } from "../helpers/positioning";
 
 export const [themeClass, vars] = createTheme({
   color: {
@@ -12,18 +13,22 @@ export const [themeClass, vars] = createTheme({
   },
 });
 
+const splashVars = {
+  fontSize: "300px",
+};
+
 export default {
   root: style({
     ...centeredBackground("/images/hero.jpg"),
     minHeight: "100vh",
-    color: utilVars.white.hex(),
+    color: styleUtils.utilVars.white.hex(),
     ...flexPosition().middle(),
   }),
   title: style({
-    display: "block",
+    ...flexPosition().middle(),
     padding: "0",
     margin: "0",
-    fontSize: "300px",
+    fontSize: splashVars.fontSize,
     textShadow: "rgb(0 0 0 / 100%) 4px 7px 15px",
   }),
   titleWrap: style({
@@ -34,7 +39,7 @@ export default {
     padding: "0",
     margin: "0",
     textShadow: "rgb(0 0 0 / 100%) 4px 7px 15px",
-    backgroundColor: utilVars.black.alpha(0.5).hex(),
+    backgroundColor: styleUtils.utilVars.black.alpha(0.5).hex(),
     width: "100%",
     textAlign: "center",
   }),
@@ -48,9 +53,15 @@ export default {
     flexDirection: "column",
   }),
   logo: style({
-    width: "100px",
+    width: "50px",
     height: "auto",
     animation: `4s infinite linear ${spin}`,
+    margin: "0 10px 20px",
   }),
   titleWord: style({}),
+  logoSpacer: style({
+    ...flexPosition().middle(),
+    width: styleUtils.divide(splashVars.fontSize, 2),
+    height: splashVars.fontSize,
+  }),
 };

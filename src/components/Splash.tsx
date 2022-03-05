@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import classes from "../../styles/components/splash.css";
-import utilityStyles from "../../styles/helpers/utilities.css";
 import { Logo } from "./Logo";
 import classNames from "classnames";
 
@@ -16,7 +15,9 @@ export function Splash(props: IProps) {
         <div className={classes.content}>
           <h1 className={classes.title}>
             <span className={classes.titleWord}>Zoid</span>
-            <Logo className={classNames(classes.logo)} />
+            <div className={classes.logoSpacer}>
+              <Logo className={classNames(classes.logo)} />
+            </div>
             <span className={classes.titleWord}>Archive</span>
           </h1>
           {props.description && (

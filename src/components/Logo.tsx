@@ -1,5 +1,4 @@
 import React from "react";
-import utilityStyles from "../../styles/helpers/utilities.css";
 import classnames from "classnames";
 
 interface IProps {
