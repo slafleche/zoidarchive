@@ -15,10 +15,10 @@ real-favicon generate faviconDescription.json faviconData.json public/favicons
 ```
 
 ### Update favicons
+
 ```
 real-favicon check-for-update --fail-on-update faviconData.json
 ```
-
 
 ## To do:
 
@@ -28,6 +28,8 @@ real-favicon check-for-update --fail-on-update faviconData.json
   - load styles above fold
   - Optimize images
   - postCSS
+- Tests
+  - Jest?
 - Documentation
   - Feedback/content
   - Storybook?

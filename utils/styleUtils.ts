@@ -43,28 +43,28 @@ export const unit = (
 };
 
 export const splitUnit = (value: string): { val: number; unit: string } => {
-  if (isNumeric(value)) {
-    let val = value.trim();
-    const unit = val.match(/(-?[\d.]+)([a-z%]*)/).toString();
-    if (unit && unit.length > 0) {
-      val = val.slice(0, -unit.length).trim();
-    }
-
-    const parsedVal = Number(val);
-
-    if (isNumeric(parsedVal)) {
-      return {
-        val: parsedVal,
-        unit,
-      };
-    }
-  }
-
-  // Fallback
-  return {
-    val: null,
-    unit: null,
+  const err = new Error("Invalid value to split");
+  console.log(`\n______ original value: "${value}"`);
+  const result = {
+    val: undefined,
+    unit: undefined,
   };
+
+  try {
+    let val = value.trim();
+    let unit = val.replace(/^-?(0|[1-9]\d*)?([.][0-9]*)?/, ""); // not yet trimmed
+    val = val.substring(0, val.length - unit.length);
+    if (val === "-0") {
+      val = "0";
+    }
+    result.val = Number(val);
+    if (unit.length > 0) {
+      result.unit = unit.trim();
+    }
+    return result;
+  } catch (e) {
+    console.error(e.message, e.name);
+  }
 };
 
 export const reapplyUnit = (val: number, unit: string) => {
@@ -79,56 +79,3 @@ export const divide = (
   const style = splitUnit(value);
   return `${(style.val / denominator).toFixed(decimals || 2)} ${style.unit}`;
 };
-
-console.log("");
-console.log("======");
-console.log("Testing: ");
-const test1 = "iasjfajfjasd";
-const result1 = splitUnit(test1);
-console.log(`test 1: in: ${test1}, expecting: "null" and "null"`);
-console.log(
-  `                       result 1: "${result1.val}" and "${result1.unit}"`
-);
-console.log("");
-const test2 = "49994 askjdasljfs ja";
-console.log(
-  `                       result 1: "${result1.val}" and "${result1.unit}"`
-);
-console.log("");
-const test3 = "4.4";
-console.log(
-  `                       result 1: "${result1.val}" and "${result1.unit}"`
-);
-console.log("");
-const test4 = "4";
-console.log(
-  `                       result 1: "${result1.val}" and "${result1.unit}"`
-);
-console.log("");
-const test5 = "4%";
-console.log(
-  `                       result 1: "${result1.val}" and "${result1.unit}"`
-);
-console.log("");
-const test6 = "4.4453253524%";
-console.log(
-  `                       result 1: "${result1.val}" and "${result1.unit}"`
-);
-console.log("");
-const test7 = "5 px";
-console.log(
-  `                       result 1: "${result1.val}" and "${result1.unit}"`
-);
-console.log("");
-const test8 = "4.4453253524px";
-console.log(
-  `                       result 1: "${result1.val}" and "${result1.unit}"`
-);
-console.log("");
-const test9 = "4.4453253524 em";
-console.log(
-  `                       result 1: "${result1.val}" and "${result1.unit}"`
-);
-console.log("");
-console.log("======");
-console.log("");
