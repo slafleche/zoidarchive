@@ -1,13 +1,8 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import React from "react";
 
-export default function Document() {
+export function Fonts() {
   return (
-    <Html>
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
+    <>
       {/* Fonts */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
@@ -19,6 +14,6 @@ export default function Document() {
         href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400&family=Caveat:wght@400&display=swap"
         rel="stylesheet"
       />
-    </Html>
+    </>
   );
 }
