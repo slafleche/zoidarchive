@@ -44,12 +44,10 @@ export const unit = (
 
 export const splitUnit = (value: string): { val: number; unit: string } => {
   const err = new Error("Invalid value to split");
-  console.log(`\n______ original value: "${value}"`);
   const result = {
     val: undefined,
     unit: undefined,
   };
-
   try {
     let val = value.trim();
     let unit = val.replace(/^-?(0|[1-9]\d*)?([.][0-9]*)?/, ""); // not yet trimmed
@@ -78,4 +76,14 @@ export const divide = (
 ): string => {
   const style = splitUnit(value);
   return `${(style.val / denominator).toFixed(decimals || 2)} ${style.unit}`;
+};
+
+export const multiply = (value: string, denominator: number): string => {
+  const style = splitUnit(value);
+  return `${style.val * denominator} ${style.unit}`;
+};
+
+export const math = {
+  divide,
+  multiply,
 };

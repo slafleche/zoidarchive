@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import * as csstype from "csstype";
-import { isNumeric } from "../../src/utils/utils";
+import { isNumeric } from "../src/utils/utils";
 
 // Utility classes
 // Note that in contrast to helper functions, they output a ready made class,
@@ -11,7 +11,7 @@ const utilityClasses = {
     visibility: "hidden !important" as csstype.Property.Visibility,
   }),
 
-  uScOnly: style({
+  isScOnly: style({
     position: "absolute",
     width: "1px",
     height: "1px",
@@ -22,12 +22,14 @@ const utilityClasses = {
     border: "0",
   }),
 
-  hidden: style({
+  isHidden: style({
     display: "none !important" as csstype.Property.Display,
   }),
 
-  noInteraction: style({
+  isNoInteraction: style({
     userSelect: "none",
     pointerEvents: "none",
   }),
 };
+
+export default utilityClasses;

@@ -74,6 +74,10 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
   letterSpacing: globalVars.fonts.heading.letterSpacing,
 });
 
+globalStyle("a:focus:not(.focus-visible)", {
+  outline: "none",
+});
+
 export default globalVars;
 function concat(fontFallbacks: string[], arg1: string, arg2: string): any {
   throw new Error("Function not implemented.");

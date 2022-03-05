@@ -48,7 +48,6 @@ const Home: NextPage = () => {
         <div className={utilityStyles.frame}>
           <main className={utilityStyles.main}>
             <Splash />
-            <ScrollTarget />
             <div className={utilityStyles.content}>
               <h2>Testing Heading</h2>
 

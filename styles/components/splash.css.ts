@@ -1,5 +1,5 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import * as styleUtils from "../../utils/styleUtils";
+import { utilVars, math } from "../../utils/styleUtils";
 import { spin } from "../globals.css";
 import { centeredBackground } from "../helpers/background";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
@@ -21,7 +21,7 @@ export default {
   root: style({
     ...centeredBackground("/images/hero.jpg"),
     minHeight: "100vh",
-    color: styleUtils.utilVars.white.hex(),
+    color: utilVars.white.hex(),
     ...flexPosition().middle(),
   }),
   title: style({
@@ -39,7 +39,7 @@ export default {
     padding: "0",
     margin: "0",
     textShadow: "rgb(0 0 0 / 100%) 4px 7px 15px",
-    backgroundColor: styleUtils.utilVars.black.alpha(0.5).hex(),
+    backgroundColor: utilVars.black.alpha(0.5).hex(),
     width: "100%",
     textAlign: "center",
   }),
@@ -59,9 +59,16 @@ export default {
     margin: "0 10px 20px",
   }),
   titleWord: style({}),
+  scrollToContent: style({
+    
+  }),
+  scrollToContentIcon: style({
+    fill: utilVars.white.hex(),
+    width: "60px",
+  }),
   logoSpacer: style({
     ...flexPosition().middle(),
-    width: styleUtils.divide(splashVars.fontSize, 2),
+    width: math.divide(splashVars.fontSize, 2),
     height: splashVars.fontSize,
   }),
 };
