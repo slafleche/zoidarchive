@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { ScrollTarget } from "../src/components/ScrollTarget";
 import { Splash } from "../src/components/Splash";
 import utilityStyles from "../styles/components/layout.css";
 
@@ -46,8 +47,8 @@ const Home: NextPage = () => {
       <div className={utilityStyles.bodyWrap}>
         <div className={utilityStyles.frame}>
           <main className={utilityStyles.main}>
-            <Splash description="Resources for Schizoids" />
-
+            <Splash />
+            <ScrollTarget />
             <div className={utilityStyles.content}>
               <h2>Testing Heading</h2>
 

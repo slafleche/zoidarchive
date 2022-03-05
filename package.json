@@ -12,7 +12,8 @@
     "next": "12.1.0",
     "normalize-css": "^2.3.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-scroll": "^1.8.6"
   },
   "devDependencies": {
     "@types/chroma-js": "^2.1.3",
