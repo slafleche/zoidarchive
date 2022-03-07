@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { ScrollTarget } from "../src/components/ScrollTarget";
+import { Navbar } from "../src/components/Navbar";
 import { Splash } from "../src/components/Splash";
 import utilityStyles from "../styles/components/layout.css";
 
@@ -118,6 +118,7 @@ const Home: NextPage = () => {
               </p>
             </div>
           </main>
+          <Navbar />
         </div>
       </div>
     </>

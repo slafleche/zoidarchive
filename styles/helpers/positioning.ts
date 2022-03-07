@@ -91,6 +91,30 @@ export const absolutePosition = {
       margin: "auto 0",
     };
   },
+  middleBottom: (bottom: csstype.Property.Bottom = "0px") => {
+    return {
+      position: "absolute" as csstype.Property.Position,
+      display: "block",
+      bottom,
+      left: 0,
+      right: 0,
+      maxHeight: "100%",
+      maxWidth: "100%",
+      margin: "0 auto",
+    };
+  },
+  middleTop: (top: csstype.Property.Top = "0px") => {
+    return {
+      position: "absolute" as csstype.Property.Position,
+      display: "block",
+      top,
+      left: 0,
+      right: 0,
+      maxHeight: "100%",
+      maxWidth: "100%",
+      margin: "0 auto",
+    };
+  },
   fullSize: () => {
     return {
       display: "block",
@@ -103,36 +127,34 @@ export const absolutePosition = {
   },
 };
 
-export function flexPosition() {
-  return {
-    middle: (wrap = false) => {
-      return {
-        display: "flex" as csstype.Property.Display,
-        alignItems: "center" as csstype.Property.AlignItems,
-        justifyContent: "center" as csstype.Property.JustifyContent,
-        flexWrap: (wrap ? "wrap" : "nowrap") as csstype.Property.FlexWrap,
-      };
-    },
+export const flexPosition = {
+  middle: (wrap = false) => {
+    return {
+      display: "flex" as csstype.Property.Display,
+      alignItems: "center" as csstype.Property.AlignItems,
+      justifyContent: "center" as csstype.Property.JustifyContent,
+      flexWrap: (wrap ? "wrap" : "nowrap") as csstype.Property.FlexWrap,
+    };
+  },
 
-    middleLeft: (wrap = false) => {
-      return {
-        display: "flex" as csstype.Property.Display,
-        alignItems: "center" as csstype.Property.AlignItems,
-        justifyContent: "flex-start" as csstype.Property.JustifyContent,
-        flexWrap: wrap ? "wrap" : ("nowrap" as csstype.Property.FlexWrap),
-      };
-    },
+  middleLeft: (wrap = false) => {
+    return {
+      display: "flex" as csstype.Property.Display,
+      alignItems: "center" as csstype.Property.AlignItems,
+      justifyContent: "flex-start" as csstype.Property.JustifyContent,
+      flexWrap: wrap ? "wrap" : ("nowrap" as csstype.Property.FlexWrap),
+    };
+  },
 
-    middleRight: (wrap = false) => {
-      return {
-        display: "flex" as csstype.Property.Display,
-        alignItems: "center" as csstype.Property.AlignItems,
-        justifyContent: "flex-end" as csstype.Property.JustifyContent,
-        flexWrap: wrap ? "wrap" : ("nowrap" as csstype.Property.FlexWrap),
-      };
-    },
-  };
-}
+  middleRight: (wrap = false) => {
+    return {
+      display: "flex" as csstype.Property.Display,
+      alignItems: "center" as csstype.Property.AlignItems,
+      justifyContent: "flex-end" as csstype.Property.JustifyContent,
+      flexWrap: wrap ? "wrap" : ("nowrap" as csstype.Property.FlexWrap),
+    };
+  },
+};
 
 // export function flexMiddle() {
 //   return {

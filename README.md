@@ -22,6 +22,12 @@ real-favicon check-for-update --fail-on-update faviconData.json
 
 ## To do:
 
+- Figure out
+  - Vanilla Extract
+    - Themes/Varaibles
+    - Sprinkles
+    - Recipes
+    - Try light/dark theme
 - optimizations
   - minify normalize.css
   - minify html

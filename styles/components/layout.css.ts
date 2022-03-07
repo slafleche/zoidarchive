@@ -22,7 +22,7 @@ const layout = {
     //   repeat: "repeat",
     //   image: "/images/pattern.svg",
     //   // size: "49px",
-    // }), 
+    // }),
 
     ...backgroundHelper({
       repeat: "repeat",

@@ -57,6 +57,7 @@ globalStyle("body", {
     image: "/images/paper.jpg",
     size: "50%",
   }),
+  padding: "0 0 150px",
 });
 
 globalStyle("html, body", {

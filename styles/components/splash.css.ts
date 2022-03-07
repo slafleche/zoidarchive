@@ -1,38 +1,69 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { utilVars, math } from "../../utils/styleUtils";
+import * as csstype from "csstype";
+import { utilVars, math, measurement } from "../../utils/styleUtils";
 import { spin } from "../globals.css";
 import { centeredBackground } from "../helpers/background";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 
-export const [themeClass, vars] = createTheme({
-  color: {
-    // brand: "blue",
+const logoSize = measurement("50px");
+const logoWrapSize = math.multiply(logoSize, 1.5);
+
+const vars = {
+  logo: {
+    size: logoSize.toString(),
   },
-  font: {
-    // body: "arial",
+  size: {
+    font: "16vw",
+  },
+};
+
+const logoSpacer = style({
+  ...flexPosition.middle(),
+  position: "relative",
+  width: logoWrapSize,
+  height: logoWrapSize,
+  minWidth: vars.logo.size,
+  minHeight: vars.logo.size,
+  zIndex: 1,
+  transform: "translate(0, 15%)",
+
+  selectors: {
+    "&:before": {
+      ...absolutePosition.fullSize(),
+      content: "",
+      backgroundColor: "black",
+      borderRadius: "50%",
+      display: "block",
+      boxShadow: "0 0 10px black",
+      opacity: "0.3",
+      transform: "translate(0%, 5%) scale(65%)",
+    },
   },
 });
 
-const splashVars = {
-  fontSize: "300px",
-};
+const logo = style({
+  width: vars.logo.size,
+  height: "auto",
+  animation: `14s infinite linear ${spin}`,
+});
 
 export default {
   root: style({
     ...centeredBackground("/images/hero.jpg"),
     minHeight: "100vh",
     color: utilVars.white.hex(),
-    ...flexPosition().middle(),
+    ...flexPosition.middle(),
+    position: "relative",
   }),
   title: style({
-    ...flexPosition().middle(),
+    ...flexPosition.middle(),
     padding: "0",
     margin: "0",
-    fontSize: splashVars.fontSize,
+    fontSize: vars.size.font,
     textShadow: "rgb(0 0 0 / 100%) 4px 7px 15px",
   }),
   titleWrap: style({
-    ...flexPosition().middle(),
+    ...flexPosition.middle(),
   }),
   description: style({
     display: "block",
@@ -48,27 +79,37 @@ export default {
     ...absolutePosition.fullSize(),
   }),
   content: style({
-    ...flexPosition().middleLeft(true),
+    ...flexPosition.middleLeft(true),
     width: "100%",
     flexDirection: "column",
   }),
-  logo: style({
-    width: "50px",
-    height: "auto",
-    animation: `4s infinite linear ${spin}`,
-    margin: "0 10px 20px",
+
+  titleZoid: style({
+    marginRight: "0.59ex",
   }),
-  titleWord: style({}),
+  titleArchive: style({
+    marginLeft: "-0.12ex",
+  }),
+  titleWord: style({
+    letterSpacing: "-0.2ex",
+  }),
   scrollToContent: style({
-    
+    ...absolutePosition.middleBottom(),
+    width: "100%",
+    height: "100px",
+    ...flexPosition.middle(),
+    opacity: 0.5,
+    transition: "opacity 0.2s ease-out",
+    selectors: {
+      [`&:hover, &:active, &:focus`]: {
+        opacity: 0.8,
+      },
+    },
   }),
   scrollToContentIcon: style({
     fill: utilVars.white.hex(),
     width: "60px",
   }),
-  logoSpacer: style({
-    ...flexPosition().middle(),
-    width: math.divide(splashVars.fontSize, 2),
-    height: splashVars.fontSize,
-  }),
+  logoSpacer,
+  logo,
 };

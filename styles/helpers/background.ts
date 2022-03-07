@@ -1,5 +1,4 @@
 import * as csstype from "csstype";
-import { isNumeric } from "../../src/utils/utils";
 
 export interface IBackground {
   color?: csstype.Property.BackgroundColor;

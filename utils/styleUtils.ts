@@ -8,45 +8,53 @@ export const utilVars = {
 import * as csstype from "csstype";
 import { isNumeric } from "../src/utils/utils";
 
-export const unit = (
-  val: string | number | undefined
-  //   options?: {
-  //     isImportant?: boolean;
-  //   }
-) => {
-  //   const { isImportant = false } = options || {};
+// export const unit = (
+//   val: string | number | undefined
+//   //   options?: {
+//   //     isImportant?: boolean;
+//   //   }
+// ) => {
+//   //   const { isImportant = false } = options || {};
 
-  if (typeof val === "object") {
-    console.log(
-      `You cannot pass objects (${JSON.stringify(val)}) to the "unit" function`
-    );
-    return undefined;
-  }
+//   if (typeof val === "object") {
+//     console.log(
+//       `You cannot pass objects (${JSON.stringify(val)}) to the "unit" function`
+//     );
+//     return undefined;
+//   }
 
-  if (val === undefined) {
-    return undefined;
-  }
+//   if (val === undefined) {
+//     return undefined;
+//   }
 
-  const valIsNumeric = isNumeric(val.toString().trim());
+//   const valIsNumeric = isNumeric(val.toString().trim());
 
-  let output;
+//   let output;
 
-  if (typeof val === "string" && !valIsNumeric) {
-    output = val;
-  } else if (val !== undefined && val !== null && valIsNumeric) {
-    output = `${val} px`;
-  } else {
-    output = val;
-  }
+//   if (typeof val === "string" && !valIsNumeric) {
+//     output = val;
+//   } else if (val !== undefined && val !== null && valIsNumeric) {
+//     output = `${val} px`;
+//   } else {
+//     output = val;
+//   }
 
-  return output;
-};
+//   return output;
+// };
 
-export const splitUnit = (value: string): { val: number; unit: string } => {
+// Object representing a CSS measurement (eg. "10px" or "30vh");
+interface IMeasurement {
+  val: number;
+  unit: string;
+  toString: () => string;
+}
+
+export const measurement = (value: string): IMeasurement => {
   const err = new Error("Invalid value to split");
   const result = {
     val: undefined,
     unit: undefined,
+    toString: undefined,
   };
   try {
     let val = value.trim();
@@ -55,32 +63,40 @@ export const splitUnit = (value: string): { val: number; unit: string } => {
     if (val === "-0") {
       val = "0";
     }
-    result.val = Number(val);
-    if (unit.length > 0) {
-      result.unit = unit.trim();
-    }
+    const valParsed = Number(val);
+    unit = unit.trim();
+    result.val = valParsed;
+    result.unit = unit;
+    result.toString = () => {
+      return `${valParsed}${unit}`;
+    };
     return result;
   } catch (e) {
     console.error(e.message, e.name);
   }
 };
 
-export const reapplyUnit = (val: number, unit: string) => {
-  return `${val} ${unit}`;
-};
-
 export const divide = (
-  value: string,
+  value: string | IMeasurement,
   denominator: number,
   decimals?: number
 ): string => {
-  const style = splitUnit(value);
-  return `${(style.val / denominator).toFixed(decimals || 2)} ${style.unit}`;
+  let style = value;
+  if (typeof style === "string") {
+    style = measurement(value as string);
+  }
+  return `${(style.val / denominator).toFixed(decimals || 2)}${style.unit}`;
 };
 
-export const multiply = (value: string, denominator: number): string => {
-  const style = splitUnit(value);
-  return `${style.val * denominator} ${style.unit}`;
+export const multiply = (
+  value: string | IMeasurement,
+  denominator: number
+): string => {
+  let style = value;
+  if (typeof style === "string") {
+    style = measurement(value as string);
+  }
+  return `${style.val * denominator}${style.unit}`;
 };
 
 export const math = {
