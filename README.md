@@ -37,6 +37,10 @@ real-favicon check-for-update --fail-on-update faviconData.json
 - Tests
   - Jest?
 - Documentation
+
   - Feedback/content
   - Storybook?
   - RSS
+
+- Next SEO
+- React Sticky (menu)

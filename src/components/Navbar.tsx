@@ -4,6 +4,9 @@ import utilityClasses from "../../styles/utilityClasses.css";
 // import { useRouter } from "next/router";
 import { NavbarItem } from "./NavbarItem";
 import navBarStyles from "../../styles/components/navbar.css";
+import { Sticky } from "react-sticky";
+import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
+import "@reach/skip-nav/styles.css";
 
 interface IProps {
   classes?: string;
@@ -49,18 +52,24 @@ export function Navbar(props: IProps) {
   }
 
   return (
-    <>
-      <div className={classnames(props.classes, navBarStyles.root)}>
-        <nav aria-labelledby={id} className={navBarStyles.nav}>
-          <h2 id={id} className={utilityClasses.isScOnly}>
-            Main Menu
-          </h2>
-          <ul className={navBarStyles.items}>
-            {/* Skip nav */}
-            {navItems}
-          </ul>
-        </nav>
-      </div>
-    </>
+    <Sticky>
+      {({ style, isSticky, wasSticky }) => (
+        <div
+          style={style}
+          className={classnames(props.classes, navBarStyles.root, {
+            isSticky: isSticky,
+            wasSticky: wasSticky,
+          })}
+        >
+          <nav aria-labelledby={id} className={navBarStyles.nav}>
+            <SkipNavLink>Skip to content</SkipNavLink>
+            <h2 id={id} className={utilityClasses.isScOnly}>
+              Main Menu
+            </h2>
+            <ul className={navBarStyles.items}>{navItems}</ul>
+          </nav>
+        </div>
+      )}
+    </Sticky>
   );
 }
