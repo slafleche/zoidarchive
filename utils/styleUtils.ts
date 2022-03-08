@@ -5,43 +5,6 @@ export const utilVars = {
   white: chroma("#FFF"),
 };
 
-import * as csstype from "csstype";
-import { isNumeric } from "../src/utils/utils";
-
-// export const unit = (
-//   val: string | number | undefined
-//   //   options?: {
-//   //     isImportant?: boolean;
-//   //   }
-// ) => {
-//   //   const { isImportant = false } = options || {};
-
-//   if (typeof val === "object") {
-//     console.log(
-//       `You cannot pass objects (${JSON.stringify(val)}) to the "unit" function`
-//     );
-//     return undefined;
-//   }
-
-//   if (val === undefined) {
-//     return undefined;
-//   }
-
-//   const valIsNumeric = isNumeric(val.toString().trim());
-
-//   let output;
-
-//   if (typeof val === "string" && !valIsNumeric) {
-//     output = val;
-//   } else if (val !== undefined && val !== null && valIsNumeric) {
-//     output = `${val} px`;
-//   } else {
-//     output = val;
-//   }
-
-//   return output;
-// };
-
 // Object representing a CSS measurement (eg. "10px" or "30vh");
 interface IMeasurement {
   val: number;

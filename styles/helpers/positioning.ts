@@ -1,5 +1,4 @@
 import * as csstype from "csstype";
-import { unit } from "../../utils/styleUtils";
 
 export const absolutePosition = {
   topRight: (
@@ -8,8 +7,8 @@ export const absolutePosition = {
   ) => {
     return {
       position: "absolute" as csstype.Property.Position,
-      top: unit(top),
-      right: unit(right),
+      top,
+      right,
     };
   },
   topLeft: (
@@ -18,8 +17,8 @@ export const absolutePosition = {
   ) => {
     return {
       position: "absolute" as csstype.Property.Position,
-      top: unit(top),
-      left: unit(left),
+      top,
+      left,
     };
   },
   bottomRight: (
@@ -28,8 +27,8 @@ export const absolutePosition = {
   ) => {
     return {
       position: "absolute" as csstype.Property.Position,
-      bottom: unit(bottom),
-      right: unit(right),
+      bottom,
+      right,
     };
   },
   bottomLeft: (
@@ -38,8 +37,8 @@ export const absolutePosition = {
   ) => {
     return {
       position: "absolute" as csstype.Property.Position,
-      bottom: unit(bottom),
-      left: unit(left),
+      bottom,
+      left,
     };
   },
   middle: (shrink: boolean = false) => {

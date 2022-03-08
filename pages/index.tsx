@@ -2,55 +2,23 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { Navbar } from "../src/components/Navbar";
 import { Splash } from "../src/components/Splash";
+import { Favicons } from "../src/partials/Favicons";
 import utilityStyles from "../styles/components/layout.css";
 
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Zoid Archive</title>
-        <meta name="description" content="Resources for the Zoid Community" />
-
-        {/* Favicons */}
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicons/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicons/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicons/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/favicons/site.webmanifest" />
-        <link
-          rel="mask-icon"
-          href="/favicons/safari-pinned-tab.svg"
-          color="#6f7070"
-        />
-        <link rel="shortcut icon" href="/favicons/favicon.ico" />
-        <meta name="msapplication-TileColor" content="#000000" />
-        <meta
-          name="msapplication-config"
-          content="/favicons/browserconfig.xml"
-        />
-        <meta name="theme-color" content="#ffffff" />
-      </Head>
-
       <div className={utilityStyles.bodyWrap}>
+        <Head>
+          <title>Zoid Archive</title>
+          <meta name="description" content="Resources for the Zoid Community" />
+          <Favicons />
+        </Head>
         <div className={utilityStyles.frame}>
           <main className={utilityStyles.main}>
             <Splash />
             <div className={utilityStyles.content}>
               <h2>Testing Heading</h2>
-
               <p>
                 Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
                 consequuntur ut totam accusantium ut deleniti iure. Et expedita
@@ -118,8 +86,8 @@ const Home: NextPage = () => {
               </p>
             </div>
           </main>
-          <Navbar />
         </div>
+        <Navbar />
       </div>
     </>
   );

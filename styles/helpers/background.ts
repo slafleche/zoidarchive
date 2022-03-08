@@ -27,11 +27,6 @@ export const getBackgroundImage = (
   if (!image) {
     return undefined;
   }
-  image = image.toString();
-
-  if (image.startsWith("data:image/")) {
-    return `url(${image})`;
-  }
 
   if (image.startsWith("linear-gradient(")) {
     return image;

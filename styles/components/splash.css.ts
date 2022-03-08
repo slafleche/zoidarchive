@@ -61,6 +61,7 @@ export default {
     margin: "0",
     fontSize: vars.size.font,
     textShadow: "rgb(0 0 0 / 100%) 4px 7px 15px",
+    color: utilVars.white.hex(),
   }),
   titleWrap: style({
     ...flexPosition.middle(),

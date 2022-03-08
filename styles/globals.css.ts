@@ -3,11 +3,10 @@ import {
   globalStyle,
   keyframes,
 } from "@vanilla-extract/css";
-
-import * as csstype from "csstype";
+import chroma from "chroma-js";
 import { backgroundHelper, centeredBackground } from "./helpers/background";
-
-// import paperBg from "../public/images/paper.jpg";
+import * as csstype from "csstype";
+import { CSS } from "@vanilla-extract/css/dist/declarations/src/types";
 
 export const fontFallbacks = [
   "-apple-system",
@@ -36,12 +35,14 @@ const globalVars = createGlobalTheme(":root", {
       size: "60px",
       weight: "400",
       letterSpacing: "0.5px",
+      color: "#282b37",
     },
     body: {
       family: "Klee One, " + fontFallbacks,
       size: "25px",
       weight: "400",
       letterSpacing: "-0.8px",
+      color: "#101419",
     },
   },
 });
@@ -57,10 +58,10 @@ globalStyle("body", {
     image: "/images/paper.jpg",
     size: "50%",
   }),
-  padding: "0 0 150px",
 });
 
 globalStyle("html, body", {
+  color: globalVars.fonts.heading.color,
   fontFamily: globalVars.fonts.body.family,
   fontSize: globalVars.fonts.body.size,
   fontWeight: globalVars.fonts.body.weight,
@@ -69,6 +70,7 @@ globalStyle("html, body", {
 });
 
 globalStyle("h1, h2, h3, h4, h5, h6", {
+  color: globalVars.fonts.heading.color,
   fontFamily: globalVars.fonts.heading.family,
   fontSize: globalVars.fonts.heading.size,
   fontWeight: globalVars.fonts.heading.weight,
@@ -79,31 +81,8 @@ globalStyle("a:focus:not(.focus-visible)", {
   outline: "none",
 });
 
-export default globalVars;
-function concat(fontFallbacks: string[], arg1: string, arg2: string): any {
-  throw new Error("Function not implemented.");
-}
-
 export const spin = keyframes({
   "0%": { transform: "rotate(-360deg)" },
 });
 
-// globalStyle(".Material Icons", {
-//     fontFamily: 'Material Icons',
-//   fontWeight: normal,
-//   fontStyle: normal,
-//   fontSize: 24px,
-//   display: inline-block,
-//   lineHeight: 1,
-//   textTransform: none,
-//   letterSpacing: normal,
-//   wordWrap: normal,
-//   whiteSpace: nowrap,
-//   direction: ltr,
-
-//   -webkit-font-smoothing: antialiased,
-
-//   text-rendering: optimizeLegibility,
-//   -moz-osx-font-smoothing: grayscale,
-//   fontFeature-settings: 'liga',
-// });
+export default globalVars;
