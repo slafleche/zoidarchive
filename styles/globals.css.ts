@@ -7,6 +7,7 @@ import chroma from "chroma-js";
 import { backgroundHelper, centeredBackground } from "./helpers/background";
 import * as csstype from "csstype";
 import { CSS } from "@vanilla-extract/css/dist/declarations/src/types";
+import { multiply } from "../utils/styleUtils";
 
 export const fontFallbacks = [
   "-apple-system",
@@ -75,6 +76,11 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
   fontSize: globalVars.fonts.heading.size,
   fontWeight: globalVars.fonts.heading.weight,
   letterSpacing: globalVars.fonts.heading.letterSpacing,
+});
+
+globalStyle("h1", {
+  textAlign: "center",
+  fontSize: "80px",
 });
 
 globalStyle("a:focus:not(.focus-visible)", {
