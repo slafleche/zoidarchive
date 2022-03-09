@@ -10,22 +10,17 @@ import "@reach/skip-nav/styles.css";
 
 interface IProps {
   classes?: string;
-  //   currentRoute: string;
+  homepage?: boolean;
 }
 
 export function Navbar(props: IProps) {
+  const { classes, homepage } = props;
   const id = "mainMenu";
-  //   const router = useRouter();
-
-  //   const [active, setActive] = useState(false);
-  //   const handleClick = () => {
-  //     setActive(!active);
-  //   };
 
   const menuItems = [
     {
       url: "/",
-      label: "Home",
+      label: "home",
     },
     {
       url: "/communities",
@@ -42,6 +37,7 @@ export function Navbar(props: IProps) {
   ];
 
   var navItems = [];
+
   for (var i = 0; i < menuItems.length; i++) {
     const { url, label } = menuItems[i];
     navItems.push(
@@ -56,7 +52,7 @@ export function Navbar(props: IProps) {
       {({ style, isSticky, wasSticky }) => (
         <div
           style={style}
-          className={classnames(props.classes, navBarStyles.root, {
+          className={classnames(classes, navBarStyles.root, {
             isSticky: isSticky,
             wasSticky: wasSticky,
           })}

@@ -10,17 +10,10 @@ import { SkipNavContent } from "@reach/skip-nav";
 const Home: NextPage = () => {
   return (
     <>
-      <div className={utilityStyles.bodyWrap}>
-        <Head>
-          <title>Zoid Archive</title>
-          <meta name="description" content="Resources for the Zoid Community" />
-          <Favicons />
-        </Head>
-        <div className={utilityStyles.frame}>
-          <main className={utilityStyles.main}>
+
             <Splash />
             <StickyContainer>
-              <Navbar />
+              <Navbar homepage={true}/>
               <SkipNavContent>
                 <div className={utilityStyles.content}>
                   <h2>Testing Heading</h2>
@@ -94,9 +87,7 @@ const Home: NextPage = () => {
                 </div>
               </SkipNavContent>
             </StickyContainer>
-          </main>
-        </div>
-      </div>
+
     </>
   );
 };
