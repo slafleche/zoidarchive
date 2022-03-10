@@ -1,6 +1,10 @@
 const readline = require("readline");
 const svg64 = require("svg64");
 const { readFileSync } = require("fs");
+const path = require("path");
+const fs = require("fs");
+
+const directoryPath = path.join(__dirname, "src/svgs");
 
 function pbcopy(data) {
   return new Promise(function (resolve, reject) {
@@ -16,68 +20,85 @@ function pbcopy(data) {
   });
 }
 
-const svgs = [
-  {
-    label: "Polka Dots",
-    source: "./src/svgs/pattern.svg",
-  },
-  {
-    label: "web",
-    source: "./src/svgs/web.svg",
-  },
-  {
-    label: "prism",
-    source: "./src/svgs/prism.svg",
-  },
-];
+const listAllSVGs = (svgs) => {
+  var output = "\n";
+  // console.log("svgs: ", svgs);
 
-const printAll = () => {
-  console.log("");
-  console.log("base64fromSVG: ");
   for (var i = 0; i < svgs.length; i++) {
     const { label, source } = svgs[i];
-    console.log(`${label}: \n${svg64(readFileSync(source, "utf-8"))}`);
-    console.log("");
+    output += `${label}: \n\n${svg64(readFileSync(source, "utf-8"))}\n\n`;
   }
+  return output;
 };
 
-const printOne = (svgNo) => {
-  const { label, source } = svgs[svgNo];
-  console.log(`\n${label}: \n${svg64(readFileSync(source, "utf-8"))}\n`);
-};
-
-const getData = (svgNo) => {
-  try {
-    return svg64(readFileSync(svgs[svgNo].source, "utf-8"));
-  } catch (e) {
-    console.log("\nInvalid Selection, try again...\n");
-  }
-};
-
-let menu = `Would you like to:\n
-(A) Print all SVGs?\n`;
-for (var i = 0; i < svgs.length; i++) {
-  menu += `(${i}) Print out "${svgs[i].source}")\n`;
-}
-menu += "\n";
-
-function askQuestion(query) {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
+const getSVGsFromFolder = () => {
+  const svgs = [];
+  return new Promise((resolve, reject) => {
+    fs.readdir(directoryPath, function (error, data) {
+      if (error) {
+        reject(error);
+      } else {
+        data.forEach(function (svg) {
+          svgs.push({
+            label: svg,
+            source: path.resolve(directoryPath, svg),
+          });
+        });
+        resolve(svgs);
+      }
+    });
   });
+};
 
-  rl.question(menu, (option) => {
-    if (option == "a") {
-      printAll();
-    } else {
-      const result = getData(option);
-      console.log(result);
-      pbcopy(result);
-      console.log("\nCopied to clipboard!\n");
-      process.exit(0);
+const getUserInput = (menu, svgs) => {
+  return new Promise((resolve, reject) => {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
+    rl.question(menu, (answer) => {
+      if (answer == "a") {
+        const allSvgs = listAllSVGs(svgs);
+        console.log("\n");
+        console.log(allSvgs);
+        console.log("\n\n");
+        resolve(allSvgs);
+      } else {
+        try {
+          const svg = svgs[answer];
+          const data = svg64(readFileSync(path.resolve(svg.source), "utf-8"));
+          pbcopy(data);
+          resolve(data + "\n\nCopied to clipboard!\n");
+        } catch (error) {
+          console.log("\nInvalid Selection, try again...\n");
+          process.exit(1);
+          reject(error);
+        }
+      }
+    });
+  });
+};
+
+getSVGsFromFolder().then(
+  (svgs) => {
+    let menu = `Would you like to:\n(A) Print all SVGs?\n`;
+    for (var i = 0; i < svgs.length; i++) {
+      menu += `(${i}) Print out "${svgs[i].source}")\n`;
     }
-  });
-}
+    menu += "\n";
 
-askQuestion(menu);
+    try {
+      getUserInput(menu, svgs).then((result) => {
+        console.log(`\n${result}`);
+        process.exit(0);
+      });
+    } catch (error) {
+      console.log("\n error processing folders: ", error);
+      process.exit(1);
+    }
+  },
+  (error) => {
+    console.log("Unable to read SVGs in directory: " + error);
+    process.exit(1);
+  }
+);
