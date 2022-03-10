@@ -48,24 +48,26 @@ export function Navbar(props: IProps) {
   }
 
   return (
-    <Sticky>
-      {({ style, isSticky, wasSticky }) => (
-        <div
-          style={style}
-          className={classnames(classes, navBarStyles.root, {
-            isSticky: isSticky,
-            wasSticky: wasSticky,
-          })}
-        >
-          <nav aria-labelledby={id} className={navBarStyles.nav}>
-            <SkipNavLink>Skip to content</SkipNavLink>
-            <h2 id={id} className={utilityClasses.isScOnly}>
-              Main Menu
-            </h2>
-            <ul className={navBarStyles.items}>{navItems}</ul>
-          </nav>
-        </div>
-      )}
-    </Sticky>
+    <div className={navBarStyles.root}>
+      <Sticky>
+        {({ style, isSticky, wasSticky }) => (
+          <div
+            style={style}
+            className={classnames(classes, navBarStyles.detachable, {
+              isSticky: isSticky,
+              wasSticky: wasSticky,
+            })}
+          >
+            <nav aria-labelledby={id} className={navBarStyles.nav}>
+              <SkipNavLink>Skip to content</SkipNavLink>
+              <h2 id={id} className={utilityClasses.isScOnly}>
+                Main Menu
+              </h2>
+              <ul className={navBarStyles.items}>{navItems}</ul>
+            </nav>
+          </div>
+        )}
+      </Sticky>
+    </div>
   );
 }

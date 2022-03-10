@@ -83,7 +83,7 @@ getSVGsFromFolder().then(
   (svgs) => {
     let menu = `Would you like to:\n(A) Print all SVGs?\n`;
     for (var i = 0; i < svgs.length; i++) {
-      menu += `(${i}) Print out "${svgs[i].source}")\n`;
+      menu += `(${i}) Print out "${svgs[i].label}"\n`;
     }
     menu += "\n";
 

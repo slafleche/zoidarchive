@@ -1,8 +1,16 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import * as csstype from "csstype";
+
+const vars = {
+  height: "50px",
+};
 
 const navBarStyles = {
-  root: style({}),
+  root: style({
+    height: vars.height,
+  }),
+  detachable: style({
+    height: vars.height,
+  }),
   nav: style({}),
   items: style({}),
   item: style({}),

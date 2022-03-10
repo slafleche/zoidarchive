@@ -11,23 +11,32 @@ export function Splash() {
   return (
     <>
       <div className={classes.root}>
-        <div className={classes.overlay} />
+        {/* <div className={classes.overlay} /> */}
         <div className={classes.content}>
           <h1 className={classes.title}>
             <span className={classNames(classes.titleWord, classes.titleZoid)}>
-              Zoid
+              <span className={classes.letter_1_1}>Z</span>
+              <span className={classes.letter_1_2}>o</span>
+              <span className={classes.letter_1_3}>i</span>
+              <span className={classes.letter_1_4}>d</span>
             </span>
-            <div className={classes.logoSpacer}>
-              <Logo className={classNames(classes.logo)} />
-            </div>
+
             <span
               className={classNames(classes.titleWord, classes.titleArchive)}
             >
-              Archive
+              <span className={classes.letter_2_1}>A</span>
+              <span className={classes.letter_2_2}>r</span>
+              <span className={classes.letter_2_3}>c</span>
+              <span className={classes.letter_2_4}>h</span>
+              <span className={classes.letter_2_5}>i</span>
+              <span className={classes.letter_2_6}>v</span>
+              <span className={classes.letter_2_7}>e</span>
             </span>
           </h1>
-
-          <p className={classes.description}>Resources for Schizoids</p>
+          {/* <span aria-hidden="true" className={classes.logoSpacer}>
+            <Logo className={classNames(classes.logo)} />
+          </span> */}
+          {/* <p className={classes.description}>Resources for Schizoids</p> */}
         </div>
         <Link
           to={id}
@@ -47,7 +56,7 @@ export function Splash() {
           >
             <defs>
               <filter id="shadow">
-                <feDropShadow dx="0.5" dy="0.4" stdDeviation="0.9" />
+                <feDropShadow dx="0.5" dy="0.4" stdDeviation="0.7" />
               </filter>
             </defs>
             <title>Arrow Down</title>
