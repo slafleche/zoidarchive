@@ -5,7 +5,7 @@ import utilityClasses from "../../styles/utilityClasses.css";
 import { NavbarItem } from "./NavbarItem";
 import navBarStyles from "../../styles/components/navbar.css";
 import { Sticky } from "react-sticky";
-import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
+import { SkipNavLink } from "@reach/skip-nav";
 import "@reach/skip-nav/styles.css";
 
 interface IProps {

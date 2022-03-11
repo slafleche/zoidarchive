@@ -5,13 +5,14 @@ import classNames from "classnames";
 import { Link } from "react-scroll";
 import utilityClasses from "../../styles/utilityClasses.css";
 
+
 export function Splash() {
   const id = "afterSplash";
 
   return (
     <>
       <div className={classes.root}>
-        {/* <div className={classes.overlay} /> */}
+        <div className={classes.overlay} />
         <div className={classes.content}>
           <h1 className={classes.title}>
             <span className={classNames(classes.titleWord, classes.titleZoid)}>
@@ -20,7 +21,7 @@ export function Splash() {
               <span className={classes.letter_1_3}>i</span>
               <span className={classes.letter_1_4}>d</span>
             </span>
-
+            <br />
             <span
               className={classNames(classes.titleWord, classes.titleArchive)}
             >

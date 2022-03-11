@@ -7,7 +7,6 @@ import chroma from "chroma-js";
 import { backgroundHelper } from "./helpers/background";
 import { absolutePosition } from "./helpers/positioning";
 
-
 const colours = {
   heroHeading: chroma("rgb(26,32,44)"),
   heroText: chroma("#44474c"),
@@ -76,8 +75,7 @@ globalStyle("a:focus:not(.focus-visible)", {
   outline: "none",
 });
 
-export const spin = keyframes({
+export const fullRotation = keyframes({
   "0%": { transform: "rotate(-360deg)" },
 });
-
 export default globalVars;
