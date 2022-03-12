@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 import classNames from "classnames";
 import { Link } from "react-scroll";
 import utilityClasses from "../../styles/utilityClasses.css";
-import HeroSVG from "../svgs/heroTitle.svg";
+import SVG from "react-inlinesvg";
 
 export function Splash() {
   const id = "afterSplash";
@@ -16,32 +16,14 @@ export function Splash() {
           <div className={classes.counterGradient} />
         </div>
         <div className={classes.content}>
-          <HeroSVG className={classes.hero} />
-
-          {/* <h1 className={classes.title}> */}
-          {/* <span className={classNames(classes.titleWord, classes.titleZoid)}>
-              <span className={classes.letter_1_1}>Z</span>
-              <span className={classes.letter_1_2}>o</span>
-              <span className={classes.letter_1_3}>i</span>
-              <span className={classes.letter_1_4}>d</span>
-            </span>
-            <br />
-            <span
-              className={classNames(classes.titleWord, classes.titleArchive)}
-            >
-              <span className={classes.letter_2_1}>A</span>
-              <span className={classes.letter_2_2}>r</span>
-              <span className={classes.letter_2_3}>c</span>
-              <span className={classes.letter_2_4}>h</span>
-              <span className={classes.letter_2_5}>i</span>
-              <span className={classes.letter_2_6}>v</span>
-              <span className={classes.letter_2_7}>e</span>
-            </span> */}
-          {/* </h1> */}
-          {/* <span aria-hidden="true" className={classes.logoSpacer}>
-            <Logo className={classNames(classes.logo)} />
-          </span> */}
-          {/* <p className={classes.description}>Resources for Schizoids</p> */}
+          <h1>
+            <span className={utilityClasses.isScOnly}>The Zoid Archive</span>
+            <SVG
+              aria-hidden="true"
+              className={classes.hero}
+              src={"images/heroTitle.svg"}
+            />
+          </h1>
         </div>
         <Link
           to={id}

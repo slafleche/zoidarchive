@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 173 147" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+<svg viewBox="0 0 173 147" xmlns="http://www.w3.org/2000/svg">
+<!-- Generated with Boxy SVG : https://boxy-svg.com -->
   <defs>
     <mask id="mask-1">
       <path d="M -14.097 110.361 L 180.076 110.361 L 180.076 198.065 L -14.097 198.065 L -14.097 110.361 Z M 4 -13.717 L 167.843 -13.717 L 167.843 73.987 L 4 73.987 L 4 -13.717 Z" style="fill: rgb(216, 216, 216);"/>

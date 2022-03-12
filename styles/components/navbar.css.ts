@@ -1,4 +1,5 @@
 import { createTheme, style } from "@vanilla-extract/css";
+import { utilVars } from "../../utils/styleUtils";
 
 const vars = {
   height: "50px",
@@ -13,12 +14,16 @@ const navBarStyles = {
   }),
   nav: style({}),
   items: style({}),
-  item: style({}),
+  item: style({
+    listStyle: "none",
+  }),
   link: style({
-    color: "orange",
+    color: utilVars.white.css(),
+    textDecoration: "none",
+    fontWeight: "",
     selectors: {
       [`&.isActive`]: {
-        color: "green",
+        textDecoration: "underline",
       },
     },
   }),
