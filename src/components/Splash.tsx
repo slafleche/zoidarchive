@@ -13,7 +13,7 @@ export function Splash() {
     <>
       <div className={classes.root}>
         <div className={classes.overlay}>
-          <div className={classes.counterGradient}/>
+          <div className={classes.counterGradient} />
         </div>
         <div className={classes.content}>
           <HeroSVG className={classes.hero} />
