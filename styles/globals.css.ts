@@ -17,7 +17,7 @@ const colors = {
   navFg: chroma("#FFF"),
   bodyBg: chroma("#fff"),
   headingFg: chroma("#484a4d"),
-  textFg: chroma("rgb(74,85,104)"),
+  textFg: chroma("#3d3380"),
 };
 
 const globalVars = createGlobalTheme(":root", {
@@ -30,8 +30,8 @@ const globalVars = createGlobalTheme(":root", {
   fonts: {
     heading: {
       // family: "Poppins, " + ,
-      family: "Pompiere, Poppins, Helvetica, Arial, sans-serif",
-      size: "60px",
+      family: "Comfortaa, Poppins, Helvetica, Arial, sans-serif",
+      size: "45px",
       weight: utilVars.weights.bold,
       color: colors.headingFg.css(),
     },
@@ -85,7 +85,8 @@ globalStyle("h1", {
   fontSize: "80px",
 });
 
-const gradientColor = chroma("#921d42");
+// const gradientColor = chroma("#921d42");
+const gradientColor = chroma("#3d3380");
 
 globalStyle("h2", {
   backgroundColor: "#211d3f",
@@ -103,7 +104,7 @@ globalStyle("h2:after", {
   ...absolutePosition.bottomLeft(),
   width: "2ex",
   height: "10px",
-  backgroundColor: "#921d42",
+  backgroundColor: "#3d3380",
   transform: "translateY(20px)",
 });
 

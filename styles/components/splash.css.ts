@@ -17,15 +17,16 @@ const vars = {
   },
   baseBg: chroma("#fff"),
   gradient: {
-    start: chroma("#4b5e86"),
-    middle: chroma("#46577f").alpha(0.5),
-    end: chroma("#5e7098"),
+    start: chroma("#3d3380"), // purple
+    middle: chroma("#3d3380").alpha(0.2), // grey blue
+    end: chroma("#8e233f"), // contrast
   },
+
   counterGradient: {
     //fc0000
-    start: chroma("#221d40"),
-    middle: chroma("#46577f"),
-    end: chroma("#649ff7"),
+    start: chroma("#3d3380"), // purple
+    middle: chroma("#46577f").alpha(0.3), // grey blue
+    end: chroma("#0066ff"), // baby blue
   },
 };
 
@@ -66,22 +67,21 @@ const splashStyles = {
     height: "300%",
     transform: "translateX(-50%) translateY(-50%)",
     selectors: {
-      // Faster Gradient
+      // Counter Gradient
       "&:before": {
-        // opacity: 0.5,
         content: "",
         ...absolutePosition.fullSize(),
-        background: `linear-gradient(45deg, ${vars.gradient.start.css(
+        background: `linear-gradient(35deg, ${vars.gradient.start.css(
           "hsl"
-        )} 45%, ${vars.gradient.middle.css("hsl")} 60%, ${vars.gradient.end.css(
-          "hsl"
-        )} 70%)`,
-        animation: `${fullRotation} 3.5s infinite linear`,
+        )} 37%,
+        ${vars.gradient.middle.css("hsl")} 43%,
+        ${vars.gradient.middle.css("hsl")} 53%,
+         ${vars.gradient.end.css("hsl")} 65%)`,
+        animation: `${fullRotation} 7.3s infinite linear`,
       },
       // SVG Overlay
       "&:after": {
         content: "",
-        opacity: "0.7",
         ...absolutePosition.fullSize(),
         /* background by SVGBackgrounds.com */
         ...backgroundHelper({
@@ -93,21 +93,19 @@ const splashStyles = {
     },
   }),
 
-  // Slower, background Gradient
+  // Faster Counter Gradient
   counterGradient: style({
     ...absolutePosition.fullSize(),
-    opacity: "0.6",
     selectors: {
       "&:before": {
         content: "",
-        // opacity: 0.3,
         ...absolutePosition.fullSize(),
+        opacity: 0.9,
         background: `linear-gradient(95deg, ${vars.counterGradient.start.css(
           "hsl"
-        )} 42%, ${vars.counterGradient.middle.css(
-          "hsl"
-        )} 47%, ${vars.counterGradient.end.css("hsl")} 68%)`,
-        animation: `${fullRotation} 11.7s infinite reverse linear`,
+        )} 47%, ${vars.counterGradient.middle.css("hsl")} 73%, 
+        ${vars.counterGradient.end.css("hsl")} 88%)`,
+        animation: `${fullRotation} 9.7s infinite reverse linear`,
       },
     },
   }),
