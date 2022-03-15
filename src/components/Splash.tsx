@@ -16,7 +16,7 @@ export function Splash() {
           <div className={classes.counterGradient} />
         </div>
         <div className={classes.content}>
-          <h1>
+          <h1 className={classes.title}>
             <span className={utilityClasses.isScOnly}>The Zoid Archive</span>
             <SVG
               aria-hidden="true"

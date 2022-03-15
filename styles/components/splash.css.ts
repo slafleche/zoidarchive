@@ -193,10 +193,14 @@ const splashStyles = {
     flexDirection: "column",
     position: "relative",
   }),
+  title: style({
+    display: "block",
+    margin: "0 0 6vw",
+  }),
 
   hero: style({
     display: "block",
-    width: "35vw",
+    width: "40vw",
     height: "auto",
   }),
 
