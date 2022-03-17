@@ -22,7 +22,6 @@ function pbcopy(data) {
 
 const listAllSVGs = (svgs) => {
   var output = "\n";
-  // console.log("svgs: ", svgs);
 
   for (var i = 0; i < svgs.length; i++) {
     const { label, source } = svgs[i];
@@ -38,12 +37,16 @@ const getSVGsFromFolder = () => {
       if (error) {
         reject(error);
       } else {
-        data.forEach(function (svg) {
-          svgs.push({
-            label: svg,
-            source: path.resolve(directoryPath, svg),
+        data
+          .filter((svg) => {
+            return svg.endsWith(".svg");
+          })
+          .forEach(function (svg) {
+            svgs.push({
+              label: svg,
+              source: path.resolve(directoryPath, svg),
+            });
           });
-        });
         resolve(svgs);
       }
     });

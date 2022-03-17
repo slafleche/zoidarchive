@@ -36,7 +36,7 @@ export function Navbar(props: IProps) {
     },
   ];
 
-  var navItems = [];
+  var navItems: Array<JSX.Element> = [];
 
   for (var i = 0; i < menuItems.length; i++) {
     const { url, label } = menuItems[i];
