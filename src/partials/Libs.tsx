@@ -1,8 +1,16 @@
+import Script from "next/script";
+
 export function Libs() {
   return (
     <>
-      {/* Accessibility */}
-      <script src="js/focus-visible.min.js"></script>
+      <Script
+        src="js/focus-visible.min.js"
+        strategy="afterInteractive"
+      ></Script>
+      <Script
+        src="https://www.google-analytics.com/analytics.js"
+        strategy="lazyOnload"
+      />
     </>
   );
 }

@@ -1,14 +1,14 @@
 import { Navbar } from "../src/components/Navbar";
 import { NextSeo } from "next-seo";
 import utilityStyles from "../styles/components/layout.css";
-import { StickyContainer } from "react-sticky";
+
 import { SkipNavContent } from "@reach/skip-nav";
 
 function Communities() {
   return (
     <>
       <NextSeo title="Schizoid Communities" />
-      <StickyContainer>
+      
         <Navbar />
         <SkipNavContent>
           <div className={utilityStyles.content}>
@@ -24,7 +24,7 @@ function Communities() {
             </p>
           </div>
         </SkipNavContent>
-      </StickyContainer>
+      
     </>
   );
 }

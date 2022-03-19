@@ -1,4 +1,5 @@
 import "../styles/lib/normalize.css";
+import "@reach/tooltip/styles.css";
 import "../styles/globals.css.ts";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
@@ -15,9 +16,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         titleTemplate="%s | Zoid Archive"
         description="Resources for the Zoid Community"
       />
-      <Head>
-        <Favicons />
-      </Head>
       <Component {...pageProps}></Component>;
     </>
   );

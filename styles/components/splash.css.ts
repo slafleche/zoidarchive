@@ -56,7 +56,7 @@ const splashStyles = {
     overflow: "hidden",
     borderBottom: `solid ${utilVars.white.alpha(0.5).css()} 1px`,
     boxShadow: `0 1px 2px ${utilVars.black.alpha(0.5).css()}`,
-    // backgroundColor: vars.baseBg.hex(),
+
   }),
 
   overlay: style({
@@ -114,78 +114,6 @@ const splashStyles = {
     ...flexPosition.middle(),
   }),
 
-  // // Title
-  // title: style({
-  //   padding: "0",
-  //   margin: "0",
-  //   fontSize: vars.size.font,
-  //   fontWeight: "100",
-  //   textTransform: "none",
-  //   textShadow: "rgb(0 0 0 / 80%) 4px 4px 15px",
-  //   letterSpacing: "0.3em",
-  //   color: utilVars.white.hex(),
-  // }),
-  // titleWord: style({
-  //   // letterSpacing: "-0.2ex",
-  //   ...flexPosition.middle(),
-  //   lineHeight: 1,
-  // }),
-
-  // titleZoid: style({
-  //   // marginRight: "0.59ex",
-  //   letterSpacing: "1em",
-  // }),
-  // titleArchive: style({
-  //   letterSpacing: "0.1em",
-  //   // marginLeft: "-0.12ex",
-  //   // fontWeight: "400",
-  // }),
-
-  // // Zoid
-  // letter_1_1: style({
-  //   fontWeight: "900",
-
-  //   // display: "inline-block",
-  // }),
-  // letter_1_2: style({
-  //   fontWeight: "600",
-  //   // display: "inline-block",
-  // }),
-  // letter_1_3: style({
-  //   fontWeight: "300",
-  //   // transform: "translateY(0em)",
-  //   // display: "inline-block",
-  // }),
-  // letter_1_4: style({
-  //   fontWeight: "100",
-  //   textShadow: "rgb(0 0 0 / 100%) 4px 4px 15px",
-  //   // transform: "translateY(0.1em)",
-  //   // display: "inline-block",
-  // }),
-
-  // // Archive
-  // letter_2_1: style({
-  //   fontWeight: "900",
-  // }),
-  // letter_2_2: style({
-  //   fontWeight: "700",
-  // }),
-  // letter_2_3: style({
-  //   fontWeight: "500",
-  // }),
-  // letter_2_4: style({
-  //   fontWeight: "400",
-  // }),
-  // letter_2_5: style({
-  //   fontWeight: "300",
-  // }),
-  // letter_2_6: style({
-  //   fontWeight: "200",
-  // }),
-  // letter_2_7: style({
-  //   fontWeight: "100",
-  //   textShadow: "rgb(0 0 0 / 100%) 4px 4px 15px",
-  // }),
 
   content: style({
     ...flexPosition.middleLeft(true),

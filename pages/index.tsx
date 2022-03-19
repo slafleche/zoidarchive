@@ -2,89 +2,45 @@ import type { NextPage } from "next";
 import { Navbar } from "../src/components/Navbar";
 import { Splash } from "../src/components/Splash";
 import utilityStyles from "../styles/components/layout.css";
-import { StickyContainer } from "react-sticky";
 import { SkipNavContent } from "@reach/skip-nav";
 import content from "../styles/components/content.css";
+import Abbr from "../src/components/Abbr";
 
 const Home: NextPage = () => {
   return (
     <>
       <Splash />
-      <StickyContainer>
-        <Navbar homepage={true} />
-        <SkipNavContent>
-          <div className={content.root}>
-            <div className={utilityStyles.content}>
-              <h2>Testing Heading</h2>
+      <Navbar homepage={true} />
+      <SkipNavContent>
+        <div className={content.root}>
+          <div className={utilityStyles.content}>
+            <p>
+              <strong>Schizoid Personality Disorder</strong>, often abbreviated
+              as <Abbr title="Schizoid Personality Disorder">SPD</Abbr> or{" "}
+              <Abbr title="Schizoid Personality Disorder">SPzD</Abbr>, is a
+            </p>
+
+            <h2>What is Schizoid Personality Disorder?</h2>
+            <p>
+              The <a href="blockquote">Mayo Clinic</a> defines as:
+            </p>
+            <blockquote cite="https://www.mayoclinic.org/diseases-conditions/schizoid-personality-disorder/symptoms-causes/syc-20354414">
               <p>
-                Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
-                consequuntur ut totam accusantium ut deleniti iure. Et expedita
-                sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
-                voluptates quod non aliquam quidem. Qui omnis illum aut earum
-                Quis et eveniet commodi et vero quaerat est necessitatibus
-                tenetur rem maiores voluptas.
+                Schizoid personality disorder is an uncommon condition in which
+                people avoid social activities and consistently shy away from
+                interaction with others. They also have a limited range of
+                emotional expression. If you have schizoid personality disorder,
+                you may be seen as a loner or dismissive of others, and you may
+                lack the desire or skill to form close personal relationships.
+                Because you don&apos;t tend to show emotion, you may appear as
+                though you don&apos;t care about others or what&apos;s going on
+                around you. The cause of schizoid personality disorder is
+                unknown. Talk therapy, and in some cases medications, can help.
               </p>
-              <p>
-                Eum explicabo perspiciatis ut error quibusdam est impedit Quis.
-                Ad galisum iure qui voluptas voluptatem ad quia reiciendis nam
-                vero rerum est recusandae voluptatum id quia accusantium non
-                repellat blanditiis. Cum autem recusandae et recusandae voluptas
-                qui vitae minus nam optio facere. A quis perspiciatis et quidem
-                magnam est iste assumenda est impedit nulla ex quia voluptatem
-                in veritatis ullam ab fuga voluptatum. Est obcaecati provident
-                nihil nemo qui enim illo et accusantium magnam in accusantium
-                reiciendis in corrupti esse sed ullam nisi. Qui earum dolorum
-                non perferendis incidunt ad similique quia ut sequi voluptatem
-                33 culpa ipsa. Id quos cumque rem repellat veniam qui vitae
-                voluptas est itaque quae At quas expedita in voluptatem quia ut
-                delectus consequuntur. Aut iure nesciunt rem rerum similique sed
-                quasi velit aut minus voluptatum ab nulla quae.
-              </p>
-              <h2>Lorem ipsum dolor sit amet. Ad praesentium itaque eo</h2>
-              <p>
-                Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
-                consequuntur ut totam accusantium ut deleniti iure. Et expedita
-                sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
-                voluptates quod non aliquam quidem. Qui omnis illum aut earum
-                Quis et eveniet commodi et vero quaerat est necessitatibus
-                tenetur rem maiores voluptas.
-              </p>
-              <p>
-                Eum explicabo perspiciatis ut error quibusdam est impedit Quis.
-                Ad galisum iure qui voluptas voluptatem ad quia reiciendis nam
-                vero rerum est recusandae voluptatum id quia accusantium non
-                repellat blanditiis. Cum autem recusandae et recusandae voluptas
-                qui vitae minus nam optio facere. A quis perspiciatis et quidem
-                magnam est iste assumenda est impedit nulla ex quia voluptatem
-                in veritatis ullam ab fuga voluptatum. Est obcaecati provident
-                nihil nemo qui enim illo et accusantium magnam in accusantium
-                reiciendis in corrupti esse sed ullam nisi. Qui earum dolorum
-                non perferendis incidunt ad similique quia ut sequi voluptatem
-                33 culpa ipsa. Id quos cumque rem repellat veniam qui vitae
-                voluptas est itaque quae At quas expedita in voluptatem quia ut
-                delectus consequuntur. Aut iure nesciunt rem rerum similique sed
-                quasi velit aut minus voluptatum ab nulla quae.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
-                consequuntur ut totam accusantium ut deleniti iure. Et expedita
-                sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
-                voluptates quod non aliquam quidem. Qui omnis illum aut earum
-                Quis et eveniet commodi et vero quaerat est necessitatibus
-                tenetur rem maiores voluptas.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet. Ad praesentium itaque eos explicabo
-                consequuntur ut totam accusantium ut deleniti iure. Et expedita
-                sapiente aut pariatur obcaecati ut quia porro? Ad omnis animi et
-                voluptates quod non aliquam quidem. Qui omnis illum aut earum
-                Quis et eveniet commodi et vero quaerat est necessitatibus
-                tenetur rem maiores voluptas.
-              </p>
-            </div>
+            </blockquote>
           </div>
-        </SkipNavContent>
-      </StickyContainer>
+        </div>
+      </SkipNavContent>
     </>
   );
 };

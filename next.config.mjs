@@ -49,6 +49,20 @@ const nextConfig = {
     );
     return config;
   },
+
+  exports: {
+    productionBrowserSourceMaps: true,
+    experimental: { productionBrowserSourceMaps: true },
+    async headers() {
+      return [
+        {
+          // Apply these headers to all routes in your application.
+          source: "/:path*",
+          headers: securityHeaders,
+        },
+      ];
+    },
+  },
 };
 
 export default withVanillaExtract(nextConfig);
