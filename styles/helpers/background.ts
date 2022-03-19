@@ -1,3 +1,4 @@
+import { style } from "@vanilla-extract/css";
 import * as csstype from "csstype";
 
 export interface IBackground {
@@ -11,15 +12,15 @@ export interface IBackground {
   opacity?: csstype.Property.Opacity;
 }
 
-export const EMPTY_BACKGROUND: IBackground = {
-  color: undefined,
-  attachment: undefined,
-  position: undefined,
-  repeat: undefined,
-  size: undefined,
-  image: undefined,
-  opacity: undefined,
-};
+// export const EMPTY_BACKGROUND: IBackground = {
+//   color: undefined,
+//   attachment: undefined,
+//   position: undefined,
+//   repeat: undefined,
+//   size: undefined,
+//   image: undefined,
+//   opacity: undefined,
+// };
 
 export const getBackgroundImage = (
   image?: csstype.Property.BackgroundImage
@@ -37,27 +38,36 @@ export const getBackgroundImage = (
 };
 
 export const backgroundHelper = (props: IBackground) => {
-  let styles = {
+  var styles = {
     backgroundPosition: props.position || `50% 50%`,
     backgroundRepeat: props.repeat || "no-repeat",
     backgroundImage: getBackgroundImage(props.image),
-  };
+  } as any;
 
   if (props.size) {
-    styles["background-size"] = props.size;
+    styles.backgroundSize = props.size as csstype.Property.BackgroundSize;
   }
 
   if (props.color) {
-    styles["background-color"] = props.color;
+    styles.backgroundColor = props.color as csstype.Property.BackgroundColor;
   }
 
   if (props.attachment) {
-    styles["background-attachment"] = props.attachment;
+    styles.backgroundAttachment =
+      props.attachment as csstype.Property.BackgroundAttachment;
   }
 
   if (props.opacity) {
-    styles["opacity"] = props.opacity;
+    styles.opacity = props.opacity as csstype.Property.Opacity;
   }
+
+  const test = style({
+    ...styles,
+    backgroundSize: props.size,
+    backgroundColor: props.color,
+    backgroundAttachment: props.attachment,
+    opacity: props.opacity,
+  });
 
   return styles;
 };

@@ -4,6 +4,7 @@ import { utilVars, math, measurement } from "../../utils/styleUtils";
 import { fullRotation } from "../globals.css";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { backgroundHelper } from "../helpers/background";
+import { colors } from "../colors.css";
 
 const logoSize = measurement("50px");
 const logoWrapSize = math.multiply(logoSize, 1.5);
@@ -11,20 +12,21 @@ const logoWrapSize = math.multiply(logoSize, 1.5);
 const vars = {
   logo: {
     size: logoSize.toString(),
+    maxWidth: "80vw",
   },
   size: {
     font: "10vw",
   },
   baseBg: chroma("#fff"),
   gradient: {
-    start: chroma("#3d3380"), // purple
-    middle: chroma("#3d3380").alpha(0.2), // grey blue
-    end: chroma("#8e233f"), // contrast
+    start: colors.brand, // purple
+    middle: colors.brand.alpha(0.2), // grey blue
+    end: colors.contrast, // contrast
   },
 
   counterGradient: {
     //fc0000
-    start: chroma("#3d3380"), // purple
+    start: colors.brand, // purple
     middle: chroma("#46577f").alpha(0.3), // grey blue
     end: chroma("#0066ff"), // baby blue
   },
@@ -56,7 +58,6 @@ const splashStyles = {
     overflow: "hidden",
     borderBottom: `solid ${utilVars.white.alpha(0.5).css()} 1px`,
     boxShadow: `0 1px 2px ${utilVars.black.alpha(0.5).css()}`,
-
   }),
 
   overlay: style({
@@ -114,7 +115,6 @@ const splashStyles = {
     ...flexPosition.middle(),
   }),
 
-
   content: style({
     ...flexPosition.middleLeft(true),
     width: "100%",
@@ -135,17 +135,17 @@ const splashStyles = {
   // Scroll button
   scrollToContent: style({
     ...absolutePosition.middleBottom(),
-    width: "100%",
-    height: "100px",
     ...flexPosition.middle(),
     opacity: 0.5,
     transition: "opacity 0.2s ease-out",
+    height: "100px",
     selectors: {
       [`&:hover, &:active, &:focus`]: {
         opacity: 0.8,
       },
     },
   }),
+
   scrollToContentIcon: style({
     fill: utilVars.white.hex(),
     width: "60px",

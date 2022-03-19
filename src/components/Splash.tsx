@@ -35,13 +35,13 @@ export function Splash() {
           aria-hidden="true"
         >
           <Tooltip label={"Scroll down to content"}>
-            <span className={utilityClasses.toolTipWrap}>
+            <div className={utilityClasses.center}>
               <SVG
                 className={classes.scrollToContentIcon}
                 src={"images/chevronDown.svg"}
                 fill="#fff"
               />
-            </span>
+            </div>
           </Tooltip>
         </Link>
       </div>

@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import * as csstype from "csstype";
 import { isNumeric } from "../src/utils/utils";
+import { flexPosition } from "./helpers/positioning";
 
 // Utility classes
 // Note that in contrast to helper functions, they output a ready made class,
@@ -29,6 +30,14 @@ const utilityClasses = {
   isNoInteraction: style({
     userSelect: "none",
     pointerEvents: "none",
+  }),
+
+  toolTipWrap: style({
+    width: "100%",
+  }),
+
+  center: style({
+    ...flexPosition.middle(),
   }),
 };
 

@@ -4,22 +4,15 @@ import {
   keyframes,
 } from "@vanilla-extract/css";
 import chroma from "chroma-js";
+import { ClassType } from "react";
 import { utilVars } from "../utils/styleUtils";
 import content from "./components/content.css";
 import layout from "./components/layout.css";
 import { backgroundHelper } from "./helpers/background";
 import { absolutePosition } from "./helpers/positioning";
 import utilityClasses from "./utilityClasses.css";
-
-const colors = {
-  heroHeading: chroma("rgb(26,32,44)"),
-  heroText: chroma("#44474c"),
-  navBg: chroma("#000").alpha(0.8),
-  navFg: chroma("#FFF"),
-  bodyBg: chroma("#fff"),
-  headingFg: chroma("#484a4d"),
-  textFg: chroma("#3d3380"),
-};
+import * as csstype from "csstype";
+import { colors } from "./colors.css";
 
 const globalVars = createGlobalTheme(":root", {
   colors: {
@@ -40,6 +33,7 @@ const globalVars = createGlobalTheme(":root", {
       family: "Poppins, Helvetica, Arial, sans-serif",
       size: "22px",
       weight: utilVars.weights.normal,
+
       color: colors.textFg.css(),
     },
   },
@@ -87,14 +81,12 @@ globalStyle("h1", {
 });
 
 // const gradientColor = chroma("#921d42");
-const gradientColor = chroma("#3d3380");
-const contrastColor = chroma("#682652");
 
 globalStyle("h2", {
   backgroundColor: "#211d3f",
-  backgroundImage: `linear-gradient(-87deg, ${gradientColor
+  backgroundImage: `linear-gradient(-87deg, ${colors.brand
     .alpha(0.5)
-    .css()} 0%, ${contrastColor.css()} 50%)`,
+    .css()} 0%, ${colors.contrast.css()} 50%)`,
   backgroundSize: "100%",
   MozBackgroundClip: "text",
   WebkitBackgroundClip: "text",
@@ -121,6 +113,29 @@ globalStyle("a:focus:not(.focus-visible)", {
 
 export const fullRotation = keyframes({
   "0%": { transform: "rotate(-360deg)" },
+});
+
+globalStyle("abbr", {
+  textDecoration: "none",
+  fontWeight: utilVars.weights.bold,
+  ...backgroundHelper({
+    image: `linear-gradient(to left, ${colors.contrast
+      .alpha(0.3)
+      .hex()}, #f9dd94 100%)`,
+    position: "0 100%" as csstype.Property.Position,
+    size: "100% 2px",
+    repeat: "repeat-x",
+  }),
+});
+
+globalStyle("abbr[title]", {
+  borderBottom: "none",
+});
+
+globalStyle("blockquote", {
+  marginLeft: 0,
+  paddingLeft: "40px",
+  borderLeft: `solid ${colors.brand.alpha(0.5).css()} 5px`,
 });
 
 export default globalVars;
