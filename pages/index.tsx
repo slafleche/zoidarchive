@@ -5,6 +5,7 @@ import utilityStyles from "../styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
 import content from "../styles/components/content.css";
 import Abbr from "../src/components/Abbr";
+import SPD from "../src/components/SPD";
 
 const Home: NextPage = () => {
   return (
@@ -16,8 +17,8 @@ const Home: NextPage = () => {
           <div className={utilityStyles.content}>
             <p>
               <strong>Schizoid Personality Disorder</strong>, often abbreviated
-              as <Abbr title="Schizoid Personality Disorder">SPD</Abbr> or{" "}
-              <Abbr title="Schizoid Personality Disorder">SPzD</Abbr>, is a
+              as <SPD/> or{" "}
+              <Abbr fullText="Schizoid Personality Disorder" abbreviation="SPzD"/>, is a condition where social activities and interaction with others are consistently avoided. People with 
             </p>
 
             <h2>What is Schizoid Personality Disorder?</h2>

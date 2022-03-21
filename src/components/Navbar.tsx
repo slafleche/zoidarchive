@@ -43,7 +43,9 @@ export function Navbar(props: IProps) {
     const { url, label } = menuItems[i];
     navItems.push(
       <React.Fragment key={i}>
-        <NavbarItem url={url} label={label} />
+        <NavbarItem url={url}>
+          <>{label}</>
+        </NavbarItem>
       </React.Fragment>
     );
   }

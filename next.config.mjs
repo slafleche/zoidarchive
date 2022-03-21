@@ -28,10 +28,6 @@ const libs = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(
       new EventHooksPlugin({

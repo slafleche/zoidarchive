@@ -6,7 +6,7 @@ import utilityStyles from "../styles/components/layout.css";
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="en">
       <Head>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="theme-color" content="#3d3380" />

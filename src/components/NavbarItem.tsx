@@ -6,16 +6,15 @@ import navBarStyles from "../../styles/components/navbar.css";
 interface IProps {
   className?: string;
   url: string;
-  label: string;
+  children: JSX.Element;
 }
 
 export function NavbarItem(props: IProps) {
-  const { className, url, label } = props;
-
+  const { className, url, children } = props;
   return (
     <li className={classnames(className, navBarStyles.item)}>
       <ActiveLink href={url} className={navBarStyles.link}>
-        {label}
+        {children}
       </ActiveLink>
     </li>
   );

@@ -4,15 +4,13 @@ import Tooltip from "@reach/tooltip";
 
 interface IProps {
   className?: string;
-  title: string;
-  children: ReactNode;
+  abbreviation: string;
+  fullText: string;
 }
 
-const Abbr: React.FC<IProps> = ({ className, title, children }) => (
-  <Tooltip label={title}>
-    <abbr title="Schizoid Personality Disorder" className={className}>
-      {children}
-    </abbr>
+const Abbr: React.FC<IProps> = ({ className, abbreviation, fullText }) => (
+  <Tooltip label={fullText}>
+    <abbr className={className}>{abbreviation}</abbr>
   </Tooltip>
 );
 

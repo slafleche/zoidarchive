@@ -138,4 +138,12 @@ globalStyle("blockquote", {
   borderLeft: `solid ${colors.brand.alpha(0.5).css()} 5px`,
 });
 
+globalStyle("a", {
+  color: colors.brand.css(),
+});
+
+globalStyle("a:visited", {
+  color: colors.contrast.css(),
+});
+
 export default globalVars;

@@ -16,31 +16,30 @@ interface IMeasurement {
   toString: () => string;
 }
 
-export const measurement = (value: string): IMeasurement => {
-  const err = new Error("Invalid value to split");
-  const result = {
-    val: undefined,
-    unit: undefined,
-    toString: undefined,
-  };
-  try {
-    let val = value.trim();
-    let unit = val.replace(/^-?(0|[1-9]\d*)?([.][0-9]*)?/, ""); // not yet trimmed
-    val = val.substring(0, val.length - unit.length);
-    if (val === "-0") {
-      val = "0";
-    }
-    const valParsed = Number(val);
-    unit = unit.trim();
-    result.val = valParsed;
-    result.unit = unit;
-    result.toString = () => {
-      return `${valParsed}${unit}`;
-    };
-    return result;
-  } catch (e) {
-    console.error(e.message, e.name);
+export const measurement = (value: string | IMeasurement) => {
+  // For easlier type checking, pass through value if it's already converted.
+  if (typeof value !== "string") {
+    return value;
   }
+
+  let val = value.trim();
+  let unit = val.replace(/^-?(0|[1-9]\d*)?([.][0-9]*)?/, ""); // not yet trimmed
+  val = val.substring(0, val.length - unit.length);
+  if (val === "-0") {
+    val = "0";
+  }
+  const valParsed = Number(val);
+  unit = unit.trim();
+
+  const result: IMeasurement = {
+    val: valParsed,
+    unit,
+    toString: () => {
+      return `${valParsed}${unit}`;
+    },
+  };
+
+  return result;
 };
 
 export const divide = (
@@ -48,10 +47,7 @@ export const divide = (
   denominator: number,
   decimals?: number
 ): string => {
-  let style = value;
-  if (typeof style === "string") {
-    style = measurement(value as string);
-  }
+  const style = measurement(value);
   return `${(style.val / denominator).toFixed(decimals || 2)}${style.unit}`;
 };
 
@@ -59,10 +55,7 @@ export const multiply = (
   value: string | IMeasurement,
   denominator: number
 ): string => {
-  let style = value;
-  if (typeof style === "string") {
-    style = measurement(value as string);
-  }
+  const style = measurement(value);
   return `${style.val * denominator}${style.unit}`;
 };
 
