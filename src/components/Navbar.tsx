@@ -1,6 +1,5 @@
 import React from "react";
 import classnames from "classnames";
-import utilityClasses from "../../styles/utilityClasses.css";
 // import { useRouter } from "next/router";
 import { NavbarItem } from "./NavbarItem";
 import navBarStyles from "../../styles/components/navbar.css";
@@ -8,6 +7,10 @@ import { SkipNavLink } from "@reach/skip-nav";
 import "@reach/skip-nav/styles.css";
 import Sticky from "react-stickynode";
 import Tooltip from "@reach/tooltip";
+import SVG from "react-inlinesvg";
+import classNames from "classnames";
+import utilityClasses from "../../styles/utilityClasses.css";
+import layoutClasses from "../../styles/components/layout.css";
 
 interface IProps {
   classes?: string;
@@ -15,7 +18,7 @@ interface IProps {
 }
 
 export function Navbar(props: IProps) {
-  const { classes, homepage } = props;
+  const { classes, homepage = false } = props;
   const id = "mainMenu";
 
   const menuItems = [
@@ -24,16 +27,20 @@ export function Navbar(props: IProps) {
       label: "home",
     },
     {
+      url: "/#FAQ",
+      label: "Research",
+    },
+    {
+      url: "/#resouces",
+      label: "Resouces",
+    },
+    {
       url: "/communities",
       label: "Communities",
     },
     {
-      url: "/#page2",
-      label: "Page 2",
-    },
-    {
-      url: "/#page3",
-      label: "Page 3",
+      url: "/#contribute",
+      label: "Contribute",
     },
   ];
 
@@ -41,10 +48,18 @@ export function Navbar(props: IProps) {
 
   for (var i = 0; i < menuItems.length; i++) {
     const { url, label } = menuItems[i];
+
+    const content =
+      label === "home" ? (
+        <SVG className={navBarStyles.homeIcon} src={"images/logoNoBG.svg"} />
+      ) : (
+        label
+      );
+
     navItems.push(
       <React.Fragment key={i}>
-        <NavbarItem url={url}>
-          <>{label}</>
+        <NavbarItem url={url} label={label}>
+          <>{content}</>
         </NavbarItem>
       </React.Fragment>
     );
@@ -53,14 +68,11 @@ export function Navbar(props: IProps) {
   return (
     <div className={navBarStyles.root}>
       <Sticky>
-        <div
-          className={classnames(
-            classes,
-            navBarStyles.detachable,
-            utilityClasses.isHidden
-          )}
-        >
-          <nav aria-labelledby={id} className={navBarStyles.nav}>
+        <div className={classnames(classes, navBarStyles.detachable)}>
+          <nav
+            aria-labelledby={id}
+            className={classNames(navBarStyles.nav, layoutClasses.content)}
+          >
             <SkipNavLink>Skip to content</SkipNavLink>
             <h2 id={id} className={utilityClasses.isScOnly}>
               Main Menu

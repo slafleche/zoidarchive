@@ -1,14 +1,3 @@
-import chroma from "chroma-js";
-
-export const utilVars = {
-  black: chroma("#000"),
-  white: chroma("#FFF"),
-  weights: {
-    normal: "300",
-    bold: "600",
-  },
-};
-
 // Object representing a CSS measurement (eg. "10px" or "30vh");
 interface IMeasurement {
   val: number;

@@ -1,6 +1,11 @@
-import { createTheme, globalStyle, style } from "@vanilla-extract/css";
+import {
+  createTheme,
+  globalStyle,
+  style,
+  styleVariants,
+} from "@vanilla-extract/css";
 import chroma from "chroma-js";
-import { utilVars, math, measurement } from "../../utils/styleUtils";
+import { math, measurement } from "../../utils/styleUtils";
 import { fullRotation } from "../globals.css";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { backgroundHelper } from "../helpers/background";
@@ -52,12 +57,12 @@ const logo = style({
 const splashStyles = {
   root: style({
     height: "100vh",
-    color: utilVars.white.hex(),
-    ...flexPosition.middle(),
+    color: colors.white.hex(),
+    ...flexPosition.center(),
     position: "relative",
     overflow: "hidden",
-    borderBottom: `solid ${utilVars.white.alpha(0.5).css()} 1px`,
-    boxShadow: `0 1px 2px ${utilVars.black.alpha(0.5).css()}`,
+    // borderBottom: `solid ${utilVars.white.alpha(0.5).css()} 1px`,
+    // boxShadow: `0 1px 2px ${utilVars.black.alpha(0.5).css()}`,
   }),
 
   overlay: style({
@@ -112,7 +117,7 @@ const splashStyles = {
   }),
 
   titleWrap: style({
-    ...flexPosition.middle(),
+    ...flexPosition.center(),
   }),
 
   content: style({
@@ -135,19 +140,22 @@ const splashStyles = {
   // Scroll button
   scrollToContent: style({
     ...absolutePosition.middleBottom(),
-    ...flexPosition.middle(),
+    ...flexPosition.center(),
+    color: colors.white.css(),
     opacity: 0.5,
     transition: "opacity 0.2s ease-out",
     height: "100px",
+    outlineOffset: "-1px",
     selectors: {
       [`&:hover, &:active, &:focus`]: {
+        color: colors.white.css(),
         opacity: 0.8,
       },
     },
   }),
 
   scrollToContentIcon: style({
-    fill: utilVars.white.hex(),
+    fill: colors.white.hex(),
     width: "60px",
   }),
 

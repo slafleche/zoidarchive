@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import React from "react";
 import classNames from "classnames";
+import navBarStyles from "../../styles/components/navbar.css";
+import Tooltip from "@reach/tooltip";
+import { setActiveLink } from "react-scroll/modules/mixins/scroller";
 
 // interface IPropsWithAs {
 
@@ -11,6 +14,7 @@ import classNames from "classnames";
 interface IBaseProps {
   activeClassName?: string;
   className?: string;
+  label: string;
   children: JSX.Element;
 }
 
@@ -23,18 +27,19 @@ interface IPropsWithHref extends IBaseProps {
 
 type IProps = IPropsWithAs | IPropsWithHref;
 
-export function ActiveLink(props: IProps) {
-  const { activeClassName = "isActive", children } = props;
+// Checks if link is current page
+export function SmartLink(props: IProps) {
+  const { activeClassName = "isActive", children, label } = props;
 
   const destination =
     (props as IPropsWithAs).as || (props as IPropsWithHref).href;
 
-  const { asPath, isReady } = useRouter();
+  const { asPath, pathname, basePath, isReady } = useRouter();
 
-  const [className, setClassName] = useState("");
-  const [allClasses = className, setAllClassName] = useState(className);
+  // const [className, setClassName] = useState("");
+  // const [allClasses = className, setAllClassName] = useState(className);
   const [active, setActive] = useState(false);
-  const [linkPathname, setLinkPathname] = useState("");
+  const [linkPathname, setLinkPathname] = useState(destination);
 
   useEffect(() => {
     // Check if the router fields are updated client-side
@@ -43,31 +48,30 @@ export function ActiveLink(props: IProps) {
       // Static route will be matched via props.href
       // Using URL().pathname to get rid of query and hash
       const activePathname = new URL(asPath, location.href).pathname;
-      setLinkPathname(
-        new URL(destination as unknown as string | URL, location.href).pathname
-      );
+      setLinkPathname(activePathname);
+      setActive(activePathname === destination);
 
-      const isActive = linkPathname === activePathname;
-
-      const newClassName = classNames(className, {
-        [activeClassName]: isActive,
-      });
-
-      setActive(isActive);
-
-      if (newClassName !== className) {
-        setAllClassName(newClassName);
-      }
+      // console.log(" ");
+      // console.log("destination: ", destination);
+      // console.log("activePathname: ", activePathname);
+      // console.log("isActive: ", active);
     }
-  }, [asPath, isReady, destination, activeClassName, className, linkPathname]);
+  }, [isReady, asPath, active, basePath, linkPathname, destination]);
 
   return (
-    <Link href={destination} {...props}>
-      <a className={allClasses} aria-current={active}>
+    <Link href={linkPathname} passHref {...props}>
+      <a
+        tabIndex={0}
+        className={classNames(navBarStyles.link, {
+          [activeClassName]: active,
+        })}
+        aria-current={active}
+        title={label}
+      >
         {children}
       </a>
     </Link>
   );
 }
 
-export default ActiveLink;
+export default SmartLink;

@@ -5,7 +5,6 @@ import {
 } from "@vanilla-extract/css";
 import chroma from "chroma-js";
 import { ClassType } from "react";
-import { utilVars } from "../utils/styleUtils";
 import content from "./components/content.css";
 import layout from "./components/layout.css";
 import { backgroundHelper } from "./helpers/background";
@@ -13,6 +12,11 @@ import { absolutePosition } from "./helpers/positioning";
 import utilityClasses from "./utilityClasses.css";
 import * as csstype from "csstype";
 import { colors } from "./colors.css";
+
+const weights = {
+  normal: "300",
+  bold: "500",
+};
 
 const globalVars = createGlobalTheme(":root", {
   colors: {
@@ -26,17 +30,17 @@ const globalVars = createGlobalTheme(":root", {
       // family: "Poppins, " + ,
       family: "Comfortaa, Poppins, Helvetica, Arial, sans-serif",
       size: "45px",
-      weight: utilVars.weights.bold,
+      weight: weights.bold,
       color: colors.headingFg.css(),
     },
     body: {
       family: "Poppins, Helvetica, Arial, sans-serif",
       size: "22px",
-      weight: utilVars.weights.normal,
-
+      weight: weights.normal,
       color: colors.textFg.css(),
     },
   },
+  accessibility: {},
 });
 
 globalStyle("body", {
@@ -84,9 +88,9 @@ globalStyle("h1", {
 
 globalStyle("h2", {
   backgroundColor: "#211d3f",
-  backgroundImage: `linear-gradient(-87deg, ${colors.brand
-    .alpha(0.5)
-    .css()} 0%, ${colors.contrast.css()} 50%)`,
+  backgroundImage: `linear-gradient(87deg, ${colors.brand
+    .mix(colors.contrast, 0.2)
+    .css()} 0%, ${colors.brand.mix(colors.contrast, 0.8).css()} 100%)`,
   backgroundSize: "100%",
   MozBackgroundClip: "text",
   WebkitBackgroundClip: "text",
@@ -107,7 +111,7 @@ globalStyle("h2", {
 //   }),
 // });
 
-globalStyle("a:focus:not(.focus-visible)", {
+globalStyle("a:focus:not(.focus-visible):not(:focus-visible)", {
   outline: "none",
 });
 
@@ -117,7 +121,7 @@ export const fullRotation = keyframes({
 
 globalStyle("abbr", {
   textDecoration: "none",
-  fontWeight: utilVars.weights.bold,
+  fontWeight: globalVars.fonts.body.weight,
   ...backgroundHelper({
     image: `linear-gradient(to left, ${colors.contrast
       .alpha(0.3)
@@ -144,6 +148,23 @@ globalStyle("a", {
 
 globalStyle("a:visited", {
   color: colors.contrast.css(),
+});
+
+// Current Link in menu
+globalStyle("a[aria-current='true']", {
+  cursor: "default",
+  pointerEvents: "none",
+  fontWeight: globalVars.fonts.body.weight,
+  // color: colors.contrast.css(),
+});
+
+// Skip to content link
+globalStyle("a[data-reach-skip-link]", {
+  background: "#3f3f3f",
+  color: "#4b4b4b",
+  fontWeight: globalVars.fonts.body.weight,
+  border: "solid 1px #ccc",
+  boxShadow: "2px 2px 10px hsla(0, 0%, 0%, 0.8)",
 });
 
 export default globalVars;

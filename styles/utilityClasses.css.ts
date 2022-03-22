@@ -37,7 +37,7 @@ const utilityClasses = {
   }),
 
   center: style({
-    ...flexPosition.middle(),
+    ...flexPosition.center(),
   }),
 };
 

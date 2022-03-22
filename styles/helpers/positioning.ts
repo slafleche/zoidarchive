@@ -127,7 +127,7 @@ export const absolutePosition = {
 };
 
 export const flexPosition = {
-  middle: (wrap = false) => {
+  center: (wrap = false) => {
     return {
       display: "flex" as csstype.Property.Display,
       alignItems: "center" as csstype.Property.AlignItems,

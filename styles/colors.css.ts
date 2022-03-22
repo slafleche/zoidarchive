@@ -10,4 +10,6 @@ export const colors = {
   textFg: chroma("#3d3380"),
   brand: chroma("#3d3380"),
   contrast: chroma("#8e233f"),
+  black: chroma("#000"),
+  white: chroma("#FFF"),
 };

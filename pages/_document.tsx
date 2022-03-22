@@ -1,7 +1,6 @@
+import Script from "next/dist/client/script";
 import { Html, Head, Main, NextScript } from "next/document";
-
 import { Favicons } from "../src/partials/Favicons";
-import { Libs } from "../src/partials/Libs";
 import utilityStyles from "../styles/components/layout.css";
 
 export default function Document() {
@@ -20,7 +19,7 @@ export default function Document() {
         <link
           rel="preconnect"
           as="style"
-          href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Poppins:wght@300;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&family=Poppins:wght@300;600&display=swap"
         />
       </Head>
       <body>
@@ -31,7 +30,14 @@ export default function Document() {
             </main>
           </div>
         </div>
-        <Libs />
+        <Script
+          src="js/focus-visible.min.js"
+          strategy="afterInteractive"
+        ></Script>
+        <Script
+          src="https://www.google-analytics.com/analytics.js"
+          strategy="lazyOnload"
+        />
         <NextScript />
       </body>
     </Html>
