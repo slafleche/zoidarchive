@@ -27,11 +27,11 @@ export function Navbar(props: IProps) {
       label: "home",
     },
     {
-      url: "/#FAQ",
-      label: "Research",
+      url: "/faq",
+      label: "FAQ",
     },
     {
-      url: "/#resouces",
+      url: "/resouces",
       label: "Resouces",
     },
     {
@@ -39,7 +39,7 @@ export function Navbar(props: IProps) {
       label: "Communities",
     },
     {
-      url: "/#contribute",
+      url: "/contribute",
       label: "Contribute",
     },
   ];

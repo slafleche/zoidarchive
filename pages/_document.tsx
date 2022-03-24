@@ -38,6 +38,22 @@ export default function Document() {
           src="https://www.google-analytics.com/analytics.js"
           strategy="lazyOnload"
         />
+
+        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MS2QGXYXF4"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-MS2QGXYXF4');
+          `}
+        </Script>
+
         <NextScript />
       </body>
     </Html>

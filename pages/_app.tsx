@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         titleTemplate="%s | Zoid Archive"
         description="Resources for the Schizoid Community"
       />
-      <Component {...pageProps}></Component>;
+      <Component {...pageProps}></Component>
     </>
   );
 }
