@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import SVG from "react-inlinesvg";
 
 interface IProps {
@@ -7,7 +6,5 @@ interface IProps {
 
 export function ExternalIcon(props: IProps) {
   const { className } = props;
-  return (
-    <SVG className={classNames(className)} src={"images/externalLink.svg"} />
-  );
+  return <SVG className={className} src={"images/externalLink.svg"} />;
 }

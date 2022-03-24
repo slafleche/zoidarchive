@@ -12,4 +12,7 @@ export const colors = {
   contrast: chroma("#8e233f"),
   black: chroma("#000"),
   white: chroma("#FFF"),
+  cards: {
+    dark: chroma("rgb(33, 34, 34)")
+  }
 };

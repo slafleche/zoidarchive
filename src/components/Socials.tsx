@@ -8,6 +8,7 @@ export interface ISocials {
   fiverr?: string;
   discord?: string;
   patreon?: string;
+  reddit?: string;
 }
 
 interface IProps {
@@ -17,12 +18,18 @@ interface IProps {
 
 export function Socials(props: IProps) {
   const { className, socials = {} } = props;
-  const { patreon, youtube, fiverr, discord } = socials;
+  const { patreon, youtube, fiverr, discord, reddit } = socials;
 
-  if (patreon || youtube || fiverr || discord) {
+  if (patreon || youtube || fiverr || discord || reddit) {
     return (
       <>
         <div className={classNames(socialsStyles.root, className)}>
+          <SocialLink
+            className={socialsStyles.link}
+            url={reddit}
+            icon="images/socials/reddit.svg"
+            iconClassName={classNames(socialsStyles.icon, socialsStyles.reddit)}
+          />
           <SocialLink
             className={socialsStyles.link}
             url={discord}
@@ -32,7 +39,6 @@ export function Socials(props: IProps) {
               socialsStyles.discord
             )}
           />
-
           <SocialLink
             className={socialsStyles.link}
             url={youtube}

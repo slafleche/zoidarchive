@@ -72,18 +72,12 @@ export function Card(props: IProps) {
     className: cardStyles.link,
   };
 
-  //   if (url) {
-  //     childProps.href = url;
-  //   }
-
   return (
-    // <OptionalWrap check={!!url} element="a" elementProps={childProps}>
     <article className={classNames(cardStyles.root, className)}>
       <div className={cardStyles.cells}>
         {style === CardStyle.LeftImage ? imageCell : textCell}
         {style === CardStyle.RightImage ? imageCell : textCell}
       </div>
     </article>
-    // </OptionalWrap>
   );
 }

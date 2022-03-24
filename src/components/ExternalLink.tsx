@@ -3,25 +3,31 @@ import SVG from "react-inlinesvg";
 import { ExternalIcon } from "./ExternalIcon";
 
 interface IProps {
+  url: string;
   className?: string;
-  children: JSX.Element;
+  children: JSX.Element | string;
   includeIcon?: boolean;
   iconClass?: string;
 }
 
 export function ExternalLink(props: IProps) {
-  const { className, children, includeIcon = true, iconClass } = props;
+  const { className, children, includeIcon = true, iconClass, url } = props;
 
   return (
     <a
-      href="https://www.patreon.com/zoidarchive"
+      href={url}
       target="_blank"
       rel="noreferrer"
       className={classNames(className)}
     >
       <>
         {children}
-        {includeIcon && <ExternalIcon className={iconClass} />}
+        {includeIcon && (
+          <>
+            &nbsp;
+            <ExternalIcon className={iconClass} />
+          </>
+        )}
       </>
     </a>
   );

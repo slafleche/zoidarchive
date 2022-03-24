@@ -39,6 +39,7 @@ const socialsStyles = {
   icon: style({
     width: iconWidth,
   }),
+  reddit: style({}),
   discord: style({}),
   patreon: style({}),
   fiverr: style({}),

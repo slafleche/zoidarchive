@@ -40,6 +40,7 @@ const globalVars = createGlobalTheme(":root", {
 });
 
 globalStyle("body", {
+  minHeight: "100vh",
   ...backgroundHelper({
     repeat: "repeat",
     image:

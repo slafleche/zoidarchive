@@ -37,10 +37,31 @@ function Communities() {
                 </p>
               </>
             }
-            imageSrc="/images/zoidvoid.gif"
+            imageSrc="/images/community_thumbnails/zoidvoid.gif"
             socials={{
               discord: "https://disboard.org/server/803371090133909584",
               youtube: "https://www.youtube.com/c/SchizoidAngst",
+            }}
+          />
+          <Card
+            title="Reddit Schizoid"
+            description={
+              <>
+                <p>
+                  <strong>/r/Schizoid</strong> is a subreddit community for
+                  talking about Schizoid Personality Disorder (SPD) and related
+                  matters. We encourage anyone who has been diagnosed with SPD,
+                  suspects they have SPD, has Schizoid tendencies, knows someone
+                  with SPD, or just wants to become more informed about SPD to
+                  post and comment. You don&apos;t have to be diagnosed to
+                  participate and many of us came here to learn about SPD before
+                  a diagnosis.
+                </p>
+              </>
+            }
+            imageSrc="/images/community_thumbnails/reddit.svg"
+            socials={{
+              reddit: "https://www.reddit.com/r/Schizoid/",
             }}
           />
         </div>

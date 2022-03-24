@@ -1,5 +1,5 @@
 // Object representing a CSS measurement (eg. "10px" or "30vh");
-interface IMeasurement {
+export interface IMeasurement {
   val: number;
   unit: string;
   toString: () => string;
