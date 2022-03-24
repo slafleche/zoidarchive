@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import * as csstype from "csstype";
 import { isNumeric } from "../src/utils/utils";
+import { backgroundHelper } from "./helpers/background";
 import { flexPosition } from "./helpers/positioning";
 
 // Utility classes

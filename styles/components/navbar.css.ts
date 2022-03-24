@@ -1,6 +1,7 @@
 import { createTheme, style } from "@vanilla-extract/css";
 import { multiply } from "../../utils/styleUtils";
 import { colors } from "../colors.css";
+import globalVars from "../globals.css";
 import { flexPosition } from "../helpers/positioning";
 
 const vars = {
@@ -37,6 +38,7 @@ const navBarStyles = {
     width: "30px",
   }),
   link: style({
+    position: "relative",
     ...flexPosition.center(),
     fontSize: ".8em",
     padding: `${vars.spacing}`,
@@ -47,8 +49,8 @@ const navBarStyles = {
         color: colors.white.css(),
       },
       [`&:hover, &:focus`]: {
-        backgroundColor: colors.white.alpha(0.05).css(),
-        transform: "scale(1.02)",
+        // backgroundColor: colors.white.alpha(0.05).css(),
+        // transform: "scale(1.02)",
       },
       [`&.focus-visible, &:focus-visible`]: {
         outline: `solid ${colors.white.css()} 2px`,
@@ -56,7 +58,23 @@ const navBarStyles = {
       },
       [`&:visited`]: {},
       [`&.isActive`]: {
-        // textDecoration: "underline",
+        fontWeight: globalVars.fonts.body.semiBold,
+      },
+      [`&:after`]: {
+        content: "",
+        position: `absolute`,
+        width: `100%`,
+        transform: `scaleX(0)`,
+        height: `2px`,
+        bottom: 0,
+        left: 0,
+        backgroundColor: colors.white.css(),
+        transformOrigin: `bottom right`,
+        transition: `transform 0.25s ease-out`,
+      },
+      [`&:hover:after`]: {
+        transform: `scaleX(1)`,
+        transformOrigin: `bottom left`,
       },
     },
   }),

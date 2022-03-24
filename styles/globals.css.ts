@@ -13,11 +13,6 @@ import utilityClasses from "./utilityClasses.css";
 import * as csstype from "csstype";
 import { colors } from "./colors.css";
 
-const weights = {
-  normal: "300",
-  bold: "500",
-};
-
 const globalVars = createGlobalTheme(":root", {
   colors: {
     heroHeading: colors.heroHeading.css(),
@@ -30,17 +25,18 @@ const globalVars = createGlobalTheme(":root", {
       // family: "Poppins, " + ,
       family: "Comfortaa, Poppins, Helvetica, Arial, sans-serif",
       size: "45px",
-      weight: weights.bold,
+      weight: "500",
       color: colors.headingFg.css(),
     },
     body: {
       family: "Poppins, Helvetica, Arial, sans-serif",
       size: "22px",
-      weight: weights.normal,
+      weight: "300",
+      semiBold: "400",
+      boldWeight: "600",
       color: colors.textFg.css(),
     },
   },
-  accessibility: {},
 });
 
 globalStyle("body", {
@@ -68,6 +64,10 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
   fontWeight: globalVars.fonts.heading.weight,
   lineHeight: "1.4",
   // letterSpacing: globalVars.fonts.heading.letterSpacing,
+});
+
+globalStyle("*, *:after, *:before", {
+  boxSizing: "border-box",
 });
 
 // globalStyle(`

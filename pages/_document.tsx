@@ -19,7 +19,7 @@ export default function Document() {
         <link
           rel="preconnect"
           as="style"
-          href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&family=Poppins:wght@300;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Poppins:wght@300;400;600&display=swap"
         />
       </Head>
       <body>
