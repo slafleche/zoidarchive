@@ -66,7 +66,6 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
   fontSize: globalVars.fonts.heading.size,
   fontWeight: globalVars.fonts.heading.weight,
   lineHeight: "1.4",
-  // letterSpacing: globalVars.fonts.heading.letterSpacing,
 });
 
 globalStyle("*, *:after, *:before", {
@@ -83,8 +82,8 @@ globalStyle("*, *:after, *:before", {
 globalStyle(`${content.root} h1`, {});
 
 globalStyle("h1", {
-  textAlign: "center",
-  fontSize: "80px",
+  // textAlign: "center",
+  fontSize: "60px",
 });
 
 // const gradientColor = chroma("#921d42");
@@ -128,7 +127,7 @@ globalStyle("abbr", {
   ...backgroundHelper({
     image: `linear-gradient(to left, ${colors.contrast
       .alpha(0.3)
-      .hex()}, #f9dd94 100%)`,
+      .hex()}, ${colors.brand.alpha(0.5).css()} 100%)`,
     position: "0 100%" as csstype.Property.Position,
     size: "100% 2px",
     repeat: "repeat-x",

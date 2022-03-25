@@ -23,6 +23,10 @@ const libs = [
     ),
     destination: path.resolve("public", "js", "focus-visible.min.js.map"),
   },
+  {
+    source: path.resolve("node_modules/lunr/lunr.min.js"),
+    destination: path.resolve("public", "js", "lunr.min.js"),
+  },
 ];
 
 /** @type {import('next').NextConfig} */

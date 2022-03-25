@@ -30,7 +30,7 @@ interface IProps {
   title: string;
   description: string | JSX.Element;
   imageSrc: string;
-  socials: ISocials;
+  socials?: ISocials;
   theme?: CardTheme;
 }
 
@@ -41,7 +41,7 @@ export function Card(props: IProps) {
     headingLevel = 3,
     title,
     description,
-    socials,
+    socials = {},
     imageSrc,
     theme = CardTheme.Light,
   } = props;
@@ -49,8 +49,13 @@ export function Card(props: IProps) {
   const H = `h${headingLevel}` as "h1";
 
   return (
-    <article className={classNames(cardStyles.root, className)}>
-      <div className={classNames(cardStyles.cells)} data-theme={theme}>
+    <article
+      className={classNames(cardStyles.root, className, {
+        isDark: theme === CardTheme.Dark,
+        isLight: theme === CardTheme.Light,
+      })}
+    >
+      <div className={classNames(cardStyles.cells)}>
         <div
           className={classNames(cardStyles.cell, cardStyles.imageCell)}
           style={{ backgroundImage: `url(${imageSrc})` }}

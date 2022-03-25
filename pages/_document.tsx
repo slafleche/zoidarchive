@@ -30,16 +30,21 @@ export default function Document() {
             </main>
           </div>
         </div>
+        {/* <!-- Accessibility --> */}
         <Script
           src="js/focus-visible.min.js"
           strategy="afterInteractive"
         ></Script>
+        {/* <!-- Search --> */}
+        <Script
+          src=""
+          strategy="afterInteractive"
+        ></Script>
+        {/* <!-- Google Analytics --> */}
         <Script
           src="https://www.google-analytics.com/analytics.js"
           strategy="lazyOnload"
         />
-
-        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MS2QGXYXF4"
           strategy="afterInteractive"

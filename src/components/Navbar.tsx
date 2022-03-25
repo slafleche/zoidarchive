@@ -31,8 +31,8 @@ export function Navbar(props: IProps) {
       label: "FAQ",
     },
     {
-      url: "/resouces",
-      label: "Resouces",
+      url: "/resources",
+      label: "Resources",
     },
     {
       url: "/communities",
@@ -41,6 +41,10 @@ export function Navbar(props: IProps) {
     {
       url: "/contribute",
       label: "Contribute",
+    },
+    {
+      url: "/search",
+      label: "Search",
     },
   ];
 
