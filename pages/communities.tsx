@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import utilityStyles from "../styles/components/layout.css";
 
 import { SkipNavContent } from "@reach/skip-nav";
-import { Card } from "../src/components/Card";
+import { Card, CardStyle, CardTheme } from "../src/components/Card";
 
 function Communities() {
   return (
@@ -19,6 +19,7 @@ function Communities() {
           </p>
           <Card
             title="The Zoid Void"
+            theme={CardTheme.Dark}
             description={
               <>
                 <p>
@@ -44,7 +45,7 @@ function Communities() {
             }}
           />
           <Card
-            title="Reddit Schizoid"
+            title="/r/Schizoid"
             description={
               <>
                 <p>

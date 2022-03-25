@@ -61,8 +61,6 @@ const splashStyles = {
     ...flexPosition.center(),
     position: "relative",
     overflow: "hidden",
-    // borderBottom: `solid ${utilVars.white.alpha(0.5).css()} 1px`,
-    // boxShadow: `0 1px 2px ${utilVars.black.alpha(0.5).css()}`,
   }),
 
   overlay: style({

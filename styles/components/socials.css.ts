@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { scale } from "chroma-js";
 import { multiply } from "../../utils/styleUtils";
-import { colors } from "../colors.css";
 import { flexPosition } from "../helpers/positioning";
 
 const padding = "15px";
@@ -11,11 +10,21 @@ const socialsStyles = {
   root: style({
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "flex-start",
+
     padding: `${padding}`,
     width: `calc(100% + ${multiply(padding, 2)})`,
-    marginLeft: `-${multiply(padding, 2)}`,
+    // marginLeft: `-${multiply(padding, 2)}`,
     marginBottom: `-${padding}`,
+    selectors: {
+      ["&.isLeftAligned"]: {
+        justifyContent: "flex-start",
+        marginLeft: `-${multiply(padding, 2)}`,
+      },
+      ["&.isRightAligned"]: {
+        justifyContent: "flex-end",
+        marginRight: `-${multiply(padding, 2)}`,
+      },
+    },
   }),
   link: style({
     ...flexPosition.center(),
@@ -28,7 +37,7 @@ const socialsStyles = {
     zIndex: 1,
     selectors: {
       ["&&"]: {
-        color: colors.white.css(),
+        color: "inherit",
       },
       [`&:hover, &:focus`]: {
         opacity: 1,
@@ -39,11 +48,6 @@ const socialsStyles = {
   icon: style({
     width: iconWidth,
   }),
-  reddit: style({}),
-  discord: style({}),
-  patreon: style({}),
-  fiverr: style({}),
-  youtube: style({}),
 };
 
 export default socialsStyles;

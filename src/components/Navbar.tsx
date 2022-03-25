@@ -51,7 +51,10 @@ export function Navbar(props: IProps) {
 
     const content =
       label === "home" ? (
-        <SVG className={navBarStyles.homeIcon} src={"images/logoNoBG.svg"} />
+        <>
+          <span className={utilityClasses.isScOnly}>Home</span>
+          <SVG className={navBarStyles.homeIcon} src={"images/logoNoBG.svg"} />
+        </>
       ) : (
         label
       );

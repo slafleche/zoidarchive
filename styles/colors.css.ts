@@ -6,13 +6,12 @@ export const colors = {
   navBg: chroma("#000").alpha(0.8),
   navFg: chroma("#FFF"),
   bodyBg: chroma("#fff"),
+  bodyFg: chroma("#1d1d1f"),
   headingFg: chroma("#484a4d"),
-  textFg: chroma("#3d3380"),
   brand: chroma("#3d3380"),
   contrast: chroma("#8e233f"),
   black: chroma("#000"),
+  charcoal: chroma("rgb(26,27,27)"),
   white: chroma("#FFF"),
-  cards: {
-    dark: chroma("rgb(33, 34, 34)")
-  }
+  shadow: chroma("rgb(3, 3, 3)").alpha(0.34),
 };

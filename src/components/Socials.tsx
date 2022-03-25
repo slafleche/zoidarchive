@@ -14,54 +14,55 @@ export interface ISocials {
 interface IProps {
   className?: string;
   socials?: ISocials;
+  align?: "right" | "left";
 }
 
 export function Socials(props: IProps) {
-  const { className, socials = {} } = props;
+  const { className, socials = {}, align = "left" } = props;
   const { patreon, youtube, fiverr, discord, reddit } = socials;
 
   if (patreon || youtube || fiverr || discord || reddit) {
     return (
       <>
-        <div className={classNames(socialsStyles.root, className)}>
+        <div
+          className={classNames(
+            socialsStyles.root,
+            {
+              isLeftAligned: align == "left",
+              isRightAligned: align == "right",
+            },
+            className
+          )}
+        >
           <SocialLink
             className={socialsStyles.link}
             url={reddit}
             icon="images/socials/reddit.svg"
-            iconClassName={classNames(socialsStyles.icon, socialsStyles.reddit)}
+            iconClassName={classNames(socialsStyles.icon)}
           />
           <SocialLink
             className={socialsStyles.link}
             url={discord}
             icon="images/socials/discord.svg"
-            iconClassName={classNames(
-              socialsStyles.icon,
-              socialsStyles.discord
-            )}
+            iconClassName={classNames(socialsStyles.icon)}
           />
           <SocialLink
             className={socialsStyles.link}
             url={youtube}
             icon="images/socials/youtube.svg"
-            iconClassName={classNames(
-              socialsStyles.icon,
-              socialsStyles.youtube
-            )}
+            iconClassName={classNames(socialsStyles.icon)}
           />
           <SocialLink
             className={socialsStyles.link}
             url={fiverr}
             icon="images/socials/fiverr.svg"
-            iconClassName={classNames(socialsStyles.icon, socialsStyles.fiverr)}
+            iconClassName={classNames(socialsStyles.icon)}
           />
           <SocialLink
             className={socialsStyles.link}
             url={patreon}
             icon="images/socials/patreon.svg"
-            iconClassName={classNames(
-              socialsStyles.icon,
-              socialsStyles.patreon
-            )}
+            iconClassName={classNames(socialsStyles.icon)}
           />
         </div>
       </>

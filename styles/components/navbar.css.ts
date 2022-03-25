@@ -1,8 +1,10 @@
 import { createTheme, style } from "@vanilla-extract/css";
+import chroma from "chroma-js";
 import { multiply } from "../../utils/styleUtils";
 import { colors } from "../colors.css";
 import globalVars from "../globals.css";
 import { flexPosition } from "../helpers/positioning";
+import { globalShadow } from "../helpers/shadows";
 
 const vars = {
   height: "50px",
@@ -17,8 +19,14 @@ const navBarStyles = {
   }),
   detachable: style({
     height: vars.height,
-    backgroundColor: colors.brand.mix(colors.contrast, 0.12).alpha(0.9).css(),
-    boxShadow: "0 4px 4px 0px rgba(3, 3, 3, 0.34)",
+    backgroundColor: colors.brand.mix(colors.contrast, 0.12).alpha(0.95).css(),
+    boxShadow: globalShadow({
+      spread: 0,
+      x: 0,
+      y: "2px",
+      blur: "1px",
+      color: colors.shadow.alpha(0.6),
+    }),
     backdropFilter: "blur(3px)",
   }),
   nav: style({

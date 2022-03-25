@@ -8,9 +8,14 @@ import SVG from "react-inlinesvg";
 import { ExternalIcon } from "./ExternalIcon";
 import { ExternalLink } from "./ExternalLink";
 
-enum CardStyle {
-  LeftImage,
-  RightImage,
+export enum CardStyle {
+  SideImage,
+  BackgroundImage,
+}
+
+export enum CardTheme {
+  Light = "light",
+  Dark = "dark",
 }
 
 interface IChildProps {
@@ -26,57 +31,37 @@ interface IProps {
   description: string | JSX.Element;
   imageSrc: string;
   socials: ISocials;
+  theme?: CardTheme;
 }
 
 export function Card(props: IProps) {
   const {
-    style = CardStyle.LeftImage,
+    style = CardStyle.SideImage,
     className,
     headingLevel = 3,
     title,
     description,
     socials,
     imageSrc,
+    theme = CardTheme.Light,
   } = props;
 
   const H = `h${headingLevel}` as "h1";
 
-  const imageCell = (
-    <div
-      className={classNames(
-        cardStyles.cell,
-        cardStyles.image,
-        style === CardStyle.LeftImage ? cardStyles.left : cardStyles.right
-      )}
-      style={{ backgroundImage: `url(${imageSrc})` }}
-    ></div>
-  );
-
-  const textCell = (
-    <div
-      className={classNames(
-        cardStyles.cell,
-        cardStyles.text,
-        style === CardStyle.RightImage ? cardStyles.left : cardStyles.right
-      )}
-    >
-      <H className={classNames(cardStyles.title)}>{title}</H>
-      <div className={cardStyles.cardContent}>
-        {description}
-        <Socials socials={socials} className={cardStyles.socials} />
-      </div>
-    </div>
-  );
-
-  const childProps: IChildProps = {
-    className: cardStyles.link,
-  };
-
   return (
     <article className={classNames(cardStyles.root, className)}>
-      <div className={cardStyles.cells}>
-        {style === CardStyle.LeftImage ? imageCell : textCell}
-        {style === CardStyle.RightImage ? imageCell : textCell}
+      <div className={classNames(cardStyles.cells)} data-theme={theme}>
+        <div
+          className={classNames(cardStyles.cell, cardStyles.imageCell)}
+          style={{ backgroundImage: `url(${imageSrc})` }}
+        ></div>
+        <div className={classNames(cardStyles.cell, cardStyles.textCell)}>
+          <H className={classNames(cardStyles.title)}>{title}</H>
+          <div className={cardStyles.cardContent}>
+            {description}
+            <Socials socials={socials} className={cardStyles.socials} />
+          </div>
+        </div>
       </div>
     </article>
   );

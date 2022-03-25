@@ -12,6 +12,7 @@ import { absolutePosition } from "./helpers/positioning";
 import utilityClasses from "./utilityClasses.css";
 import * as csstype from "csstype";
 import { colors } from "./colors.css";
+import { globalShadow } from "./helpers/shadows";
 
 const globalVars = createGlobalTheme(":root", {
   colors: {
@@ -34,7 +35,7 @@ const globalVars = createGlobalTheme(":root", {
       weight: "300",
       semiBold: "400",
       boldWeight: "600",
-      color: colors.textFg.css(),
+      color: colors.bodyFg.css(),
     },
   },
 });
@@ -49,7 +50,8 @@ globalStyle("body", {
 });
 
 globalStyle("html, body", {
-  color: globalVars.fonts.heading.color,
+  // color: globalVars.fonts.heading.color,
+  color: globalVars.fonts.body.color,
   fontFamily: globalVars.fonts.body.family,
   fontSize: globalVars.fonts.body.size,
   fontWeight: globalVars.fonts.body.weight,
@@ -165,7 +167,7 @@ globalStyle("a[data-reach-skip-link]", {
   color: "#4b4b4b",
   fontWeight: globalVars.fonts.body.weight,
   border: "solid 1px #ccc",
-  boxShadow: "2px 2px 10px hsla(0, 0%, 0%, 0.8)",
+  boxShadow: globalShadow(),
 });
 
 export default globalVars;
