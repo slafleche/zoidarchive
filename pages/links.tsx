@@ -4,8 +4,9 @@ import utilityStyles from "../styles/components/layout.css";
 
 import { SkipNavContent } from "@reach/skip-nav";
 import { Card, CardStyle, CardTheme } from "../src/components/Card";
+import SPD from "../src/components/SPD";
 
-function Communities() {
+function Links() {
   return (
     <>
       <NextSeo title="Schizoid Communities" />
@@ -14,8 +15,8 @@ function Communities() {
         <div className={utilityStyles.content}>
           <h1>Zoid Communities</h1>
           <p>
-            Although it may seem at first like an oxymoron, there are communites
-            for schizoids.
+            Here are some external links to various websites or communities
+            related to <SPD />.
           </p>
           <Card
             title="The Zoid Void"
@@ -38,7 +39,7 @@ function Communities() {
                 </p>
               </>
             }
-            imageSrc="/images/community_thumbnails/zoidvoid.gif"
+            imageSrc="/images/thumbnails/zoidvoid.gif"
             socials={{
               discord: "https://disboard.org/server/803371090133909584",
               youtube: "https://www.youtube.com/c/SchizoidAngst",
@@ -60,15 +61,19 @@ function Communities() {
                 </p>
               </>
             }
-            imageSrc="/images/community_thumbnails/reddit.svg"
+            imageSrc="/images/thumbnails/reddit.svg"
             socials={{
               reddit: "https://www.reddit.com/r/Schizoid/",
             }}
           />
+
+          <p>
+            If you'd like to 
+          </p>
         </div>
       </SkipNavContent>
     </>
   );
 }
 
-export default Communities;
+export default Links;

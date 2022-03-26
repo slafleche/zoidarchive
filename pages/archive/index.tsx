@@ -14,7 +14,7 @@ interface ICategory {
   slug: string;
 }
 
-function Resources(categories: ICategory[]) {
+function Archive(categories: ICategory[]) {
   return (
     <>
       <NextSeo title="Schizoid Communities" />
@@ -57,4 +57,4 @@ function Resources(categories: ICategory[]) {
   );
 }
 
-export default Resources;
+export default Archive;

@@ -1,5 +1,5 @@
 import React from "react";
-import classnames from "classnames";
+import classNames from "classnames";
 import SmartLink from "./ActiveLink";
 import navBarStyles from "../../styles/components/navbar.css";
 
@@ -8,15 +8,16 @@ interface IProps {
   url: string;
   label: string;
   children: JSX.Element;
+  linkClass?: string;
 }
 
 export function NavbarItem(props: IProps) {
-  const { className, url, children, label } = props;
+  const { className, url, children, label, linkClass } = props;
   return (
-    <li className={classnames(className, navBarStyles.item)}>
+    <li className={classNames(className, navBarStyles.item)}>
       <SmartLink
         href={url}
-        className={navBarStyles.link}
+        className={classNames(navBarStyles.link, linkClass)}
         label={label}
       >
         {children}

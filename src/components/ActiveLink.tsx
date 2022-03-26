@@ -29,15 +29,12 @@ type IProps = IPropsWithAs | IPropsWithHref;
 
 // Checks if link is current page
 export function SmartLink(props: IProps) {
-  const { activeClassName = "isActive", children, label } = props;
+  const { activeClassName = "isActive", children, label, className } = props;
 
   const destination =
     (props as IPropsWithAs).as || (props as IPropsWithHref).href;
 
   const { asPath, pathname, basePath, isReady } = useRouter();
-
-  // const [className, setClassName] = useState("");
-  // const [allClasses = className, setAllClassName] = useState(className);
   const [active, setActive] = useState(false);
   const [linkPathname, setLinkPathname] = useState(destination);
 
@@ -56,13 +53,13 @@ export function SmartLink(props: IProps) {
       // console.log("activePathname: ", activePathname);
       // console.log("isActive: ", active);
     }
-  }, [isReady, asPath, active, basePath, linkPathname, destination]);
+  }, [isReady, asPath, active, basePath, linkPathname, destination, className]);
 
   return (
     <Link href={linkPathname} passHref {...props}>
       <a
         tabIndex={0}
-        className={classNames(navBarStyles.link, {
+        className={classNames(navBarStyles.link, className, {
           [activeClassName]: active,
         })}
         aria-current={active}

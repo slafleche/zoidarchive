@@ -13,7 +13,7 @@ function Contribute() {
       <Navbar />
       <SkipNavContent>
         <div className={utilityStyles.content}>
-          <h1>Contribute to the Zoid Archive!</h1>
+          <h1>Help us make the site better</h1>
           <p>
             There are two ways you can contribute to this project. The first way
             is to contribute to the <PatreonZoidArchive />. This project
@@ -22,11 +22,12 @@ function Contribute() {
           </p>
           <p>
             The second way is to help with content. Note that this website
-            isn&apos;t mean to contain any and everything you can find in Google
-            about <SPD /> We&apos;re trying to have a curated list that is
-            useful.
+            <strong> is not</strong> mean to contain anything and everything you
+            can find on Google about <SPD />. We&apos;re trying to have a
+            curated list that is useful and supported by scientific evidence.
           </p>
           <iframe
+            title="Contribute Form"
             src="https://docs.google.com/forms/d/e/1FAIpQLSdxwCM_CVyQWfy7ldv1z_xYjt4SnqR47fm7tz7I_aYhVPg5gA/viewform?embedded=true"
             width="100%"
             height="1200"

@@ -34,7 +34,7 @@ const globalVars = createGlobalTheme(":root", {
       size: "22px",
       weight: "300",
       semiBold: "400",
-      boldWeight: "600",
+      // boldWeight: "600",
       color: colors.bodyFg.css(),
     },
   },
@@ -66,6 +66,10 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
   fontSize: globalVars.fonts.heading.size,
   fontWeight: globalVars.fonts.heading.weight,
   lineHeight: "1.4",
+});
+
+globalStyle("h1", {
+  textAlign: "center",
 });
 
 globalStyle("*, *:after, *:before", {
@@ -167,6 +171,10 @@ globalStyle("a[data-reach-skip-link]", {
   fontWeight: globalVars.fonts.body.weight,
   border: "solid 1px #ccc",
   boxShadow: globalShadow(),
+});
+
+globalStyle("strong, b", {
+  fontWeight: globalVars.fonts.body.semiBold,
 });
 
 export default globalVars;

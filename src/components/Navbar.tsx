@@ -1,6 +1,4 @@
 import React from "react";
-import classnames from "classnames";
-// import { useRouter } from "next/router";
 import { NavbarItem } from "./NavbarItem";
 import navBarStyles from "../../styles/components/navbar.css";
 import { SkipNavLink } from "@reach/skip-nav";
@@ -31,16 +29,16 @@ export function Navbar(props: IProps) {
       label: "FAQ",
     },
     {
-      url: "/resources",
-      label: "Resources",
-    },
-    {
-      url: "/communities",
-      label: "Communities",
+      url: "/archive",
+      label: "The Archive",
     },
     {
       url: "/contribute",
       label: "Contribute",
+    },
+    {
+      url: "/contact",
+      label: "Contact",
     },
     {
       url: "/search",
@@ -65,7 +63,11 @@ export function Navbar(props: IProps) {
 
     navItems.push(
       <React.Fragment key={i}>
-        <NavbarItem url={url} label={label}>
+        <NavbarItem
+          url={url}
+          label={label}
+          linkClass={url === "/archive" ? "isArchive" : ""}
+        >
           <>{content}</>
         </NavbarItem>
       </React.Fragment>
@@ -75,7 +77,7 @@ export function Navbar(props: IProps) {
   return (
     <div className={navBarStyles.root}>
       <Sticky>
-        <div className={classnames(classes, navBarStyles.detachable)}>
+        <div className={classNames(classes, navBarStyles.detachable)}>
           <nav
             aria-labelledby={id}
             className={classNames(navBarStyles.nav, layoutClasses.content)}

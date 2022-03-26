@@ -41,9 +41,11 @@ const navBarStyles = {
   }),
   item: style({
     listStyle: "none",
+    transform: "translateY(1px)",
   }),
   homeIcon: style({
     width: "30px",
+    transform: "translateY(-1px)",
   }),
   link: style({
     position: "relative",

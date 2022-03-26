@@ -371,7 +371,19 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@reach/auto-id@0.16.0":
+"@reach/accordion@^0.16.1":
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/@reach/accordion/-/accordion-0.16.1.tgz#020fcbfa0d0768a95ca1702952b87eafbfbc7f38"
+  integrity sha512-gv0Trq3cfM92h8xZ9RBr5MGyulR6EgfLUKYrf+s9XUJjcIi3sMc611tbwlByigYVSt5gE/TLK0mKHLiXOrT3Sg==
+  dependencies:
+    "@reach/auto-id" "0.16.0"
+    "@reach/descendants" "0.16.1"
+    "@reach/utils" "0.16.0"
+    prop-types "^15.7.2"
+    tiny-warning "^1.0.3"
+    tslib "^2.3.0"
+
+"@reach/auto-id@0.16.0", "@reach/auto-id@^0.16.0":
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.16.0.tgz#dfabc3227844e8c04f8e6e45203a8e14a8edbaed"
   integrity sha512-5ssbeP5bCkM39uVsfQCwBBL+KT8YColdnMN5/Eto6Rj7929ql95R3HZUOkKIvj7mgPtEb60BLQxd1P3o6cjbmg==

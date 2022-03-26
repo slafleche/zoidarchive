@@ -1,22 +1,22 @@
 import { useCallback, useRef, useState } from "react";
-import Link from "next/link";
 import styles from "./search.module.css";
 import { NextSeo } from "next-seo";
-import { Navbar } from "../src/components/Navbar";
-import utilityStyles from "../styles/components/layout.css";
-import { SkipNavContent } from "@reach/skip-nav";
 import React from "react";
 import { matchSorter } from "match-sorter";
 import cities from "./api/dummyData";
+import SVG from "react-inlinesvg";
 import {
   Combobox,
   ComboboxInput,
   ComboboxList,
   ComboboxOption,
   ComboboxPopover,
-  ComboboxInputProps,
-  useComboboxContext,
 } from "@reach/combobox";
+import notFoundStyles from "../styles/components/404.css";
+import Link from "next/link";
+import layoutStyles from "../styles/components/layout.css";
+import { Navbar } from "../src/components/Navbar";
+import { SkipNavContent } from "@reach/skip-nav";
 
 // function Search() {
 //   const searchRef = useRef(null);
@@ -134,49 +134,63 @@ function Search() {
   const handleChange = (event: any) => setTerm(event.target.value);
   return (
     <>
-      <NextSeo title="404 Page Not Found" />
+      <NextSeo title="Search" />
+      <Navbar />
+      <SkipNavContent>
+        <div className={layoutStyles.content}>
+          <h1>Search Page</h1>
+          <Combobox>
+            <ComboboxInput
+              onChange={handleChange}
+              style={{ width: 500, margin: 0 }}
+            />
+            {results && (
+              <ComboboxPopover style={{ width: 300 }}>
+                {results.length > 0 ? (
+                  <ComboboxList>
+                    <h2>Top 3 results!</h2>
+                    {results.slice(0, 3).map((result: any, index) => (
+                      <ComboboxOption
+                        key={index}
+                        value={`${result.city}, ${result.state}`}
+                      />
+                    ))}
+                    {results.length > 3 && (
+                      <React.Fragment>
+                        <h2>The Rest</h2>
+                        {results.slice(3, 10).map((result: any, index) => (
+                          <ComboboxOption
+                            key={index}
+                            value={`${result.city}, ${result.state}`}
+                          />
+                        ))}
+                      </React.Fragment>
+                    )}
+                  </ComboboxList>
+                ) : (
+                  <div>
+                    <p style={{ padding: 10, textAlign: "center" }}>
+                      No results 😞
+                    </p>
+                  </div>
+                )}
+              </ComboboxPopover>
+            )}
+          </Combobox>
 
-      <div>
-        <h4 style={{ margin: 0 }}>Lots of stuff going on</h4>
-        <Combobox>
-          <ComboboxInput
-            onChange={handleChange}
-            style={{ width: 300, margin: 0 }}
-          />
-          {results && (
-            <ComboboxPopover style={{ width: 300 }}>
-              {results.length > 0 ? (
-                <ComboboxList>
-                  <h5>Top 3 results!</h5>
-                  {results.slice(0, 3).map((result: any, index) => (
-                    <ComboboxOption
-                      key={index}
-                      value={`${result.city}, ${result.state}`}
-                    />
-                  ))}
-                  {results.length > 3 && (
-                    <React.Fragment>
-                      <h5>The Rest</h5>
-                      {results.slice(3, 10).map((result: any, index) => (
-                        <ComboboxOption
-                          key={index}
-                          value={`${result.city}, ${result.state}`}
-                        />
-                      ))}
-                    </React.Fragment>
-                  )}
-                </ComboboxList>
-              ) : (
-                <div>
-                  <p style={{ padding: 10, textAlign: "center" }}>
-                    No results 😞
-                  </p>
-                </div>
-              )}
-            </ComboboxPopover>
-          )}
-        </Combobox>
-      </div>
+          <div style={{ marginTop: "100px" }}>
+            <Link href="/" passHref>
+              <a className={notFoundStyles.backLink}>
+                <SVG
+                  className={notFoundStyles.backIcon}
+                  src={"images/back.svg"}
+                />
+                <span className={notFoundStyles.backText}>Back</span>
+              </a>
+            </Link>
+          </div>
+        </div>
+      </SkipNavContent>
     </>
   );
 }
