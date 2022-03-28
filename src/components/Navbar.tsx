@@ -1,5 +1,6 @@
 import React from "react";
 import { NavbarItem } from "./NavbarItem";
+
 import navBarStyles from "../../styles/components/navbar.css";
 import { SkipNavLink } from "@reach/skip-nav";
 import "@reach/skip-nav/styles.css";
@@ -9,6 +10,7 @@ import SVG from "react-inlinesvg";
 import classNames from "classnames";
 import utilityClasses from "../../styles/utilityClasses.css";
 import layoutClasses from "../../styles/components/layout.css";
+import NavSearch from "./NavSearch";
 
 interface IProps {
   classes?: string;
@@ -86,7 +88,10 @@ export function Navbar(props: IProps) {
             <h2 id={id} className={utilityClasses.isScOnly}>
               Main Menu
             </h2>
-            <ul className={navBarStyles.items}>{navItems}</ul>
+            <ul className={navBarStyles.items}>
+              {navItems}
+              <NavSearch />
+            </ul>
           </nav>
         </div>
       </Sticky>

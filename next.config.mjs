@@ -42,7 +42,9 @@ const nextConfig = {
             } catch (err) {
               // No file found, continue with copy
             }
-            fs.copy(library.source, library.destination, done);
+            if (library.source) {
+              fs.copy(library.source, library.destination, done);
+            }
           });
         },
       })

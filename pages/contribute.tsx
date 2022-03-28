@@ -26,9 +26,10 @@ function Contribute() {
             can find on Google about <SPD />. We&apos;re trying to have a
             curated list that is useful and supported by scientific evidence.
           </p>
+
           <iframe
             title="Contribute Form"
-            src="https://docs.google.com/forms/d/e/1FAIpQLSdxwCM_CVyQWfy7ldv1z_xYjt4SnqR47fm7tz7I_aYhVPg5gA/viewform?embedded=true"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfusOd8kyePIuHoF04l_-9Qoacg_-_Xx6tyRsmRxKdOReZ1AA/viewform?embedded=true"
             width="100%"
             height="1200"
             frameBorder="0"
