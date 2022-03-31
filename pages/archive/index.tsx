@@ -1,4 +1,4 @@
-import { Navbar } from "../../src/components/Navbar";
+import { Navbar } from "../../src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
 import utilityStyles from "../../styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
@@ -14,7 +14,8 @@ interface ICategory {
   slug: string;
 }
 
-function Archive(categories: ICategory[]) {
+function Archive() {
+  const categories: ICategory[] = [];
   return (
     <>
       <NextSeo title="Schizoid Communities" />
@@ -28,6 +29,7 @@ function Archive(categories: ICategory[]) {
             description={<></>}
             imageSrc="/images/community_thumbnails/reddit.svg"
           /> */}
+
           <ul>
             {categories.map((category: ICategory) => {
               console.log(">>>>> category: ", category);
