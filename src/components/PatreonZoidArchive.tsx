@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import SVG from "react-inlinesvg";
 import contentStyles from "../../styles/components/content.css";
-import { ExternalIcon } from "./ExternalIcon";
-import { ExternalLink } from "./ExternalLink";
+import { ExternalIcon } from "./text/ExternalIcon";
+import { ExternalLink } from "./text/ExternalLink";
 
 interface IProps {
   className?: string;

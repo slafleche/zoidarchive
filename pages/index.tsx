@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
-import { Navbar } from "../src/components/Navbar";
+import { Navbar } from "../src/components/nav/Navbar";
 import { Splash } from "../src/components/Splash";
 import layoutClasses from "../styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
 import content from "../styles/components/content.css";
-import Abbr from "../src/components/Abbr";
-import SPD from "../src/components/SPD";
+import Abbr from "../src/components/text/Abbr";
+import SPD from "../src/components/text/SPD";
 import { NextSeo } from "next-seo";
 
 const Home: NextPage = () => {

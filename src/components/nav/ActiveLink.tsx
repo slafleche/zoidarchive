@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import React from "react";
 import classNames from "classnames";
-import navBarStyles from "../../styles/components/navbar.css";
+import navBarStyles from "../../../styles/components/navbar.css";
 import Tooltip from "@reach/tooltip";
 import { setActiveLink } from "react-scroll/modules/mixins/scroller";
 

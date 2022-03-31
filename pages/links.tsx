@@ -1,10 +1,10 @@
-import { Navbar } from "../src/components/Navbar";
+import { Navbar } from "../src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
 import utilityStyles from "../styles/components/layout.css";
 
 import { SkipNavContent } from "@reach/skip-nav";
 import { Card, CardStyle, CardTheme } from "../src/components/Card";
-import SPD from "../src/components/SPD";
+import SPD from "../src/components/text/SPD";
 
 function Links() {
   return (

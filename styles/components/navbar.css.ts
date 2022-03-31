@@ -41,12 +41,14 @@ const navBarStyles = {
   }),
   item: style({
     listStyle: "none",
-    transform: "translateY(1px)",
+    transform: "translateY(2px)",
   }),
   homeIcon: style({
     width: "30px",
     transform: "translateY(-1px)",
   }),
+  compactSearch: style({}),
+  compactSearchInput: style({}),
   link: style({
     position: "relative",
     ...flexPosition.center(),
@@ -58,9 +60,14 @@ const navBarStyles = {
         textDecoration: "none",
         color: colors.white.css(),
       },
-      [`&:hover, &:focus`]: {
-        // backgroundColor: colors.white.alpha(0.05).css(),
-        // transform: "scale(1.02)",
+      ["&.isArchive"]: {
+        // backgroundImage: `linear-gradient(87deg, ${colors.contrast
+        //   .alpha(0.5)
+        //   .css()} 30%, ${colors.contrast.css()} 100%)`,
+        // backgroundSize: "100%",
+        // // MozBackgroundClip: "text",
+        // // WebkitBackgroundClip: "text",
+        // // WebkitTextFillColor: colors.white.css(),
       },
       [`&.focus-visible, &:focus-visible`]: {
         outline: `solid ${colors.white.css()} 2px`,
@@ -88,6 +95,9 @@ const navBarStyles = {
       },
     },
   }),
+  search: {
+    input: style({}),
+  },
 };
 
 export default navBarStyles;

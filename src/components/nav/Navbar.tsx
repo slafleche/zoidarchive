@@ -1,15 +1,15 @@
 import React from "react";
 import { NavbarItem } from "./NavbarItem";
 
-import navBarStyles from "../../styles/components/navbar.css";
+import navBarStyles from "../../../styles/components/navbar.css";
 import { SkipNavLink } from "@reach/skip-nav";
 import "@reach/skip-nav/styles.css";
 import Sticky from "react-stickynode";
 import Tooltip from "@reach/tooltip";
 import SVG from "react-inlinesvg";
 import classNames from "classnames";
-import utilityClasses from "../../styles/utilityClasses.css";
-import layoutClasses from "../../styles/components/layout.css";
+import utilityClasses from "../../../styles/utilityClasses.css";
+import layoutClasses from "../../../styles/components/layout.css";
 import NavSearch from "./NavSearch";
 
 interface IProps {
@@ -41,10 +41,6 @@ export function Navbar(props: IProps) {
     {
       url: "/contact",
       label: "Contact",
-    },
-    {
-      url: "/search",
-      label: "Search",
     },
   ];
 

@@ -3,13 +3,8 @@ import {
   globalStyle,
   keyframes,
 } from "@vanilla-extract/css";
-import chroma from "chroma-js";
-import { ClassType } from "react";
 import content from "./components/content.css";
-import layout from "./components/layout.css";
 import { backgroundHelper } from "./helpers/background";
-import { absolutePosition } from "./helpers/positioning";
-import utilityClasses from "./utilityClasses.css";
 import * as csstype from "csstype";
 import { colors } from "./colors.css";
 import { globalShadow } from "./helpers/shadows";
@@ -23,7 +18,6 @@ const globalVars = createGlobalTheme(":root", {
   },
   fonts: {
     heading: {
-      // family: "Poppins, " + ,
       family: "Comfortaa, Poppins, Helvetica, Arial, sans-serif",
       size: "45px",
       weight: "500",
@@ -34,9 +28,14 @@ const globalVars = createGlobalTheme(":root", {
       size: "22px",
       weight: "300",
       semiBold: "400",
-      // boldWeight: "600",
       color: colors.bodyFg.css(),
     },
+  },
+  border: {
+    color: colors.border.css(),
+    style: "solid",
+    width: "1px",
+    radius: "0.25rem",
   },
 });
 

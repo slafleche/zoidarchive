@@ -5,8 +5,8 @@ import { stringifyQuery } from "next/dist/server/server-route-utils";
 import { OptionalWrap } from "./OptionalWrap";
 import { ISocials, Socials } from "./Socials";
 import SVG from "react-inlinesvg";
-import { ExternalIcon } from "./ExternalIcon";
-import { ExternalLink } from "./ExternalLink";
+import { ExternalIcon } from "./text/ExternalIcon";
+import { ExternalLink } from "./text/ExternalLink";
 
 export enum CardStyle {
   SideImage,

@@ -1,6 +1,6 @@
 import { NextSeo } from "next-seo";
 import { SkipNavContent } from "@reach/skip-nav";
-import { Navbar } from "../../../src/components/Navbar";
+import { Navbar } from "../../../src/components/nav/Navbar";
 import matter from "gray-matter";
 import { join } from "path";
 import fs from "fs";

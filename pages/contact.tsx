@@ -1,9 +1,9 @@
-import { Navbar } from "../src/components/Navbar";
+import { Navbar } from "../src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
 import utilityStyles from "../styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
-import SPD from "../src/components/SPD";
-import { ExternalLink } from "../src/components/ExternalLink";
+import SPD from "../src/components/text/SPD";
+import { ExternalLink } from "../src/components/text/ExternalLink";
 import { PatreonZoidArchive } from "../src/components/PatreonZoidArchive";
 
 function Contribute() {
