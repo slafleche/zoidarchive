@@ -1,18 +1,13 @@
-import {
-  createTheme,
-  globalStyle,
-  style,
-  styleVariants,
-} from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import chroma from "chroma-js";
-import { math, measurement } from "../../utils/styleUtils";
+import { calc } from "@vanilla-extract/css-utils";
 import { fullRotation } from "../globals.css";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { backgroundHelper } from "../helpers/background";
 import { colors } from "../colors.css";
 
-const logoSize = measurement("50px");
-const logoWrapSize = math.multiply(logoSize, 1.5);
+const logoSize = "50px";
+const logoWrapSize = calc.multiply(logoSize.toString(), 1.5);
 
 const vars = {
   logo: {

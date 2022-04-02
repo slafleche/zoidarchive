@@ -13,6 +13,7 @@ export const colors = {
   black: chroma("#000"),
   charcoal: chroma("rgb(26,27,27)"),
   white: chroma("#FFF"),
+  transparent: chroma("#ffffff").alpha(0),
   shadow: chroma("rgb(3, 3, 3)").alpha(0.34),
   border: chroma("#1d1d1f"),
 };

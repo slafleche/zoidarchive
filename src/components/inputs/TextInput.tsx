@@ -10,7 +10,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id?: string;
   value: string;
   type?: "text" | "search";
-  ref?: React.RefObject<HTMLInputElement>;
+  refs?: React.RefObject<HTMLInputElement>;
 }
 
 function TextInput(props: IProps) {

@@ -12,7 +12,7 @@ function NavSearch(props: IProps) {
   const id = "search";
   const { className } = props;
   return (
-    <li className={classNames(className, navBarStyles.item)}>
+    <li className={classNames(className, navBarStyles.item, "isLast")}>
       <SearchBar className={navBarStyles.compactSearch} />
     </li>
   );

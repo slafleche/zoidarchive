@@ -40,6 +40,24 @@ const utilityClasses = {
   center: style({
     ...flexPosition.center(),
   }),
+
+  visibleOnFocus: style({
+    position: "absolute",
+    clip: "rect(0 0 0 0)",
+    height: "1px",
+    width: "1px",
+    margin: "-1px",
+    overflow: "hidden",
+    padding: 0,
+    selectors: {
+      ["&:focus, &.focus-visible"]: {
+        zIndex: 1,
+        width: "auto",
+        height: "auto",
+        clip: "auto",
+      },
+    },
+  }),
 };
 
 export default utilityClasses;

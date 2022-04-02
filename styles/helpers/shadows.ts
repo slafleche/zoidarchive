@@ -1,6 +1,6 @@
 import chroma, { Color } from "chroma-js";
 import { colors } from "../colors.css";
-import globalVars from "../globals.css";
+import globalVars from "../vars.css";
 
 export interface IBoxShadow {
   x?: string | 0;
@@ -11,9 +11,8 @@ export interface IBoxShadow {
   color?: Color;
 }
 
-
 // Will default to global set of default value
-export const globalShadow = (props?: IBoxShadow) => {
+export const globalShadow = (props: IBoxShadow = {}) => {
   const {
     x = "2px",
     y = "4px",

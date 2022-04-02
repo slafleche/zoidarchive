@@ -9,14 +9,21 @@ interface IProps {
   title?: string;
   type?: "submit";
   buttonRef?: React.Ref<HTMLButtonElement>;
+  onClick?: (e: any) => void;
 }
 
 function Button(props: IProps) {
   const { className, type, children, ...rest } = props;
+
   return (
     <button
       type={type}
       className={classNames(className, navBarStyles.item)}
+      onClick={(e) => {
+        // alert("from button");
+        e.preventDefault();
+      }}
+    
       {...rest}
     >
       <>{children}</>

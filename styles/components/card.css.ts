@@ -4,9 +4,8 @@ import {
   style,
   styleVariants,
 } from "@vanilla-extract/css";
-import { multiply } from "../../utils/styleUtils";
 import { colors } from "../colors.css";
-import globalVars from "../globals.css";
+import globalVars from "../vars.css";
 import { backgroundHelper } from "../helpers/background";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { globalShadow } from "../helpers/shadows";

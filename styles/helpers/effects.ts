@@ -1,9 +1,10 @@
 import { IMeasurement } from "../../utils/styleUtils";
 import { colors } from "../colors.css";
-import globalVars from "../globals.css";
+import globalVars from "../vars.css";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
+import * as csstype from "csstype";
 
-export const roundButton = (buttonSize: IMeasurement) => {
+export const roundButton = (buttonSize: csstype.Property.Width) => {
   return {
     ...flexPosition.center(),
     position: "relative",
@@ -11,8 +12,8 @@ export const roundButton = (buttonSize: IMeasurement) => {
     borderRadius: "50%",
     fontWeight: globalVars.fonts.body.semiBold,
     transition: "background, color 0.3s, 0.2s ease-in",
-    width: buttonSize.toString(),
-    height: buttonSize.toString(),
+    width: buttonSize,
+    height: buttonSize,
     selectors: {
       ["&&"]: {
         color: colors.brand.css(),

@@ -1,24 +1,24 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import chroma from "chroma-js";
-import { multiply } from "../../utils/styleUtils";
 import { colors } from "../colors.css";
-import globalVars from "../globals.css";
+import paddings from "../helpers/padding";
 import { flexPosition } from "../helpers/positioning";
 import { globalShadow } from "../helpers/shadows";
+import { calc } from "@vanilla-extract/css-utils";
+import globalVars from "../vars.css";
 
-const vars = {
-  height: "50px",
+export const navBarVars = {
+  height: "60px",
   spacing: "10px",
 };
 
 const navBarStyles = {
   root: style({
     position: "relative",
-    height: vars.height,
+    height: navBarVars.height,
     zIndex: 10,
   }),
   detachable: style({
-    height: vars.height,
+    height: navBarVars.height,
     backgroundColor: colors.brand.mix(colors.contrast, 0.12).alpha(0.95).css(),
     boxShadow: globalShadow({
       spread: 0,
@@ -30,22 +30,28 @@ const navBarStyles = {
     backdropFilter: "blur(3px)",
   }),
   nav: style({
-    height: vars.height,
+    height: navBarVars.height,
   }),
   items: style({
-    ...flexPosition.middleLeft(),
-    width: `calc(100% + ${multiply(vars.spacing, 2)})`,
-    margin: `0 0 0 -${vars.spacing}`,
+    ...flexPosition.middleLeft(true),
+    // width: `calc(100% + ${multiply(navBarVars.spacing, 2)})`,
+    width: `calc(100% + ${calc.multiply(navBarVars.spacing, 2)})`,
+    margin: `0 0 0 -${navBarVars.spacing}`,
     padding: 0,
-    height: vars.height,
+    height: navBarVars.height,
   }),
   item: style({
     listStyle: "none",
-    transform: "translateY(2px)",
+    height: "100%",
+    ...flexPosition.center(),
+    selectors: {
+      ["&.isLast"]: {
+        marginLeft: "auto",
+      },
+    },
   }),
   homeIcon: style({
     width: "30px",
-    transform: "translateY(-1px)",
   }),
   compactSearch: style({}),
   compactSearchInput: style({}),
@@ -53,7 +59,12 @@ const navBarStyles = {
     position: "relative",
     ...flexPosition.center(),
     fontSize: ".8em",
-    padding: `${vars.spacing}`,
+    lineHeight: navBarVars.height,
+    ...paddings({
+      all: `${navBarVars.spacing}`,
+      top: `calc(${navBarVars.spacing} + 2px)`,
+    }),
+    height: "100%",
     transition: "background-color ease-in 0.2s, transform ease-out 0.1s",
     selectors: {
       [`&&`]: {

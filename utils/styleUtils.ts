@@ -5,20 +5,32 @@ export interface IMeasurement {
   toString: () => string;
 }
 
-export const measurement = (value: string | IMeasurement) => {
+export const measurement = (value: string | IMeasurement, newVal?: number) => {
+  let valParsed: number;
+  let val;
+  let unit: string;
   // For easlier type checking, pass through value if it's already converted.
-  if (typeof value !== "string") {
-    return value;
+  if (typeof value === "string") {
+    // Modify value into object
+    val = value.trim();
+    unit = val.replace(/^-?(0|[1-9]\d*)?([.][0-9]*)?/, ""); // not yet trimmed
+    val = val.substring(0, val.length - unit.length);
+    if (val === "-0") {
+      val = "0";
+    }
+    valParsed = Number(val);
+    unit = unit.trim();
+  } else {
+    if (typeof newVal === "number") {
+      // Setting new value for measurement
+      valParsed = newVal;
+      val = value.val;
+      unit = value.unit;
+    } else {
+      // will be IMeasurement, return as is
+      return value;
+    }
   }
-
-  let val = value.trim();
-  let unit = val.replace(/^-?(0|[1-9]\d*)?([.][0-9]*)?/, ""); // not yet trimmed
-  val = val.substring(0, val.length - unit.length);
-  if (val === "-0") {
-    val = "0";
-  }
-  const valParsed = Number(val);
-  unit = unit.trim();
 
   const result: IMeasurement = {
     val: valParsed,
@@ -31,24 +43,9 @@ export const measurement = (value: string | IMeasurement) => {
   return result;
 };
 
-export const divide = (
-  value: string | IMeasurement,
-  denominator: number,
-  decimals?: number
-): string => {
-  const style = measurement(value);
-  return `${(style.val / denominator).toFixed(decimals || 2)}${style.unit}`;
-};
-
-export const multiply = (
-  value: string | IMeasurement,
-  denominator: number
-): string => {
-  const style = measurement(value);
-  return `${style.val * denominator}${style.unit}`;
-};
-
-export const math = {
-  divide,
-  multiply,
-};
+// export const modifyValue = (newValue: number, oldValue: IMeasurement) => {
+//   return {
+//     ...oldValue,
+//     val:
+//   } as IMeasurement;
+// }

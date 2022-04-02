@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { scale } from "chroma-js";
-import { multiply } from "../../utils/styleUtils";
 import { flexPosition } from "../helpers/positioning";
+import { calc } from "@vanilla-extract/css-utils";
 
 const padding = "15px";
 const iconWidth = "50px";
@@ -12,17 +11,17 @@ const socialsStyles = {
     flexWrap: "wrap",
 
     padding: `${padding}`,
-    width: `calc(100% + ${multiply(padding, 2)})`,
+    width: `calc(100% + ${calc.multiply(padding, 2)})`,
     // marginLeft: `-${multiply(padding, 2)}`,
     marginBottom: `-${padding}`,
     selectors: {
       ["&.isLeftAligned"]: {
         justifyContent: "flex-start",
-        marginLeft: `-${multiply(padding, 2)}`,
+        marginLeft: `-${calc.multiply(padding, 2)}`,
       },
       ["&.isRightAligned"]: {
         justifyContent: "flex-end",
-        marginRight: `-${multiply(padding, 2)}`,
+        marginRight: `-${calc.multiply(padding, 2)}`,
       },
     },
   }),

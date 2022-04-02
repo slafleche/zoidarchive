@@ -2,7 +2,7 @@ import { Color } from "chroma-js";
 import * as csstype from "csstype";
 import { IMeasurement, measurement } from "../../utils/styleUtils";
 import { colors } from "../colors.css";
-import globalVars from "../globals.css";
+import globalVars from "../vars.css";
 
 export interface IBorder {
   color?: Color;
@@ -18,21 +18,21 @@ interface IFinalBorder {
   borderRadius?: csstype.Property.BorderRadius;
 }
 
-const borders = (props?: IBorder) => {
+const borders = (props: IBorder = {}) => {
   const {
-    color = globalVars.border.color,
-    width = `${globalVars.border.width}`,
+    color = colors.border,
+    width = globalVars.border.width,
     style = globalVars.border.style,
     radius = globalVars.border.radius,
-  } = props || {};
+  } = props;
 
   let borderProps: IFinalBorder = {
     borderStyle: style,
   };
 
   if (style != "none") {
-    (borderProps as any).borderColor = color;
-    (borderProps as any).borderWidth = width;
+    borderProps.borderColor = color.css();
+    borderProps.borderWidth = width || globalVars.border.width;
     if (radius) {
       const rad = measurement(radius);
       if (rad.val != 0) {

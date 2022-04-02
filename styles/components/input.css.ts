@@ -1,15 +1,28 @@
 import { style } from "@vanilla-extract/css";
 import { colors } from "../colors.css";
 import borders from "../helpers/border";
+import paddings from "../helpers/padding";
+
+export const inputVars = {
+  text: {
+    borders: {
+      radius: "6px",
+    },
+    padding: {
+      vertical: "0.375rem",
+      horizontal: "0.75rem",
+    },
+  },
+};
 
 const inputStyles = {
   text: style({
     display: "block",
     width: "100%",
-    padding: "0.375rem 0.75rem",
     lineHeight: "1.5",
     backgroundColor: colors.bodyBg.css(),
-    ...borders(),
+    ...paddings(inputVars.text.padding),
+    ...borders(inputVars.text.borders),
   }),
   button: style({}),
   shortcut: style({}),

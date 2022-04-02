@@ -8,36 +8,8 @@ import { backgroundHelper } from "./helpers/background";
 import * as csstype from "csstype";
 import { colors } from "./colors.css";
 import { globalShadow } from "./helpers/shadows";
-
-const globalVars = createGlobalTheme(":root", {
-  colors: {
-    heroHeading: colors.heroHeading.css(),
-    heroText: colors.heroHeading.css(),
-    navBg: colors.navBg.css(),
-    navFg: colors.navFg.css(),
-  },
-  fonts: {
-    heading: {
-      family: "Comfortaa, Poppins, Helvetica, Arial, sans-serif",
-      size: "45px",
-      weight: "500",
-      color: colors.headingFg.css(),
-    },
-    body: {
-      family: "Poppins, Helvetica, Arial, sans-serif",
-      size: "22px",
-      weight: "300",
-      semiBold: "400",
-      color: colors.bodyFg.css(),
-    },
-  },
-  border: {
-    color: colors.border.css(),
-    style: "solid",
-    width: "1px",
-    radius: "0.25rem",
-  },
-});
+import borders from "./helpers/border";
+import globalVars from "./vars.css";
 
 globalStyle("body", {
   minHeight: "100vh",
@@ -71,25 +43,15 @@ globalStyle("h1", {
   textAlign: "center",
 });
 
-globalStyle("*, *:after, *:before", {
+globalStyle("*, *:after, *:before, input[type='search']", {
   boxSizing: "border-box",
 });
 
-// globalStyle(`
-//   ${content.root} h1,
-//   ${content.root} h2, ${content.root} h3, ${content.root} h4, ${content.root} h5, ${content.root} h6, `,
-//   {
-
-//   }
-// );
 globalStyle(`${content.root} h1`, {});
 
 globalStyle("h1", {
-  // textAlign: "center",
   fontSize: "60px",
 });
-
-// const gradientColor = chroma("#921d42");
 
 globalStyle("h2", {
   backgroundColor: "#211d3f",
@@ -101,20 +63,6 @@ globalStyle("h2", {
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
 });
-
-// globalStyle("h2:after", {
-//   content: "",
-//   ...absolutePosition.topLeft(0, "-15px"),
-//   transform: "translateX(-1em)",
-//   display: "block",
-//   width: "1em",
-//   height: "1em",
-//   opacity: "0.8",
-//   ...backgroundHelper({
-//     image:
-//       "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2aWV3Qm94PSI0NDIuNDEgMTA5LjE5NyAxNi4wNDIgMTYuMDQ1IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGQ9Ik0gNDUxLjc0NSAxMjUuMjQxIEwgNDUyLjg4MSAxMjQuMjM4IEMgNDUzLjQzNCAxMjMuNzQ5IDQ1My42MzcgMTIyLjc2OCA0NTMuNjcgMTIxLjYxIEMgNDUxLjk3IDEyMS40OTcgNDUwLjI2OSAxMjEuMDE3IDQ0OS42OTkgMTIwLjUwMSBDIDQ0OS4xODMgMTE5LjkyNSA0NDguOTQ4IDExOS4xNDEgNDQ5LjA0MyAxMTguNTEyIEMgNDQ5LjEzOCAxMTcuODkxIDQ0OS41MjEgMTE3LjIxNiA0NDkuOTczIDExNi43NjMgQyA0NTAuNDI2IDExNi4zMSA0NTEuMTAyIDExNS45MjcgNDUxLjcyMyAxMTUuODMyIEMgNDUyLjM1MiAxMTUuNzM3IDQ1My4xNjYgMTE1Ljk0MiA0NTMuNzEyIDExNi40ODggQyA0NTQuMjU5IDExNy4wMzUgNDU0LjcxNyAxMTguNzU0IDQ1NC44MjUgMTIwLjQ1NiBDIDQ1NS45ODIgMTIwLjQyMyA0NTYuOTYxIDEyMC4yMjEgNDU3LjQ0OSAxMTkuNjcgTCA0NTguNDUyIDExOC41MzQgTCA0NTguNDUyIDEyNS4yNDEgTCA0NTEuNzQ1IDEyNS4yNDEgWiBNIDQ1Ny4yNzYgMTIxLjE3OCBDIDQ1Ni42MDcgMTIxLjQ5MSA0NTYuMzQ5IDEyMS42MzEgNDU0Ljg1NyAxMjEuNjIxIEwgNDU0Ljg1OCAxMjEuNjQzIEwgNDU0Ljg0MiAxMjEuNjQzIEMgNDU0LjgwOCAxMjIuNzM2IDQ1NC42OTEgMTIzLjE5NyA0NTQuMzI3IDEyNC4wNjYgTCA0NTcuMjc2IDEyNC4wNjYgTCA0NTcuMjc2IDEyMS4xNzggWiBNIDQ1Mi44ODEgMTE3LjMxOSBDIDQ1Mi41NSAxMTYuOTg4IDQ1Mi4zMDcgMTE2LjkzMyA0NTEuOTAxIDExNi45OTUgQyA0NTEuNDg3IDExNy4wNTggNDUxLjE0NyAxMTcuMjUxIDQ1MC44MDQgMTE3LjU5NCBDIDQ1MC40NjIgMTE3LjkzNyA0NTAuMjY4IDExOC4yNzYgNDUwLjIwNSAxMTguNjkgQyA0NTAuMTQzIDExOS4wOTYgNDUwLjE2OCAxMTkuMzY4IDQ1MC41MyAxMTkuNjcgQyA0NTAuODg4IDEyMC4wODggNDUyLjE1MiAxMjAuMzYyIDQ1My42NTQgMTIwLjQ0IEMgNDUzLjU3IDExOC45NDggNDUzLjI3NCAxMTcuNzEyIDQ1Mi44ODEgMTE3LjMxOSBaIiBzdHlsZT0iZmlsbDogcmdiKDMzLCAyOSwgNjMpOyIvPgo8L3N2Zz4=",
-//   }),
-// });
 
 globalStyle("a:focus:not(.focus-visible):not(:focus-visible)", {
   outline: "none",
@@ -176,4 +124,12 @@ globalStyle("strong, b", {
   fontWeight: globalVars.fonts.body.semiBold,
 });
 
-export default globalVars;
+globalStyle("button", {
+  ...borders(),
+  backgroundColor: colors.white.css(),
+});
+
+globalStyle("[data-reach-dialog-overlay]", {
+  zIndex: 100,
+  backgroundColor: colors.black.alpha(0.8).css(),
+});

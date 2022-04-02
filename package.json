@@ -11,6 +11,7 @@
     "@reach/accordion": "^0.16.1",
     "@reach/auto-id": "^0.16.0",
     "@reach/combobox": "^0.16.5",
+    "@reach/dialog": "^0.16.2",
     "@reach/skip-nav": "^0.16.0",
     "classnames": "^2.3.1",
     "focus-visible": "^5.2.0",

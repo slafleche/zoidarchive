@@ -1,13 +1,8 @@
 import {
   ComplexStyleRule,
-  createTheme,
-  globalStyle,
   style,
-  styleVariants,
 } from "@vanilla-extract/css";
-import { measurement, multiply } from "../../utils/styleUtils";
 import { colors } from "../colors.css";
-import globalVars from "../globals.css";
 import { roundButton } from "../helpers/effects";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 
@@ -17,7 +12,7 @@ import { absolutePosition, flexPosition } from "../helpers/positioning";
 const separatorSpace = "30px";
 const backButtonSize = "130px";
 
-const backStyles = roundButton(measurement(backButtonSize));
+const backStyles = roundButton(backButtonSize);
 
 const notFoundStyles = {
   root: style({
