@@ -30,7 +30,6 @@ function SearchBar(props: IProps) {
 
   const openModal = useCallback(
     (e: React.SyntheticEvent | KeyboardEvent) => {
-      console.log("e: ", e);
       if ("key" in e) {
         var special = e.metaKey || e.ctrlKey;
         if (e.key == "k" && special) {

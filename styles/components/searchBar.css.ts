@@ -91,28 +91,17 @@ const searchBarStyles = {
     padding: "2px 5px",
     transition: buttonTransition,
     ...borders({
-      color: colors.white,
-      width: "2px",
-    }),
-    boxShadow: globalShadow({
-      x: 0,
-      y: 0,
-      spread: "2px",
+      color: colors.white.alpha(0.8),
+      width: "1.5px",
     }),
     selectors: {
       ["&:hover, &:focus, &.focus-visible"]: {
-        transform: "scale(1.1)",
+        transform: "scale(1.08)",
       },
       ["&:active"]: {
         transform: "scale(0.95)",
       },
     },
-    //   ["&.focus"]: {
-    //     borderColor: colors.black.css(),
-    //     color: colors.black.css(),
-    //     backgroundColor: colors.white.css(),
-    //   },
-    // },
   }),
   compactInput: style({
     height: "100%",
