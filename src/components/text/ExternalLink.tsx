@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import SVG from "react-inlinesvg";
 import { ExternalIcon } from "./ExternalIcon";
 
 interface IProps {

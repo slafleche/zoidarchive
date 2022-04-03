@@ -4,6 +4,7 @@ import "../styles/globals.css.ts";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
+import ScrollToTop from "../src/components/ScrollToTop";
 
 // https://www.npmjs.com/package/next-seo
 // github.com/pacocoursey/next-themes
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         description="Resources for the Schizoid Community"
       />
       <Component {...pageProps}></Component>
+      <ScrollToTop />
     </>
   );
 }

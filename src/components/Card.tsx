@@ -4,7 +4,6 @@ import Image from "next/image";
 import { stringifyQuery } from "next/dist/server/server-route-utils";
 import { OptionalWrap } from "./OptionalWrap";
 import { ISocials, Socials } from "./Socials";
-import SVG from "react-inlinesvg";
 import { ExternalIcon } from "./text/ExternalIcon";
 import { ExternalLink } from "./text/ExternalLink";
 

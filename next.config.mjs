@@ -33,6 +33,10 @@ const libs = [
 const nextConfig = {
   reactStrictMode: true,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.infrastructureLogging = {
+      level: "error",
+      debug: /PackFileCache/,
+    };
     config.plugins.push(
       new EventHooksPlugin({
         initialize: (compilation, done) => {

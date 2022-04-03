@@ -67,9 +67,7 @@ function Links() {
             }}
           />
 
-          <p>
-            If you'd like to 
-          </p>
+          <p>If you&apos;d like to</p>
         </div>
       </SkipNavContent>
     </>

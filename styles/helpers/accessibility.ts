@@ -96,3 +96,5 @@ const keyboardEvents = (tabbableElements: HTMLElement[] = []) => {
     }
   };
 };
+
+export default nextTabbable;

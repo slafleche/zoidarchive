@@ -21,13 +21,17 @@ globalStyle("body", {
 });
 
 globalStyle("html, body", {
-  // color: globalVars.fonts.heading.color,
   color: globalVars.fonts.body.color,
   fontFamily: globalVars.fonts.body.family,
   fontSize: globalVars.fonts.body.size,
   fontWeight: globalVars.fonts.body.weight,
-  // letterSpacing: globalVars.fonts.body.letterSpacing,
+  scrollBehavior: "smooth",
   lineHeight: 1.8,
+  "@media": {
+    "(prefers-reduced-motion: reduce)": {
+      scrollBehavior: "auto",
+    },
+  },
 });
 
 globalStyle("h1, h2, h3, h4, h5, h6", {

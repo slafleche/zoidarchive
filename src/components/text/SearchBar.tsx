@@ -33,7 +33,6 @@ function SearchBar(props: IProps) {
       if ("key" in e) {
         var special = e.metaKey || e.ctrlKey;
         if (e.key == "k" && special) {
-          console.log("show modal please ");
           setShowSearchModal(true);
         }
 
@@ -46,7 +45,7 @@ function SearchBar(props: IProps) {
     [showSearchModal]
   );
 
-  const exitHandler = (event: React.SyntheticEvent | KeyboardEvent) => {
+  const exitHandler = (e: React.SyntheticEvent | KeyboardEvent) => {
     if (inputRef && inputRef.current) {
       (inputRef.current as any).focus();
     }

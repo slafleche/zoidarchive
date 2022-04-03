@@ -3,7 +3,6 @@ import { SkipNavContent } from "@reach/skip-nav";
 import { Navbar } from "../../../src/components/nav/Navbar";
 import matter from "gray-matter";
 import { join } from "path";
-import fs from "fs";
 
 export interface AuthorType {
   name: string;
@@ -53,12 +52,14 @@ const articlesDirectory = join(process.cwd(), "pages/resources/books");
 
 function getRawArticleBySlug(slug: string): matter.GrayMatterFile<string> {
   const fullPath = join(articlesDirectory, `${slug}.mdx`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  // const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileContents = "";
   return matter(fileContents);
 }
 
 function getAllSlugs(): Array<string> {
-  return fs.readdirSync(articlesDirectory);
+  // return fs.readdirSync(articlesDirectory);
+  return [];
 }
 
 function getArticleBySlug(

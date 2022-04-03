@@ -3,6 +3,7 @@ import socialsStyles from "../../styles/components/socials.css";
 import SVG from "react-inlinesvg";
 import { SocialLink } from "./SocialIcon";
 
+
 export interface ISocials {
   youtube?: string;
   fiverr?: string;

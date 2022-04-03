@@ -3,6 +3,7 @@ import { colors } from "../colors.css";
 import globalVars from "../vars.css";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import * as csstype from "csstype";
+import { globalShadow } from "./shadows";
 
 export const roundButton = (buttonSize: csstype.Property.Width) => {
   return {
@@ -14,23 +15,34 @@ export const roundButton = (buttonSize: csstype.Property.Width) => {
     transition: "background, color 0.3s, 0.2s ease-in",
     width: buttonSize,
     height: buttonSize,
+    border: `solid ${colors.brand.alpha(0.7).css()} 3px`,
+    "@media": {
+      "(prefers-reduced-motion: no-preference)": {
+        border: `solid ${colors.white.css()} 2px`,
+      },
+    },
     selectors: {
       ["&&"]: {
         color: colors.brand.css(),
         outlineColor: colors.white.css(),
       },
       ["&:after"]: {
-        content: "",
-        ...absolutePosition.fullSize(),
-        border: `solid ${colors.brand.alpha(0.7).css()} 3px`,
-        borderRadius: "50%",
-        transform: "scale(1)",
-        transition: "opacity, transform, filter 0.3s, 0.2s ease-out",
+        "@media": {
+          "(prefers-reduced-motion: no-preference)": {
+            content: "",
+            ...absolutePosition.fullSize(),
+            border: `solid ${colors.brand.alpha(0.7).css()} 3px`,
+            borderRadius: "50%",
+            transform: "scale(1)",
+            transition: "opacity, transform, filter 0.3s, 0.2s ease-out",
+          },
+        },
       },
       ["&:hover:after, &:focus:after"]: {
         opacity: 0,
         transform: "scale(2)",
       },
+
       ["&:hover, &:focus"]: {
         backgroundColor: colors.brand.css(),
         color: colors.white.css(),

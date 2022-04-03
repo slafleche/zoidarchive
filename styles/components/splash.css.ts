@@ -46,7 +46,11 @@ const logoSpacer = style({
 const logo = style({
   width: vars.logo.size,
   height: "auto",
-  animation: `14s infinite linear ${fullRotation}`,
+  "@media": {
+    "(prefers-reduced-motion: no-preference)": {
+      animation: `14s infinite linear ${fullRotation}`,
+    },
+  },
 });
 
 const splashStyles = {
@@ -76,7 +80,11 @@ const splashStyles = {
         ${vars.gradient.middle.css("hsl")} 43%,
         ${vars.gradient.middle.css("hsl")} 53%,
          ${vars.gradient.end.css("hsl")} 65%)`,
-        animation: `${fullRotation} 7.3s infinite linear`,
+        "@media": {
+          "(prefers-reduced-motion: no-preference)": {
+            animation: `${fullRotation} 7.3s infinite linear`,
+          },
+        },
       },
       // SVG Overlay
       "&:after": {
@@ -104,7 +112,11 @@ const splashStyles = {
           "hsl"
         )} 47%, ${vars.counterGradient.middle.css("hsl")} 73%, 
         ${vars.counterGradient.end.css("hsl")} 88%)`,
-        animation: `${fullRotation} 9.7s infinite reverse linear`,
+        "@media": {
+          "(prefers-reduced-motion: no-preference)": {
+            animation: `${fullRotation} 9.7s infinite reverse linear`,
+          },
+        },
       },
     },
   }),
