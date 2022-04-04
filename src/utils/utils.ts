@@ -3,7 +3,6 @@ export const isNumeric = (obj: any) => {
 };
 
 export const debounce = (callback: (event?: any) => void) => {
-  console.log("debounce!");
   var timeout;
   if (timeout) {
     window.cancelAnimationFrame(timeout);

@@ -1,16 +1,10 @@
-import { ComplexStyleRule, style } from "@vanilla-extract/css";
-import { IMeasurement } from "../../utils/styleUtils";
+import { style } from "@vanilla-extract/css";
 import { colors } from "../colors.css";
 import borders from "../helpers/border";
-import paddings from "../helpers/padding";
+import { margins, paddings } from "../helpers/spacing";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { globalShadow } from "../helpers/shadows";
 import { inputVars } from "./input.css";
-import { navBarVars } from "./navbar.css";
-
-interface ISearchVars {
-  height: IMeasurement;
-}
 
 const iconWidth = "20px";
 const iconPaddedWidth = "40px";
@@ -28,13 +22,6 @@ const searchBarStyles = {
       vertical: "8px",
     }),
   }),
-  // label: style({
-  //   ...absolutePosition.topLeft(),
-  //   ...flexPosition.center(),
-  //   width: iconPaddedWidth,
-  //   marginLeft: "2px",
-  //   height: "100%",
-  // }),
   icon: style({
     width: iconWidth,
   }),
@@ -61,13 +48,18 @@ const searchBarStyles = {
   }),
   submit: style({
     ...absolutePosition.topRight("1px", "3px"),
+    bottom: 0,
     ...flexPosition.center(),
     backgroundColor: colors.transparent.css(),
     color: colors.white.css(),
     border: "none",
     width: iconPaddedWidth,
-    marginLeft: "2px",
-    height: "100%",
+    outlineOffset: "-5px",
+    ...margins({
+      vertical: "auto",
+      left: "2px",
+    }),
+    height: iconPaddedWidth,
     transition: buttonTransition,
     selectors: {
       ["&:hover, &:focus, &.focus-visible"]: {
@@ -106,7 +98,6 @@ const searchBarStyles = {
   compactInput: style({
     height: "100%",
   }),
-  fullSizeInput: style({}),
 };
 
 export default searchBarStyles;

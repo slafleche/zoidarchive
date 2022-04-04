@@ -4,6 +4,7 @@ import classNames from "classnames";
 import scrollToTopStyles from "../../styles/components/scrollToTop.css";
 import SVG from "react-inlinesvg";
 import { debounce } from "../utils/utils";
+import ReachTooltip from "@reach/tooltip";
 
 interface IProps {
   className?: string;
@@ -60,11 +61,6 @@ const ScrollToTop = (props: IProps) => {
       calculateScrollPosition();
       if (windowHeight && scrollPosition) {
         const breakPoint = windowHeight / 2;
-
-        console.log("breakPoint: ", breakPoint);
-        console.log("windowHeight: ", windowHeight);
-        console.log("scrollPosition: ", scrollPosition);
-
         debounce(() => {
           if (scrollPosition >= breakPoint) {
             setVisible(true);

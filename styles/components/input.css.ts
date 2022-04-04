@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { colors } from "../colors.css";
 import borders from "../helpers/border";
-import paddings from "../helpers/padding";
+import { paddings } from "../helpers/spacing";
 
 export const inputVars = {
   text: {

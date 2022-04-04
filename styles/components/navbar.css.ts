@@ -1,6 +1,6 @@
 import { createTheme, style } from "@vanilla-extract/css";
 import { colors } from "../colors.css";
-import paddings from "../helpers/padding";
+import { paddings } from "../helpers/spacing";
 import { flexPosition } from "../helpers/positioning";
 import { globalShadow } from "../helpers/shadows";
 import { calc } from "@vanilla-extract/css-utils";
