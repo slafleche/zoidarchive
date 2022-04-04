@@ -1,5 +1,6 @@
 import Script from "next/dist/client/script";
 import { Html, Head, Main, NextScript } from "next/document";
+import ScrollToTop from "../src/components/ScrollToTop";
 import { Favicons } from "../src/partials/Favicons";
 import utilityStyles from "../styles/components/layout.css";
 
@@ -27,6 +28,64 @@ export default function Document() {
           <div className={utilityStyles.frame}>
             <main className={utilityStyles.main}>
               <Main />
+              <ul>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+              </ul>
             </main>
           </div>
         </div>
@@ -36,10 +95,7 @@ export default function Document() {
           strategy="afterInteractive"
         ></Script>
         {/* <!-- Search --> */}
-        <Script
-          src=""
-          strategy="afterInteractive"
-        ></Script>
+        {/* <Script src="" strategy="afterInteractive"></Script> */}
         {/* <!-- Google Analytics --> */}
         <Script
           src="https://www.google-analytics.com/analytics.js"
@@ -58,7 +114,6 @@ export default function Document() {
             gtag('config', 'G-MS2QGXYXF4');
           `}
         </Script>
-
         <NextScript />
       </body>
     </Html>

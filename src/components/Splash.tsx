@@ -28,21 +28,20 @@ export function Splash() {
         </div>
         <Link
           to={id}
-          smooth={true}
           isDynamic={true}
           className={classes.scrollToContent}
           href={`#${id}`}
           aria-hidden="true"
         >
-          <Tooltip label={"Scroll down to content"}>
-            <div className={utilityClasses.center}>
-              <SVG
-                className={classes.scrollToContentIcon}
-                src={"images/chevronDown.svg"}
-                fill="#fff"
-              />
-            </div>
-          </Tooltip>
+          {/* <Tooltip label={"Scroll down to content"} > */}
+          <div className={utilityClasses.center}>
+            <SVG
+              className={classes.scrollToContentIcon}
+              src={"images/chevronDown.svg"}
+              fill="#fff"
+            />
+          </div>
+          {/* </Tooltip> */}
         </Link>
       </div>
       <div id={id} />

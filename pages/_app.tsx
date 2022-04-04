@@ -3,7 +3,6 @@ import "@reach/tooltip/styles.css";
 import "../styles/globals.css.ts";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
-import { ThemeProvider } from "next-themes";
 import ScrollToTop from "../src/components/ScrollToTop";
 
 // https://www.npmjs.com/package/next-seo
