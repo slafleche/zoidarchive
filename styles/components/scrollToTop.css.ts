@@ -1,34 +1,52 @@
 import { ComplexStyleRule, style } from "@vanilla-extract/css";
-import { flexPosition } from "../helpers/positioning";
+import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { roundButton } from "../helpers/effects";
+import { calc } from "@vanilla-extract/css-utils";
+import { reducedMotion, ReducedMotion } from "../helpers/accessibility";
 
 const buttonWidth = "100px";
+const cubicBezier = "cubic-bezier(0.680, -0.280, 0.380, 1.285)";
 
 const scrollToTopStyles = {
   root: style({
-    ...flexPosition.center(),
     position: "fixed",
-    bottom: "30px",
-    right: "30px",
-    height: buttonWidth,
-    width: buttonWidth,
+    bottom: 0,
+    right: 0,
+    height: calc.multiply(buttonWidth, 4),
+    width: calc.multiply(buttonWidth, 4),
+    overflow: "hidden",
     zIndex: 20,
+  }),
+
+  frame: style({
+    position: "relative",
+    width: "100%",
+    height: "100%",
+    transition: `transform 0.6s ${cubicBezier}`,
+    ...reducedMotion(ReducedMotion.on, {
+      opacity: 1,
+      transition: `opacity 0.2s ease-in`,
+    }),
+    selectors: {
+      ["&.isHidden"]: {
+        transform: "translateY(100%)",
+        ...reducedMotion(ReducedMotion.on, {
+          opacity: 0,
+          transform: "none",
+        }),
+      },
+    },
   }),
 
   button: style({
     ...roundButton(buttonWidth),
+    ...absolutePosition.bottomRight("30px", "30px"),
   } as ComplexStyleRule),
 
   icon: style({
     display: "block",
     width: "30px",
     height: "auto",
-  }),
-
-  waypoint: style({
-    width: "100%",
-    height: "0",
-    pointerEvents: "none",
   }),
 };
 

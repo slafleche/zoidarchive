@@ -60,39 +60,37 @@ const ScrollToTop = (props: IProps) => {
       calculateWindowHeight();
       calculateScrollPosition();
       if (windowHeight && scrollPosition) {
-        const breakPoint = windowHeight / 2;
+        const breakPoint = windowHeight / 3;
         debounce(() => {
-          if (scrollPosition >= breakPoint) {
-            setVisible(true);
-          }
+          setVisible(scrollPosition >= breakPoint);
         });
-      } else {
-        setVisible(false);
       }
     },
     [scrollPosition, windowHeight]
   );
 
   return (
-    <>
-      {visible && (
-        <div className={classNames(className, scrollToTopStyles.root)}>
-          <Button
-            title="Scroll back to top"
-            className={scrollToTopStyles.button}
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            <SVG
-              title="Search"
-              className={scrollToTopStyles.icon}
-              src="images/backToTop.svg"
-            />
-          </Button>
-        </div>
-      )}
-    </>
+    <div className={classNames(className, scrollToTopStyles.root)}>
+      <div
+        className={classNames(className, scrollToTopStyles.frame, {
+          isHidden: !visible,
+        })}
+      >
+        <Button
+          title="Scroll back to top"
+          className={classNames(scrollToTopStyles.button)}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
+          <SVG
+            title="Search"
+            className={scrollToTopStyles.icon}
+            src="images/backToTop.svg"
+          />
+        </Button>
+      </div>
+    </div>
   );
 };
 
