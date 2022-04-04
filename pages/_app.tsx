@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <DefaultSeo
         titleTemplate="%s | Zoid Archive"
-        description="Resources for the Schizoid Community"
+        description="Raising awareness and sharing information about the Schizoid Community"
       />
       <Component {...pageProps}></Component>
       <ScrollToTop />

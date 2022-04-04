@@ -39,7 +39,7 @@ real-favicon check-for-update --fail-on-update faviconData.json
 - Documentation
 
   - Feedback/content
-  - Storybook?
+  - Storybook/Ladle
   - RSS
 
 - Next SEO
