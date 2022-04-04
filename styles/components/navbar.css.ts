@@ -34,7 +34,6 @@ const navBarStyles = {
   }),
   items: style({
     ...flexPosition.middleLeft(true),
-    // width: `calc(100% + ${multiply(navBarVars.spacing, 2)})`,
     width: `calc(100% + ${calc.multiply(navBarVars.spacing, 2)})`,
     margin: `0 0 0 -${navBarVars.spacing}`,
     padding: 0,

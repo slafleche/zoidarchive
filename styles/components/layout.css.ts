@@ -1,6 +1,12 @@
 import { style } from "@vanilla-extract/css";
 import { backgroundHelper } from "../helpers/background";
 import { absolutePosition } from "../helpers/positioning";
+import { paddings } from "../helpers/spacing";
+
+export const layoutVars = {
+  contentWidth: "1200px",
+  contentPadding: "20px",
+};
 
 const layoutStyles = {
   frame: style({
@@ -12,9 +18,11 @@ const layoutStyles = {
   }),
 
   content: style({
-    maxWidth: "1200px",
+    maxWidth: layoutVars.contentWidth,
     margin: "auto",
-    padding: "0 20px",
+    ...paddings({
+      horiziontal: layoutVars.contentPadding,
+    }),
   }),
 
   bodyWrap: style({
