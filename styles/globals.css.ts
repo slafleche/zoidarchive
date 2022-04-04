@@ -1,8 +1,4 @@
-import {
-  createGlobalTheme,
-  globalStyle,
-  keyframes,
-} from "@vanilla-extract/css";
+import { globalStyle, keyframes } from "@vanilla-extract/css";
 import content from "./components/content.css";
 import { backgroundHelper } from "./helpers/background";
 import * as csstype from "csstype";
@@ -10,6 +6,7 @@ import { colors } from "./colors.css";
 import { globalShadow } from "./helpers/shadows";
 import borders from "./helpers/border";
 import globalVars from "./vars.css";
+import { ReducedMotion, reducedMotion } from "./helpers/accessibility";
 
 globalStyle("body", {
   minHeight: "100vh",
@@ -27,11 +24,9 @@ globalStyle("html, body", {
   fontWeight: globalVars.fonts.body.weight,
   scrollBehavior: "smooth",
   lineHeight: 1.8,
-  "@media": {
-    "(prefers-reduced-motion: reduce)": {
-      scrollBehavior: "auto",
-    },
-  },
+  ...reducedMotion(ReducedMotion.on, {
+    scrollBehavior: "auto",
+  }),
 });
 
 globalStyle("h1, h2, h3, h4, h5, h6", {
@@ -112,7 +107,6 @@ globalStyle("a[aria-current='true']", {
   cursor: "default",
   pointerEvents: "none",
   fontWeight: globalVars.fonts.body.weight,
-  // color: colors.contrast.css(),
 });
 
 // Skip to content link

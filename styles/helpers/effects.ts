@@ -1,9 +1,8 @@
-import { IMeasurement } from "../../utils/styleUtils";
 import { colors } from "../colors.css";
 import globalVars from "../vars.css";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import * as csstype from "csstype";
-import { globalShadow } from "./shadows";
+import { ReducedMotion, reducedMotion } from "./accessibility";
 
 export const roundButton = (buttonSize: csstype.Property.Width) => {
   return {
@@ -16,27 +15,23 @@ export const roundButton = (buttonSize: csstype.Property.Width) => {
     width: buttonSize,
     height: buttonSize,
     border: `solid ${colors.brand.alpha(0.7).css()} 3px`,
-    "@media": {
-      "(prefers-reduced-motion: no-preference)": {
-        border: `solid ${colors.white.css()} 2px`,
-      },
-    },
+    ...reducedMotion(ReducedMotion.off, {
+      border: `solid ${colors.white.css()} 2px`,
+    }),
     selectors: {
       ["&&"]: {
         color: colors.brand.css(),
         outlineColor: colors.white.css(),
       },
       ["&:after"]: {
-        "@media": {
-          "(prefers-reduced-motion: no-preference)": {
-            content: "",
-            ...absolutePosition.fullSize(),
-            border: `solid ${colors.brand.alpha(0.7).css()} 3px`,
-            borderRadius: "50%",
-            transform: "scale(1)",
-            transition: "opacity, transform, filter 0.3s, 0.2s ease-out",
-          },
-        },
+        ...reducedMotion(ReducedMotion.off, {
+          content: "",
+          ...absolutePosition.fullSize(),
+          border: `solid ${colors.brand.alpha(0.7).css()} 3px`,
+          borderRadius: "50%",
+          transform: "scale(1)",
+          transition: "opacity, transform, filter 0.3s, 0.2s ease-out",
+        }),
       },
       ["&:hover:after, &:focus:after"]: {
         opacity: 0,

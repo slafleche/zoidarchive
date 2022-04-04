@@ -1,3 +1,5 @@
+import { ComplexStyleRule, StyleRule } from "@vanilla-extract/css";
+
 const nextTabbable = (
   startingElement: Element | null = document.activeElement,
   tabbables: HTMLElement[],
@@ -97,4 +99,29 @@ const keyboardEvents = (tabbableElements: HTMLElement[] = []) => {
   };
 };
 
-export default nextTabbable;
+const tabHelper = {
+  nextTabbable,
+  allTabbable,
+  firstTabbable,
+  lastTabbable,
+  keyboardEvents,
+};
+
+// Reduced Motion
+export enum ReducedMotion {
+  on = "reduce",
+  off = "no-preference",
+}
+
+export const reducedMotion = (
+  preference: ReducedMotion,
+  styles: ComplexStyleRule
+) => {
+  return {
+    "@media": {
+      [`(prefers-reduced-motion: ${preference})`]: styles,
+    },
+  } as StyleRule;
+};
+
+export default tabHelper;

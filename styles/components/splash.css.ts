@@ -5,6 +5,7 @@ import { fullRotation } from "../globals.css";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { backgroundHelper } from "../helpers/background";
 import { colors } from "../colors.css";
+import { reducedMotion, ReducedMotion } from "../helpers/accessibility";
 
 const logoSize = "50px";
 const logoWrapSize = calc.multiply(logoSize.toString(), 1.5);
@@ -33,7 +34,6 @@ const vars = {
 };
 
 const logoSpacer = style({
-  // ...flexPosition.middle(),
   position: "relative",
   width: logoWrapSize,
   height: logoWrapSize,
@@ -46,11 +46,9 @@ const logoSpacer = style({
 const logo = style({
   width: vars.logo.size,
   height: "auto",
-  "@media": {
-    "(prefers-reduced-motion: no-preference)": {
-      animation: `14s infinite linear ${fullRotation}`,
-    },
-  },
+  ...reducedMotion(ReducedMotion.off, {
+    animation: `14s infinite linear ${fullRotation}`,
+  })
 });
 
 const splashStyles = {
@@ -79,12 +77,10 @@ const splashStyles = {
         )} 37%,
         ${vars.gradient.middle.css("hsl")} 43%,
         ${vars.gradient.middle.css("hsl")} 53%,
-         ${vars.gradient.end.css("hsl")} 65%)`,
-        "@media": {
-          "(prefers-reduced-motion: no-preference)": {
-            animation: `${fullRotation} 7.3s infinite linear`,
-          },
-        },
+        ${vars.gradient.end.css("hsl")} 65%)`,
+        ...reducedMotion(ReducedMotion.off, {
+          animation: `${fullRotation} 7.3s infinite linear`,
+        }),
       },
       // SVG Overlay
       "&:after": {
@@ -112,11 +108,9 @@ const splashStyles = {
           "hsl"
         )} 47%, ${vars.counterGradient.middle.css("hsl")} 73%, 
         ${vars.counterGradient.end.css("hsl")} 88%)`,
-        "@media": {
-          "(prefers-reduced-motion: no-preference)": {
-            animation: `${fullRotation} 9.7s infinite reverse linear`,
-          },
-        },
+        ...reducedMotion(ReducedMotion.off, {
+          animation: `${fullRotation} 9.7s infinite reverse linear`,
+        }),
       },
     },
   }),
