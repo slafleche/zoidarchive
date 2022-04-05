@@ -28,10 +28,10 @@ export function Splash() {
         </div>
         <Link
           to={id}
+          aria-label="Skip to Content"
           isDynamic={true}
           className={classes.scrollToContent}
           href={`#${id}`}
-          aria-hidden="true"
         >
           {/* <Tooltip label={"Scroll down to content"} > */}
           <div className={utilityClasses.center}>

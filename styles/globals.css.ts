@@ -71,6 +71,12 @@ export const fullRotation = keyframes({
   "0%": { transform: "rotate(-360deg)" },
 });
 
+export const upAndDown = keyframes({
+  "0%": { transform: "translateY(0)" },
+  "25%": { transform: "translateY(2px)" },
+  "75%": { transform: "translateY(-2px)" },
+});
+
 globalStyle("abbr", {
   textDecoration: "none",
   fontWeight: globalVars.fonts.body.weight,

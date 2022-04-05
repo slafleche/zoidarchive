@@ -102,6 +102,7 @@ function SearchBar(props: IProps) {
             [`${searchBarStyles.compactInput}`]: compact,
             [`${searchBarStyles.fullSizeInput}`]: !compact,
           })}
+          aria-label="Search"
           type="search"
           refs={inputRef}
           value={query}

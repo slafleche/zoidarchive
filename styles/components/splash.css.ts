@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import chroma from "chroma-js";
 import { calc } from "@vanilla-extract/css-utils";
-import { fullRotation } from "../globals.css";
+import { fullRotation, upAndDown } from "../globals.css";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { backgroundHelper } from "../helpers/background";
 import { colors } from "../colors.css";
@@ -48,7 +48,7 @@ const logo = style({
   height: "auto",
   ...reducedMotion(ReducedMotion.off, {
     animation: `14s infinite linear ${fullRotation}`,
-  })
+  }),
 });
 
 const splashStyles = {
@@ -149,6 +149,9 @@ const splashStyles = {
       [`&:hover, &:active, &:focus`]: {
         color: colors.white.css(),
         opacity: 0.8,
+        ...reducedMotion(ReducedMotion.off, {
+          animation: `${upAndDown} 1s infinite linear`,
+        }),
       },
     },
   }),
@@ -162,9 +165,5 @@ const splashStyles = {
   logoSpacer,
   logo,
 };
-
-// splashStyles[`.${splashStyles.titleWord} > span}`] = style({
-//   textAlign: "center",
-// });
 
 export default splashStyles;

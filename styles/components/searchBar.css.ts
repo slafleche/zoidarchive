@@ -98,6 +98,7 @@ const searchBarStyles = {
   compactInput: style({
     height: "100%",
   }),
+  fullSizeInput: style({}),
 };
 
 export default searchBarStyles;

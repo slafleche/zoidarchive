@@ -11,6 +11,7 @@ interface IMediaQuery {
   maxWidth?: string;
 }
 
+// https://github.com/yocontra/react-responsive
 // To be used in hooks with useMediaQuery()
 // Example: const isFullWidth = useMediaQuery(globalMediaQueries.fullWidth);
 const globalMediaQueries = {
