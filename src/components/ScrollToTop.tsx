@@ -86,7 +86,7 @@ const ScrollToTop = (props: IProps) => {
           <SVG
             title="Search"
             className={scrollToTopStyles.icon}
-            src="images/backToTop.svg"
+            src="images/scrollToTop.svg"
           />
         </Button>
       </div>

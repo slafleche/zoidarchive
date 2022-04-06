@@ -14,6 +14,8 @@ export const roundButton = (buttonSize: csstype.Property.Width) => {
     transition: "background, color 0.3s, 0.2s ease-in",
     width: buttonSize,
     height: buttonSize,
+    minHeight: buttonSize,
+    minWidth: buttonSize,
     border: `solid ${colors.brand.alpha(0.7).css()} 3px`,
     ...reducedMotion(ReducedMotion.off, {
       border: `solid ${colors.white.css()} 2px`,

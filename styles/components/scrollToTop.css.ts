@@ -12,8 +12,9 @@ const scrollToTopStyles = {
     position: "fixed",
     bottom: 0,
     right: 0,
-    height: calc.multiply(buttonWidth, 4),
-    width: calc.multiply(buttonWidth, 4),
+    pointerEvents: "none",
+    height: calc.multiply(buttonWidth, 3),
+    width: calc.multiply(buttonWidth, 3),
     overflow: "hidden",
     zIndex: 20,
   }),
@@ -41,7 +42,8 @@ const scrollToTopStyles = {
   button: style({
     ...roundButton(buttonWidth),
     ...absolutePosition.bottomRight("30px", "30px"),
-  } as ComplexStyleRule),
+    pointerEvents: "all",
+  }),
 
   icon: style({
     display: "block",

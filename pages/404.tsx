@@ -8,6 +8,11 @@ function notFound() {
     <>
       <NextSeo title="404 Page Not Found" />
       <div className={notFoundStyles.root}>
+        <SVG
+          title="Crashed Rocket"
+          src="images/illustrations/404.svg"
+          className={notFoundStyles.illustration}
+        />
         <h1 className={notFoundStyles.title}>
           <span className={notFoundStyles.titleCode}>
             <strong>404</strong>
