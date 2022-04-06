@@ -140,3 +140,13 @@ globalStyle("[data-reach-dialog-overlay]", {
   zIndex: 100,
   backgroundColor: colors.black.alpha(0.8).css(),
 });
+
+globalStyle("ul", {
+  margin: 0,
+  listStyleType: "none",
+  marginBlockStart: 0,
+  marginBlockEnd: 0,
+  marginInlineStart: 0,
+  marginInlineEnd: 0,
+  paddingInlineStart: 0,
+});

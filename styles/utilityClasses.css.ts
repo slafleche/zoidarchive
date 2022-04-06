@@ -58,6 +58,16 @@ const utilityClasses = {
       },
     },
   }),
+
+  linkForUI: style({
+    textDecoration: "none",
+    color: "inherit",
+    selectors: {
+      ["&:visited"]: {
+        color: "inherit",
+      },
+    },
+  }),
 };
 
 export default utilityClasses;

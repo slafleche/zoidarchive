@@ -1,14 +1,18 @@
 import { ComplexStyleRule, style } from "@vanilla-extract/css";
 import { colors } from "../colors.css";
 import { roundButton } from "../helpers/effects";
-import { IMediaQuery, mediaQueryStyle } from "../helpers/mediaQueries";
+import {
+  IMediaQuery,
+  IMediaQueryProps,
+  mediaQueryStyle,
+} from "../helpers/mediaQueries";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { margins, paddings } from "../helpers/spacing";
 
 const mediaQueries = {
   smallerText: {
     maxWidth: "670px",
-  } as IMediaQuery,
+  } as IMediaQueryProps,
 };
 
 const separatorSpace = "30px";
@@ -41,17 +45,23 @@ const notFoundStyles = {
     borderRight: `solid ${colors.contrast} 3px`,
     paddingRight: separatorSpace,
     marginRight: separatorSpace,
-    ...mediaQueryStyle(mediaQueries.smallerText, {
-      display: "block",
-      borderRight: "none",
-      marginRight: 0,
-      paddingRight: 0,
+    ...mediaQueryStyle({
+      props: mediaQueries.smallerText,
+      styles: {
+        display: "block",
+        borderRight: "none",
+        marginRight: 0,
+        paddingRight: 0,
+      },
     }),
   }),
   titleText: style({
     fontSize: "0.8em",
-    ...mediaQueryStyle(mediaQueries.smallerText, {
-      fontSize: "0.5em",
+    ...mediaQueryStyle({
+      props: mediaQueries.smallerText,
+      styles: {
+        fontSize: "0.5em",
+      },
     }),
   }),
   backLink: style({

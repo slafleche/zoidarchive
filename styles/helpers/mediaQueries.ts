@@ -1,15 +1,38 @@
-import React from "react";
 import { layoutVars } from "../components/layout.css";
 import { calc } from "@vanilla-extract/css-utils";
-import { useMediaQuery } from "react-responsive";
-import { ComplexStyleRule, style } from "@vanilla-extract/css";
+import { ComplexStyleRule } from "@vanilla-extract/css";
+import * as csstype from "csstype";
+import { measurement } from "../../utils/styleUtils";
 
-export interface IMediaQuery {
+export interface IMediaQueryProps {
   name: string;
   type?: "all" | "print" | "screen";
   minWidth?: string;
   maxWidth?: string;
 }
+
+export interface IMediaQuery {
+  props: IMediaQueryProps;
+  styles: ComplexStyleRule;
+}
+
+export type IMediaQueries = IMediaQuery[];
+
+export const substractOnePixel = (length: string) => {
+  const props = measurement(length);
+  if (props.unit !== "px") {
+    throw Error(`Error in substractOnePixel: "${length}" is not in pixels`);
+  }
+  return measurement(props, props.val - 1).toString() as csstype.Property.Width;
+};
+
+export const addOnePixel = (length: string) => {
+  const props = measurement(length);
+  if (props.unit !== "px") {
+    throw Error(`Error in addOnePixel: "${length}" is not in pixels`);
+  }
+  return measurement(props, props.val + 1).toString() as csstype.Property.Width;
+};
 
 // https://github.com/yocontra/react-responsive
 // To be used in hooks with useMediaQuery()
@@ -20,28 +43,37 @@ const globalMediaQueries = {
       layoutVars.contentWidth,
       calc.multiply(layoutVars.contentPadding, 2)
     )}`,
-  } as IMediaQuery,
+  } as IMediaQueryProps,
   noBleed: {
     minWidth: layoutVars.contentWidth,
-  } as IMediaQuery,
+  } as IMediaQueryProps,
   noBleed_exclusive: {
     minWidth: layoutVars.contentWidth,
     maxWidth: calc.subtract(layoutVars.contentWidth, "1px"),
-  } as IMediaQuery,
+  } as IMediaQueryProps,
 };
 
 export const mediaQueryStyle = (
-  query: IMediaQuery,
-  style: ComplexStyleRule,
+  queryAndStyles: IMediaQuery | IMediaQueries,
   debug = false
 ) => {
-  const minWidth = query.minWidth ? ` and (min-width: ${query.minWidth})` : ``;
-  const maxWidth = query.maxWidth ? ` and (max-width: ${query.maxWidth})` : ``;
-  const rule = `${query.type ?? "screen"}${minWidth}${maxWidth}`;
+  if (!Array.isArray(queryAndStyles)) {
+    queryAndStyles = [queryAndStyles];
+  }
+  let result: any = {};
+  queryAndStyles.forEach((mq) => {
+    const { props, styles } = mq;
+    const minWidth = props.minWidth
+      ? ` and (min-width: ${props.minWidth})`
+      : ``;
+    const maxWidth = props.maxWidth
+      ? ` and (max-width: ${props.maxWidth})`
+      : ``;
+    const rule = `${props.type ?? "screen"}${minWidth}${maxWidth}`;
+    result[rule] = styles;
+  });
   const mediaQuery = {
-    "@media": {
-      [rule]: style,
-    },
+    "@media": result,
   } as ComplexStyleRule;
   if (debug) {
     console.log("mediaQuery: ", mediaQuery);
@@ -50,14 +82,20 @@ export const mediaQueryStyle = (
 };
 
 export const globalMediaQueryStyles = {
-  fullWidth: (style: ComplexStyleRule) => {
-    return mediaQueryStyle(globalMediaQueries.fullWidth, style);
+  fullWidth: (styles: ComplexStyleRule) => {
+    return mediaQueryStyle({
+      props: globalMediaQueries.fullWidth,
+      styles,
+    });
   },
-  noBleed: (style: ComplexStyleRule) => {
-    return mediaQueryStyle(globalMediaQueries.noBleed, style);
+  noBleed: (styles: ComplexStyleRule) => {
+    return mediaQueryStyle({ props: globalMediaQueries.noBleed, styles });
   },
-  noBleed_exclusive: (style: ComplexStyleRule) => {
-    return mediaQueryStyle(globalMediaQueries.noBleed_exclusive, style);
+  noBleed_exclusive: (styles: ComplexStyleRule) => {
+    return mediaQueryStyle({
+      props: globalMediaQueries.noBleed_exclusive,
+      styles,
+    });
   },
 };
 

@@ -3,10 +3,23 @@ import thumbnailStyles from "../../../styles/components/thumbnails/thumbnails.cs
 
 interface IProps {
   className?: string;
+  titleClass?: string;
   children: React.ReactNode;
+  headingLevel?: 2 | 3 | 4 | 5 | 6;
 }
 
 export function ThumbnailContainer(props: IProps) {
-  const { className, children } = props;
-  return <div className={classNames(thumbnailStyles.root)}>{children}</div>;
+  const { className, children, headingLevel = 2, titleClass = "" } = props;
+  const H = `h${headingLevel}` as "h1";
+
+  return (
+    <section className={classNames(thumbnailStyles.root, className)}>
+      <H className={classNames(thumbnailStyles.sectionTitle, titleClass)}>
+        Explore Content
+      </H>
+      <div role="list" className={thumbnailStyles.thumbnails}>
+        {children}
+      </div>
+    </section>
+  );
 }

@@ -6,7 +6,7 @@ import globalVars from "../vars.css";
 
 interface IAdvancedSpacing {
   all?: csstype.Property.PaddingTop;
-  horiziontal?: csstype.Property.PaddingTop;
+  horizontal?: csstype.Property.PaddingTop;
   vertical?: csstype.Property.PaddingTop;
   top?: csstype.Property.PaddingTop;
   right?: csstype.Property.PaddingTop;
@@ -18,7 +18,7 @@ interface IAdvancedSpacing {
 const spacing = (props?: IAdvancedSpacing) => {
   const {
     all = 0,
-    horiziontal,
+    horizontal,
     vertical,
     top,
     right,
@@ -31,9 +31,9 @@ const spacing = (props?: IAdvancedSpacing) => {
   let bottomSpacing = all;
   let leftSpacing = all;
 
-  if (horiziontal) {
-    rightSpacing = horiziontal;
-    leftSpacing = horiziontal;
+  if (horizontal) {
+    rightSpacing = horizontal;
+    leftSpacing = horizontal;
   }
 
   if (vertical) {

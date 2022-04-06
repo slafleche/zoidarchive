@@ -1,11 +1,9 @@
 import { style } from "@vanilla-extract/css";
-import { backgroundHelper } from "../helpers/background";
-import { absolutePosition } from "../helpers/positioning";
 import { paddings } from "../helpers/spacing";
 
 export const layoutVars = {
-  contentWidth: "1200px",
-  contentPadding: "20px",
+  contentWidth: "1400px",
+  contentPadding: "40px",
 };
 
 const layoutStyles = {
@@ -21,7 +19,14 @@ const layoutStyles = {
     maxWidth: layoutVars.contentWidth,
     margin: "auto",
     ...paddings({
-      horiziontal: layoutVars.contentPadding,
+      horizontal: layoutVars.contentPadding,
+    }),
+  }),
+
+  fullWidth: style({
+    margin: "auto",
+    ...paddings({
+      horizontal: layoutVars.contentPadding,
     }),
   }),
 
