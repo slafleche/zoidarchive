@@ -11,13 +11,13 @@ import { absolutePosition, flexPosition } from "../../helpers/positioning";
 import { globalShadow } from "../../helpers/shadows";
 
 const minHeight = "300px";
-const thumbnailWidth = "1fr";
 const gradientWidth = "10px";
 
 const thumbnailStyles = {
   root: style({
     display: "grid",
-    gridTemplateColumns: `${thumbnailWidth} 1fr`,
+    gridTemplateColumns: `1fr 1fr`,
+    gridGap: "40px",
   }),
 
   cell: style({
@@ -25,8 +25,7 @@ const thumbnailStyles = {
     overflow: "hidden",
     display: "block",
     position: "relative",
-    width: "100%",
-    margin: "50px 0",
+    height: "400px",
     boxShadow: globalShadow(),
     ...backgroundHelper({
       color: colors.white.css(),
@@ -70,7 +69,7 @@ const thumbnailStyles = {
   // Communities
   communities_thumbnail: style({}),
   communities_title: style({}),
-  
+
   // Academic
   academic_thumbnail: style({}),
   academic_title: style({}),
