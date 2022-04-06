@@ -7,6 +7,9 @@ import content from "../styles/components/content.css";
 import Abbr from "../src/components/text/Abbr";
 import SPD from "../src/components/text/SPD";
 import { NextSeo } from "next-seo";
+import { ThumbnailContainer } from "../src/components/thumbnails/ThumbnailContainer";
+import { Thumbnail } from "../src/components/thumbnails/Thumbnail";
+import thumbnailStyles from "../styles/components/thumbnails/thumbnails.css";
 
 const Home: NextPage = () => {
   return (
@@ -55,10 +58,64 @@ const Home: NextPage = () => {
               </p>
             </blockquote>
 
-            <p>
-              (Will add &quot;tiles&quot; with links to the different sections
-              of the site here)
-            </p>
+            <ThumbnailContainer>
+              <Thumbnail
+                title={"Frequently Asked Questions"}
+                illustrationSrc={"images/illustrations/faq.svg"}
+                url={"/faq"}
+                textClass={thumbnailStyles.faq_title}
+                illustrationClass={thumbnailStyles.faq_thumbnail}
+              />
+              <Thumbnail
+                title={"Books"}
+                illustrationSrc={"images/illustrations/books.svg"}
+                url={"/books"}
+                textClass={thumbnailStyles.books_title}
+                illustrationClass={thumbnailStyles.books_thumbnail}
+              />
+              <Thumbnail
+                title={"Articles"}
+                illustrationSrc={"images/illustrations/articles.svg"}
+                url={"/articles"}
+                textClass={thumbnailStyles.articles_title}
+                illustrationClass={thumbnailStyles.articles_thumbnail}
+              />
+              <Thumbnail
+                title={"Academic Research"}
+                illustrationSrc={"images/illustrations/academic.svg"}
+                url={"/academic"}
+                textClass={thumbnailStyles.academic_title}
+                illustrationClass={thumbnailStyles.academic_thumbnail}
+              />
+              <Thumbnail
+                title={"Creators"}
+                illustrationSrc={"images/illustrations/creators.svg"}
+                url={"/creators"}
+                textClass={thumbnailStyles.creators_title}
+                illustrationClass={thumbnailStyles.creators_thumbnail}
+              />
+              <Thumbnail
+                title={"Quora"}
+                illustrationSrc={"images/illustrations/quora.svg"}
+                url={"/quora"}
+                textClass={thumbnailStyles.quora_title}
+                illustrationClass={thumbnailStyles.quora_thumbnail}
+              />
+              <Thumbnail
+                title={"Communities"}
+                illustrationSrc={"images/illustrations/communities.svg"}
+                url={"/communities"}
+                textClass={thumbnailStyles.communities_title}
+                illustrationClass={thumbnailStyles.communities_thumbnail}
+              />
+              <Thumbnail
+                title={"Links"}
+                illustrationSrc={"images/illustrations/links.svg"}
+                url={"/links"}
+                textClass={thumbnailStyles.links_title}
+                illustrationClass={thumbnailStyles.links_thumbnail}
+              />
+            </ThumbnailContainer>
           </div>
         </div>
       </SkipNavContent>
