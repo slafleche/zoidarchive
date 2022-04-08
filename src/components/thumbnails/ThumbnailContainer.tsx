@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import layoutStyles from "../../../styles/components/layout.css";
 import thumbnailStyles from "../../../styles/components/thumbnails/thumbnails.css";
 
 interface IProps {
@@ -17,7 +18,13 @@ export function ThumbnailContainer(props: IProps) {
       <H className={classNames(thumbnailStyles.sectionTitle, titleClass)}>
         Explore Content
       </H>
-      <div role="list" className={thumbnailStyles.thumbnails}>
+      <div
+        role="list"
+        className={classNames(
+          thumbnailStyles.thumbnails,
+          layoutStyles.fullWidth
+        )}
+      >
         {children}
       </div>
     </section>

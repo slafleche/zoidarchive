@@ -1,10 +1,7 @@
 import { style } from "@vanilla-extract/css";
+import { globalMediaQueryStyles } from "../helpers/mediaQueries";
 import { paddings } from "../helpers/spacing";
-
-export const layoutVars = {
-  contentWidth: "1400px",
-  contentPadding: "40px",
-};
+import { layoutVars } from "./layoutVars.css";
 
 const layoutStyles = {
   frame: style({
@@ -21,12 +18,39 @@ const layoutStyles = {
     ...paddings({
       horizontal: layoutVars.contentPadding,
     }),
+    ...globalMediaQueryStyles(
+      {
+        compact: {
+          ...paddings({
+            horizontal: layoutVars.compact.contentPadding,
+          }),
+        },
+        compressed: {
+          ...paddings({
+            horizontal: layoutVars.compressed.contentPadding,
+          }),
+        },
+      },
+      true
+    ),
   }),
 
   fullWidth: style({
     margin: "auto",
     ...paddings({
       horizontal: layoutVars.contentPadding,
+    }),
+    ...globalMediaQueryStyles({
+      compact: {
+        ...paddings({
+          horizontal: layoutVars.compact.contentPadding,
+        }),
+      },
+      compressed: {
+        ...paddings({
+          horizontal: layoutVars.compressed.contentPadding,
+        }),
+      },
     }),
   }),
 

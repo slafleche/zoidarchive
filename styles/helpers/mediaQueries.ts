@@ -1,8 +1,8 @@
-import { layoutVars } from "../components/layout.css";
 import { calc } from "@vanilla-extract/css-utils";
 import { ComplexStyleRule } from "@vanilla-extract/css";
 import * as csstype from "csstype";
 import { measurement } from "../../utils/styleUtils";
+import { layoutVars } from "../components/layoutVars.css";
 
 export interface IMediaQueryProps {
   name: string;
@@ -19,37 +19,53 @@ export interface IMediaQuery {
 export type IMediaQueries = IMediaQuery[];
 
 export const substractOnePixel = (length: string) => {
-  const props = measurement(length);
-  if (props.unit !== "px") {
-    throw Error(`Error in substractOnePixel: "${length}" is not in pixels`);
+  try {
+    const props = measurement(length);
+    if (props && props.unit !== "px") {
+      throw Error(`Error in substractOnePixel: "${length}" is not in pixels`);
+    }
+    return measurement(
+      props,
+      props.val - 1
+    ).toString() as csstype.Property.Width;
+  } catch (e) {
+    console.log(e);
   }
-  return measurement(props, props.val - 1).toString() as csstype.Property.Width;
 };
 
 export const addOnePixel = (length: string) => {
-  const props = measurement(length);
-  if (props.unit !== "px") {
-    throw Error(`Error in addOnePixel: "${length}" is not in pixels`);
+  try {
+    const props = measurement(length);
+    if (props && props.unit !== "px") {
+      throw `Error in addOnePixel: "${length}" is not in pixels`;
+    }
+    return measurement(
+      props,
+      props.val + 1
+    ).toString() as csstype.Property.Width;
+  } catch (e) {
+    console.log(e);
   }
-  return measurement(props, props.val + 1).toString() as csstype.Property.Width;
 };
 
 // https://github.com/yocontra/react-responsive
 // To be used in hooks with useMediaQuery()
-// Example: const isFullWidth = useMediaQuery(globalMediaQueries.fullWidth);
+// Example: const isFullSize = useMediaQuery(globalMediaQueries.fullSize);
 const globalMediaQueries = {
-  fullWidth: {
+  fullSize: {
     minWidth: `${calc.add(
       layoutVars.contentWidth,
       calc.multiply(layoutVars.contentPadding, 2)
     )}`,
   } as IMediaQueryProps,
-  noBleed: {
-    minWidth: layoutVars.contentWidth,
+
+  compact: {
+    maxWidth: layoutVars.compact.contentWidth,
+    minWidth: addOnePixel(layoutVars.compressed.contentWidth),
   } as IMediaQueryProps,
-  noBleed_exclusive: {
-    minWidth: layoutVars.contentWidth,
-    maxWidth: calc.subtract(layoutVars.contentWidth, "1px"),
+
+  compressed: {
+    maxWidth: layoutVars.compressed.contentWidth,
   } as IMediaQueryProps,
 };
 
@@ -63,12 +79,12 @@ export const mediaQueryStyle = (
   let result: any = {};
   queryAndStyles.forEach((mq) => {
     const { props, styles } = mq;
-    const minWidth = props.minWidth
-      ? ` and (min-width: ${props.minWidth})`
-      : ``;
-    const maxWidth = props.maxWidth
-      ? ` and (max-width: ${props.maxWidth})`
-      : ``;
+    const minWidth =
+      "minWidth" in props ? ` and (min-width: ${props.minWidth})` : ``;
+
+    const maxWidth =
+      "maxWidth" in props ? ` and (max-width: ${props.maxWidth})` : ``;
+
     const rule = `${props.type ?? "screen"}${minWidth}${maxWidth}`;
     result[rule] = styles;
   });
@@ -81,22 +97,41 @@ export const mediaQueryStyle = (
   return mediaQuery;
 };
 
-export const globalMediaQueryStyles = {
-  fullWidth: (styles: ComplexStyleRule) => {
-    return mediaQueryStyle({
-      props: globalMediaQueries.fullWidth,
-      styles,
+interface IGlobalMediaQueryStyles {
+  fullSize?: ComplexStyleRule;
+  noBleed?: ComplexStyleRule;
+  compact?: ComplexStyleRule;
+  compressed?: ComplexStyleRule;
+}
+
+export const globalMediaQueryStyles = (
+  styles: IGlobalMediaQueryStyles,
+  debug = false
+) => {
+  let mediaQueries: IMediaQuery[] = [];
+
+  if (styles.fullSize) {
+    mediaQueries.push({
+      props: globalMediaQueries.fullSize,
+      styles: styles.fullSize,
     });
-  },
-  noBleed: (styles: ComplexStyleRule) => {
-    return mediaQueryStyle({ props: globalMediaQueries.noBleed, styles });
-  },
-  noBleed_exclusive: (styles: ComplexStyleRule) => {
-    return mediaQueryStyle({
-      props: globalMediaQueries.noBleed_exclusive,
-      styles,
+  }
+
+  if (styles.compact) {
+    mediaQueries.push({
+      props: globalMediaQueries.compact,
+      styles: styles.compact,
     });
-  },
+  }
+
+  if (styles.compressed) {
+    mediaQueries.push({
+      props: globalMediaQueries.compressed,
+      styles: styles.compressed,
+    });
+  }
+
+  return mediaQueryStyle(mediaQueries, debug);
 };
 
 export default globalMediaQueries;

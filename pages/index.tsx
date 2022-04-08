@@ -59,13 +59,13 @@ const Home: NextPage = () => {
             </blockquote>
           </div>
 
-          <ThumbnailContainer className={layoutClasses.fullWidth}>
+          <ThumbnailContainer>
             <Thumbnail
               title={"Frequently Asked Questions"}
               illustrationSrc={"images/illustrations/faq.svg"}
               url={"/faq"}
               className={thumbnailStyles.faq}
-              textClass={thumbnailStyles.faq_title}
+              backgroundClass={thumbnailStyles.faq_bg}
               illustrationClass={thumbnailStyles.faq_thumbnail}
             />
             <Thumbnail
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
               illustrationSrc={"images/illustrations/books.svg"}
               url={"/books"}
               className={thumbnailStyles.book}
-              textClass={thumbnailStyles.books_title}
+              backgroundClass={thumbnailStyles.books_bg}
               illustrationClass={thumbnailStyles.books_thumbnail}
             />
             <Thumbnail
@@ -81,7 +81,7 @@ const Home: NextPage = () => {
               illustrationSrc={"images/illustrations/articles.svg"}
               url={"/articles"}
               className={thumbnailStyles.articles}
-              textClass={thumbnailStyles.articles_title}
+              backgroundClass={thumbnailStyles.articles_bg}
               illustrationClass={thumbnailStyles.articles_thumbnail}
             />
             <Thumbnail
@@ -89,7 +89,7 @@ const Home: NextPage = () => {
               illustrationSrc={"images/illustrations/academic.svg"}
               url={"/academic"}
               className={thumbnailStyles.academic}
-              textClass={thumbnailStyles.academic_title}
+              backgroundClass={thumbnailStyles.academic_bg}
               illustrationClass={thumbnailStyles.academic_thumbnail}
             />
             <Thumbnail
@@ -97,7 +97,7 @@ const Home: NextPage = () => {
               illustrationSrc={"images/illustrations/creators.svg"}
               url={"/creators"}
               className={thumbnailStyles.creators}
-              textClass={thumbnailStyles.creators_title}
+              backgroundClass={thumbnailStyles.creators_bg}
               illustrationClass={thumbnailStyles.creators_thumbnail}
             />
             <Thumbnail
@@ -105,7 +105,7 @@ const Home: NextPage = () => {
               illustrationSrc={"images/illustrations/quora.svg"}
               url={"/quora"}
               className={thumbnailStyles.quora}
-              textClass={thumbnailStyles.quora_title}
+              backgroundClass={thumbnailStyles.quora_bg}
               illustrationClass={thumbnailStyles.quora_thumbnail}
             />
             <Thumbnail
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
               illustrationSrc={"images/illustrations/communities.svg"}
               url={"/communities"}
               className={thumbnailStyles.communities}
-              textClass={thumbnailStyles.communities_title}
+              backgroundClass={thumbnailStyles.communities_bg}
               illustrationClass={thumbnailStyles.communities_thumbnail}
             />
             <Thumbnail
@@ -121,7 +121,7 @@ const Home: NextPage = () => {
               illustrationSrc={"images/illustrations/links.svg"}
               url={"/links"}
               className={thumbnailStyles.links}
-              textClass={thumbnailStyles.links_title}
+              backgroundClass={thumbnailStyles.links_bg}
               illustrationClass={thumbnailStyles.links_thumbnail}
             />
           </ThumbnailContainer>

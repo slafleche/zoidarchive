@@ -11,9 +11,9 @@ interface IProps {
   title: string;
   illustrationSrc: string;
   illustrationClass: string;
+  backgroundClass: string;
   headingLevel?: 2 | 3 | 4 | 5 | 6;
   url: string;
-  textClass: string;
 }
 
 export function Thumbnail(props: IProps) {
@@ -21,8 +21,8 @@ export function Thumbnail(props: IProps) {
     className = "",
     illustrationSrc,
     illustrationClass = "",
+    backgroundClass = "",
     headingLevel = 3,
-    textClass = "",
     url,
     title,
   } = props;
@@ -39,7 +39,7 @@ export function Thumbnail(props: IProps) {
         className={thumbnailStyles.cellContents}
         onClick={() => router.push(url)}
       >
-        <span className={classNames(thumbnailStyles.text, textClass)}>
+        <span className={classNames(thumbnailStyles.text)}>
           <Link href={url} passHref>
             <a
               tabIndex={0}
@@ -53,13 +53,18 @@ export function Thumbnail(props: IProps) {
             </a>
           </Link>
         </span>
-        <SVG
-          className={classNames(
-            thumbnailStyles.illustration,
-            illustrationClass
-          )}
-          src={illustrationSrc}
-        />
+        <span className={thumbnailStyles.illustrationFrame}>
+          <div
+            className={classNames(thumbnailStyles.illustrationBg, backgroundClass)}
+          />
+          <SVG
+            className={classNames(
+              thumbnailStyles.illustration,
+              illustrationClass
+            )}
+            src={illustrationSrc}
+          />
+        </span>
       </article>
     </div>
   );
