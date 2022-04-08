@@ -62,67 +62,75 @@ const Home: NextPage = () => {
           <ThumbnailContainer>
             <Thumbnail
               title={"Frequently Asked Questions"}
-              illustrationSrc={"images/illustrations/faq.svg"}
+              illustrationSrc={"/images/illustrations/images/faq.png"}
               url={"/faq"}
               className={thumbnailStyles.faq}
               backgroundClass={thumbnailStyles.faq_bg}
               illustrationClass={thumbnailStyles.faq_thumbnail}
+              alt="Man asking question"
             />
             <Thumbnail
               title={"Books"}
-              illustrationSrc={"images/illustrations/books.svg"}
+              illustrationSrc={"/images/illustrations/images/books.png"}
               url={"/books"}
               className={thumbnailStyles.book}
               backgroundClass={thumbnailStyles.books_bg}
               illustrationClass={thumbnailStyles.books_thumbnail}
+              alt="Woman reading book"
             />
             <Thumbnail
               title={"Articles"}
-              illustrationSrc={"images/illustrations/articles.svg"}
+              illustrationSrc={"/images/illustrations/images/articles.png"}
               url={"/articles"}
               className={thumbnailStyles.articles}
               backgroundClass={thumbnailStyles.articles_bg}
               illustrationClass={thumbnailStyles.articles_thumbnail}
+              alt="Man reading articles on laptop"
             />
             <Thumbnail
               title={"Academic Research"}
-              illustrationSrc={"images/illustrations/academic.svg"}
+              illustrationSrc={"/images/illustrations/images/academic.png"}
               url={"/academic"}
               className={thumbnailStyles.academic}
               backgroundClass={thumbnailStyles.academic_bg}
               illustrationClass={thumbnailStyles.academic_thumbnail}
+              alt=""
             />
             <Thumbnail
               title={"Creators"}
-              illustrationSrc={"images/illustrations/creators.svg"}
+              illustrationSrc={"/images/illustrations/images/creators.png"}
               url={"/creators"}
               className={thumbnailStyles.creators}
               backgroundClass={thumbnailStyles.creators_bg}
               illustrationClass={thumbnailStyles.creators_thumbnail}
+              alt=""
             />
             <Thumbnail
               title={"Quora"}
-              illustrationSrc={"images/illustrations/quora.svg"}
+              illustrationSrc={"/images/illustrations/images/quora.png"}
               url={"/quora"}
               className={thumbnailStyles.quora}
               backgroundClass={thumbnailStyles.quora_bg}
               illustrationClass={thumbnailStyles.quora_thumbnail}
+              alt=""
             />
             <Thumbnail
               title={"Communities"}
-              illustrationSrc={"images/illustrations/communities.svg"}
+              illustrationSrc={"/images/illustrations/images/communities.png"}
               url={"/communities"}
               className={thumbnailStyles.communities}
               backgroundClass={thumbnailStyles.communities_bg}
               illustrationClass={thumbnailStyles.communities_thumbnail}
+              alt=""
             />
             <Thumbnail
               title={"Links"}
-              illustrationSrc={"images/illustrations/links.svg"}
+              illustrationSrc={"/images/illustrations/images/links.png"}
               url={"/links"}
               className={thumbnailStyles.links}
               backgroundClass={thumbnailStyles.links_bg}
               illustrationClass={thumbnailStyles.links_thumbnail}
+              alt=""
             />
           </ThumbnailContainer>
         </div>

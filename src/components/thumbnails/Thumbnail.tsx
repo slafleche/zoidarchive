@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import classNames from "classnames";
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
@@ -5,6 +6,7 @@ import { useEffect } from "react";
 import SVG from "react-inlinesvg";
 import thumbnailStyles from "../../../styles/components/thumbnails/thumbnails.css";
 import utilityClasses from "../../../styles/utilityClasses.css";
+import Image from "next/image";
 
 interface IProps {
   className?: string;
@@ -14,6 +16,7 @@ interface IProps {
   backgroundClass: string;
   headingLevel?: 2 | 3 | 4 | 5 | 6;
   url: string;
+  alt: string;
 }
 
 export function Thumbnail(props: IProps) {
@@ -22,6 +25,7 @@ export function Thumbnail(props: IProps) {
     illustrationSrc,
     illustrationClass = "",
     backgroundClass = "",
+    alt,
     headingLevel = 3,
     url,
     title,
@@ -55,13 +59,17 @@ export function Thumbnail(props: IProps) {
         </span>
         <span className={thumbnailStyles.illustrationFrame}>
           <div
-            className={classNames(thumbnailStyles.illustrationBg, backgroundClass)}
+            className={classNames(
+              thumbnailStyles.illustrationBg,
+              backgroundClass
+            )}
           />
-          <SVG
+          <img
             className={classNames(
               thumbnailStyles.illustration,
               illustrationClass
             )}
+            alt={alt}
             src={illustrationSrc}
           />
         </span>

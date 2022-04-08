@@ -2,11 +2,10 @@ import { ComplexStyleRule, style } from "@vanilla-extract/css";
 import { colors } from "../colors.css";
 import { roundButton } from "../helpers/effects";
 import {
-  IMediaQuery,
   IMediaQueryProps,
   mediaQueryStyle,
 } from "../helpers/mediaQueries";
-import { absolutePosition, flexPosition } from "../helpers/positioning";
+import { flexPosition } from "../helpers/positioning";
 import { margins, paddings } from "../helpers/spacing";
 
 const mediaQueries = {
