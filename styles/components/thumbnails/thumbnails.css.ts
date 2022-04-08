@@ -11,7 +11,6 @@ import {
   mediaQueryStyle,
 } from "../../helpers/mediaQueries";
 import chroma from "chroma-js";
-import { camelCase } from "lodash";
 
 const columBreaks = {
   one: "850px",
@@ -58,6 +57,8 @@ const gradientGenerator = (
 const thumbnailStyles = {
   root: style({
     display: "block",
+    maxWidth: "1950px",
+    margin: "auto",
   }),
   sectionTitle: style({
     textAlign: "center",
@@ -72,7 +73,7 @@ const thumbnailStyles = {
       {
         props: mediaQueries.fourColumns,
         styles: {
-          gridTemplateColumns: `repeat(4, 1fr)`,
+          gridTemplateColumns: `repeat(3, 1fr)`,
         },
       },
       {
@@ -171,7 +172,9 @@ const thumbnailStyles = {
     color: colors.white.css(),
     paddingTop: "15px",
   }),
+
   link: style({}),
+
   illustration: style({
     position: "relative",
     objectFit: "contain",
@@ -181,7 +184,9 @@ const thumbnailStyles = {
     position: "absolute",
     bottom: 0,
     left: 0,
-    width: "100%",
+    right: 0,
+    margin: "0 auto",
+    width: "calc(100% - 30px)",
     height: "calc(100% - 30px)",
   }),
 
@@ -302,7 +307,20 @@ const thumbnailStyles = {
     },
   }),
 
-  //Links
+  // Related issues
+  related_thumbnail: style({
+    width: "80%",
+    ...absolutePosition.topLeft("30px", "30px"),
+  }),
+  related_bg: style({
+    selectors: {
+      ["&:before"]: {
+        background: gradientGenerator("150deg", "0%", "40%", "100%"),
+      },
+    },
+  }),
+
+  // Links
   links_thumbnail: style({
     width: "80%",
     ...absolutePosition.topLeft("30px", "30px"),

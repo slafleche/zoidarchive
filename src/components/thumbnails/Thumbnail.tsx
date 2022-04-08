@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import classNames from "classnames";
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
-import { useEffect } from "react";
-import SVG from "react-inlinesvg";
+import { useRouter } from "next/router";
 import thumbnailStyles from "../../../styles/components/thumbnails/thumbnails.css";
 import utilityClasses from "../../../styles/utilityClasses.css";
 import Image from "next/image";
