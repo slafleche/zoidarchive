@@ -11,6 +11,7 @@ import {
   mediaQueryStyle,
 } from "../../helpers/mediaQueries";
 import chroma from "chroma-js";
+import { camelCase } from "lodash";
 
 const columBreaks = {
   one: "800px",
@@ -50,7 +51,7 @@ const gradientGenerator = (
     ${colors.white.alpha(0).css("hsl")} ${stop2},
     ${colors.contrast
       .mix(colors.brand, 0.12)
-      .alpha(0.4)
+      .alpha(0.3)
       .css("hsl")} ${stop3})` as csstype.Property.Background;
 };
 
@@ -67,37 +68,35 @@ const thumbnailStyles = {
   thumbnails: style({
     display: "grid",
     gridGap: "40px",
-    ...mediaQueryStyle(
-      [
-        {
-          props: mediaQueries.fourColumns,
-          styles: {
-            gridTemplateColumns: `repeat(4, 1fr)`,
-          },
+    ...mediaQueryStyle([
+      {
+        props: mediaQueries.fourColumns,
+        styles: {
+          gridTemplateColumns: `repeat(4, 1fr)`,
         },
-        {
-          props: mediaQueries.threeColumns,
-          styles: {
-            gridTemplateColumns: `repeat(3, 1fr)`,
-            gridGap: "2vw",
-          },
+      },
+      {
+        props: mediaQueries.threeColumns,
+        styles: {
+          gridTemplateColumns: `repeat(3, 1fr)`,
+          gridGap: "2vw",
         },
-        {
-          props: mediaQueries.twoColumns,
-          styles: {
-            gridTemplateColumns: `repeat(2, 1fr)`,
-            gridGap: "2vw",
-          },
+      },
+      {
+        props: mediaQueries.twoColumns,
+        styles: {
+          gridTemplateColumns: `repeat(2, 1fr)`,
+          gridGap: "2vw",
         },
-        {
-          props: mediaQueries.oneColumn,
-          styles: {
-            gridTemplateColumns: `1fr`,
-            gridGap: "20px",
-          },
+      },
+      {
+        props: mediaQueries.oneColumn,
+        styles: {
+          gridTemplateColumns: `1fr`,
+          gridGap: "20px",
         },
-      ],
-    ),
+      },
+    ]),
   }),
 
   cell: style({
@@ -159,7 +158,7 @@ const thumbnailStyles = {
         height: "100%",
         width: "110%",
         transformOrigin: "100% 100%",
-        transform: "rotate(-1deg)",
+        transform: "rotate(-2deg)",
         backgroundColor: colors.brand.css(),
       },
     },
@@ -198,10 +197,8 @@ const thumbnailStyles = {
   }),
 
   // FAQ
-  faq: style({}),
   faq_thumbnail: style({
     width: "80%",
-    textDecoration: "none",
     ...absolutePosition.topLeft("30px", "30px"),
   }),
   faq_bg: style({
@@ -213,30 +210,52 @@ const thumbnailStyles = {
   }),
 
   // Books
-  book: style({}),
-  books_thumbnail: style({}),
+  books_thumbnail: style({
+    ...absolutePosition.bottomLeft(),
+    objectFit: "contain",
+    objectPosition: "30px 0",
+    width: "100%",
+    height: "calc(100% - 50px)",
+  }),
   books_bg: style({
     selectors: {
       ["&:before"]: {
-        background: gradientGenerator("222deg", "20%", "50%", "80%"),
+        background: gradientGenerator("60deg", "40%", "45%", "100%"),
       },
     },
   }),
 
   // Articles
-  articles: style({}),
-  articles_thumbnail: style({}),
+  articles_thumbnail: style({
+    width: "80%",
+    ...absolutePosition.bottomRight("0", "30px"),
+  }),
   articles_bg: style({
     selectors: {
       ["&:before"]: {
-        background: gradientGenerator("77deg", "20%", "50%", "80%"),
+        background: gradientGenerator("170deg", "0%", "20%", "80%"),
+      },
+    },
+  }),
+
+  // Academic
+  academic_thumbnail: style({
+    width: "70%",
+    ...absolutePosition.bottomLeft("0", "30px"),
+  }),
+  academic_bg: style({
+    selectors: {
+      ["&:before"]: {
+        background: gradientGenerator("55deg", "20%", "50%", "80%"),
       },
     },
   }),
 
   // Creators
-  creators: style({}),
-  creators_thumbnail: style({}),
+  creators_thumbnail: style({
+    width: "80%",
+    ...absolutePosition.topLeft("30px", "30px"),
+  }),
   creators_bg: style({
     selectors: {
       ["&:before"]: {
@@ -246,8 +265,10 @@ const thumbnailStyles = {
   }),
 
   // Quora
-  quora: style({}),
-  quora_thumbnail: style({}),
+  quora_thumbnail: style({
+    width: "80%",
+    ...absolutePosition.topLeft("30px", "30px"),
+  }),
   quora_bg: style({
     selectors: {
       ["&:before"]: {
@@ -257,8 +278,10 @@ const thumbnailStyles = {
   }),
 
   // Communities
-  communities: style({}),
-  communities_thumbnail: style({}),
+  communities_thumbnail: style({
+    width: "80%",
+    ...absolutePosition.topLeft("30px", "30px"),
+  }),
   communities_bg: style({
     selectors: {
       ["&:before"]: {
@@ -267,20 +290,11 @@ const thumbnailStyles = {
     },
   }),
 
-  // Academic
-  academic: style({}),
-  academic_thumbnail: style({}),
-  academic_bg: style({
-    selectors: {
-      ["&:before"]: {
-        background: gradientGenerator("55deg", "20%", "50%", "80%"),
-      },
-    },
-  }),
-
   //Links
-  links: style({}),
-  links_thumbnail: style({}),
+  links_thumbnail: style({
+    width: "80%",
+    ...absolutePosition.topLeft("30px", "30px"),
+  }),
   links_bg: style({
     selectors: {
       ["&:before"]: {

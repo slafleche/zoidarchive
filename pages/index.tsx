@@ -64,7 +64,6 @@ const Home: NextPage = () => {
               title={"Frequently Asked Questions"}
               illustrationSrc={"/images/illustrations/images/faq.png"}
               url={"/faq"}
-              className={thumbnailStyles.faq}
               backgroundClass={thumbnailStyles.faq_bg}
               illustrationClass={thumbnailStyles.faq_thumbnail}
               alt="Man asking question"
@@ -73,7 +72,6 @@ const Home: NextPage = () => {
               title={"Books"}
               illustrationSrc={"/images/illustrations/images/books.png"}
               url={"/books"}
-              className={thumbnailStyles.book}
               backgroundClass={thumbnailStyles.books_bg}
               illustrationClass={thumbnailStyles.books_thumbnail}
               alt="Woman reading book"
@@ -82,7 +80,6 @@ const Home: NextPage = () => {
               title={"Articles"}
               illustrationSrc={"/images/illustrations/images/articles.png"}
               url={"/articles"}
-              className={thumbnailStyles.articles}
               backgroundClass={thumbnailStyles.articles_bg}
               illustrationClass={thumbnailStyles.articles_thumbnail}
               alt="Man reading articles on laptop"
@@ -91,46 +88,41 @@ const Home: NextPage = () => {
               title={"Academic Research"}
               illustrationSrc={"/images/illustrations/images/academic.png"}
               url={"/academic"}
-              className={thumbnailStyles.academic}
               backgroundClass={thumbnailStyles.academic_bg}
               illustrationClass={thumbnailStyles.academic_thumbnail}
-              alt=""
+              alt="Man in front of graphs"
             />
             <Thumbnail
               title={"Creators"}
               illustrationSrc={"/images/illustrations/images/creators.png"}
               url={"/creators"}
-              className={thumbnailStyles.creators}
               backgroundClass={thumbnailStyles.creators_bg}
               illustrationClass={thumbnailStyles.creators_thumbnail}
-              alt=""
+              alt="Man in front of computer with headphones"
             />
             <Thumbnail
               title={"Quora"}
               illustrationSrc={"/images/illustrations/images/quora.png"}
               url={"/quora"}
-              className={thumbnailStyles.quora}
               backgroundClass={thumbnailStyles.quora_bg}
               illustrationClass={thumbnailStyles.quora_thumbnail}
-              alt=""
+              alt="A man and a woman asking questions"
             />
             <Thumbnail
               title={"Communities"}
               illustrationSrc={"/images/illustrations/images/communities.png"}
               url={"/communities"}
-              className={thumbnailStyles.communities}
               backgroundClass={thumbnailStyles.communities_bg}
               illustrationClass={thumbnailStyles.communities_thumbnail}
-              alt=""
+              alt="Woman on a converence call with two other people"
             />
             <Thumbnail
               title={"Links"}
               illustrationSrc={"/images/illustrations/images/links.png"}
               url={"/links"}
-              className={thumbnailStyles.links}
               backgroundClass={thumbnailStyles.links_bg}
               illustrationClass={thumbnailStyles.links_thumbnail}
-              alt=""
+              alt="Man with computer mouse surfing the internet"
             />
           </ThumbnailContainer>
         </div>
