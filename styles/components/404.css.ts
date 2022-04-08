@@ -1,10 +1,7 @@
 import { ComplexStyleRule, style } from "@vanilla-extract/css";
 import { colors } from "../colors.css";
 import { roundButton } from "../helpers/effects";
-import {
-  IMediaQueryProps,
-  mediaQueryStyle,
-} from "../helpers/mediaQueries";
+import { IMediaQueryProps, mediaQueryStyle } from "../helpers/mediaQueries";
 import { flexPosition } from "../helpers/positioning";
 import { margins, paddings } from "../helpers/spacing";
 
@@ -27,6 +24,9 @@ const notFoundStyles = {
       vertical: "40px",
     }),
     minHeight: "600px",
+    background: `linear-gradient(0deg, ${colors.black
+      .alpha(0)
+      .css("hsl")} 0%, hsl(337deg 83% 14% / 40%) 100%)`,
   }),
   title: style({
     backgroundImage: `linear-gradient(87deg, ${colors.brand
@@ -65,6 +65,7 @@ const notFoundStyles = {
   }),
   backLink: style({
     ...(backStyles as ComplexStyleRule),
+    backgroundColor: colors.white.css(),
     marginTop: "30px",
   }),
   backText: style({

@@ -58,20 +58,23 @@ export function Thumbnail(props: IProps) {
           </Link>
         </span>
         <span className={thumbnailStyles.illustrationFrame}>
-          <div
+          <span
             className={classNames(
               thumbnailStyles.illustrationBg,
               backgroundClass
             )}
           />
-          <img
-            className={classNames(
-              thumbnailStyles.illustration,
-              illustrationClass
-            )}
-            alt={alt}
-            src={illustrationSrc}
-          />
+          <span className={thumbnailStyles.illustrationContainer}>
+            <Image
+              layout="fill"
+              className={classNames(
+                thumbnailStyles.illustration,
+                illustrationClass
+              )}
+              alt={alt}
+              src={illustrationSrc}
+            />
+          </span>
         </span>
       </article>
     </div>

@@ -1,5 +1,5 @@
-import { ComplexStyleRule, style } from "@vanilla-extract/css";
-import { absolutePosition, flexPosition } from "../helpers/positioning";
+import { style } from "@vanilla-extract/css";
+import { absolutePosition } from "../helpers/positioning";
 import { roundButton } from "../helpers/effects";
 import { calc } from "@vanilla-extract/css-utils";
 import { reducedMotion, ReducedMotion } from "../helpers/accessibility";

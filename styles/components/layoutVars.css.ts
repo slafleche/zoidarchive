@@ -9,6 +9,6 @@ export const layoutVars = {
   // Very tight padding
   compressed: {
     contentWidth: "800px",
-    contentPadding: "26px",
+    contentPadding: "16px",
   },
 };

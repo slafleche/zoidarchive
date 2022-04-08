@@ -14,9 +14,9 @@ import chroma from "chroma-js";
 import { camelCase } from "lodash";
 
 const columBreaks = {
-  one: "800px",
+  one: "850px",
   two: "1200px",
-  three: "1840px",
+  three: "1500px",
 };
 
 const mediaQueries = {
@@ -50,8 +50,8 @@ const gradientGenerator = (
     .css("hsl")} ${stop1}, 
     ${colors.white.alpha(0).css("hsl")} ${stop2},
     ${colors.contrast
-      .mix(colors.brand, 0.12)
-      .alpha(0.3)
+      .mix(colors.brand, 0.1)
+      .alpha(0.12)
       .css("hsl")} ${stop3})` as csstype.Property.Background;
 };
 
@@ -94,6 +94,7 @@ const thumbnailStyles = {
         styles: {
           gridTemplateColumns: `1fr`,
           gridGap: "20px",
+          maxWidth: "600px",
         },
       },
     ]),
@@ -129,7 +130,10 @@ const thumbnailStyles = {
       {
         props: mediaQueries.oneColumn,
         styles: {
-          height: "100vw",
+          height: "50vh",
+          maxHeight: "500px",
+          width: "100%",
+          margin: "auto",
         },
       },
     ]),
@@ -143,12 +147,10 @@ const thumbnailStyles = {
     ...flexPosition.middleLeft(),
     position: "relative",
     backgroundColor: colors.brand.css(),
-    minHeight: "130px",
+    minHeight: "100px",
     zIndex: 1,
     ...paddings({
-      top: "25px",
-      bottom: "20px",
-      horizontal: "20px",
+      horizontal: "26px",
     }),
     selectors: {
       ["&:before"]: {
@@ -167,10 +169,20 @@ const thumbnailStyles = {
     fontSize: "30px",
     margin: 0,
     color: colors.white.css(),
+    paddingTop: "15px",
   }),
   link: style({}),
   illustration: style({
     position: "relative",
+    objectFit: "contain",
+  }),
+
+  illustrationContainer: style({
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    height: "calc(100% - 30px)",
   }),
 
   illustrationFrame: style({
@@ -227,7 +239,7 @@ const thumbnailStyles = {
 
   // Articles
   articles_thumbnail: style({
-    width: "80%",
+    // width: "80%",
     ...absolutePosition.bottomRight("0", "30px"),
   }),
   articles_bg: style({
@@ -240,39 +252,39 @@ const thumbnailStyles = {
 
   // Academic
   academic_thumbnail: style({
-    width: "70%",
-    ...absolutePosition.bottomLeft("0", "30px"),
+    // width: "70%",
+    ...absolutePosition.bottomRight("0", "15%"),
   }),
   academic_bg: style({
     selectors: {
       ["&:before"]: {
-        background: gradientGenerator("55deg", "20%", "50%", "80%"),
+        background: gradientGenerator("-5deg", "20%", "50%", "80%"),
       },
     },
   }),
 
   // Creators
   creators_thumbnail: style({
-    width: "80%",
-    ...absolutePosition.topLeft("30px", "30px"),
+    // width: "80%",
+    ...absolutePosition.bottomLeft("0", "50%"),
   }),
   creators_bg: style({
     selectors: {
       ["&:before"]: {
-        background: gradientGenerator("55deg", "20%", "50%", "80%"),
+        background: gradientGenerator("200deg", "20%", "50%", "80%"),
       },
     },
   }),
 
   // Quora
   quora_thumbnail: style({
-    width: "80%",
-    ...absolutePosition.topLeft("30px", "30px"),
+    // width: "70%",
+    ...absolutePosition.bottomLeft("0", "50%"),
   }),
   quora_bg: style({
     selectors: {
       ["&:before"]: {
-        background: gradientGenerator("55deg", "20%", "50%", "80%"),
+        background: gradientGenerator("90deg", "30%", "40%", "60%"),
       },
     },
   }),
@@ -285,7 +297,7 @@ const thumbnailStyles = {
   communities_bg: style({
     selectors: {
       ["&:before"]: {
-        background: gradientGenerator("55deg", "20%", "50%", "80%"),
+        background: gradientGenerator("200deg", "0%", "50%", "100%"),
       },
     },
   }),
@@ -298,7 +310,7 @@ const thumbnailStyles = {
   links_bg: style({
     selectors: {
       ["&:before"]: {
-        background: gradientGenerator("55deg", "20%", "50%", "80%"),
+        background: gradientGenerator("250deg", "0%", "40%", "100%"),
       },
     },
   }),
