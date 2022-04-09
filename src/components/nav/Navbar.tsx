@@ -27,10 +27,6 @@ export function Navbar(props: IProps) {
       label: "home",
     },
     {
-      url: "/faq",
-      label: "FAQ",
-    },
-    {
       url: "/archive",
       label: "The Archive",
     },

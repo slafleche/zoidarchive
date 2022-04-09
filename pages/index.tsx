@@ -62,7 +62,7 @@ const Home: NextPage = () => {
             <Thumbnail
               title={"Frequently Asked Questions"}
               illustrationSrc={"/images/illustrations/faq.svg"}
-              url={"/faq"}
+              url={"/archive/faq"}
               backgroundClass={thumbnailStyles.faq_bg}
               illustrationClass={thumbnailStyles.faq_thumbnail}
               alt="Man with question"
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
             <Thumbnail
               title={"Books"}
               illustrationSrc={"/images/illustrations/books.svg"}
-              url={"/books"}
+              url={"/archive/books"}
               backgroundClass={thumbnailStyles.books_bg}
               illustrationClass={thumbnailStyles.books_thumbnail}
               alt="Woman reading book"
@@ -78,7 +78,7 @@ const Home: NextPage = () => {
             <Thumbnail
               title={"Academic Research"}
               illustrationSrc={"/images/illustrations/academic.svg"}
-              url={"/academic"}
+              url={"/archive/academic"}
               backgroundClass={thumbnailStyles.academic_bg}
               illustrationClass={thumbnailStyles.academic_thumbnail}
               alt="Man in front of graphs and charts"
@@ -86,7 +86,7 @@ const Home: NextPage = () => {
             <Thumbnail
               title={"Communities"}
               illustrationSrc={"/images/illustrations/communities.svg"}
-              url={"/communities"}
+              url={"/archive/communities"}
               backgroundClass={thumbnailStyles.communities_bg}
               illustrationClass={thumbnailStyles.communities_thumbnail}
               alt="Woman having a video conference with two other people"
@@ -102,7 +102,7 @@ const Home: NextPage = () => {
             <Thumbnail
               title={"Links"}
               illustrationSrc={"/images/illustrations/links.svg"}
-              url={"/links"}
+              url={"/archive/links"}
               backgroundClass={thumbnailStyles.links_bg}
               illustrationClass={thumbnailStyles.links_thumbnail}
               alt="Man with computer mouse, surfing the internet"
