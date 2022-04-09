@@ -19,14 +19,18 @@ const backStyles = roundButton(backButtonSize);
 const notFoundStyles = {
   root: style({
     ...flexPosition.center(),
-    flexDirection: "column",
     ...paddings({
       vertical: "40px",
     }),
-    minHeight: "600px",
+    minHeight: "100vh",
     background: `linear-gradient(0deg, ${colors.black
       .alpha(0)
-      .css("hsl")} 0%, hsl(337deg 83% 14% / 40%) 100%)`,
+      .css("hsl")} 20%, hsl(337deg 83% 14% / 40%) 90%)`,
+  }),
+  frame: style({
+    ...flexPosition.center(),
+    flexDirection: "column",
+    minHeight: "600px",
   }),
   title: style({
     backgroundImage: `linear-gradient(87deg, ${colors.brand
@@ -77,9 +81,14 @@ const notFoundStyles = {
   }),
   illustration: style({
     display: "block",
-    width: "400px",
+    width: "1000px",
     maxWidth: "40%",
     height: "auto",
+    "@supports": {
+      "(width: max(50vw, 50vh))": {
+        width: "max(50vw, 50vh)",
+      },
+    },
   }),
 };
 

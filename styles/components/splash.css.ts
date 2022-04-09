@@ -6,6 +6,7 @@ import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { backgroundHelper } from "../helpers/background";
 import { colors } from "../colors.css";
 import { reducedMotion, ReducedMotion } from "../helpers/accessibility";
+import { globalMediaQueryStyles } from "../helpers/mediaQueries";
 
 const logoSize = "50px";
 const logoWrapSize = calc.multiply(logoSize.toString(), 1.5);
@@ -15,6 +16,7 @@ const vars = {
     size: logoSize.toString(),
     maxWidth: "80vw",
   },
+
   size: {
     font: "10vw",
   },
@@ -141,6 +143,14 @@ const splashStyles = {
     display: "block",
     width: "40vw",
     height: "auto",
+    ...globalMediaQueryStyles({
+      compact: {
+        width: "500px",
+      },
+      compressed: {
+        width: "80vw",
+      },
+    }),
   }),
 
   // Scroll button

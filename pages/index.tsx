@@ -58,7 +58,6 @@ const Home: NextPage = () => {
               </p>
             </blockquote>
           </div>
-
           <ThumbnailContainer>
             <Thumbnail
               title={"Frequently Asked Questions"}
@@ -66,7 +65,7 @@ const Home: NextPage = () => {
               url={"/faq"}
               backgroundClass={thumbnailStyles.faq_bg}
               illustrationClass={thumbnailStyles.faq_thumbnail}
-              alt="Man asking question"
+              alt="Man with question"
             />
             <Thumbnail
               title={"Books"}
@@ -82,15 +81,15 @@ const Home: NextPage = () => {
               url={"/academic"}
               backgroundClass={thumbnailStyles.academic_bg}
               illustrationClass={thumbnailStyles.academic_thumbnail}
-              alt="Man in front of graphs"
+              alt="Man in front of graphs and charts"
             />
             <Thumbnail
-              title={"Social"}
-              illustrationSrc={"/images/illustrations/social.svg"}
-              url={"/social"}
+              title={"Communities"}
+              illustrationSrc={"/images/illustrations/communities.svg"}
+              url={"/communities"}
               backgroundClass={thumbnailStyles.communities_bg}
               illustrationClass={thumbnailStyles.communities_thumbnail}
-              alt="Woman on a converence call with two other people"
+              alt="Woman having a video conference with two other people"
             />
             <Thumbnail
               title={"Related Issues"}
@@ -106,7 +105,7 @@ const Home: NextPage = () => {
               url={"/links"}
               backgroundClass={thumbnailStyles.links_bg}
               illustrationClass={thumbnailStyles.links_thumbnail}
-              alt="Man with computer mouse surfing the internet"
+              alt="Man with computer mouse, surfing the internet"
             />
           </ThumbnailContainer>
         </div>
