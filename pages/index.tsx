@@ -86,8 +86,8 @@ const Home: NextPage = () => {
             />
             <Thumbnail
               title={"Social"}
-              illustrationSrc={"/images/illustrations/communities.svg"}
-              url={"/communities"}
+              illustrationSrc={"/images/illustrations/social.svg"}
+              url={"/social"}
               backgroundClass={thumbnailStyles.communities_bg}
               illustrationClass={thumbnailStyles.communities_thumbnail}
               alt="Woman on a converence call with two other people"

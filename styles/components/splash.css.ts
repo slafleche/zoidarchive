@@ -67,6 +67,13 @@ const splashStyles = {
     width: "300%",
     height: "300%",
     transform: "translateX(-50%) translateY(-50%)",
+    // Use max if supported
+    "@supports": {
+      "(width: max(150vw, 150vh))": {
+        width: "max(150vw, 150vh)",
+        height: "max(150vw, 150vh)",
+      },
+    },
     selectors: {
       // Counter Gradient
       "&:before": {
