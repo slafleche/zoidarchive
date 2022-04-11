@@ -7,6 +7,7 @@
   "browserslist": "> 1%",
   "license": "UNLICENSED",
   "private": true,
+  "type": "commonjs",
   "dependencies": {
     "@reach/accordion": "^0.16.1",
     "@reach/auto-id": "^0.16.0",
