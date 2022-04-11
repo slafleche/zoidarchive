@@ -18,20 +18,18 @@ const layoutStyles = {
     ...paddings({
       horizontal: layoutVars.contentPadding,
     }),
-    ...globalMediaQueryStyles(
-      {
-        compact: {
-          ...paddings({
-            horizontal: layoutVars.compact.contentPadding,
-          }),
-        },
-        compressed: {
-          ...paddings({
-            horizontal: layoutVars.compressed.contentPadding,
-          }),
-        },
+    ...globalMediaQueryStyles({
+      compact: {
+        ...paddings({
+          horizontal: layoutVars.compact.contentPadding,
+        }),
       },
-    ),
+      compressed: {
+        ...paddings({
+          horizontal: layoutVars.compressed.contentPadding,
+        }),
+      },
+    }),
   }),
 
   fullWidth: style({
@@ -56,7 +54,7 @@ const layoutStyles = {
   bodyWrap: style({
     overflow: "hidden",
     position: "relative",
-    padding: "0 0 150px",
+    padding: "0 0 20px",
   }),
 };
 

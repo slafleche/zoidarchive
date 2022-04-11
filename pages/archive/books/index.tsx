@@ -3,6 +3,7 @@ import { SkipNavContent } from "@reach/skip-nav";
 import { Navbar } from "../../../src/components/nav/Navbar";
 import matter from "gray-matter";
 import { join } from "path";
+import { ScholarSource } from "../../../src/components/ScholarSource";
 
 export interface AuthorType {
   name: string;
@@ -111,12 +112,21 @@ function getAllTags(): Array<string> {
   return Array.from(allTags);
 }
 
+//https://w3c.github.io/scholarly-html/
 function Books() {
   return (
     <>
       <NextSeo title="Resources | Books" />
       <Navbar />
-      <SkipNavContent>books</SkipNavContent>
+      <SkipNavContent>
+        <ScholarSource
+          resourceURL="#"
+          title="Test Title"
+          subTitle="Test Sub Title"
+        >
+          Testing Scholarly Resource
+        </ScholarSource>
+      </SkipNavContent>
     </>
   );
 }
