@@ -1,4 +1,4 @@
-import ExternalLinkSVG from "@svg/externalLink.svg";
+import ExternalLinkSVG from "public/svgs/externalLink.svg";
 interface IProps {
   className?: string;
 }

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import layoutStyles from "styles/components/layout.css";
 import { useEffect, useState } from "react";
-import tableOfContentsStyles from "../../styles/components/tableOfContents.css";
+import tableOfContentsStyles from "styles/components/tableOfContents.css";
 
 interface IHeading {
   title: string;
@@ -19,37 +19,47 @@ const TableOfContents = (props: IProps) => {
 
   useEffect(
     function setEventListeners() {
-      const headingElements = Array.from(
-        document.querySelectorAll(`#${articleID} h2, #${articleID} h3`)
-      );
-      if (Array.isArray(headingElements) && headingElements.length > 0) {
-        const uniqueIDs = {};
-        const hList: IHeading[] = [];
-        headingElements.forEach((h) => {
-          if (h && h.textContent) {
-            const id = `#${h.textContent
-              .trim()
-              .toLowerCase()
-              .replaceAll(/\s/gi, "-")}`;
+      const mainContent = document.querySelector(`#${articleID}`);
+      if (mainContent) {
+        const headingElements = Array.from(
+          mainContent.querySelectorAll(` h2, h3`)
+        );
 
-            if (!uniqueIDs.hasOwnProperty(id)) {
-              // Unique ID
-              hList.push({
-                title: h.textContent,
-                id: id,
-              });
-              uniqueIDs[id] = 0;
-            } else {
-              // ID exists, add a number after to ensure uniqueness
-              hList.push({
-                title: h.textContent,
-                id: `${id}-${uniqueIDs[id]}`,
-              });
-              uniqueIDs[id] = uniqueIDs[id] + 1;
+        console.log(
+          " `#${articleID} h2, #${articleID} h3`: ",
+          `#${articleID} h2, #${articleID} h3`
+        );
+        console.log(" headings: ", headingElements);
+
+        if (Array.isArray(headingElements) && headingElements.length > 0) {
+          const uniqueIDs = {};
+          const hList: IHeading[] = [];
+          headingElements.forEach((h) => {
+            if (h && h.textContent) {
+              const id = `#${h.textContent
+                .trim()
+                .toLowerCase()
+                .replaceAll(/\s/gi, "-")}`;
+
+              if (!uniqueIDs.hasOwnProperty(id)) {
+                // Unique ID
+                hList.push({
+                  title: h.textContent,
+                  id: id,
+                });
+                uniqueIDs[id] = 0;
+              } else {
+                // ID exists, add a number after to ensure uniqueness
+                hList.push({
+                  title: h.textContent,
+                  id: `${id}-${uniqueIDs[id]}`,
+                });
+                uniqueIDs[id] = uniqueIDs[id] + 1;
+              }
             }
-          }
-        });
-        setHeadings(hList);
+          });
+          setHeadings(hList);
+        }
       }
     },
     [articleID]

@@ -2,7 +2,7 @@ interface IProps {
   className?: string;
 }
 
-export function Logo(props: IProps) {
+function Logo(props: IProps) {
   return (
     <>
       <svg
@@ -22,3 +22,5 @@ export function Logo(props: IProps) {
     </>
   );
 }
+
+export default Logo;

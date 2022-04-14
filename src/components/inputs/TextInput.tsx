@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import inputStyles from "../../../styles/components/input.css";
+import inputStyles from "styles/components/input.css";
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id?: string;

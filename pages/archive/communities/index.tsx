@@ -1,7 +1,7 @@
-import { Navbar } from "../../../src/components/nav/Navbar";
+import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
 import { SkipNavContent } from "@reach/skip-nav";
-import utilityStyles from "../../../styles/components/layout.css";
+import utilityStyles from "styles/components/layout.css";
 
 function Communities() {
   return (

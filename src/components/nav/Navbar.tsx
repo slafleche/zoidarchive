@@ -1,6 +1,6 @@
 import React from "react";
 import { NavbarItem } from "./NavbarItem";
-import navBarStyles from "../../../styles/components/navbar.css";
+import navBarStyles from "styles/components/navbar.css";
 import { SkipNavLink } from "@reach/skip-nav";
 import "@reach/skip-nav/styles.css";
 import Sticky from "react-stickynode";

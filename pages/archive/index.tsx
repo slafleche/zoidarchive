@@ -1,10 +1,8 @@
-import { Navbar } from "../../src/components/nav/Navbar";
+import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
-import utilityStyles from "../../styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
-import { Key, ReactChild, ReactFragment, ReactPortal } from "react";
-import classNames from "classnames";
-import ThreeColumns from "../../src/layouts/ThreeColumns";
+import { Key } from "react";
+import ThreeColumns from "src/layouts/ThreeColumns";
 
 interface ICategory {
   id: Key;

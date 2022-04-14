@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import navBarStyles from "../../../styles/components/navbar.css";
+import navBarStyles from "styles/components/navbar.css";
 import SearchBar from "../text/SearchBar";
 
 interface IProps {

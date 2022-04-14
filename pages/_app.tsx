@@ -1,9 +1,11 @@
-import "../styles/lib/normalize.css";
+import "styles/lib/normalize.css";
 import "@reach/tooltip/styles.css";
-import "../styles/globals.css.ts";
+import "styles/globals.css.ts";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
-import ScrollToTop from "../src/components/ScrollToTop";
+import ScrollToTop from "src/components/ScrollToTop";
+import Footer from "src/components/Footer";
+import layoutStyles from "styles/components/layout.css";
 
 // https://www.npmjs.com/package/next-seo
 // github.com/pacocoursey/next-themes
@@ -15,7 +17,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         titleTemplate="%s | Zoid Archive"
         description="Raising awareness and sharing information about the Schizoid Community"
       />
-      <Component {...pageProps}></Component>
+      <div className={layoutStyles.stickyFooter}>
+        <div className={layoutStyles.mainSection}>
+          <Component {...pageProps} />
+        </div>
+        <Footer />
+      </div>
       <ScrollToTop />
     </>
   );

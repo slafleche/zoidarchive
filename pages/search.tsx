@@ -12,10 +12,10 @@ import {
   ComboboxOption,
   ComboboxPopover,
 } from "@reach/combobox";
-import notFoundStyles from "../styles/components/404.css";
+import notFoundStyles from "styles/components/404.css";
 import Link from "next/link";
-import layoutStyles from "../styles/components/layout.css";
-import { Navbar } from "../src/components/nav/Navbar";
+import layoutStyles from "styles/components/layout.css";
+import { Navbar } from "src/components/nav/Navbar";
 import { SkipNavContent } from "@reach/skip-nav";
 
 // function Search() {

@@ -41,7 +41,7 @@ const scrollToTopStyles = {
 
   button: style({
     ...roundButton(buttonWidth),
-    ...absolutePosition.bottomRight("30px", "30px"),
+    ...absolutePosition.bottomRight("20px", "20px"),
     pointerEvents: "all",
   }),
 

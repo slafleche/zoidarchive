@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import SmartLink from "./ActiveLink";
-import navBarStyles from "../../../styles/components/navbar.css";
+import navBarStyles from "styles/components/navbar.css";
 
 interface IProps {
   className?: string;

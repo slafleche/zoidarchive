@@ -1,7 +1,5 @@
 import React from "react";
-import classes from "../../styles/components/splash.css";
-import { Logo } from "./Logo";
-import classNames from "classnames";
+import classes from "styles/components/splash.css";
 import { Link } from "react-scroll";
 import utilityClasses from "styles/utilityClasses.css";
 import HeroTitleSVG from "public/svgs/heroTitle.svg";

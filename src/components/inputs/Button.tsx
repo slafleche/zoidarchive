@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
-import navBarStyles from "../../../styles/components/navbar.css";
+import navBarStyles from "styles/components/navbar.css";
 
 interface IProps {
   className?: string;
@@ -23,7 +23,6 @@ function Button(props: IProps) {
         // alert("from button");
         e.preventDefault();
       }}
-    
       {...rest}
     >
       <>{children}</>

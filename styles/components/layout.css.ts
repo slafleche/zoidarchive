@@ -54,7 +54,15 @@ const layoutStyles = {
   bodyWrap: style({
     overflow: "hidden",
     position: "relative",
-    padding: "0 0 20px",
+  }),
+
+  stickyFooter: style({
+    display: "flex",
+    flexDirection: "column",
+  }),
+
+  mainSection: style({
+    flexGrow: 1,
   }),
 };
 

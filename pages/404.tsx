@@ -1,5 +1,5 @@
 import { NextSeo } from "next-seo";
-import notFoundStyles from "../styles/components/404.css";
+import notFoundStyles from "styles/components/404.css";
 import Link from "next/link";
 import RocketSVG from "public/svgs/rocketCrash.svg";
 import BackSVG from "public/svgs/back.svg";

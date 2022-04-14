@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import contentStyles from "../../styles/components/content.css";
+import contentStyles from "styles/components/content.css";
 import { ExternalIcon } from "./text/ExternalIcon";
 import { ExternalLink } from "./text/ExternalLink";
 
