@@ -1,16 +1,14 @@
 import React from "react";
 import { NavbarItem } from "./NavbarItem";
-
 import navBarStyles from "../../../styles/components/navbar.css";
 import { SkipNavLink } from "@reach/skip-nav";
 import "@reach/skip-nav/styles.css";
 import Sticky from "react-stickynode";
-import Tooltip from "@reach/tooltip";
-import SVG from "react-inlinesvg";
 import classNames from "classnames";
-import utilityClasses from "../../../styles/utilityClasses.css";
-import layoutClasses from "../../../styles/components/layout.css";
+import utilityClasses from "styles/utilityClasses.css";
+import layoutClasses from "styles/components/layout.css";
 import NavSearch from "./NavSearch";
+import LogoNoBG from "public/svgs/logoNoBG.svg";
 
 interface IProps {
   classes?: string;
@@ -49,7 +47,7 @@ export function Navbar(props: IProps) {
       label === "home" ? (
         <>
           <span className={utilityClasses.isScOnly}>Home</span>
-          <SVG className={navBarStyles.homeIcon} src={"images/logoNoBG.svg"} />
+          <LogoNoBG className={navBarStyles.homeIcon} />
         </>
       ) : (
         label

@@ -61,7 +61,7 @@ const Home: NextPage = () => {
           <ThumbnailContainer>
             <Thumbnail
               title={"Frequently Asked Questions"}
-              illustrationSrc={"/images/illustrations/faq.svg"}
+              illustrationSrc={"/svgs/illustrations/faq.svg"}
               url={"/archive/faq"}
               backgroundClass={thumbnailStyles.faq_bg}
               illustrationClass={thumbnailStyles.faq_thumbnail}
@@ -69,7 +69,7 @@ const Home: NextPage = () => {
             />
             <Thumbnail
               title={"Books"}
-              illustrationSrc={"/images/illustrations/books.svg"}
+              illustrationSrc={"/svgs/illustrations/books.svg"}
               url={"/archive/books"}
               backgroundClass={thumbnailStyles.books_bg}
               illustrationClass={thumbnailStyles.books_thumbnail}
@@ -77,7 +77,7 @@ const Home: NextPage = () => {
             />
             <Thumbnail
               title={"Academic Research"}
-              illustrationSrc={"/images/illustrations/academic.svg"}
+              illustrationSrc={"/svgs/illustrations/academic.svg"}
               url={"/archive/academic"}
               backgroundClass={thumbnailStyles.academic_bg}
               illustrationClass={thumbnailStyles.academic_thumbnail}
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
             />
             <Thumbnail
               title={"Communities"}
-              illustrationSrc={"/images/illustrations/communities.svg"}
+              illustrationSrc={"/svgs/illustrations/communities.svg"}
               url={"/archive/communities"}
               backgroundClass={thumbnailStyles.communities_bg}
               illustrationClass={thumbnailStyles.communities_thumbnail}
@@ -93,7 +93,7 @@ const Home: NextPage = () => {
             />
             <Thumbnail
               title={"Related Issues"}
-              illustrationSrc={"/images/illustrations/related.svg"}
+              illustrationSrc={"/svgs/illustrations/related.svg"}
               url={"/related"}
               backgroundClass={thumbnailStyles.related_bg}
               illustrationClass={thumbnailStyles.related_thumbnail}
@@ -101,7 +101,7 @@ const Home: NextPage = () => {
             />
             <Thumbnail
               title={"Links"}
-              illustrationSrc={"/images/illustrations/links.svg"}
+              illustrationSrc={"/svgs/illustrations/links.svg"}
               url={"/archive/links"}
               backgroundClass={thumbnailStyles.links_bg}
               illustrationClass={thumbnailStyles.links_thumbnail}

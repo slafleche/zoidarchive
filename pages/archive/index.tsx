@@ -2,9 +2,6 @@ import { Navbar } from "../../src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
 import utilityStyles from "../../styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
-import { Card, CardStyle, CardTheme } from "../../src/components/Card";
-import Link from "next/link";
-import UrlObject from "next/router";
 import { Key, ReactChild, ReactFragment, ReactPortal } from "react";
 
 interface ICategory {
@@ -23,13 +20,6 @@ function Archive() {
       <SkipNavContent>
         <div className={utilityStyles.content}>
           <h1>Zoid Resources</h1>
-
-          {/* <Card
-            title="Books"
-            description={<></>}
-            imageSrc="/images/community_thumbnails/reddit.svg"
-          /> */}
-
           <ul>
             {categories.map((category: ICategory) => {
               console.log(">>>>> category: ", category);

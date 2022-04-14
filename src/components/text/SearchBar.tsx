@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import inputStyles from "../../../styles/components/input.css";
-import utilityClasses from "../../../styles/utilityClasses.css";
-import SVG from "react-inlinesvg";
-import searchBarStyles from "../../../styles/components/searchBar.css";
-import TextInput from "../inputs/TextInput";
-import Button from "../inputs/Button";
+import inputStyles from "styles/components/input.css";
+import utilityClasses from "styles/utilityClasses.css";
+import searchBarStyles from "styles/components/searchBar.css";
+import TextInput from "src/components/inputs/TextInput";
+import Button from "src/components/inputs/Button";
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
+import SearchSVG from "public/svgs/search.svg";
+import CloseSVG from "public/svgs/close.svg";
 
 interface IProps {
   className?: string;
@@ -119,9 +120,8 @@ function SearchBar(props: IProps) {
           className={classNames(searchBarStyles.submit)}
           title="Search"
         >
-          <SVG
+          <SearchSVG
             title="Search"
-            src="images/search.svg"
             className={classNames(searchBarStyles.icon, { focus })}
           />
         </Button>
@@ -139,7 +139,7 @@ function SearchBar(props: IProps) {
             setShowSearchModal(false);
           }}
         >
-          <SVG title="Close" src="images/close.svg" />
+          <CloseSVG title="Close" src="images/close.svg" />
         </button>
       </Dialog>
     </>

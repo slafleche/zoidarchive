@@ -4,7 +4,7 @@ import { roundButton } from "../helpers/effects";
 import { calc } from "@vanilla-extract/css-utils";
 import { reducedMotion, ReducedMotion } from "../helpers/accessibility";
 
-const buttonWidth = "100px";
+const buttonWidth = "80px";
 const cubicBezier = "cubic-bezier(0.680, -0.280, 0.380, 1.285)";
 
 const scrollToTopStyles = {

@@ -4,7 +4,7 @@ import { NextSeo } from "next-seo";
 import React from "react";
 import { matchSorter } from "match-sorter";
 import cities from "./api/dummyData";
-import SVG from "react-inlinesvg";
+import BackSVG from "public/svgs/back.svg";
 import {
   Combobox,
   ComboboxInput,
@@ -181,10 +181,7 @@ function Search() {
           <div style={{ marginTop: "100px" }}>
             <Link href="/" passHref>
               <a className={notFoundStyles.backLink}>
-                <SVG
-                  className={notFoundStyles.backIcon}
-                  src={"images/back.svg"}
-                />
+                <BackSVG className={notFoundStyles.backIcon} />
                 <span className={notFoundStyles.backText}>Back</span>
               </a>
             </Link>

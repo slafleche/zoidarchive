@@ -16,9 +16,9 @@ export const roundButton = (buttonSize: csstype.Property.Width) => {
     height: buttonSize,
     minHeight: buttonSize,
     minWidth: buttonSize,
-    border: `solid ${colors.brand.alpha(0.7).css()} 3px`,
+    border: `solid ${colors.brand.css()} 3px`,
     ...reducedMotion(ReducedMotion.off, {
-      border: `solid ${colors.white.css()} 2px`,
+      border: `solid ${colors.white.css()} 1px`,
     }),
     selectors: {
       ["&&"]: {
@@ -29,7 +29,7 @@ export const roundButton = (buttonSize: csstype.Property.Width) => {
         ...reducedMotion(ReducedMotion.off, {
           content: "",
           ...absolutePosition.fullSize(),
-          border: `solid ${colors.brand.alpha(0.7).css()} 3px`,
+          border: `solid ${colors.brand.css()} 3px`,
           borderRadius: "50%",
           transform: "scale(1)",
           transition: "opacity, transform, filter 0.3s, 0.2s ease-out",

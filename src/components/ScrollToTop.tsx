@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Button from "./inputs/Button";
 import classNames from "classnames";
-import scrollToTopStyles from "../../styles/components/scrollToTop.css";
-import SVG from "react-inlinesvg";
-import { debounce } from "../utils/utils";
-import ReachTooltip from "@reach/tooltip";
+import scrollToTopStyles from "styles/components/scrollToTop.css";
+import ScrollToTopSVG from "public/svgs/scrollToTop.svg";
+import { debounce } from "src/utils/utils";
 
 interface IProps {
   className?: string;
@@ -83,11 +82,7 @@ const ScrollToTop = (props: IProps) => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <SVG
-            title="Search"
-            className={scrollToTopStyles.icon}
-            src="images/scrollToTop.svg"
-          />
+          <ScrollToTopSVG title="Search" className={scrollToTopStyles.icon} />
         </Button>
       </div>
     </div>

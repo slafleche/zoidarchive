@@ -9,6 +9,7 @@
     "ms-vscode.js-debug",
     "jock.svg",
     "mgmcdermott.vscode-language-babel",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "ionutvmi.path-autocomplete"
   ]
 }

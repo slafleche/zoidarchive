@@ -1,10 +1,9 @@
-import SVG from "react-inlinesvg";
-
+import ExternalLinkSVG from "@svg/externalLink.svg";
 interface IProps {
   className?: string;
 }
 
 export function ExternalIcon(props: IProps) {
   const { className } = props;
-  return <SVG className={className} src={"images/externalLink.svg"} />;
+  return <ExternalLinkSVG className={className} />;
 }

@@ -3,9 +3,9 @@ import classes from "../../styles/components/splash.css";
 import { Logo } from "./Logo";
 import classNames from "classnames";
 import { Link } from "react-scroll";
-import utilityClasses from "../../styles/utilityClasses.css";
-import SVG from "react-inlinesvg";
-import Tooltip from "@reach/tooltip";
+import utilityClasses from "styles/utilityClasses.css";
+import HeroTitleSVG from "public/svgs/heroTitle.svg";
+import ChevronDown from "public/svgs/chevronDown.svg";
 
 export function Splash() {
   const id = "afterSplash";
@@ -19,11 +19,7 @@ export function Splash() {
         <div className={classes.content}>
           <h1 className={classes.title}>
             <span className={utilityClasses.isScOnly}>The Zoid Archive</span>
-            <SVG
-              aria-hidden="true"
-              className={classes.hero}
-              src={"images/heroTitle.svg"}
-            />
+            <HeroTitleSVG aria-hidden="true" className={classes.hero} />
           </h1>
         </div>
         <Link
@@ -33,15 +29,9 @@ export function Splash() {
           className={classes.scrollToContent}
           href={`#${id}`}
         >
-          {/* <Tooltip label={"Scroll down to content"} > */}
           <div className={utilityClasses.center}>
-            <SVG
-              className={classes.scrollToContentIcon}
-              src={"images/chevronDown.svg"}
-              fill="#fff"
-            />
+            <ChevronDown className={classes.scrollToContentIcon} fill="#fff" />
           </div>
-          {/* </Tooltip> */}
         </Link>
       </div>
       <div id={id} />
