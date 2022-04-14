@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import layoutStyles from "styles/components/layout.css";
-import thumbnailStyles from "styles/components/thumbnails/thumbnails.css";
+import thumbnailStyles from "styles/components/thumbnails.css";
 
 interface IProps {
   className?: string;

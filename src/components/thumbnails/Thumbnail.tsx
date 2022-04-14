@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import thumbnailStyles from "styles/components/thumbnails/thumbnails.css";
+import thumbnailStyles from "styles/components/thumbnails.css";
 import utilityClasses from "styles/utilityClasses.css";
 import Image from "next/image";
 

@@ -1,15 +1,15 @@
 import { style } from "@vanilla-extract/css";
-import { colors } from "../../colors.css";
-import { backgroundHelper } from "../../helpers/background";
-import { absolutePosition, flexPosition } from "../../helpers/positioning";
-import { globalShadow } from "../../helpers/shadows";
+import { colors } from "styles/colors.css";
+import { backgroundHelper } from "styles/helpers/background";
+import { absolutePosition, flexPosition } from "styles/helpers/positioning";
+import { globalShadow } from "styles/helpers/shadows";
 import * as csstype from "csstype";
-import { margins, paddings } from "../../helpers/spacing";
+import { margins, paddings } from "styles/helpers/spacing";
 import {
   addOnePixel,
   IMediaQueryProps,
   mediaQueryStyle,
-} from "../../helpers/mediaQueries";
+} from "../helpers/mediaQueries";
 import chroma from "chroma-js";
 
 const columBreaks = {
