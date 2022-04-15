@@ -13,6 +13,7 @@ const layoutStyles = {
   }),
 
   content: style({
+    width: "100%",
     maxWidth: layoutVars.contentWidth,
     margin: "auto",
     ...paddings({

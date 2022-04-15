@@ -2,7 +2,7 @@ import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
 import utilityStyles from "styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
-import SPD from "@components/text/SPD";
+import SPD from "src/components/text/SPD";
 
 function Links() {
   return (

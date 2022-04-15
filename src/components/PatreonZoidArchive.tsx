@@ -5,12 +5,12 @@ import { ExternalLink } from "./text/ExternalLink";
 
 interface IProps {
   className?: string;
-  includeIcon?: boolean;
-  iconClass?: string;
+  icon?: boolean;
+  
 }
 
 export function PatreonZoidArchive(props: IProps) {
-  const { className, includeIcon = true, iconClass } = props;
+  const { className, icon=true } = props;
 
   return (
     <ExternalLink

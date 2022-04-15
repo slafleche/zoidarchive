@@ -1,19 +1,25 @@
 import { style } from "@vanilla-extract/css";
-import { paddings } from "../helpers/spacing";
+import { colors } from "styles/colors.css";
+import { paddings } from "styles/helpers/spacing";
 
 const tableOfContentsStyles = {
   root: style({
     ...paddings({
-      top: "70px",
-      bottom: "70px",
+      vertical: "75px",
     }),
   }),
   title: style({
+    fontSize: "26px",
+    // textAlign: "center",
     marginTop: 0,
   }),
   items: style({}),
   item: style({}),
-  link: style({}),
+  link: style({
+    fontSize: "20px",
+    textDecoration: "none",
+    color: colors.bodyFg.css(),
+  }),
 };
 
 export default tableOfContentsStyles;

@@ -68,7 +68,7 @@ const TableOfContents = (props: IProps) => {
   const tocContents = headings.map((h, i) => {
     return (
       <li key={i} className={tableOfContentsStyles.item}>
-        <a href={h.id} className={tableOfContentsStyles.item}>
+        <a href={h.id} className={tableOfContentsStyles.link}>
           {h.title}
         </a>
       </li>
