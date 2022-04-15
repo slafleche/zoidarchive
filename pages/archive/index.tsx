@@ -1,24 +1,18 @@
 import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
 import { SkipNavContent } from "@reach/skip-nav";
-import { Key } from "react";
+import { Key, useEffect, useState } from "react";
 import ThreeColumns from "src/layouts/ThreeColumns";
 
-interface ICategory {
-  id: Key;
-  title: string;
-  body: string;
-  slug: string;
-}
+
 
 function Archive() {
-  const categories: ICategory[] = [];
   return (
     <>
       <NextSeo title="The Archive" />
       <Navbar />
       <SkipNavContent>
-        <ThreeColumns navigation={undefined}>
+        <ThreeColumns>
           <h1>The Archive</h1>
           <p>
             Lorem Ipsum è un testo segnaposto utilizzato nel settore della

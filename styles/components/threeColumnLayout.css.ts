@@ -1,5 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-import { measurement } from "../../utils/styleUtils";
+import { measurement } from "../utils/styleUtils";
 import { colors } from "../colors.css";
 import { absolutePosition } from "../helpers/positioning";
 

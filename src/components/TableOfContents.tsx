@@ -29,7 +29,7 @@ const TableOfContents = (props: IProps) => {
           " `#${articleID} h2, #${articleID} h3`: ",
           `#${articleID} h2, #${articleID} h3`
         );
-        console.log(" headings: ", headingElements);
+        // console.log(" headings: ", headingElements);
 
         if (Array.isArray(headingElements) && headingElements.length > 0) {
           const uniqueIDs = {};

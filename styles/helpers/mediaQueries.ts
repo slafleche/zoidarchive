@@ -1,7 +1,7 @@
 import { calc } from "@vanilla-extract/css-utils";
 import { ComplexStyleRule } from "@vanilla-extract/css";
 import * as csstype from "csstype";
-import { measurement } from "../../utils/styleUtils";
+import { measurement } from "../utils/styleUtils";
 import { layoutVars } from "../components/layoutVars.css";
 
 export interface IMediaQueryProps {

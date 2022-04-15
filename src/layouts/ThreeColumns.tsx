@@ -4,26 +4,25 @@ import { useId } from "@reach/auto-id";
 import TableOfContents from "src/components/TableOfContents";
 import Sticky from "react-stickynode";
 import { navBarVars } from "styles/components/navbar.css";
-import { measurement } from "utils/styleUtils";
+import { measurement } from "styles/utils/styleUtils";
 import { footerVars } from "styles/components/footer.css";
+import ArchiveNav from "src/components/ArchiveNav";
 
 interface IProps {
   className?: string;
   id?: string;
   children: React.ReactNode;
-  navigation: React.ReactNode;
+  LeftColumn?: JSX.Element;
 }
 
 function ThreeColumns(props: IProps) {
-  const { className, navigation, children } = props;
+  const { className, children, LeftColumn } = props;
   const id = `article-${useId(props.id)}`;
 
   return (
-    <div
-      className={classNames(threeColumnLayoutStyles.root, className)}
-    >
+    <div className={classNames(threeColumnLayoutStyles.root, className)}>
       <div className={classNames(threeColumnLayoutStyles.nav)}>
-        {navigation}
+        {LeftColumn ? LeftColumn : <ArchiveNav />}
       </div>
       <div id={id} className={classNames(threeColumnLayoutStyles.main)}>
         {children}

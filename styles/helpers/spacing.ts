@@ -1,6 +1,6 @@
 import { Color } from "chroma-js";
 import * as csstype from "csstype";
-import { IMeasurement, measurement } from "../../utils/styleUtils";
+import { IMeasurement, measurement } from "../utils/styleUtils";
 import { colors } from "../colors.css";
 import globalVars from "../vars.css";
 
