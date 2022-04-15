@@ -5,7 +5,8 @@ import { BOOK_PATH } from "src/utils/constants";
 
 export interface IPage {
   title: string;
-  href: string;
+  typeSlug: string;
+  slug: string;
 }
 
 export interface IArchiveSection {
@@ -13,7 +14,7 @@ export interface IArchiveSection {
   pages: IPage[];
 }
 
-export const getMDXFromFolder = (sourcePath: string, urlRoot: string) => {
+export const getMDXFromFolder = (sourcePath: string, typeSlug: string) => {
   const pages: IPage[] = [];
   return new Promise((resolve, reject) => {
     fs.readdir(sourcePath, function (error, data) {
@@ -31,12 +32,12 @@ export const getMDXFromFolder = (sourcePath: string, urlRoot: string) => {
               const name = path.parse(fileName).name;
               const fileData = matter(`${mdxSource}`);
               const frontMatter = fileData.data;
+              const slug = frontMatter.slug || name.toLocaleLowerCase();
               // console.log("frontMatter: ", frontMatter);
               pages.push({
                 title: frontMatter.title || name,
-                href: `${urlRoot}${
-                  frontMatter.slug || name.toLocaleLowerCase()
-                }`,
+                typeSlug,
+                slug,
               });
             } catch (err) {
               console.error(`Unable to read file "${fileName}"`);

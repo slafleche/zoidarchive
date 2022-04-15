@@ -1,15 +1,16 @@
 import { style } from "@vanilla-extract/css";
 import { colors } from "styles/colors.css";
 import { paddings } from "styles/helpers/spacing";
+import { threeColumnContentVars } from "./threeColumnLayout.css";
 
 const tableOfContentsStyles = {
   root: style({
     ...paddings({
-      vertical: "75px",
+      vertical: threeColumnContentVars.column.padding,
     }),
   }),
   title: style({
-    fontSize: "26px",
+    fontSize: threeColumnContentVars.column.fontSize,
     // textAlign: "center",
     marginTop: 0,
   }),

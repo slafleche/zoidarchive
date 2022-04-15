@@ -5,13 +5,15 @@ import {
 } from "src/archive/getMDXFromFolder";
 
 export async function getBookLinks() {
-  return getMDXFromFolder(BOOK_PATH, "/archive/books/").then((pages) => {
-    console.log("getBookLinks() : ", pages);
-    return {
-      category: "Books",
-      pages,
-    } as IArchiveSection;
-  });
+  return getMDXFromFolder(BOOK_PATH, "/archive/books/").then(
+    (pages) => {
+      // console.log("getBookLinks() : ", pages);
+      return {
+        category: "Books",
+        pages,
+      } as IArchiveSection;
+    }
+  );
 }
 
 // let pageData: IPage[] = [];

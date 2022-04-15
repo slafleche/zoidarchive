@@ -1702,7 +1702,7 @@
     "@babel/template" "^7.12.13"
     "@vanilla-extract/integration" "^3.0.0"
 
-"@vanilla-extract/css@^1.6.8":
+"@vanilla-extract/css@^1.6.8", "@vanilla-extract/css@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.7.0.tgz#7276830c7741b17b7a70720be88c9083682f5206"
   integrity sha512-2Abpr5aJskwKS+waMWxWnTBqq/rj4J93KtGteW0VSORMUsijrupwjOXECd7Llh+nSFfx/Y6usuexF5/ffyDF8A==
@@ -1750,7 +1750,7 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.4.0.tgz#acad9c9470a41b8350ae97efc02bb33e52553bcf"
   integrity sha512-q9Tu5bHkN/fT0IFkBDEsNeTKN/8CFYkgGVDw0iZ+wM/n9IKhWrKLnOjDk1v9NpCXD3rUQqDipl0pdGCEcBe4RQ==
 
-"@vanilla-extract/webpack-plugin@^2.1.7":
+"@vanilla-extract/webpack-plugin@^2.1.7", "@vanilla-extract/webpack-plugin@^2.1.8":
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/webpack-plugin/-/webpack-plugin-2.1.8.tgz#52fac541bb9ff69c6a8d2577d634da815555793c"
   integrity sha512-iz4UkLlco+QpguV76VIT9PiwEUTTpFrxwffik41dY8tWrBZgg8riCi/GnkJgjpv04sLrWFmeuTEeJ7npAW0ELw==

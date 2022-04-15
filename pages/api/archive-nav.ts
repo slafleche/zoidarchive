@@ -14,7 +14,6 @@ const archiveNav = async (req, res) => {
     getBookLinks(),
     getBookLinks(),
   ]).then((data) => {
-    console.log("DATA: ", data);
     res.status(200).json({
       data,
     });
