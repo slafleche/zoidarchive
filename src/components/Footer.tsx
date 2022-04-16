@@ -18,11 +18,11 @@ function Footer(props: IProps) {
             target="_blank"
             rel="noreferrer"
             className={classNames(footerStyles.link)}
-            >
+          >
             <PatreonSVG className={footerStyles.patreon} />
           </a>
           <span className={footerStyles.copyright}>
-            &copy; {new Date().getFullYear()} The Zoid Archive
+            &copy; {new Date().getFullYear()} - Zoid Archive
           </span>
         </div>
       </div>

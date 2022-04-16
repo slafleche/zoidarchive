@@ -5,6 +5,8 @@ import archiveNavStyles from "styles/components/archiveNav.css";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 import { threeColumnMediaQueries } from "../../styles/components/threeColumnLayout.css";
+import Button from "../components/inputs/Button";
+import router from "next/router";
 
 interface IProps {
   className?: string;
@@ -22,10 +24,14 @@ function ArchiveNav(props: IProps) {
   const id = "archiveNav";
 
   const getData = () => {
-    fetch("/api/archive-nav")
+    fetch(
+      `/api/archive-nav?${new URLSearchParams({
+        format: "asCategory,asChain",
+      })}`
+    )
       .then((res) => res.json())
       .then((res) => {
-        setNavData(res.data);
+        setNavData(res.asCategories);
       });
   };
 

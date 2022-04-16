@@ -5,7 +5,7 @@ import {
 } from "src/archive/getMDXFromFolder";
 
 export async function getBookPages() {
-  return getMDXFromFolder(BOOK_PATH, "/archive/books/").then((pages) => {
+  return getMDXFromFolder(BOOK_PATH, "/archive/books").then((pages) => {
     // console.log("getBookPages() : ", pages);
     return {
       category: "Books",
@@ -15,7 +15,7 @@ export async function getBookPages() {
 }
 
 export async function getRelatedPages() {
-  return getMDXFromFolder(RELATED_PATH, "/archive/related/").then((pages) => {
+  return getMDXFromFolder(RELATED_PATH, "/archive/related").then((pages) => {
     // console.log("getRelatedPages() : ", pages);
     return {
       category: "Related Issues",
@@ -25,7 +25,7 @@ export async function getRelatedPages() {
 }
 
 export async function getResearchPages() {
-  return getMDXFromFolder(RESEARCH_PATH, "/archive/research/").then((pages) => {
+  return getMDXFromFolder(RESEARCH_PATH, "/archive/research").then((pages) => {
     // console.log("getResearchPages() : ", pages);
     return {
       category: "Academic Research",

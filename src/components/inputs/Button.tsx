@@ -4,7 +4,7 @@ import navBarStyles from "styles/components/navbar.css";
 
 interface IProps {
   className?: string;
-  children: JSX.Element;
+  children: React.ReactNode;
   disabled?: boolean;
   title?: string;
   type?: "submit";

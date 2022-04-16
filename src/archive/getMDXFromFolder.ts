@@ -14,6 +14,16 @@ export interface IArchiveSection {
   pages: IPage[];
 }
 
+export interface IPageLink extends IPage {
+  category: string; // Current Category
+  next: number; // Next Page
+  previous: number; // Previou Page
+}
+
+export interface IArchiveChain {
+  pages: IPageLink[];
+}
+
 export const getMDXFromFolder = (sourcePath: string, typeSlug: string) => {
   const pages: IPage[] = [];
   return new Promise((resolve, reject) => {
@@ -33,7 +43,7 @@ export const getMDXFromFolder = (sourcePath: string, typeSlug: string) => {
               const fileData = matter(`${mdxSource}`);
               const frontMatter = fileData.data;
               const slug = title.toLocaleLowerCase();
-              console.log("frontMatter: ", frontMatter);
+              // console.log("frontMatter: ", frontMatter);
               pages.push({
                 title,
                 typeSlug,
