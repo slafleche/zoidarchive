@@ -26,16 +26,16 @@ export const getMDXFromFolder = (sourcePath: string, typeSlug: string) => {
             return svg.endsWith(".mdx");
           })
           .forEach(function (fileName) {
-            const filePath = path.resolve(BOOK_PATH, fileName);
+            const filePath = path.resolve(sourcePath, fileName);
             try {
               const mdxSource = fs.readFileSync(filePath, "utf8");
-              const name = path.parse(fileName).name;
+              const title = path.parse(fileName).name;
               const fileData = matter(`${mdxSource}`);
               const frontMatter = fileData.data;
-              const slug = frontMatter.slug || name.toLocaleLowerCase();
-              // console.log("frontMatter: ", frontMatter);
+              const slug = title.toLocaleLowerCase();
+              console.log("frontMatter: ", frontMatter);
               pages.push({
-                title: frontMatter.title || name,
+                title,
                 typeSlug,
                 slug,
               });

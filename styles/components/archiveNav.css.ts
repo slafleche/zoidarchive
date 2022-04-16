@@ -15,12 +15,22 @@ const archiveNavStyles = {
   category: style({}),
   categoryTitle: style({
     fontSize: threeColumnContentVars.column.fontSize,
-    marginTop: 0,
+    ...margins({
+      top: "40px",
+      bottom: "10px",
+    }),
     paddingTop: 0,
+    selectors: {
+      [`&.isFirst`]: {
+        marginTop: 0,
+      },
+    },
   }),
   categoryItems: style({}),
   categoryItem: style({}),
-  link: style({}),
+  link: style({
+    fontSize: "22px",
+  }),
 };
 
 export default archiveNavStyles;

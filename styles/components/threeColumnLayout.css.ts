@@ -1,8 +1,7 @@
-import { ComplexStyleRule, globalStyle, style } from "@vanilla-extract/css";
-import { measurement } from "styles/utils/styleUtils";
+import { ComplexStyleRule, style } from "@vanilla-extract/css";
 import { colors } from "styles/colors.css";
 import { absolutePosition } from "styles/helpers/positioning";
-import { margins, paddings } from "styles/helpers/spacing";
+import { paddings } from "styles/helpers/spacing";
 import { layoutVars } from "./layoutVars.css";
 import {
   addOnePixel,
@@ -10,8 +9,6 @@ import {
   IMediaQueryProps,
   mediaQueryStyle,
 } from "styles/helpers/mediaQueries";
-import { calc } from "@vanilla-extract/css-utils";
-import { footerVars } from "./footer.css";
 
 const threeColumnLayoutVars = {
   threeColumns: "1500px",
@@ -153,12 +150,6 @@ const threeColumnLayoutStyles = {
     //     }),
     //   },
     // }),
-  }),
-
-  stickyColumn: style({
-    position: "relative",
-    // overflow: "auto",
-    // maxHeight: "100vh",
   }),
 };
 

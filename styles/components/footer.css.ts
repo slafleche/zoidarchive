@@ -3,7 +3,7 @@ import { colors } from "../colors.css";
 import { globalShadow } from "../helpers/shadows";
 
 export const footerVars = {
-  height: "120px",
+  height: "60px",
 };
 
 const footerStyles = {
@@ -12,17 +12,16 @@ const footerStyles = {
     flexDirection: "row",
     justifyContent: "center",
     height: footerVars.height,
-    backgroundColor: colors.white.alpha(0.2).css(),
-    boxShadow: globalShadow({
-      x: 0,
-      y: "-2px",
-      color: colors.shadow.alpha(0.05),
-    }),
+    backgroundColor: colors.black.brighten(5).css(),
+    borderTop: `solid ${colors.black.mix(colors.white, 0.7)} 1px`,
+  }),
+  content: style({
+    display: "flex",
+    flexDirection: "row",
   }),
   link: style({
     display: "flex",
     alignItems: "center",
-
     opacity: "0.6",
     selectors: {
       "&:hover, &:focus, &.focus-visible": {
@@ -33,7 +32,13 @@ const footerStyles = {
   patreon: style({
     color: colors.black.css(),
     width: "30px",
-    marginRight: "auto",
+    marginRight: "30px",
+  }),
+  copyright: style({
+    fontSize: "16px",
+    lineHeight: 1,
+    alignSelf: "center",
+    color: colors.black.mix(colors.white, 0.1).css(),
   }),
 };
 

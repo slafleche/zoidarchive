@@ -1,19 +1,37 @@
-import { BOOK_PATH } from "src/utils/constants";
+import { BOOK_PATH, RELATED_PATH, RESEARCH_PATH } from "src/utils/constants";
 import {
   IArchiveSection,
   getMDXFromFolder,
 } from "src/archive/getMDXFromFolder";
 
-export async function getBookLinks() {
-  return getMDXFromFolder(BOOK_PATH, "/archive/books/").then(
-    (pages) => {
-      // console.log("getBookLinks() : ", pages);
-      return {
-        category: "Books",
-        pages,
-      } as IArchiveSection;
-    }
-  );
+export async function getBookPages() {
+  return getMDXFromFolder(BOOK_PATH, "/archive/books/").then((pages) => {
+    // console.log("getBookPages() : ", pages);
+    return {
+      category: "Books",
+      pages,
+    } as IArchiveSection;
+  });
+}
+
+export async function getRelatedPages() {
+  return getMDXFromFolder(RELATED_PATH, "/archive/related/").then((pages) => {
+    // console.log("getRelatedPages() : ", pages);
+    return {
+      category: "Related Issues",
+      pages,
+    } as IArchiveSection;
+  });
+}
+
+export async function getResearchPages() {
+  return getMDXFromFolder(RESEARCH_PATH, "/archive/research/").then((pages) => {
+    // console.log("getResearchPages() : ", pages);
+    return {
+      category: "Academic Research",
+      pages,
+    } as IArchiveSection;
+  });
 }
 
 // let pageData: IPage[] = [];

@@ -12,14 +12,19 @@ function Footer(props: IProps) {
   return (
     <footer className={classNames(className, footerStyles.root)}>
       <div className={layoutStyles.content}>
-        <a
-          href="https://www.patreon.com/zoidarchive"
-          target="_blank"
-          rel="noreferrer"
-          className={classNames(footerStyles.link)}
-        >
-          <PatreonSVG className={footerStyles.patreon} />
-        </a>
+        <div className={footerStyles.content}>
+          <a
+            href="https://www.patreon.com/zoidarchive"
+            target="_blank"
+            rel="noreferrer"
+            className={classNames(footerStyles.link)}
+            >
+            <PatreonSVG className={footerStyles.patreon} />
+          </a>
+          <span className={footerStyles.copyright}>
+            &copy; {new Date().getFullYear()} The Zoid Archive
+          </span>
+        </div>
       </div>
     </footer>
   );

@@ -4,16 +4,19 @@ import { SkipNavContent } from "@reach/skip-nav";
 import { Key, useEffect, useState } from "react";
 import ThreeColumns from "src/layouts/ThreeColumns";
 
-
-
 function Archive() {
   return (
     <>
       <NextSeo title="The Archive" />
       <Navbar />
       <SkipNavContent>
-        <ThreeColumns>
-          <h1>The Archive</h1>
+        <ThreeColumns
+          preNav={
+            <>
+              <h1>The Archive</h1>
+            </>
+          }
+        >
           <p>
             Lorem Ipsum è un testo segnaposto utilizzato nel settore della
             tipografia e della stampa. Lorem Ipsum è considerato il testo

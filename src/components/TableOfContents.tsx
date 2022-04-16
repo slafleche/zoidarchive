@@ -11,10 +11,11 @@ interface IHeading {
 interface IProps {
   className?: string;
   articleID: string | null; // Will be null initially
+  accordion?: boolean;
 }
 
 const TableOfContents = (props: IProps) => {
-  const { className, articleID } = props;
+  const { className, articleID, accordion = false } = props;
   const [headings, setHeadings] = useState<Array<IHeading>>([]);
 
   useEffect(
@@ -24,12 +25,6 @@ const TableOfContents = (props: IProps) => {
         const headingElements = Array.from(
           mainContent.querySelectorAll(` h2, h3`)
         );
-
-        console.log(
-          " `#${articleID} h2, #${articleID} h3`: ",
-          `#${articleID} h2, #${articleID} h3`
-        );
-        // console.log(" headings: ", headingElements);
 
         if (Array.isArray(headingElements) && headingElements.length > 0) {
           const uniqueIDs = {};

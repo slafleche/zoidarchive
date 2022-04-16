@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { globalMediaQueryStyles } from "../helpers/mediaQueries";
-import { paddings } from "../helpers/spacing";
+import { flexPosition } from "styles/helpers/positioning";
+import { paddings } from "styles/helpers/spacing";
 import { layoutVars } from "./layoutVars.css";
 
 const layoutStyles = {

@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { IArchiveSection } from "src/archive/getMDXFromFolder";
-import { getBookLinks } from "./getBooks";
+import { getBookPages, getRelatedPages, getResearchPages } from "./getPages";
 
 interface IData {
   name: "Archive Nav Data";
@@ -10,10 +10,31 @@ interface IData {
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const archiveNav = async (req, res) => {
   const data = Promise.all([
-    getBookLinks(),
-    getBookLinks(),
-    getBookLinks(),
+    {
+      category: "Resouces",
+      pages: [
+        {
+          title: "Communities",
+          typeSlug: "/archive/",
+          slug: "communities",
+        },
+        {
+          title: "FAQ",
+          typeSlug: "/archive/",
+          slug: "faq",
+        },
+        {
+          title: "Links",
+          typeSlug: "/archive/",
+          slug: "faq",
+        },
+      ],
+    },
+    getBookPages(),
+    getResearchPages(),
+    getRelatedPages(),
   ]).then((data) => {
+    // console.log("data: ", data);
     res.status(200).json({
       data,
     });
