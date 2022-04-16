@@ -25,6 +25,7 @@ globalStyle("html, body", {
   fontFamily: globalVars.fonts.body.family,
   fontSize: globalVars.fonts.body.size,
   fontWeight: globalVars.fonts.body.weight,
+  backgroundColor: colors.white.alpha(0.2).css(),
   scrollBehavior: "smooth",
   lineHeight: 1.8,
   ...reducedMotion(ReducedMotion.on, {
@@ -41,10 +42,6 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
   lineHeight: "1.4",
 });
 
-globalStyle("h1", {
-  textAlign: "center",
-});
-
 globalStyle("*, *:after, *:before, input[type='search']", {
   boxSizing: "border-box",
 });
@@ -55,19 +52,15 @@ globalStyle("h1", {
   fontSize: "60px",
 });
 
-globalStyle("h2", {
-  backgroundColor: "#211d3f",
-  backgroundImage: `linear-gradient(87deg, ${colors.brand
-    .mix(colors.contrast, 0.2)
-    .css()} 0%, ${colors.brand.mix(colors.contrast, 0.8).css()} 100%)`,
-  backgroundSize: "100%",
-  MozBackgroundClip: "text",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-});
-
-globalStyle("a:focus:not(.focus-visible):not(:focus-visible)", {
-  outline: "none",
+globalStyle("h2:not([data-reach-accordion-item])", {
+  // backgroundColor: "#211d3f",
+  // backgroundImage: `linear-gradient(87deg, ${colors.brand
+  //   .mix(colors.contrast, 0.2)
+  //   .css()} 0%, ${colors.brand.mix(colors.contrast, 0.8).css()} 100%)`,
+  // backgroundSize: "100%",
+  // MozBackgroundClip: "text",
+  // WebkitBackgroundClip: "text",
+  // WebkitTextFillColor: "transparent",
 });
 
 export const fullRotation = keyframes({

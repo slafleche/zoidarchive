@@ -72,7 +72,7 @@ const TableOfContents = (props: IProps) => {
 
   return (
     <>
-      {Array.isArray(headings) && (
+      {Array.isArray(headings) && headings.length > 0 && (
         <div className={classNames(tableOfContentsStyles.root, className)}>
           <h2 className={tableOfContentsStyles.title}>On This Page</h2>
           <ul className={tableOfContentsStyles.items}>{tocContents}</ul>

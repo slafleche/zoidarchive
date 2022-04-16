@@ -68,6 +68,10 @@ const utilityClasses = {
       },
     },
   }),
+
+  finePrint: style({
+    fontSize: "0.9em",
+  }),
 };
 
 export default utilityClasses;

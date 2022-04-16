@@ -5,12 +5,15 @@ interface IProps {
   className?: string;
 }
 
-const SPD: React.FC<IProps> = ({ className }) => (
-  <Abbr
-    className={className}
-    fullText="Schizoid Personality Disorder"
-    abbreviation={"SPD"}
-  />
-);
+const SPD = (props: IProps) => {
+  const { className } = props;
+  return (
+    <Abbr
+      className={className}
+      fullText="Schizoid Personality Disorder"
+      abbreviation={"SPD"}
+    />
+  );
+};
 
 export default SPD;

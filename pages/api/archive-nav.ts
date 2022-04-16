@@ -26,19 +26,14 @@ const archiveNav = async (req, res) => {
       category: "Resouces",
       pages: [
         {
-          title: "debug",
-          typeSlug: format,
-          slug: "communities",
+          title: "FAQ",
+          typeSlug: "/archive",
+          slug: "faq",
         },
         {
           title: "Communities",
           typeSlug: "/archive",
           slug: "communities",
-        },
-        {
-          title: "FAQ",
-          typeSlug: "/archive",
-          slug: "faq",
         },
         {
           title: "Links",
@@ -47,9 +42,9 @@ const archiveNav = async (req, res) => {
         },
       ],
     },
+    getRelatedPages(),
     getBookPages(),
     getResearchPages(),
-    getRelatedPages(),
   ]).then((data) => {
     let response = {};
 

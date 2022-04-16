@@ -5,7 +5,6 @@ import { measurement } from "../utils/styleUtils";
 import { layoutVars } from "../components/layoutVars.css";
 
 export interface IMediaQueryProps {
-  name: string;
   type?: "all" | "print" | "screen";
   minWidth?: string;
   maxWidth?: string;
@@ -17,6 +16,8 @@ export interface IMediaQuery {
 }
 
 export type IMediaQueries = IMediaQuery[];
+
+export const getMediaQueryProps = (mediaQuery: IMediaQueryProps) => {};
 
 export const substractOnePixel = (length: string) => {
   try {

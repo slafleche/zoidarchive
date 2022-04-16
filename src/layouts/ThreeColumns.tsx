@@ -7,20 +7,23 @@ import TableOfContents from "src/components/TableOfContents";
 import Sticky from "react-stickynode";
 import { navBarVars } from "styles/components/navbar.css";
 import { measurement } from "styles/utils/styleUtils";
-import { footerVars } from "styles/components/footer.css";
 import ArchiveNav from "src/archive/ArchiveNav";
 import { useMediaQuery } from "react-responsive";
+import BackSVG from "public/svgs/back.svg";
+import Link from "next/link";
+import utilityClasses from "styles/utilityClasses.css";
 
 interface IProps {
   className?: string;
   id?: string;
-  preNav: React.ReactNode;
+  title: string;
   children: React.ReactNode;
   LeftColumn?: JSX.Element;
+  back?: boolean;
 }
 
 function ThreeColumns(props: IProps) {
-  const { className, children, LeftColumn, preNav } = props;
+  const { className, children, LeftColumn, title, back = false } = props;
   const id = `article-${useId(props.id || "0")}`;
   const stickyTop = measurement(navBarVars.height).val;
   const stickyBottom = `#${id}`;
@@ -36,8 +39,19 @@ function ThreeColumns(props: IProps) {
         </Sticky>
       </div>
       <div id={id} className={classNames(threeColumnLayoutStyles.main)}>
-        {preNav}
-        {!isThreeColumns && <TableOfContents articleID={id}  />}
+        <div className={threeColumnLayoutStyles.h1Container}>
+          <Link href="/archive" passHref>
+            <a
+              className={threeColumnLayoutStyles.backLink}
+              title="Back"
+              aria-label="Back"
+            >
+              <BackSVG className={threeColumnLayoutStyles.backIcon} />
+            </a>
+          </Link>
+          <h1 className={threeColumnLayoutStyles.h1}>{title}</h1>
+        </div>
+        {!isThreeColumns && <TableOfContents articleID={id} />}
         {children}
       </div>
       {isThreeColumns && (

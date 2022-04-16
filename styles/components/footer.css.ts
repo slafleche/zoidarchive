@@ -23,16 +23,12 @@ const footerStyles = {
     display: "flex",
     alignItems: "center",
     opacity: "0.6",
+    transition: "opacity 0.2s ease-out",
     selectors: {
       "&:hover, &:focus, &.focus-visible": {
         opacity: "0.8",
       },
     },
-  }),
-  patreon: style({
-    color: colors.black.css(),
-    width: "30px",
-    marginRight: "30px",
   }),
   copyright: style({
     fontSize: "16px",

@@ -23,6 +23,9 @@ export const threeColumnContentVars = {
   },
 };
 
+const iconWidth = "20px";
+const iconPadding = "30px";
+
 interface IThreeColumnMediaQueries {
   twoColumns?: ComplexStyleRule;
   oneColumn?: ComplexStyleRule;
@@ -107,6 +110,7 @@ const threeColumnLayoutStyles = {
   main: style({
     ...paddings({
       horizontal: layoutVars.halfContentPadding,
+      bottom: "30px",
     }),
     ...mediaQueryStyles({
       twoColumns: {},
@@ -150,6 +154,33 @@ const threeColumnLayoutStyles = {
     //     }),
     //   },
     // }),
+  }),
+
+  h1Container: style({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+    ...paddings({
+      horizontal: "30px",
+    }),
+  }),
+
+  h1: style({
+    display: "block",
+    position: "relative",
+  }),
+
+  backLink: style({
+    display: "block",
+    width: iconWidth,
+    height: iconWidth,
+    ...absolutePosition.topLeft("50%"),
+  }),
+
+  backIcon: style({
+    width: iconWidth,
+    height: iconWidth,
   }),
 };
 

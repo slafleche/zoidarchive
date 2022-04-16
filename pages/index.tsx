@@ -10,6 +10,7 @@ import { NextSeo } from "next-seo";
 import { ThumbnailContainer } from "src/components/thumbnails/ThumbnailContainer";
 import { Thumbnail } from "src/components/thumbnails/Thumbnail";
 import thumbnailStyles from "styles/components/thumbnails.css";
+import Zoids from "../src/components/text/Zoid";
 
 const Home: NextPage = () => {
   return (
@@ -29,6 +30,10 @@ const Home: NextPage = () => {
               />
               , is a condition where social activities and interaction with
               others are consistently avoided. People with
+            </p>
+
+            <p>
+              We will colloquealy refer to people with <SPD/> as <Zoids/>.
             </p>
 
             <h2>What is Schizoid Personality Disorder?</h2>

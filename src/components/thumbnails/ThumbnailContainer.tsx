@@ -1,12 +1,12 @@
 import classNames from "classnames";
 import layoutStyles from "styles/components/layout.css";
 import thumbnailStyles from "styles/components/thumbnails.css";
+import { IHeadingLevel } from "src/utils/globalInterfaces";
 
-interface IProps {
+interface IProps extends IHeadingLevel {
   className?: string;
   titleClass?: string;
   children: React.ReactNode;
-  headingLevel?: 2 | 3 | 4 | 5 | 6;
 }
 
 export function ThumbnailContainer(props: IProps) {
