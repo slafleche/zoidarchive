@@ -35,19 +35,6 @@ function Faq(props: IProps) {
             <AccordionItem>
               <h2>
                 <AccordionButton>
-                  What is Schi!zo(id$ Personal$ity *Disorder?-
-                </AccordionButton>
-              </h2>
-              <AccordionPanel>
-                Ante rhoncus facilisis iaculis nostra faucibus vehicula ac
-                consectetur pretium, lacus nunc consequat id viverra facilisi
-                ligula eleifend, congue gravida malesuada proin scelerisque
-                luctus est convallis.
-              </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-              <h2>
-                <AccordionButton>
                   What is Schizoid Personality Disorder?
                 </AccordionButton>
               </h2>

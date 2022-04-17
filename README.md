@@ -1,46 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# (Zoid Archive)[zoidarchive.com]
 
-## Getting Started
+The Zoid Archive aims to raise awareness about Schizoid Personality Disorder.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Stack
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Components with [React](https://reactjs.org/)
+- JS Framework by [Next.js](https://nextjs.org/)
+- Styles [Vanilla-Extract](https://vanilla-extract.style/)
+- Search powered by [Lunr.js](https://lunrjs.com/)
+- Accessible components by [Reach UI](https://reach.tech/)
+- Markdown pages made with [MDX](https://mdxjs.com/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Features
 
-## Favicons
-
-```
-real-favicon generate faviconDescription.json faviconData.json public/favicons
-```
-
-### Update favicons
-
-```
-real-favicon check-for-update --fail-on-update faviconData.json
-```
-
-## To do:
-
-- Figure out
-  - Vanilla Extract
-    - Themes/Varaibles
-    - Sprinkles
-    - Recipes
-    - Try light/dark theme
-- optimizations
-  - minify normalize.css
-  - minify html
-  - load styles above fold
-  - Optimize images
-  - postCSS
-- Tests
-  - Jest?
-- Documentation
-
-  - Feedback/content
-  - Storybook/Ladle
-  - RSS
-
-- Next SEO
-- React Sticky (menu)
+- Accessibility in mind
+- Responsive

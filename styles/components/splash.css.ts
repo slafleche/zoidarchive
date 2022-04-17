@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import chroma from "chroma-js";
 import { calc } from "@vanilla-extract/css-utils";
-import { fullRotation, upAndDown } from "../globals.css";
+import { fullRotationAnimation, upAndDownAnimation } from "../globals.css";
 import { absolutePosition, flexPosition } from "../helpers/positioning";
 import { backgroundHelper } from "../helpers/background";
 import { colors } from "../colors.css";
@@ -49,7 +49,7 @@ const logo = style({
   width: vars.logo.size,
   height: "auto",
   ...reducedMotion(ReducedMotion.off, {
-    animation: `14s infinite linear ${fullRotation}`,
+    animation: `14s infinite linear ${fullRotationAnimation}`,
   }),
 });
 
@@ -88,7 +88,7 @@ const splashStyles = {
         ${vars.gradient.middle.css("hsl")} 53%,
         ${vars.gradient.end.css("hsl")} 65%)`,
         ...reducedMotion(ReducedMotion.off, {
-          animation: `${fullRotation} 7.3s infinite linear`,
+          animation: `${fullRotationAnimation} 7.3s infinite linear`,
         }),
       },
       // SVG Overlay
@@ -118,7 +118,7 @@ const splashStyles = {
         )} 47%, ${vars.counterGradient.middle.css("hsl")} 73%, 
         ${vars.counterGradient.end.css("hsl")} 88%)`,
         ...reducedMotion(ReducedMotion.off, {
-          animation: `${fullRotation} 9.7s infinite reverse linear`,
+          animation: `${fullRotationAnimation} 9.7s infinite reverse linear`,
         }),
       },
     },
@@ -167,7 +167,7 @@ const splashStyles = {
         color: colors.white.css(),
         opacity: 0.8,
         ...reducedMotion(ReducedMotion.off, {
-          animation: `${upAndDown} 1s infinite linear`,
+          animation: `${upAndDownAnimation} 1s infinite linear`,
         }),
       },
     },

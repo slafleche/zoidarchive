@@ -1,6 +1,5 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, keyframes, style } from "@vanilla-extract/css";
 import { colors } from "../colors.css";
-import { globalShadow } from "../helpers/shadows";
 
 export const footerVars = {
   height: "60px",
@@ -18,6 +17,9 @@ const footerStyles = {
   content: style({
     display: "flex",
     flexDirection: "row",
+    fontSize: "16px",
+    lineHeight: 1,
+    color: colors.black.mix(colors.white, 0.1).css(),
   }),
   link: style({
     display: "flex",
@@ -30,11 +32,10 @@ const footerStyles = {
       },
     },
   }),
+
   copyright: style({
-    fontSize: "16px",
-    lineHeight: 1,
     alignSelf: "center",
-    color: colors.black.mix(colors.white, 0.1).css(),
+    marginRight: "40px",
   }),
 };
 

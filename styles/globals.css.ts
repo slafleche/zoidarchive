@@ -63,15 +63,17 @@ globalStyle("h2:not([data-reach-accordion-item])", {
   // WebkitTextFillColor: "transparent",
 });
 
-export const fullRotation = keyframes({
+export const fullRotationAnimation = keyframes({
   "0%": { transform: "rotate(-360deg)" },
 });
 
-export const upAndDown = keyframes({
+export const upAndDownAnimation = keyframes({
   "0%": { transform: "translateY(0)" },
   "25%": { transform: "translateY(2px)" },
   "75%": { transform: "translateY(-2px)" },
 });
+
+
 
 globalStyle("abbr", {
   textDecoration: "none",

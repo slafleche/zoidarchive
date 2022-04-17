@@ -20,7 +20,6 @@ const TableOfContents = (props: IProps) => {
   const hList: React.ReactNode[] = [];
   const { className, articleID, accordion = false } = props;
   const [tocContents, setTocContents] = useState<Array<React.ReactNode>>([]);
-  // const [uniqueIDs, setUniqueIDs] = useState<Array<Object>>([]);
 
   useEffect(
     function idInit() {
@@ -70,14 +69,6 @@ const TableOfContents = (props: IProps) => {
         if (Array.isArray(headingElements) && headingElements.length > 0) {
           setTocContents(tocContents);
         }
-        //     // Scroll to element on load
-        //     if (window.location.hash) {
-        //       const el = document.getElementById(window.location.hash);
-        //       if (el) {
-        //         el.scrollIntoView({ behavior: "smooth" });
-        //       }
-        //     }
-        //   }
       }
     },
     [articleID]
