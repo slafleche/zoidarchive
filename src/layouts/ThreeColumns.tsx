@@ -11,7 +11,7 @@ import ArchiveNav from "src/archive/ArchiveNav";
 import { useMediaQuery } from "react-responsive";
 import BackSVG from "public/svgs/back.svg";
 import Link from "next/link";
-import utilityClasses from "styles/utilityClasses.css";
+import utilityStyles from "styles/utilities.css";
 
 interface IProps {
   className?: string;

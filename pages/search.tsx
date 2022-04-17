@@ -59,7 +59,7 @@ import { SkipNavContent } from "@reach/skip-nav";
 //       <NextSeo title="Contribute" />
 //       <Navbar />
 //       <SkipNavContent>
-//         <div className={utilityStyles.content}>
+//         <div className={utilities.content}>
 //           <div className={styles.container} ref={searchRef}>
 //             <input
 //               className={styles.search}

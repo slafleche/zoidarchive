@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
-import utilityClasses from "styles/utilityClasses.css";
+import utilityStyles from "styles/utilities.css";
 import archiveNavStyles from "styles/components/archiveNav.css";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
@@ -50,7 +50,7 @@ function ArchiveNav(props: IProps) {
       aria-describedby={id}
       className={classNames(className, archiveNavStyles.root)}
     >
-      <h2 id={id} className={utilityClasses.isScOnly}>
+      <h2 id={id} className={utilityStyles.isScOnly}>
         Archive Navigation
       </h2>
       <ul className={archiveNavStyles.categories}>

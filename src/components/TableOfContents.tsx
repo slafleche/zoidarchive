@@ -1,12 +1,14 @@
 import classNames from "classnames";
 import layoutStyles from "styles/components/layout.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import tableOfContentsStyles from "styles/components/tableOfContents.css";
+import Link from "next/link";
+import router from "next/router";
 
-interface IHeading {
-  title: string;
-  id: string;
-}
+// interface IHeading {
+//   title: string;
+//   id: string;
+// }
 
 interface IProps {
   className?: string;
@@ -15,64 +17,88 @@ interface IProps {
 }
 
 const TableOfContents = (props: IProps) => {
+  const hList: React.ReactNode[] = [];
   const { className, articleID, accordion = false } = props;
-  const [headings, setHeadings] = useState<Array<IHeading>>([]);
+  const [tocContents, setTocContents] = useState<Array<React.ReactNode>>([]);
+  // const [uniqueIDs, setUniqueIDs] = useState<Array<Object>>([]);
 
   useEffect(
-    function setEventListeners() {
+    function idInit() {
       const mainContent = document.querySelector(`#${articleID}`);
       if (mainContent) {
         const headingElements = Array.from(
-          mainContent.querySelectorAll(` h2, h3`)
+          mainContent.querySelectorAll(`#${articleID} h2, #${articleID} h3`)
         );
+        let uniqueIDs = {};
+        const tocContents = headingElements.map((h, i) => {
+          if (!h || !h.textContent) {
+            return null;
+          } else {
+            const id = `#${h.textContent
+              .trim()
+              .toLowerCase()
+              .replaceAll(/\s/gi, "")
+              .replaceAll(/\W/gi, "")}`;
+            let uniqueID = id;
 
-        if (Array.isArray(headingElements) && headingElements.length > 0) {
-          const uniqueIDs = {};
-          const hList: IHeading[] = [];
-          headingElements.forEach((h) => {
-            if (h && h.textContent) {
-              const id = `#${h.textContent
-                .trim()
-                .toLowerCase()
-                .replaceAll(/\s/gi, "-")}`;
-
-              if (!uniqueIDs.hasOwnProperty(id)) {
-                // Unique ID
-                hList.push({
-                  title: h.textContent,
-                  id: id,
-                });
-                uniqueIDs[id] = 0;
-              } else {
-                // ID exists, add a number after to ensure uniqueness
-                hList.push({
-                  title: h.textContent,
-                  id: `${id}-${uniqueIDs[id]}`,
-                });
-                uniqueIDs[id] = uniqueIDs[id] + 1;
-              }
+            if (!uniqueIDs.hasOwnProperty(id)) {
+              uniqueIDs[id] = 0;
+            } else {
+              // ID exists, add a number after to ensure uniqueness
+              (uniqueID = `${id}-${uniqueIDs[id]}`),
+                (uniqueIDs[id] = uniqueIDs[id] + 1);
             }
-          });
-          setHeadings(hList);
+
+            // console.log("uniqueID: ", uniqueID);
+            return (
+              <li key={i} className={tableOfContentsStyles.item}>
+                <a
+                  id={uniqueID}
+                  href={uniqueID}
+                  className={tableOfContentsStyles.link}
+                  onClick={(e) => {
+                    // router.push(`#${uniqueID}`);
+                    h.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  {h.textContent}
+                </a>
+              </li>
+            );
+          }
+        });
+        if (Array.isArray(headingElements) && headingElements.length > 0) {
+          setTocContents(tocContents);
         }
+        //     // Scroll to element on load
+        //     if (window.location.hash) {
+        //       const el = document.getElementById(window.location.hash);
+        //       if (el) {
+        //         el.scrollIntoView({ behavior: "smooth" });
+        //       }
+        //     }
+        //   }
       }
     },
     [articleID]
   );
 
-  const tocContents = headings.map((h, i) => {
-    return (
-      <li key={i} className={tableOfContentsStyles.item}>
-        <a href={h.id} className={tableOfContentsStyles.link}>
-          {h.title}
-        </a>
-      </li>
-    );
-  });
+  useEffect(
+    function idInit() {
+      // Scroll to element on load
+      if (window.location.hash) {
+        const el = document.getElementById(window.location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    },
+    [tocContents]
+  );
 
   return (
     <>
-      {Array.isArray(headings) && headings.length > 0 && (
+      {Array.isArray(tocContents) && tocContents.length > 0 && (
         <div className={classNames(tableOfContentsStyles.root, className)}>
           <h2 className={tableOfContentsStyles.title}>On This Page</h2>
           <ul className={tableOfContentsStyles.items}>{tocContents}</ul>
@@ -83,3 +109,6 @@ const TableOfContents = (props: IProps) => {
 };
 
 export default TableOfContents;
+
+// Scroll to on load
+// Open FAQ on hash

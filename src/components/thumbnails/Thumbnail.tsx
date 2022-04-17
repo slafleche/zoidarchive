@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import thumbnailStyles from "styles/components/thumbnails.css";
-import utilityClasses from "styles/utilityClasses.css";
+import utilityStyles from "styles/utilities.css";
 import Image from "next/image";
 
 interface IProps {
@@ -46,7 +46,7 @@ export function Thumbnail(props: IProps) {
             <a
               tabIndex={0}
               className={classNames(
-                utilityClasses.linkForUI,
+                utilityStyles.linkForUI,
                 thumbnailStyles.link
               )}
               title={title}

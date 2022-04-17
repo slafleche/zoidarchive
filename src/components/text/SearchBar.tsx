@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import inputStyles from "styles/components/input.css";
-import utilityClasses from "styles/utilityClasses.css";
+import utilityStyles from "styles/utilities.css";
 import searchBarStyles from "styles/components/searchBar.css";
 import TextInput from "src/components/inputs/TextInput";
 import Button from "src/components/inputs/Button";
@@ -87,7 +87,7 @@ function SearchBar(props: IProps) {
             })}
           >
             <>
-              <span className={utilityClasses.isScOnly}>
+              <span className={utilityStyles.isScOnly}>
                 Search from anywhere with keyboard shortcut:
               </span>
               <span className={classNames(inputStyles.inputShortcut)}>

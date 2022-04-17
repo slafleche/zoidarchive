@@ -1,6 +1,6 @@
 import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
-import utilityStyles from "styles/components/layout.css";
+import utilities from "styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
 import SPD from "src/components/text/SPD";
 
@@ -10,7 +10,7 @@ function Links() {
       <NextSeo title="Related Links" />
       <Navbar />
       <SkipNavContent>
-        <div className={utilityStyles.content}>
+        <div className={utilities.content}>
           <h1>Zoid Communities</h1>
           <p>
             Here are some external links to various websites or communities

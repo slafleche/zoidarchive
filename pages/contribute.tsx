@@ -1,9 +1,9 @@
 import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
-import utilityStyles from "styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
 import SPD from "src/components/text/SPD";
-import utilityClasses from "styles/utilityClasses.css";
+import utilityStyles from "styles/utilities.css";
+import layoutStyles from "styles/components/layout.css";
 
 function Contribute() {
   return (
@@ -11,11 +11,11 @@ function Contribute() {
       <NextSeo title="Contribute" />
       <Navbar />
       <SkipNavContent>
-        <div className={utilityStyles.content}>
+        <div className={layoutStyles.content}>
           <h1>Help us make the site better</h1>
           <p>You can help us with adding or improving content!</p>
           <p>
-            <em className={utilityClasses.finePrint}>
+            <em className={utilityStyles.finePrint}>
               Note that this website
               <strong> is not</strong> mean to contain anything and everything
               you can find on Google about <SPD />. We strive to have curated

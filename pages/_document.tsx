@@ -1,7 +1,7 @@
 import Script from "next/dist/client/script";
 import { Html, Head, Main, NextScript } from "next/document";
 import { Favicons } from "src/partials/Favicons";
-import utilityStyles from "styles/components/layout.css";
+import layoutStyles from "styles/components/layout.css";
 
 export default function Document() {
   return (
@@ -23,9 +23,9 @@ export default function Document() {
         />
       </Head>
       <body>
-        <div className={utilityStyles.bodyWrap}>
-          <div className={utilityStyles.frame}>
-            <main className={utilityStyles.main}>
+        <div className={layoutStyles.bodyWrap}>
+          <div className={layoutStyles.frame}>
+            <main className={layoutStyles.main}>
               <Main />
             </main>
           </div>

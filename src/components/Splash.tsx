@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "styles/components/splash.css";
 import { Link } from "react-scroll";
-import utilityClasses from "styles/utilityClasses.css";
+import utilityStyles from "styles/utilities.css";
 import HeroTitleSVG from "public/svgs/heroTitle.svg";
 import ChevronDown from "public/svgs/chevronDown.svg";
 
@@ -16,7 +16,7 @@ export function Splash() {
         </div>
         <div className={classes.content}>
           <h1 className={classes.title}>
-            <span className={utilityClasses.isScOnly}>The Zoid Archive</span>
+            <span className={utilityStyles.isScOnly}>The Zoid Archive</span>
             <HeroTitleSVG aria-hidden="true" className={classes.hero} />
           </h1>
         </div>
@@ -27,7 +27,7 @@ export function Splash() {
           className={classes.scrollToContent}
           href={`#${id}`}
         >
-          <div className={utilityClasses.center}>
+          <div className={utilityStyles.center}>
             <ChevronDown className={classes.scrollToContentIcon} fill="#fff" />
           </div>
         </Link>

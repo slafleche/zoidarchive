@@ -1,7 +1,7 @@
 import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
 import { SkipNavContent } from "@reach/skip-nav";
-import utilityStyles from "styles/components/layout.css";
+import utilities from "styles/components/layout.css";
 import ThreeColumns from "src/layouts/ThreeColumns";
 import SPD from "src/components/text/SPD";
 import { Zoid } from "src/components/text/Zoid";

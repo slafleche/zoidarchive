@@ -1,6 +1,6 @@
 import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
-import utilityStyles from "styles/components/layout.css";
+import utilities from "styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
 import Link from "next/link";
 import {
@@ -35,6 +35,98 @@ function Faq(props: IProps) {
             <AccordionItem>
               <h2>
                 <AccordionButton>
+                  What is Schi!zo(id$ Personal$ity *Disorder?-
+                </AccordionButton>
+              </h2>
+              <AccordionPanel>
+                Ante rhoncus facilisis iaculis nostra faucibus vehicula ac
+                consectetur pretium, lacus nunc consequat id viverra facilisi
+                ligula eleifend, congue gravida malesuada proin scelerisque
+                luctus est convallis.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  What is Schizoid Personality Disorder?
+                </AccordionButton>
+              </h2>
+              <AccordionPanel>
+                Ante rhoncus facilisis iaculis nostra faucibus vehicula ac
+                consectetur pretium, lacus nunc consequat id viverra facilisi
+                ligula eleifend, congue gravida malesuada proin scelerisque
+                luctus est convallis.
+              </AccordionPanel>
+            </AccordionItem>
+
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  What is Schizoid Personality Disorder?
+                </AccordionButton>
+              </h2>
+              <AccordionPanel>
+                Ante rhoncus facilisis iaculis nostra faucibus vehicula ac
+                consectetur pretium, lacus nunc consequat id viverra facilisi
+                ligula eleifend, congue gravida malesuada proin scelerisque
+                luctus est convallis.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  What is Schizoid Personality Disorder?
+                </AccordionButton>
+              </h2>
+              <AccordionPanel>
+                Ante rhoncus facilisis iaculis nostra faucibus vehicula ac
+                consectetur pretium, lacus nunc consequat id viverra facilisi
+                ligula eleifend, congue gravida malesuada proin scelerisque
+                luctus est convallis.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  What is Schizoid Personality Disorder?
+                </AccordionButton>
+              </h2>
+              <AccordionPanel>
+                Ante rhoncus facilisis iaculis nostra faucibus vehicula ac
+                consectetur pretium, lacus nunc consequat id viverra facilisi
+                ligula eleifend, congue gravida malesuada proin scelerisque
+                luctus est convallis.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  What is Schizoid Personality Disorder?
+                </AccordionButton>
+              </h2>
+              <AccordionPanel>
+                Ante rhoncus facilisis iaculis nostra faucibus vehicula ac
+                consectetur pretium, lacus nunc consequat id viverra facilisi
+                ligula eleifend, congue gravida malesuada proin scelerisque
+                luctus est convallis.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  What is Schizoid Personality Disorder?
+                </AccordionButton>
+              </h2>
+              <AccordionPanel>
+                Ante rhoncus facilisis iaculis nostra faucibus vehicula ac
+                consectetur pretium, lacus nunc consequat id viverra facilisi
+                ligula eleifend, congue gravida malesuada proin scelerisque
+                luctus est convallis.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
                   What is Schizoid Personality Disorder?
                 </AccordionButton>
               </h2>
@@ -60,7 +152,7 @@ function Faq(props: IProps) {
             </AccordionItem>
           </Accordion>
           <section>
-            <h2>References:</h2>
+            <h2>References</h2>
             <ol>
               <li
                 typeof="schema:WebPage"

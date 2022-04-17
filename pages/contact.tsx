@@ -1,6 +1,6 @@
 import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
-import utilityStyles from "styles/components/layout.css";
+import utilities from "styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
 
 function Contribute() {
@@ -9,7 +9,7 @@ function Contribute() {
       <NextSeo title="Contribute" />
       <Navbar />
       <SkipNavContent>
-        <div className={utilityStyles.content}>
+        <div className={utilities.content}>
           <h1>Contact Us</h1>
 
           <iframe

@@ -33,7 +33,7 @@ const Home: NextPage = () => {
             </p>
 
             <p>
-              We will colloquealy refer to people with <SPD/> as <Zoids/>.
+              We will colloquealy refer to people with <SPD /> as <Zoids />.
             </p>
 
             <h2>What is Schizoid Personality Disorder?</h2>

@@ -5,7 +5,7 @@ import { SkipNavLink } from "@reach/skip-nav";
 import "@reach/skip-nav/styles.css";
 import Sticky from "react-stickynode";
 import classNames from "classnames";
-import utilityClasses from "styles/utilityClasses.css";
+import utilityStyles from "styles/utilities.css";
 import layoutClasses from "styles/components/layout.css";
 import NavSearch from "./NavSearch";
 import LogoNoBG from "public/svgs/logoNoBG.svg";
@@ -46,7 +46,7 @@ export function Navbar(props: IProps) {
     const content =
       label === "home" ? (
         <>
-          <span className={utilityClasses.isScOnly}>Home</span>
+          <span className={utilityStyles.isScOnly}>Home</span>
           <LogoNoBG className={navBarStyles.homeIcon} />
         </>
       ) : (
@@ -75,7 +75,7 @@ export function Navbar(props: IProps) {
             className={classNames(navBarStyles.nav, layoutClasses.content)}
           >
             <SkipNavLink>Skip to content</SkipNavLink>
-            <h2 id={id} className={utilityClasses.isScOnly}>
+            <h2 id={id} className={utilityStyles.isScOnly}>
               Main Menu
             </h2>
             <ul className={navBarStyles.items}>

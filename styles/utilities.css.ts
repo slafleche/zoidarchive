@@ -1,14 +1,12 @@
 import { style } from "@vanilla-extract/css";
 import * as csstype from "csstype";
-import { isNumeric } from "../src/utils/utils";
-import { backgroundHelper } from "./helpers/background";
 import { flexPosition } from "./helpers/positioning";
 
 // Utility classes
 // Note that in contrast to helper functions, they output a ready made class,
 // not properties of a class.
 
-const utilityClasses = {
+const utilityStyles = {
   isVisibilityHidden: style({
     visibility: "hidden !important" as csstype.Property.Visibility,
   }),
@@ -74,4 +72,4 @@ const utilityClasses = {
   }),
 };
 
-export default utilityClasses;
+export default utilityStyles;

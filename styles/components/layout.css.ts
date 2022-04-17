@@ -1,8 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { globalMediaQueryStyles } from "../helpers/mediaQueries";
-import { flexPosition } from "styles/helpers/positioning";
 import { paddings } from "styles/helpers/spacing";
-import { layoutVars } from "./layoutVars.css";
+import { layoutVars } from "styles/components/layoutVars.css";
 
 const layoutStyles = {
   frame: style({
@@ -61,6 +60,7 @@ const layoutStyles = {
   stickyFooter: style({
     display: "flex",
     flexDirection: "column",
+    minHeight: "100vh",
   }),
 
   mainSection: style({
