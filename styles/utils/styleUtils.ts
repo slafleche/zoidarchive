@@ -42,10 +42,3 @@ export const measurement = (value: string | IMeasurement, newVal?: number) => {
 
   return result;
 };
-
-// export const modifyValue = (newValue: number, oldValue: IMeasurement) => {
-//   return {
-//     ...oldValue,
-//     val:
-//   } as IMeasurement;
-// }

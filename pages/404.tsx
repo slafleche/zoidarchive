@@ -22,7 +22,17 @@ function NotFound() {
             <span className={notFoundStyles.titleText}>Page Not Found</span>
           </h1>
           <Link href="/" passHref>
-            <a className={notFoundStyles.backLink}>
+            <a
+              className={notFoundStyles.backLink}
+              onClick={(e) => {
+                if (window.history.state && window.history.length > 0) {
+                  window.history.back();
+                  e.preventDefault();
+                } else {
+                  return true;
+                }
+              }}
+            >
               <BackSVG
                 className={notFoundStyles.backIcon}
                 src={"images/back.svg"}
