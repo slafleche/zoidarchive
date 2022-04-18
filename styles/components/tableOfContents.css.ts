@@ -5,9 +5,7 @@ import { threeColumnContentVars } from "./threeColumnLayout.css";
 
 const tableOfContentsStyles = {
   root: style({
-    ...paddings({
-      vertical: threeColumnContentVars.column.padding,
-    }),
+    ...paddings(threeColumnContentVars.column.padding),
   }),
   title: style({
     fontSize: threeColumnContentVars.column.fontSize,

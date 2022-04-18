@@ -47,8 +47,6 @@ const TableOfContents = (props: IProps) => {
               (uniqueID = `${id}-${uniqueIDs[id]}`),
                 (uniqueIDs[id] = uniqueIDs[id] + 1);
             }
-
-            // console.log("uniqueID: ", uniqueID);
             return (
               <li key={i} className={tableOfContentsStyles.item}>
                 <a

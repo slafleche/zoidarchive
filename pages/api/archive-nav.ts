@@ -1,9 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import router from "next/router";
 import { IArchiveSection, IPageLink } from "src/archive/getMDXFromFolder";
 import { getBookPages, getRelatedPages, getResearchPages } from "./getPages";
 
-interface IData {
+export interface IData {
   name: "Archive Nav Data";
   data: IArchiveSection[];
 }
@@ -38,7 +37,7 @@ const archiveNav = async (req, res) => {
         {
           title: "Links",
           typeSlug: "/archive",
-          slug: "faq",
+          slug: "links",
         },
       ],
     },

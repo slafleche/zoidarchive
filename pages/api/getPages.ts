@@ -9,6 +9,7 @@ export async function getBookPages() {
     // console.log("getBookPages() : ", pages);
     return {
       category: "Books",
+      sectionURL: "/archive/books",
       pages,
     } as IArchiveSection;
   });
@@ -19,6 +20,7 @@ export async function getRelatedPages() {
     // console.log("getRelatedPages() : ", pages);
     return {
       category: "Related Issues",
+      sectionURL: "/archive/related",
       pages,
     } as IArchiveSection;
   });
@@ -29,6 +31,7 @@ export async function getResearchPages() {
     // console.log("getResearchPages() : ", pages);
     return {
       category: "Academic Research",
+      sectionURL: "/archive/research",
       pages,
     } as IArchiveSection;
   });

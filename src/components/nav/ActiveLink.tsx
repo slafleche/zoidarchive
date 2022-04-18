@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import classNames from "classnames";
 import navBarStyles from "styles/components/navbar.css";
+import path from "path";
 
 // interface IPropsWithAs {
 
@@ -43,12 +44,11 @@ export function SmartLink(props: IProps) {
       // Using URL().pathname to get rid of query and hash
       const activePathname = new URL(asPath, location.href).pathname;
       setLinkPathname(activePathname);
-      setActive(activePathname === destination);
-
-      // console.log(" ");
-      // console.log("destination: ", destination);
-      // console.log("activePathname: ", activePathname);
-      // console.log("isActive: ", active);
+      if (destination === "/archive" && activePathname.startsWith("/archive")) {
+        setActive(true);
+      } else if (activePathname === destination) {
+        setActive(true);
+      }
     }
   }, [isReady, asPath, active, basePath, linkPathname, destination, className]);
 

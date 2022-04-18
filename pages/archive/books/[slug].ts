@@ -5,8 +5,60 @@ import layoutStyles from "styles/components/layout.css";
 import matter from "gray-matter";
 // import glob from "fast-glob";
 import path from "path";
+import hydrate from "next-mdx-remote/hydrate";
+import { getMdxContent } from "@utils/get-mdx-content";
+import components from "@components/MDXComponents";
+import { Layout } from "@components/Layout";
 
-// import "../../../mds.d.ts";
+export const BLOG_CONTENT_PATH = "./src/blogs";
+
+export default function Post({ mdxSource, frontMatter }) {
+  const content = hydrate(mdxSource, { components });
+
+  return (
+    <Layout>
+      <div>
+        <h1>{frontMatter.title}</h1>
+        {content}
+      </div>
+    </Layout>
+  );
+}
+
+export async function getStaticPaths() {
+  const posts = await getMdxContent(BLOG_CONTENT_PATH);
+  const paths = posts.map(({ slug }) => ({
+    params: {
+      slug: slug.split("/"),
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { slug } }) {
+  const posts = await getMdxContent(BLOG_CONTENT_PATH);
+  const postSlug = slug.join("/");
+  const [post] = posts.filter((post) => post.slug === postSlug);
+
+  if (!post) {
+    console.warn(`No content found for slug ${postSlug}`);
+  }
+
+  return {
+    props: {
+      mdxSource: post.mdx,
+      frontMatter: post.data,
+    },
+  };
+}
+
+
+// import "src/components/MDXComponents";
+
 // const directoryPath = path.join(__dirname, "");
 
 // const getPagesInCurrentFolder = () => {
@@ -31,7 +83,7 @@ import path from "path";
 //   return pages;
 // };
 
-export async function getBookContent(source: string) {
+// export async function getBookContent(source: string) {
   // const contentGlob = `${source}/**/*.mdx`;
   // const files = glob.sync(contentGlob);
 
@@ -68,9 +120,9 @@ export async function getBookContent(source: string) {
   //     };
   //   })
   // );
-  const content = [];
-  return content;
-}
+  // const content = [];
+  // return content;
+// }
 
 // export function BookPage(mdxData: any): JSX.Element {
 //   const data = { product: "next" };
@@ -89,14 +141,14 @@ export async function getBookContent(source: string) {
 //   );
 // }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
   // MDX text - can be from a local file, database, anywhere
-  const source =
-    "Some **mdx** text, with a component using a scope variable <Test product={product} />";
+  // const source =
+    // "Some **mdx** text, with a component using a scope variable <Test product={product} />";
   // const mdxSource = await serialize(source);
-  const mdxSource = "";
-  return { props: { source: mdxSource } };
-}
+  // const mdxSource = "";
+  // return { props: { source: mdxSource } };
+// }
 
 // export async function getStaticPaths() {
 //   const paths: any[] = [];

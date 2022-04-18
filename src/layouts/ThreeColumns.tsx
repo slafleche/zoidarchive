@@ -40,16 +40,20 @@ function ThreeColumns(props: IProps) {
       </div>
       <div id={id} className={classNames(threeColumnLayoutStyles.main)}>
         <div className={threeColumnLayoutStyles.h1Container}>
-          <Link href="/archive" passHref>
-            <a
-              className={threeColumnLayoutStyles.backLink}
-              title="Back"
-              aria-label="Back"
-            >
-              <BackSVG className={threeColumnLayoutStyles.backIcon} />
-            </a>
-          </Link>
-          <h1 className={threeColumnLayoutStyles.h1}>{title}</h1>
+          <div className={threeColumnLayoutStyles.backLinkPosition}>
+            {back && (
+              <Link href="/archive" passHref>
+                <a
+                  className={threeColumnLayoutStyles.backLink}
+                  title="Back"
+                  aria-label="Back"
+                >
+                  <BackSVG className={threeColumnLayoutStyles.backIcon} />
+                </a>
+              </Link>
+            )}
+            <h1 className={threeColumnLayoutStyles.title}>{title}</h1>
+          </div>
         </div>
         {!isThreeColumns && <TableOfContents articleID={id} />}
         {children}

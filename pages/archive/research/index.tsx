@@ -1,22 +1,24 @@
 import { Navbar } from "src/components/nav/Navbar";
 import { NextSeo } from "next-seo";
-import utilities from "styles/components/layout.css";
 import { SkipNavContent } from "@reach/skip-nav";
+import ThreeColumns from "src/layouts/ThreeColumns";
+import SectionContents, { dataType } from "src/components/SectionContents";
 
 function Research() {
   return (
     <>
-      <NextSeo title="Academic Research" />
+      <NextSeo title="Resources | Academic Research" />
       <Navbar />
+
       <SkipNavContent>
-        <div className={utilities.content}>
-          <h1>Academic Research</h1>
+        <ThreeColumns title="Academic Research">
           <p>
             Note that the Zoid Void is not an academic source. We try, however,
             to spread scientifically accurate information. Here are some
             schollar resources.
           </p>
-        </div>
+          <SectionContents type={dataType.researchPages} />
+        </ThreeColumns>
       </SkipNavContent>
     </>
   );

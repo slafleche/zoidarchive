@@ -9,6 +9,9 @@ import {
   IMediaQueryProps,
   mediaQueryStyle,
 } from "styles/helpers/mediaQueries";
+import { footerVars } from "./footer.css";
+import { navBarVars } from "./navbar.css";
+import { measurement } from "../utils/styleUtils";
 
 const threeColumnLayoutVars = {
   threeColumns: "1500px",
@@ -18,13 +21,16 @@ const threeColumnLayoutVars = {
 
 export const threeColumnContentVars = {
   column: {
-    padding: "75px",
+    padding: {
+      top: "75px",
+      bottom: "40px",
+    },
     fontSize: "26px",
   },
 };
 
-const iconWidth = "20px";
-const iconPadding = "30px";
+const iconWidth = "40px";
+const iconPadding = "50px";
 
 interface IThreeColumnMediaQueries {
   twoColumns?: ComplexStyleRule;
@@ -66,13 +72,17 @@ const threeColumnLayoutStyles = {
     display: "grid",
     gridTemplateColumns: `2fr 4fr 2fr`,
     // columnGap: threeColumnVars.gap,
-    ...paddings({
-      horizontal: layoutVars.halfContentPadding,
-    }),
+    // ...paddings({
+    //   horizontal: layoutVars.halfContentPadding,
+    // }),
   }),
   // LEFT
   nav: style({
     position: "relative",
+    minHeight: `calc(100vh - ${measurement(
+      footerVars.height,
+      measurement(navBarVars.height).val
+    )})`,
     selectors: {
       "&:after": {
         content: "",
@@ -85,7 +95,8 @@ const threeColumnLayoutStyles = {
     },
 
     ...paddings({
-      horizontal: layoutVars.halfContentPadding,
+      left: layoutVars.contentPadding,
+      right: layoutVars.halfContentPadding,
     }),
     ...mediaQueryStyles({
       twoColumns: {},
@@ -166,16 +177,22 @@ const threeColumnLayoutStyles = {
     }),
   }),
 
-  h1: style({
+  backLinkPosition: style({
+    position: "relative",
+  }),
+
+  title: style({
     display: "block",
     position: "relative",
+    lineHeight: 1,
   }),
 
   backLink: style({
     display: "block",
     width: iconWidth,
     height: iconWidth,
-    ...absolutePosition.topLeft("50%"),
+    ...absolutePosition.topLeft("47.5%"),
+    transform: `translate(-150%, -50%)`,
   }),
 
   backIcon: style({
