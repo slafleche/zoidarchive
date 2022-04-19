@@ -1,7 +1,7 @@
 import { ComplexStyleRule, style } from "@vanilla-extract/css";
 import { colors } from "styles/colors.css";
 import { absolutePosition } from "styles/helpers/positioning";
-import { paddings } from "styles/helpers/spacing";
+import { margins, paddings } from "styles/helpers/spacing";
 import { layoutVars } from "./layoutVars.css";
 import {
   addOnePixel,
@@ -184,6 +184,10 @@ const threeColumnLayoutStyles = {
   title: style({
     display: "block",
     position: "relative",
+    ...margins({
+      top: "52px",
+      bottom: "0",
+    }),
     lineHeight: 1,
   }),
 

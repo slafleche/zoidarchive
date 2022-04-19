@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Link from "next/link";
 import footerStyles from "styles/components/footer.css";
 import layoutStyles from "styles/components/layout.css";
 
@@ -14,6 +15,15 @@ function Footer(props: IProps) {
         <div className={footerStyles.content}>
           <span className={footerStyles.copyright}>
             &copy; {new Date().getFullYear()} - Zoid Archive
+          </span>
+          <span className={footerStyles.link}>
+            <Link href="/content-integrity">Content Integrity</Link>
+          </span>
+          <span className={footerStyles.link}>
+            <Link href="/accessibility">Accessibility</Link>
+          </span>
+          <span className={footerStyles.link}>
+            <Link href="/experts">Experts</Link>
           </span>
         </div>
       </div>

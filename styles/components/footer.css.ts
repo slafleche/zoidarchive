@@ -21,16 +21,11 @@ const footerStyles = {
     lineHeight: 1,
     color: colors.black.mix(colors.white, 0.1).css(),
   }),
+
   link: style({
     display: "flex",
     alignItems: "center",
-    opacity: "0.6",
-    transition: "opacity 0.2s ease-out",
-    selectors: {
-      "&:hover, &:focus, &.focus-visible": {
-        opacity: "0.8",
-      },
-    },
+    marginLeft: "20px",
   }),
 
   copyright: style({

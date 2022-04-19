@@ -1,7 +1,7 @@
 import path from "path";
 import matter from "gray-matter";
 import fs from "fs";
-import { BOOK_PATH } from "src/utils/constants";
+
 
 export interface IPage {
   title: string;

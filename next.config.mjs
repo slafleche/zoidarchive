@@ -2,6 +2,8 @@ import path from "path";
 import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin";
 import EventHooksPlugin from "event-hooks-webpack-plugin";
 import fs from "fs-extra";
+// const composePlugins = require("next-compose-plugins");
+// const mdxEnhanced = require("next-mdx-enhanced");
 
 const withVanillaExtract = createVanillaExtractPlugin();
 const destinationPathNormalize = path.resolve("styles", "lib", "normalize.css");

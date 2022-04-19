@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "@reach/accordion";
+import { useRouter } from "next/router";
 
 interface IProps {
   className?: string;
@@ -23,8 +24,10 @@ export interface ICategory {
 function ArchiveNav(props: IProps) {
   const categories: ICategory[] = [];
   const [navData, setNavData] = useState<Array<any>>([]);
+  const [currentPath, setCurrentPath] = useState<string>();
   const id = "archiveNav";
   const { className } = props;
+  const { asPath } = useRouter();
   let content;
 
   useEffect(() => {
@@ -36,8 +39,9 @@ function ArchiveNav(props: IProps) {
       .then((res) => res.json())
       .then((res) => {
         setNavData(res.asCategories);
+        setCurrentPath(new URL(asPath, location.href).pathname);
       });
-  }, []);
+  }, [asPath]);
 
   if (!Array.isArray(navData)) {
     return null;
@@ -49,7 +53,12 @@ function ArchiveNav(props: IProps) {
             <h3 className={classNames(archiveNavStyles.categoryTitle)}>
               {section.sectionURL ? (
                 <Link href={`${section.sectionURL}`} passHref>
-                  <a className={archiveNavStyles.link}>{section.category}</a>
+                  <a
+                    className={archiveNavStyles.link}
+                    aria-current={currentPath === section.sectionURL}
+                  >
+                    {section.category}
+                  </a>
                 </Link>
               ) : (
                 section.category
@@ -59,13 +68,16 @@ function ArchiveNav(props: IProps) {
 
           <ul className={archiveNavStyles.categoryItems}>
             {section.pages.map((page, c) => {
+              const url = `${page.typeSlug}/${encodeURIComponent(page.slug)}`;
               return (
                 <li key={`${i}-${c}`} className={archiveNavStyles.categoryItem}>
-                  <Link
-                    href={`${page.typeSlug}/${encodeURIComponent(page.slug)}`}
-                    passHref
-                  >
-                    <a className={archiveNavStyles.link}>{page.title}</a>
+                  <Link href={url} passHref>
+                    <a
+                      className={archiveNavStyles.link}
+                      aria-current={currentPath === url}
+                    >
+                      {page.title}
+                    </a>
                   </Link>
                 </li>
               );
