@@ -3,12 +3,6 @@ import classNames from "classnames";
 import utilityStyles from "styles/utilities.css";
 import archiveNavStyles from "styles/components/archiveNav.css";
 import Link from "next/link";
-import {
-  Accordion,
-  AccordionButton,
-  AccordionItem,
-  AccordionPanel,
-} from "@reach/accordion";
 import { useRouter } from "next/router";
 
 interface IProps {

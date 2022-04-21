@@ -14,6 +14,7 @@ const markupStyles = {
     maxWidth: "100%",
     maxHeight: "none",
   }),
+  mdxImage: style({}),
 };
 
 export default markupStyles;

@@ -1,6 +1,9 @@
 import * as NextImage from "next/image";
+import markupStyles from "styles/markupStyles.css";
 import { useEffect, useState } from "react";
-import markupStyles from "styles/markup.css";
+import classNames from "classnames";
+import utilityStyles from "styles/utilities.css";
+import { imageData } from "src/meta/imageData";
 
 interface IProps {
   title: string;
@@ -8,39 +11,37 @@ interface IProps {
   alt: string;
 }
 
-interface IImageProps {
-  width: string;
-  height: string;
+export interface IImageMeta {
+  width: Number;
+  height: Number;
+  ratio: string;
 }
 
-export default function Image(props: IProps) {
-  const { src, title, alt } = props;
-  const [imageMeta, setImageMeta] = useState<IImageProps>();
+export interface IImageDictionary {
+  [key: string]: IImageMeta;
+}
 
-  useEffect(
-    function imageDimensions() {
-      const img = new (Image as any)();
-      img.addEventListener("load", function () {
-        setImageMeta({
-          width: this.naturalWidth,
-          height: this.naturalHeight,
-        });
-      });
-    },
-    [src]
-  );
+interface IImageProps {
+  width: number;
+  height: number;
+}
 
-  if (!imageMeta) {
-    return null;
-  }
+const Image = (props: IProps) => {
+  const { src, title, alt } = props || {};
+  console.log("imageMeta: ", imageData);
+  const metaData = imageData[src];
+
   return (
     <NextImage.default
       src={src}
-      width={imageMeta.width as string}
-      height={imageMeta.height as string}
+      layout="responsive"
+      width={metaData.width}
+      height={metaData.height}
       alt={alt}
       title={title}
-      className={markupStyles.responsiveImage}
+      className={markupStyles.mdxImage}
     />
   );
-}
+};
+
+export default Image;

@@ -4,7 +4,7 @@ const sizeOf = require("image-size");
 
 const getImageData = (dirPath, truncateStart, arrayOfFiles) => {
   files = fs.readdirSync(dirPath);
-  arrayOfFiles = arrayOfFiles || [];
+  arrayOfFiles = arrayOfFiles || {};
   files.forEach(function (file) {
     const currentItem = path.join(dirPath, file);
     if (fs.statSync(currentItem).isDirectory()) {
@@ -17,9 +17,7 @@ const getImageData = (dirPath, truncateStart, arrayOfFiles) => {
         );
 
         const data = sizeOf(currentItem);
-        arrayOfFiles.push({
-          [relativePath]: data,
-        });
+        arrayOfFiles[relativePath] = data;
       }
     }
   });
@@ -35,5 +33,6 @@ const writeToFile = (data) => {
 // Run Script
 const dirPath = path.join(process.cwd(), "public/images/");
 const relativePathOffset = (process.cwd() + "public").length + 1;
-const imageData = getImageData(dirPath, relativePathOffset, []);
-writeToFile(`export const imageMeta = ${JSON.stringify(imageData)};`);
+const imageData = getImageData(dirPath, relativePathOffset, {});
+console.log("Generating image meta data...", imageData);
+writeToFile(`export const imageData = ${JSON.stringify(imageData)};`);
