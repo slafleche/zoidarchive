@@ -3,6 +3,9 @@ import {
   IArchiveSection,
   getMDXFromFolder,
 } from "src/archive/getMDXFromFolder";
+import path from "path";
+import matter from "gray-matter";
+import fs from "fs";
 
 export async function getBookPages() {
   return getMDXFromFolder(BOOK_PATH, "/archive/books").then((pages) => {
@@ -13,6 +16,30 @@ export async function getBookPages() {
       pages,
     } as IArchiveSection;
   });
+}
+
+export async function getBook(bookID: string) {
+  const pageName = bookID.replaceAll(/\W/gi, "");
+  const filePath = path.join(BOOK_PATH, `${pageName}.mdx`);
+
+  try {
+    const mdxSource = fs.readFileSync(filePath, "utf8");
+    const fileData = matter(mdxSource);
+
+    console.log("");
+    console.log("fileData: ", fileData);
+
+    return {
+      meta: fileData.data,
+      contents: fileData.content,
+      status: "success",
+    };
+  } catch (err) {
+    return {
+      message: `Book name '${pageName}' not found.`,
+      status: "fail",
+    };
+  }
 }
 
 export async function getRelatedPages() {

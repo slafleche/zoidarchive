@@ -25,6 +25,9 @@ function Footer(props: IProps) {
           <span className={footerStyles.link}>
             <Link href="/experts">Experts</Link>
           </span>
+          <span className={footerStyles.link}>
+            <Link href="/writers">Writers</Link>
+          </span>
         </div>
       </div>
     </footer>

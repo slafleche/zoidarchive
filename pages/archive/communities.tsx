@@ -37,20 +37,32 @@ function Communities() {
             <a
               href="https://disboard.org/search"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Discord
             </a>
             ,{" "}
-            <a href="https://youtube.com" target="_blank" rel="noreferrer">
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               YouTube
             </a>
             ,{" "}
-            <a href="https://reddit.com" target="_blank" rel="noreferrer">
+            <a
+              href="https://reddit.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Reddit
             </a>
             , or{" "}
-            <a href="https://www.quora.com/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.quora.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Quora
             </a>{" "}
             . However, <strong>be warned</strong> that these places may or may

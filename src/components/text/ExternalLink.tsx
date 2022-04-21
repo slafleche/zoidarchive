@@ -16,7 +16,7 @@ export function ExternalLink(props: IProps) {
     <a
       href={url}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       className={classNames(className)}
     >
       <>
