@@ -5,7 +5,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export default function Link(props: IProps) {
+const Link = (props: IProps) => {
   const { href, children } = props;
 
   const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
@@ -15,12 +15,10 @@ export default function Link(props: IProps) {
   }
 
   return (
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href={href}
-    >
+    <a target="_blank" rel="noopener noreferrer" href={href}>
       {children}
     </a>
   );
-}
+};
+
+export default Link;

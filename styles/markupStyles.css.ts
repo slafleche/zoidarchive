@@ -4,6 +4,7 @@
 import { style } from "@vanilla-extract/css";
 
 const markupStyles = {
+  root: style({}),
   responsiveImage: style({
     height: "auto",
     display: "inline-flex",

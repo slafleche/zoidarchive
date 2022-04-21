@@ -11,7 +11,7 @@ function Archive() {
       <NextSeo title="The Archive" />
       <Navbar />
       <SkipNavContent>
-        <ThreeColumns title="The Archive" back={false}>
+        <ThreeColumns title="The Archive">
           <p>
             The Zoid Archive is a curated list of resources about Schizoid
             Personality Disorder. We are still new, so be sure to come back to

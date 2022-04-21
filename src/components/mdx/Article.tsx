@@ -1,10 +1,15 @@
 import { NextSeo } from "next-seo";
 import React from "react";
 import layoutStyles from "styles/components/layout.css";
-import Footer from "src/components/Footer";
-import ScrollToTop from "src/components/ScrollToTop";
 import { SkipNavContent } from "@reach/skip-nav";
+import { MDXProvider } from "@mdx-js/react";
+import Link from "src/components/mdx/Link";
+import Image from "src/components/mdx/Image";
+import Toto from "src/components/mdx/Toto";
+import markupStyles from "styles/markupStyles.css";
+import classNames from "classnames";
 import { Navbar } from "../nav/Navbar";
+import ThreeColumns from "../../layouts/ThreeColumns";
 
 interface ArticleProps {
   children: React.ReactChild;
@@ -26,18 +31,11 @@ function Article(props: ArticleProps) {
     <>
       <NextSeo title={title} description={description} />
       <Navbar />
-      <div className={layoutStyles.stickyFooter}>
-        <div className={layoutStyles.mainSection}>
-          <SkipNavContent>
-            <div className={layoutStyles.content}>
-              <h1>{title}</h1>
-              <div className="article-content">{children}</div>
-            </div>
-          </SkipNavContent>
-        </div>
-        <Footer />
-      </div>
-      <ScrollToTop />
+      <SkipNavContent>
+        <ThreeColumns title={title} back={"books"}>
+          {children}
+        </ThreeColumns>
+      </SkipNavContent>
     </>
   );
 }

@@ -1,7 +1,6 @@
 import "styles/lib/normalize.css";
 import "@reach/tooltip/styles.css";
 import "styles/globals.css.ts";
-import AppProps from "next/app";
 import { DefaultSeo } from "next-seo";
 import ScrollToTop from "src/components/ScrollToTop";
 import Footer from "src/components/Footer";

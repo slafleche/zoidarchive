@@ -19,7 +19,7 @@ interface IProps {
   title: string;
   children: React.ReactNode;
   LeftColumn?: JSX.Element;
-  back?: boolean;
+  back?: string;
 }
 
 function ThreeColumns(props: IProps) {
@@ -42,7 +42,7 @@ function ThreeColumns(props: IProps) {
         <div className={threeColumnLayoutStyles.h1Container}>
           <div className={threeColumnLayoutStyles.backLinkPosition}>
             {back && (
-              <Link href="/archive" passHref>
+              <Link href={`/archive/${back}`} passHref>
                 <a
                   className={threeColumnLayoutStyles.backLink}
                   title="Back"
