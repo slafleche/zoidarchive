@@ -1,6 +1,4 @@
 import Link from "src/components/mdx/Link";
-// import Image from "src/components/mdx/Image";
-import Toto from "./Toto";
 import NoH1 from "./NoH1";
 import Image from "./Image";
 

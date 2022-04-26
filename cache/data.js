@@ -1,1 +1,0 @@
-export const books = [{"id":"bookA","title":"Book B"},{"id":"bookB","title":"Book A"},{"id":"index.tsx"}];

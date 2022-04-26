@@ -5,7 +5,7 @@ import {
   FieldDefs,
   makeSource,
 } from "contentlayer/source-files";
-import { SITE_URL } from "src/utils/constants";
+import { SITE_URL } from "./src/utils/constants";
 
 import {
   OpenGraphArticle,
@@ -237,7 +237,7 @@ export const ResearchType = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: "src/archive/",
+  contentDirPath: "./src/archive/",
   documentTypes: [BookType, RelatedType, ResearchType],
   mdx: {
     remarkPlugins: [],
