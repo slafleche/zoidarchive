@@ -7,7 +7,7 @@
   "browserslist": "> 1%",
   "license": "UNLICENSED",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@reach/accordion": "^0.16.1",
     "@reach/auto-id": "^0.16.0",
@@ -62,6 +62,7 @@
     "eslint-config-next": "12.1.0",
     "event-hooks-webpack-plugin": "^2.2.0",
     "fast-glob": "^3.2.11",
+    "feed": "^4.2.2",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.1",
     "gray-matter": "^4.0.3",
@@ -80,7 +81,7 @@
     "typescript": "^4.6.3"
   },
   "scripts": {
-    "images": "node generateImageMeta.js",
+    "images": "node generateImageMeta.mjs",
     "dev": "yarn images && next dev",
     "start": "next start",
     "build": "yarn images && next build",

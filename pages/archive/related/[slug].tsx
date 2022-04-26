@@ -1,9 +1,9 @@
 import Article from "src/components/mdx/Article";
-import { getBook, getBookPages, IPageData } from "pages/api/getPages";
+import { getRelated, getRelatedPages, IPageData } from "pages/api/getPages";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import customComponentsMDX from "src/components/mdx/MDXComponents";
-import generateImageMeta from "../../../generateImageMeta.mjs";
+import { RELATED_PATH } from "../../../src/utils/constants";
 
 export default function Post(props: IPageData) {
   const { source, meta = {} } = props;
@@ -17,7 +17,7 @@ export default function Post(props: IPageData) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getBookPages();
+  const allPosts = await getRelatedPages();
   const staticPaths = {
     paths: allPosts.pages.map((p) => ({ params: { slug: p.slug } })),
     fallback: false,
@@ -27,16 +27,14 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const post = await getBook(slug);
+  const post = await getRelated(slug);
   if (post.contents) {
     const mdxSource = await serialize(post.contents);
     return {
       props: {
         ...post,
         source: mdxSource,
-        openGraph: {
-          type: "book",
-        },
+        openGraph: {},
       },
     };
   } else {

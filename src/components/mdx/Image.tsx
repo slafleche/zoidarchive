@@ -1,8 +1,5 @@
 import * as NextImage from "next/image";
 import markupStyles from "styles/markupStyles.css";
-import { useEffect, useState } from "react";
-import classNames from "classnames";
-import utilityStyles from "styles/utilities.css";
 import { imageData } from "src/meta/imageData";
 
 interface IProps {
@@ -28,19 +25,25 @@ interface IImageProps {
 
 const Image = (props: IProps) => {
   const { src, title, alt } = props || {};
-  console.log("imageMeta: ", imageData);
   const metaData = imageData[src];
 
   return (
-    <NextImage.default
-      src={src}
-      layout="responsive"
-      width={metaData.width}
-      height={metaData.height}
-      alt={alt}
-      title={title}
-      className={markupStyles.mdxImage}
-    />
+    <div
+      className={markupStyles.mdxImageFrame}
+      style={{
+        paddingTop: `${metaData.ratio * 100}%`,
+      }}
+    >
+      <NextImage.default
+        src={src}
+        layout="responsive"
+        width={metaData.width}
+        height={metaData.height}
+        alt={alt}
+        title={title}
+        className={markupStyles.mdxImage}
+      />
+    </div>
   );
 };
 

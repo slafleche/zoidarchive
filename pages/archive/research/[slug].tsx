@@ -35,7 +35,7 @@ export async function getStaticProps({ params }) {
         ...post,
         source: mdxSource,
         openGraph: {
-          type: "book",
+          type: "article",
         },
       },
     };

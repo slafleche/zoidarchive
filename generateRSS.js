@@ -1,37 +1,39 @@
 import fs from "fs";
 import { Feed } from "feed";
-import { getBlogPostsData } from "utils/blog";
+import { SITE_NAME, SITE_URL } from "src/utils/constants";
+
+// https://sreetamdas.com/blog/rss-for-nextjs
+// https://github.com/jpmonette/feed
 
 const generateRssFeed = () => {
-  // const posts = await getBlogPostsData();
-  const siteURL = "https://zoidarchive.com";
+  const posts = await getSitePaths();
   const date = new Date();
   const author = {
-    name: "Zoid Archive",
-    email: "zoidarchive@gmail.com",
+    name: SITE_NAME,
+    email: SITE_CONTACT,
   };
 
   const feed = new Feed({
     title: "The Zoid Archive",
     description:
       "Raising awareness and sharing information about the Schizoid Community",
-    id: siteURL,
-    link: siteURL,
-    image: `${siteURL}/logo.png`,
-    favicon: `${siteURL}/logo.png`,
+    id: SITE_URL,
+    link: SITE_URL,
+    image: `${SITE_URL}/logo.png`,
+    favicon: `${SITE_URL}/logo.png`,
     copyright: `All rights reserved ${date.getFullYear()}, The Zoid Archive`,
     updated: date,
     generator: "Feed for Node.js",
     feedLinks: {
-      rss2: `${siteURL}/rss/feed.xml`,
-      json: `${siteURL}/rss/feed.json`,
-      atom: `${siteURL}/rss/atom.xml`,
+      rss2: `${SITE_URL}/rss/feed.xml`,
+      json: `${SITE_URL}/rss/feed.json`,
+      atom: `${SITE_URL}/rss/atom.xml`,
     },
     author,
   });
 
   posts.forEach((post) => {
-    const url = `${siteURL}/blog/${post.slug}`;
+    const url = `${SITE_URL}/blog/${post.slug}`;
 
     feed.addItem({
       title: post.title,

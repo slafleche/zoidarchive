@@ -3,7 +3,7 @@ import {
   IArchiveSection,
   getMDXFromFolder,
 } from "src/archive/getMDXFromFolder";
-import path from "path";
+import path, { PlatformPath } from "path";
 import matter from "gray-matter";
 import fs from "fs";
 
@@ -30,9 +30,9 @@ export async function getBookPages() {
   });
 }
 
-export async function getBook(bookID: string) {
-  const pageName = bookID.replaceAll(/\W/gi, "");
-  const filePath = path.join(BOOK_PATH, `${pageName}.mdx`);
+export async function getPost(postID: string, dirPath: string) {
+  const pageName = postID.replaceAll(/\W/gi, "");
+  const filePath = path.join(dirPath, `${pageName}.mdx`);
 
   try {
     const mdxSource = fs.readFileSync(filePath, "utf8");
@@ -44,10 +44,14 @@ export async function getBook(bookID: string) {
     };
   } catch (err) {
     return {
-      message: `Book name '${pageName}' not found.`,
+      message: `Post name '${pageName}' not found.`,
       status: PageStatus.fail,
     };
   }
+}
+
+export async function getBook(postID: string) { 
+  return getPost(postID, BOOK_PATH);
 }
 
 export async function getRelatedPages() {
@@ -60,6 +64,10 @@ export async function getRelatedPages() {
   });
 }
 
+export async function getRelated(postID: string) {
+  return getPost(postID, RELATED_PATH);
+}
+
 export async function getResearchPages() {
   return getMDXFromFolder(RESEARCH_PATH, "/archive/research").then((pages) => {
     return {
@@ -68,4 +76,8 @@ export async function getResearchPages() {
       pages,
     } as IArchiveSection;
   });
+}
+
+export async function getResearch(postID: string) {
+  return getPost(postID, RESEARCH_PATH);
 }

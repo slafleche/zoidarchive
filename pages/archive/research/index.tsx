@@ -7,15 +7,15 @@ import SectionContents, { dataType } from "src/components/SectionContents";
 function Research() {
   return (
     <>
-      <NextSeo title="Resources | Academic Research" />
+      <NextSeo title="Academic Research" />
       <Navbar />
 
       <SkipNavContent>
         <ThreeColumns title="Academic Research">
           <p>
             Note that the Zoid Void is not an academic source. We try, however,
-            to spread scientifically accurate information. Here are some
-            schollar resources.
+            to spread scientifically accurate information and to share links to
+            trustworthy information. Here are some schollar resources.
           </p>
           <SectionContents type={dataType.researchPages} />
         </ThreeColumns>

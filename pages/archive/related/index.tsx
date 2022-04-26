@@ -9,7 +9,7 @@ import ThreeColumns from "src/layouts/ThreeColumns";
 function Related() {
   return (
     <>
-      <NextSeo title="Resources | Related Issues" />
+      <NextSeo title="Related Issues" />
       <Navbar />
       <SkipNavContent>
         <ThreeColumns title="Related Issues">
