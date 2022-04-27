@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import sizeOf from "image-size";
+import chalk from "chalk";
 
 const cacheImageMetaFromDir = (dirPath, truncateStart, arrayOfFiles) => {
   const files = fs.readdirSync(dirPath);
@@ -42,7 +43,7 @@ export const generateImageMeta = () => {
   const dirPath = path.join(process.cwd(), "public/images/");
   const relativePathOffset = (process.cwd() + "public").length + 1;
   const imageData = cacheImageMetaFromDir(dirPath, relativePathOffset, {});
-  console.log("Generating image meta data...", imageData);
+  console.log(chalk.cyan("\nGenerating image meta data:\n"), imageData);
   writeToFile(
     `export const imageData = ${JSON.stringify(imageData, null, 2)};`
   );

@@ -1,10 +1,11 @@
-const readline = require("readline");
-const svg64 = require("svg64");
-const { readFileSync } = require("fs");
-const path = require("path");
-const fs = require("fs");
+import readline from "readline";
+import svg64 from "svg64";
+import { readFileSync } from "fs";
+import path from "path";
+import fs from "fs";
+import chalk from "chalk";
 
-const directoryPath = path.join(__dirname, "src/svgs");
+const directoryPath = path.join(process.cwd(), "src/svgs");
 
 function pbcopy(data) {
   return new Promise(function (resolve, reject) {
@@ -43,7 +44,7 @@ const getSVGsFromFolder = () => {
           })
           .forEach(function (svg) {
             svgs.push({
-              label: svg,
+              label: svg.replaceAll(".svg", ""),
               source: path.resolve(directoryPath, svg),
             });
           });
@@ -73,7 +74,7 @@ const getUserInput = (menu, svgs) => {
           pbcopy(data);
           resolve(data + "\n\nCopied to clipboard!\n");
         } catch (error) {
-          console.log("\nInvalid Selection, try again...\n");
+          console.log("Invalid Selection, try again...\n");
           process.exit(1);
           reject(error);
         }
@@ -84,9 +85,16 @@ const getUserInput = (menu, svgs) => {
 
 getSVGsFromFolder().then(
   (svgs) => {
-    let menu = `\nWould you like to:\n\n(A) Print all SVGs?\n`;
+    let menu =
+      chalk.green(`\n > Would you like to:\n`) +
+      `\n  (${chalk.cyan("A")}) Print out ${chalk.yellow.underline.italic(
+        "all"
+      )} SVGs?\n`;
+
     for (var i = 0; i < svgs.length; i++) {
-      menu += `(${i}) Print out "${svgs[i].label}"\n`;
+      menu += `  (${chalk.cyan(i)}) Print out ${chalk.yellow(
+        chalk(svgs[i].label.replaceAll(/.svg$/gi, ""))
+      )}.svg\n`;
     }
     menu += "\n";
 
