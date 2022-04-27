@@ -43,7 +43,9 @@ export const generateImageMeta = () => {
   const relativePathOffset = (process.cwd() + "public").length + 1;
   const imageData = cacheImageMetaFromDir(dirPath, relativePathOffset, {});
   console.log("Generating image meta data...", imageData);
-  writeToFile(`export const imageData = ${JSON.stringify(imageData)};`);
+  writeToFile(
+    `export const imageData = ${JSON.stringify(imageData, null, 2)};`
+  );
 };
 
 generateImageMeta();
