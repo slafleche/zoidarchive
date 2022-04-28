@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { style, globalStyle } from "@vanilla-extract/css";
 import chroma from "chroma-js";
 import { calc } from "@vanilla-extract/css-utils";
 import { fullRotationAnimation, upAndDownAnimation } from "../globals.css";
@@ -166,9 +166,6 @@ const splashStyles = {
       [`&:hover, &:active, &:focus`]: {
         color: colors.white.css(),
         opacity: 0.8,
-        ...reducedMotion(ReducedMotion.off, {
-          animation: `${upAndDownAnimation} 1s infinite linear`,
-        }),
       },
     },
   }),
@@ -182,5 +179,18 @@ const splashStyles = {
   logoSpacer,
   logo,
 };
+
+globalStyle(
+  `
+  .${splashStyles.scrollToContent}:hover .${splashStyles.scrollToContentIcon},
+  .${splashStyles.scrollToContent}:active .${splashStyles.scrollToContentIcon},
+  .${splashStyles.scrollToContent}:focus .${splashStyles.scrollToContentIcon}
+  `,
+  {
+    ...reducedMotion(ReducedMotion.off, {
+      animation: `${upAndDownAnimation} 1s infinite linear`,
+    }),
+  }
+);
 
 export default splashStyles;
